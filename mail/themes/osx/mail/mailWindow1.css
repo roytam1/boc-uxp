@@ -1,0 +1,240 @@
+/*
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+*/
+
+/* ===== mailWindow1.css ================================================
+  == Styles for the main Mail window in the default layout scheme.
+  ======================================================================= */
+
+@import url("chrome://messenger/skin/");
+@import url("chrome://messenger/skin/primaryToolbar.css");
+@import url("chrome://messenger/skin/folderMenus.css");
+@import url("chrome://messenger/skin/folderPane.css");
+@import url("chrome://messenger/skin/tagColors.css");
+@import url("chrome://messenger/skin/messageIcons.css");
+@import url("chrome://messenger/skin/shared/mailWindow1.css");
+
+/* give the toolbox a min-height of 42px for Australis theme */
+.mail-toolbox:not([mode="full"]) > toolbar:only-of-type,
+.mail-toolbox[mode="full"][labelalign="end"] > toolbar:only-of-type {
+  margin-top: 5px;
+  margin-bottom: 4px;
+}
+
+/* ::::::::: Global override :::::::::: */
+
+treechildren::-moz-tree-twisty {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+  margin-inline-start: 0px !important;
+  margin-inline-end: -4px !important;
+}
+
+/* :::::::::::::::::::::::::::::::::::: */
+
+#tabmail:-moz-lwtheme {
+  text-shadow: inherit;
+}
+
+#messengerBox:-moz-lwtheme {
+  text-shadow: none;
+}
+
+#folderPane-toolbar {
+  background: linear-gradient(#f3f3f3, #ebebeb);
+  border-bottom: 1px solid #bebebe;
+}
+
+#folderPane-toolbar:-moz-window-inactive {
+  background-color: -moz-mac-chrome-inactive;
+  background-image: none;
+}
+
+#folderTree {
+  -moz-appearance: -moz-mac-source-list;
+}
+
+.focusring > .tree-stack > .tree-rows > .tree-bodybox {
+  border: 0;
+}
+
+#folderTree treechildren::-moz-tree-indentation {
+ background-color: black !important;
+}
+
+#folderTree treechildren::-moz-tree-row {
+  padding-inline-start: 2px !important;
+  padding-bottom: 2px;
+  background: transparent;
+}
+
+#folderTree treechildren::-moz-tree-row(selected) {
+  -moz-appearance: -moz-mac-source-list-selection;
+}
+
+@media not all and (-moz-mac-yosemite-theme) {
+  #folderTree treechildren::-moz-tree-row(selected, focus) {
+    -moz-appearance: -moz-mac-active-source-list-selection;
+  }
+
+  #folderTree treechildren::-moz-tree-cell-text(selected) {
+    color: white;
+  }
+}
+
+@media (-moz-mac-yosemite-theme) {
+  #folderTree treechildren::-moz-tree-cell-text {
+    font-family: 'Helvetica Neue';
+  }
+
+  #folderTree treechildren::-moz-tree-cell-text(selected, focus) {
+    color: black;
+  }
+}
+
+treecol,
+treecolpicker {
+  border: none;
+  background-color: #e1e1e1;
+}
+
+treechildren::-moz-tree-cell-text(imapdeleted) {
+  text-decoration: line-through;
+}
+
+/* ::::: group rows ::::: */
+
+treechildren::-moz-tree-row(dummy)  {
+  background-image: url("chrome://messenger/skin/icons/group-background.gif");
+  background-repeat: repeat-x;
+  background-color: rgb(246, 246, 246);
+  border: 1px solid rgb(197, 199, 202);
+  margin: 0 1px;
+}
+
+treechildren::-moz-tree-row(dummy, focus, selected)  {
+  background-color: #3874d1;
+  border-color: #3874d1;
+  background-image: none !important;
+  margin: 0px;
+  padding: 0 1px;
+}
+
+/* ..... message pane adjustments ..... */
+
+/* We need to hide overflow in messagepanebox, so that resizing doesn't spill
+   header content over the statusbar.
+   */
+
+#messagepanebox {
+  background-color: #FFFFFF;
+  -moz-appearance: none;
+}
+
+/* ..... splitter adjustments ..... */
+
+splitter {
+  background-color: transparent;
+  width: 7px;
+  min-width: 7px;
+  min-height: 7px;
+}
+
+#threadpane-splitter {
+  height: 8px !important;
+  min-height: 8px;
+  background-image: url("chrome://messenger/skin/icons/vertical-threadpane-splitter-bg.gif");
+  background-repeat: repeat-y;
+  border-inline-start: 1px solid #A6A6A6;
+  border-inline-end: 1px solid #8C8C8C;
+}
+
+#threadpane-splitter:-moz-locale-dir(rtl) {
+  background-image: url("chrome://messenger/skin/icons/vertical-threadpane-splitter-bg-rtl.gif");
+}
+
+/* The orient="vertical" isn't which direction the splitter itself runs, it's
+   actually which way its parent lays out its children, so when it's vertical,
+   the splitter is a horizontal bar. */
+#threadpane-splitter[orient="vertical"] {
+  background-image: url("chrome://messenger/skin/icons/threadpane-splitter-bg.gif");
+  background-repeat: repeat-x;
+  border-top: 1px solid #A6A6A6;
+  border-bottom: 1px solid #8C8C8C;
+  border-inline-start-width: 0;
+  border-inline-end-width: 0;
+}
+
+#threadpane-splitter[state="collapsed"] {
+  border-bottom-width: 0;
+  border-inline-end: 0;
+}
+
+#folderpane_splitter,
+#threadpane-splitter:not([orient="vertical"]) {
+  background-image: none;
+  /* splitter grip area */
+  width: 5px;
+  min-width: 5px;
+  /* because of the negative margin needed to make the splitter visible */
+  position: relative;
+  z-index: 10;
+  transition: border-width .3s ease-in;
+}
+
+#folderpane_splitter {
+  border-inline-start: 1px solid #bdbdbd;
+  /* make only the splitter border visible */
+  margin-inline-end: -4px;
+}
+
+#folderpane_splitter[state="collapsed"]:hover {
+  border-inline-start: 4px solid highlight;
+}
+
+#threadpane-splitter:not([orient="vertical"]) {
+  border-inline-start-style: none;
+  border-inline-end: 1px solid #bdbdbd;
+  /* make only the splitter border visible */
+  margin-inline-start: -4px;
+}
+
+#threadpane-splitter[state="collapsed"]:not([orient="vertical"]):hover {
+  border-inline-end: 4px solid highlight;
+}
+
+/* ..... status bar adjustments ..... */
+
+#quotaMeter {
+  -moz-appearance: none;
+}
+
+#status-bar {
+  border-top: none !important;
+}
+
+.tabmail-tab[type="message"] {
+  list-style-image: url("chrome://messenger/skin/icons/message-mail.png");
+}
+
+.tabmail-tab[type="message"][IsFeedMessage] {
+  list-style-image: url("chrome://messenger-newsblog/skin/rss-feed.png");
+  -moz-image-region: rect(0 16px 16px 0);
+}
+
+@media (min-resolution: 2dppx) {
+  .tabmail-tab[type="message"] {
+    list-style-image: url("chrome://messenger/skin/icons/message-mail@2x.png");
+  }
+
+  .tabmail-tab[type="message"][IsFeedMessage] {
+    list-style-image: url("chrome://messenger-newsblog/skin/rss-feed@2x.png");
+    -moz-image-region: rect(0 32px 32px 0);
+  }
+}
+
+.telemetry-text-link {
+  color: #fff;
+}

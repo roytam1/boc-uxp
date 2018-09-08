@@ -1,0 +1,19 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+messenger.jar:
+*   content/messenger/cloudfile/addAccountDialog.xul (content/addAccountDialog.xul)
+    content/messenger/cloudfile/addAccountDialog.js  (content/addAccountDialog.js)
+    content/messenger/cloudfile/emptySettings.xhtml (content/emptySettings.xhtml)
+    content/messenger/cloudfile/Box/settings.xhtml (content/Box/settings.xhtml)
+    content/messenger/cloudfile/Box/management.xhtml (content/Box/management.xhtml)
+    content/messenger/cloudfile/Box/management.js (content/Box/management.js)
+    content/messenger/cloudfile/Hightail/management.xhtml (content/Hightail/management.xhtml)
+    content/messenger/cloudfile/Hightail/management.js (content/Hightail/management.js)
+    content/messenger/cloudfile/Hightail/settings.js (content/Hightail/settings.js)
+    content/messenger/cloudfile/Hightail/settings.xhtml (content/Hightail/settings.xhtml)
+    content/messenger/cloudfile/Hightail/fileExceedsLimit.xul (content/Hightail/fileExceedsLimit.xul)
+    content/messenger/cloudfile/Hightail/fileExceedsQuota.xul (content/Hightail/fileExceedsQuota.xul)
+    content/messenger/cloudfile/Hightail/fileExceedsQuota.js (content/Hightail/fileExceedsQuota.js)
+    content/messenger/cloudfile/Hightail/fileExceeds2GB.xul (content/Hightail/fileExceeds2GB.xul)

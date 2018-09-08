@@ -1,0 +1,27 @@
+. $topsrcdir/build/unix/mozconfig.linux
+
+ac_add_options --enable-application=mail
+ac_add_options --enable-update-channel=${MOZ_UPDATE_CHANNEL}
+ac_add_options --with-l10n-base=../../l10n
+# The compile environment is needed for Linux, see bug 1349300 and bug 1311045.
+# ac_add_options --disable-compile-environment
+
+# Build lightning locales
+ac_add_options --enable-calendar
+
+# Needed to enable breakpad in application.ini
+export MOZILLA_OFFICIAL=1
+
+# For NSS symbols
+export MOZ_DEBUG_SYMBOLS=1
+
+# Disable checking that add-ons are signed by the trusted root
+MOZ_ADDON_SIGNING=0
+# Disable enforcing that add-ons are signed by the trusted root
+MOZ_REQUIRE_ADDON_SIGNING=0
+
+ac_add_options --disable-stdcxx-compat
+
+# Run client.py
+mk_add_options CLIENT_PY_ARGS="$([ -f $topsrcdir/build/client.py-l10n-args ] && cat $topsrcdir/build/client.py-l10n-args)"
+mk_add_options ALWAYS_RUN_CLIENT_PY=1

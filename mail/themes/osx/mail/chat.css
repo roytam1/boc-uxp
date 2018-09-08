@@ -1,0 +1,290 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+%include ../../../components/im/themes/chat.css
+
+#statusTypeIcon:-moz-locale-dir(ltr) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#statusTypeIcon:-moz-locale-dir(rtl) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+#statusTypeIcon > .toolbarbutton-text {
+  display: none;
+}
+
+.statusMessageToolbarItem {
+  height: 22px;
+  margin-inline-start: -3px;
+  margin-bottom: 2px;
+  padding-bottom: 3px;
+}
+
+#chat-status-selector:hover > .statusMessageToolbarItem,
+#chat-status-selector > .statusMessageToolbarItem[editing],
+.statusMessageToolbarItem:focus {
+  border-color: #AAAAAA;
+  box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5),
+              0px 1px 0px rgba(255, 255, 255, 0.5) inset;
+}
+
+#chat-status-selector > .statusMessageToolbarItem[editing] {
+  border-color: #888888;
+}
+
+/* Adaptation of #folderpane_splitter */
+#listSplitter,
+#contextSplitter {
+  background-image: none;
+  /* splitter grip area */
+  width: 5px;
+  min-width: 5px;
+  /* because of the negative margin needed to make the splitter visible */
+  position: relative;
+  z-index: 10;
+  transition: border-width .3s ease-in;
+}
+
+#listSplitter {
+  border-inline-start: 1px solid #bdbdbd;
+  /* make only the splitter border visible */
+  margin-inline-end: -4px;
+}
+
+#listSplitter[state="collapsed"]:hover {
+  border-inline-start: 4px solid highlight;
+}
+
+#contextSplitter {
+  border-inline-end: 1px solid #bdbdbd;
+  /* make only the splitter border visible */
+  margin-inline-start: -4px;
+}
+
+#contextSplitter[state="collapsed"]:hover {
+  border-inline-end: 4px solid highlight;
+}
+
+.conv-status-container {
+  border-bottom-color: #8B8B8B;
+}
+
+/* Adaptation of #folderPaneBox/#folderPaneTree from osx/mail/mailWindow1.css */
+#listPaneBox {
+  -moz-appearance: -moz-mac-source-list;
+}
+
+#listPaneBox > * {
+  background: transparent !important;
+  -moz-appearance: none !important;
+}
+
+/* Set a background color to avoid lightweight theme backgrounds */
+#contextPane {
+  background-color: #FFFFFF;
+}
+
+@media not all and (-moz-mac-yosemite-theme) {
+  #button-add-buddy {
+    list-style-image: url("chrome://messenger/skin/icons/chat-toolbar-osxlion.svg#add");
+  }
+
+  #button-join-chat {
+    list-style-image: url("chrome://messenger/skin/icons/chat-toolbar-osxlion.svg#join");
+  }
+
+  #button-chat-accounts {
+    list-style-image: url("chrome://messenger/skin/icons/chat-toolbar-osxlion.svg#accounts");
+  }
+}
+
+@media (-moz-mac-yosemite-theme) {
+  #button-add-buddy {
+    list-style-image: url("chrome://messenger/skin/icons/chat-toolbar.svg#add-flat");
+  }
+
+  #button-join-chat {
+    list-style-image: url("chrome://messenger/skin/icons/chat-toolbar.svg#join-flat");
+  }
+
+  #button-chat-accounts {
+    list-style-image: url("chrome://messenger/skin/icons/chat-toolbar.svg#accounts-flat");
+  }
+}
+
+toolbar[brighttext] #button-add-buddy {
+  list-style-image: url("chrome://messenger/skin/icons/chat-toolbar.svg#add-inverted");
+}
+
+toolbar[brighttext] #button-join-chat {
+  list-style-image: url("chrome://messenger/skin/icons/chat-toolbar.svg#join-inverted");
+}
+
+toolbar[brighttext] #button-chat-accounts {
+  list-style-image: url("chrome://messenger/skin/icons/chat-toolbar.svg#accounts-inverted");
+}
+
+#statusTypeIcon[status="available"],
+#statusTypeAvailable,
+.statusTypeIcon[status="available"],
+#imStatusAvailable,
+#appmenu_imStatusAvailable,
+richlistitem[state="connected"] .accountStateIcon {
+  list-style-image: url("chrome://messenger/skin/icons/status.png");
+  -moz-image-region: rect(0px 16px 16px 0px);
+}
+
+#statusTypeIcon[status="idle"],
+.statusTypeIcon[status="idle"] {
+  list-style-image: url("chrome://messenger/skin/icons/status.png");
+  -moz-image-region: rect(0px 32px 16px 16px);
+}
+
+#statusTypeIcon[status="offline"],
+#statusTypeIcon[status="invisible"],
+#statusTypeOffline,
+.statusTypeIcon[status="offline"],
+.statusTypeIcon[status="invisible"],
+#imStatusOffline,
+#appmenu_imStatusOffline,
+richlistitem[state="disconnected"] .accountStateIcon {
+  list-style-image: url("chrome://messenger/skin/icons/status.png");
+  -moz-image-region: rect(0px 48px 16px 32px);
+}
+
+#statusTypeIcon[status="unavailable"],
+#statusTypeIcon[status="away"],
+#statusTypeUnavailable,
+.statusTypeIcon[status="unavailable"],
+.statusTypeIcon[status="away"],
+#imStatusUnavailable,
+#appmenu_imStatusUnavailable {
+  list-style-image: url("chrome://messenger/skin/icons/status.png");
+  -moz-image-region: rect(0px 64px 16px 48px);
+}
+
+@media (min-resolution: 2dppx) {
+  #statusTypeIcon[status="available"],
+  #statusTypeAvailable,
+  .statusTypeIcon[status="available"],
+  #imStatusAvailable,
+  #appmenu_imStatusAvailable,
+  richlistitem[state="connected"] .accountStateIcon {
+    list-style-image: url("chrome://messenger/skin/icons/status@2x.png");
+    -moz-image-region: rect(0px 32px 32px 0px);
+  }
+
+  #statusTypeIcon[status="idle"],
+  .statusTypeIcon[status="idle"] {
+    list-style-image: url("chrome://messenger/skin/icons/status@2x.png");
+    -moz-image-region: rect(0px 64px 32px 32px);
+  }
+
+  #statusTypeIcon[status="offline"],
+  #statusTypeIcon[status="invisible"],
+  #statusTypeOffline,
+  .statusTypeIcon[status="offline"],
+  .statusTypeIcon[status="invisible"],
+  #imStatusOffline,
+  #appmenu_imStatusOffline,
+  richlistitem[state="disconnected"] .accountStateIcon {
+    list-style-image: url("chrome://messenger/skin/icons/status@2x.png");
+    -moz-image-region: rect(0px 96px 32px 64px);
+  }
+
+  #statusTypeIcon[status="unavailable"],
+  #statusTypeIcon[status="away"],
+  #statusTypeUnavailable,
+  .statusTypeIcon[status="unavailable"],
+  .statusTypeIcon[status="away"],
+  #imStatusUnavailable,
+  #appmenu_imStatusUnavailable {
+    list-style-image: url("chrome://messenger/skin/icons/status@2x.png");
+    -moz-image-region: rect(0px 128px 32px 96px);
+  }
+
+  .prplIcon,
+  #statusTypeIcon .button-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media not all and (-moz-mac-yosemite-theme) {
+  :-moz-any(imconv, imcontact, imgroup)[selected] {
+    -moz-appearance: -moz-mac-active-source-list-selection;
+  }
+}
+
+@media (-moz-mac-yosemite-theme) {
+  :-moz-any(imconv, imcontact, imgroup) {
+    font-family: 'Helvetica Neue';
+  }
+
+  :-moz-any(imconv, imcontact, imgroup)[selected] {
+    -moz-appearance: -moz-mac-source-list-selection;
+  }
+}
+
+#displayNameAndstatusMessageStack #statusMessage {
+  margin: 32px 0 0;
+  min-height: 16px;
+}
+
+#displayNameAndstatusMessageStack #statusMessage[editing] {
+  margin: 29px 2px 0 -4px;
+}
+
+#displayNameAndstatusMessageStack #displayName[editing] {
+  margin-left: -4px;
+  margin-right: -2px;
+  margin-bottom: 18px;
+}
+
+@media (min-resolution: 2dppx) {
+  .closeConversationButton {
+    list-style-image: url("chrome://global/skin/icons/close@2x.png");
+    -moz-image-region: rect(0, 32px, 32px, 0);
+  }
+
+  .closeConversationButton:hover {
+    -moz-image-region: rect(0, 64px, 32px, 32px);
+  }
+
+  .closeConversationButton:hover:active {
+    -moz-image-region: rect(0, 96px, 32px, 64px);
+  }
+
+  .closeConversationButton > .button-image-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media not all and (-moz-mac-yosemite-theme) {
+  .tabmail-tab[type="chat"],
+  .alltabs-item[type="chat"] {
+    list-style-image: url("chrome://messenger/skin/icons/mail-toolbar-osxlion.svg#chat");
+  }
+}
+
+@media (-moz-mac-yosemite-theme) {
+  .tabmail-tab[type="chat"],
+  .alltabs-item[type="chat"] {
+    list-style-image: url("chrome://messenger/skin/icons/mail-toolbar.svg#chat-flat");
+  }
+}
+
+.tabmail-tab[type="chat"] > .tab-stack > .tab-content > .tab-icon-image {
+  width: 18px;
+  height: 18px;
+  margin-top: 0;
+  margin-inline-end: 5px;
+  margin-bottom: -1px;
+  margin-inline-start: -1px;
+}

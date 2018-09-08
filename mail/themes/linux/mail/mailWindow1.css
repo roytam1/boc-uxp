@@ -1,0 +1,253 @@
+/*
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+*/
+
+/* ===== mailWindow1.css ================================================
+  == Styles for the main Mail window in the default layout scheme.
+  ======================================================================= */
+
+@import url("chrome://messenger/skin/");
+@import url("chrome://messenger/skin/primaryToolbar.css");
+@import url("chrome://messenger/skin/folderMenus.css");
+@import url("chrome://messenger/skin/folderPane.css");
+@import url("chrome://messenger/skin/tagColors.css");
+@import url("chrome://messenger/skin/messageIcons.css");
+@import url("chrome://messenger/skin/shared/mailWindow1.css");
+
+/* give the toolbox a min-height of 42px for Australis theme */
+.mail-toolbox:not([mode="full"]) > toolbar:only-of-type,
+.mail-toolbox[mode="full"][labelalign="end"] > toolbar:only-of-type {
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+menu > #folderLocationPopup > menu > .menu-iconic-left,
+menu > #folderLocationPopup > menuitem > .menu-iconic-left {
+  padding-inline-start: 2px;
+}
+
+#folderTree {
+  border-bottom: 1px solid ThreeDShadow;
+  background-color: -moz-OddTreeRow;
+}
+
+#threadTree {
+  border-bottom: 1px solid ThreeDShadow;
+}
+
+#mailContent {
+  -moz-appearance: toolbox;
+  background-color: -moz-Dialog;
+}
+
+#folderPaneHeader {
+  border-bottom: 1px solid ThreeDShadow;
+}
+
+/* ::::: thread decoration ::::: */
+
+treechildren::-moz-tree-row(dummy)  {
+  background-color: var(--row-grouped-header-bg-color);
+  padding-inline-start: 2px;
+  margin-bottom: 1px;
+}
+
+treechildren::-moz-tree-row(dummy, selected, focus)  {
+  background-color: Highlight;
+}
+
+treechildren::-moz-tree-cell-text(dummy) {
+  font-weight: bold;
+}
+
+treechildren::-moz-tree-cell-text(imapdeleted) {
+  text-decoration: line-through;
+}
+
+#correspondentCol {
+  padding-inline-start: 17px;
+}
+
+/* ..... folder pane adjustments ..... */
+
+#folderPane-toolbar {
+  min-height: 24px;
+  border-bottom: 1px solid ThreeDShadow;
+}
+
+/* ..... splitter adjustments ..... */
+
+#folderpane_splitter,
+#threadpane-splitter:not([orient="vertical"]) {
+  -moz-appearance: none;
+  /* splitter grip area */
+  width: 5px;
+  margin-top: 0;
+  /* because of the negative margin needed to make the splitter visible */
+  position: relative;
+  z-index: 10;
+  transition: border-width .3s ease-in;
+}
+
+#folderpane_splitter {
+  border-inline-start: 1px solid ThreeDShadow;
+  /* make only the splitter border visible */
+  margin-inline-end: -5px;
+}
+
+#folderpane_splitter[state="collapsed"]:hover {
+  border-inline-start: 4px solid highlight;
+}
+
+#threadpane-splitter:not([orient="vertical"]) {
+  border-inline-start: 1px solid ThreeDShadow;
+  /* make only the splitter border visible */
+  margin-inline-end: -5px;
+}
+
+#threadpane-splitter[state="collapsed"]:not([orient="vertical"]) {
+  border-inline-start-width: 0;
+  border-inline-end: 1px solid ThreeDShadow;
+  margin-inline-start: -5px;
+  margin-inline-end: 0;
+}
+
+#threadpane-splitter[state="collapsed"]:not([orient="vertical"]):hover {
+  border-inline-end: 4px solid highlight;
+}
+
+#threadpane-splitter,
+#attachment-splitter {
+  -moz-appearance: none;
+  border-bottom: 1px solid ThreeDShadow;
+  /* splitter grip area */
+  height: 5px;
+  /* make only the splitter border visible */
+  margin-top: -5px;
+  /* because of the negative margin needed to make the splitter visible */
+  position: relative;
+  z-index: 10;
+  transition: border-width .3s ease-in;
+}
+
+#attachment-splitter:not([state="collapsed"]) {
+  border-bottom: 1px solid transparent;
+}
+
+#attachment-splitter,
+#threadpane-splitter[state="collapsed"] {
+  transition: border-color .3s;
+}
+
+#threadpane-splitter[state="collapsed"]:hover,
+#attachment-splitter[state="collapsed"]:hover {
+  border-bottom: 4px solid highlight;
+}
+
+#messagesBox {
+  /* For some reason, the thread/message panes overlap the folder pane splitter
+     by 1px because of the CSS above. Fix this. */
+  margin-inline-start: 1px;
+}
+
+/* ..... tree adjustments ..... */
+
+#accountCentralBox {
+  border-bottom: 1px solid ThreeDShadow;
+}
+
+/* ..... message pane adjustments ..... */
+
+#messagepanebox {
+  border-bottom: 1px solid ThreeDShadow;
+}
+
+/* ..... status bar adjustments ..... */
+
+#quotaMeter {
+  -moz-appearance: none;
+}
+
+#threadTree > treechildren::-moz-tree-row(odd) {
+  background-color: transparent;
+}
+
+#threadTree > treechildren::-moz-tree-row(dummy, odd) {
+  background-color: var(--row-grouped-header-bg-color);
+}
+
+#threadTree > treechildren::-moz-tree-row(selected) {
+  color: -moz-cellhighlighttext;
+  background-color: -moz-cellhighlight;
+}
+
+#threadTree > treechildren::-moz-tree-row(selected, focus) {
+  color: HighlightText;
+  background-color: Highlight;
+}
+
+.tabmail-tab[type="message"] {
+  list-style-image: url("chrome://messenger/skin/icons/server.png");
+  -moz-image-region: rect(0 16px 16px 0);
+}
+
+.tabmail-tab[type="message"][IsFeedMessage] {
+  list-style-image: url("chrome://messenger-newsblog/skin/icons/rss-feed.png");
+  -moz-image-region: rect(32px 16px 48px 0);
+  width: 16px;
+  height: 16px;
+}
+
+/* ..... tabs ..... */
+
+#tabpanelcontainer {
+  -moz-appearance: none;
+}
+
+/* ..... menulists on main toolbar ..... */
+
+menulist {
+  -moz-appearance: none;
+  min-height: 24px;
+  color: inherit;
+  margin: 1px 4px;
+  padding: 1px 6px;
+  border: 1px solid;
+  background: var(--toolbarbutton-hover-background);
+  border-color: var(--toolbarbutton-hover-bordercolor);
+  box-shadow: var(--toolbarbutton-hover-boxshadow);
+  transition: background-color 150ms;
+}
+
+menulist:not([disabled="true"]):not([open="true"]):hover {
+  background: var(--toolbarbutton-active-background);
+  border-color: var(--toolbarbutton-active-bordercolor);
+}
+
+menulist[open="true"] {
+  background: var(--toolbarbutton-active-background);
+  border-color: var(--toolbarbutton-active-bordercolor);
+  box-shadow: var(--toolbarbutton-active-boxshadow);
+}
+
+menulist[disabled="true"] {
+  opacity: .6;
+}
+
+menulist > .menulist-label-box {
+  -moz-appearance: none;
+  padding-inline-end: 12px;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-image: url("chrome://messenger/skin/icons/toolbarbutton-arrow.png");
+}
+
+menulist:-moz-locale-dir(rtl) > .menulist-label-box {
+  background-position: left;
+}
+
+toolbar[brighttext] menulist > .menulist-label-box {
+  background-image: url("chrome://messenger/skin/icons/toolbarbutton-arrow-inverted.png");
+}

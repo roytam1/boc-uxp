@@ -1,0 +1,183 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@import url("chrome://messenger/skin/shared/tabmail.css");
+
+/**
+ * Tabmail Tabs
+ */
+
+#navigation-toolbox:not(:-moz-lwtheme) {
+  -moz-appearance: menubar;
+}
+
+#tabs-toolbar {
+  -moz-appearance: none;
+  padding: 0;
+  background-image: linear-gradient(to top, hsla(0, 0%, 0%, .3) 1px,
+                                    transparent 1px);
+}
+
+#tabs-toolbar:not(:-moz-lwtheme) {
+  -moz-binding: url("chrome://global/content/bindings/toolbar.xml#toolbar-drag");
+}
+
+#tabpanelcontainer:-moz-lwtheme {
+  color: inherit;
+}
+
+.tabmail-arrowscrollbox {
+  margin-bottom: -1px;
+}
+
+tabpanels {
+  -moz-appearance: none;
+  background-color: transparent;
+}
+
+/**
+ * Tab
+ */
+
+.tabmail-tab {
+  list-style-image: url("moz-icon://stock/gtk-file?size=menu");
+}
+
+.tab-throbber {
+  list-style-image: url("chrome://global/skin/icons/loading.png") !important;
+  -moz-image-region: auto !important;
+}
+
+.tabmail-tab[type="glodaSearch"] {
+  list-style-image: url(moz-icon://stock/gtk-find?size=menu);
+}
+
+.tabmail-tab > .tab-stack > .tab-content > .tab-text {
+  /* tabmail-tab focus ring */
+  border: 1px dotted transparent;
+  margin: -1px !important; /* let the border not consume any space, like outline */
+}
+
+.tabmail-tab:not(:-moz-lwtheme) > .tab-stack > .tab-content > .tab-text {
+  color: -moz-MenuBarText;
+}
+
+.tabmail-tab[selected]:not(:-moz-lwtheme) > .tab-stack > .tab-content > .tab-text {
+  color: -moz-DialogText;
+}
+
+.tabmail-tab[selected]:focus > .tab-stack > .tab-content > .tab-text {
+  border: 1px dotted -moz-DialogText;
+}
+
+/* Tab drag and drop */
+.tab-drop-indicator {
+  list-style-image: url(tabs/dragIndicator.png);
+  margin-bottom: -11px;
+}
+
+/* Tabstrip close button */
+.tabs-closebutton {
+  border: none;
+  margin-top: 1px;
+}
+
+/* In-tab close button */
+.tab-close-button {
+  list-style-image: none;
+}
+
+.tabs-closebutton:not(:hover),
+.tab-close-button:not([selected]):not(:hover) {
+  background-image: -moz-image-rect(url("chrome://global/skin/icons/close.svg"), 0, 64, 16, 48);
+}
+
+.tabs-closebutton:not(:hover):-moz-lwtheme-brighttext,
+.tab-close-button:not(:hover):-moz-lwtheme-brighttext,
+#tabs-toolbar[brighttext] .tabs-closebutton:not(:hover),
+#tabs-toolbar[brighttext] .tab-close-button:not([selected]):not(:hover) {
+  background-image: -moz-image-rect(url("chrome://global/skin/icons/close.svg"), 0, 80, 16, 64);
+}
+
+.tabs-closebutton:not(:hover):-moz-lwtheme-darktext,
+.tab-close-button:not([selected]):not(:hover):-moz-lwtheme-darktext {
+  background-image: -moz-image-rect(url("chrome://global/skin/icons/close.svg"), 0, 96, 16, 80);
+}
+
+/**
+ * Tab Scrollbox Arrow Buttons
+ */
+
+.tabmail-arrowscrollbox > .scrollbutton-up > .toolbarbutton-icon,
+.tabmail-arrowscrollbox > stack > .scrollbutton-down > .toolbarbutton-icon {
+  -moz-appearance: none;
+}
+
+.tabmail-arrowscrollbox > .scrollbutton-up,
+.tabmail-arrowscrollbox > stack > .scrollbutton-down {
+  -moz-appearance: none;
+  list-style-image: url(tabs/arrow-left.png);
+}
+
+#tabs-toolbar[brighttext] .tabmail-arrowscrollbox > .scrollbutton-up,
+#tabs-toolbar[brighttext] .tabmail-arrowscrollbox > stack > .scrollbutton-down {
+  list-style-image: url(tabs/arrow-left-inverted.png);
+}
+
+.tabmail-arrowscrollbox > .scrollbutton-up[disabled],
+.tabmail-arrowscrollbox > stack > .scrollbutton-down[disabled] {
+  opacity: .4;
+}
+
+.tabmail-arrowscrollbox > .scrollbutton-up > .toolbarbutton-icon:-moz-locale-dir(rtl),
+.tabmail-arrowscrollbox > stack > .scrollbutton-down > .toolbarbutton-icon:-moz-locale-dir(ltr) {
+  transform: scaleX(-1);
+}
+
+.tabmail-arrowscrollbox > .scrollbutton-down {
+  transition: 1s background-color ease-out;
+}
+
+.tabs-alltabs-box-animate {
+  background-color: Highlight;
+  opacity: 0;
+}
+
+/* All tabs menupopup */
+.alltabs-item {
+  list-style-image: url("moz-icon://stock/gtk-file?size=menu");
+}
+
+.alltabs-item[selected] {
+  font-weight: bold;
+}
+
+.alltabs-item[busy] {
+  list-style-image: url("chrome://global/skin/icons/loading.png") !important;
+  -moz-image-region: auto !important;
+}
+
+.tabs-alltabs-button {
+  margin-bottom: 1px;
+}
+
+.tabs-alltabs-button > .toolbarbutton-menu-dropmarker {
+  -moz-appearance: none !important;
+  margin-bottom: -1px;
+  padding-inline-start: 0 !important;
+  list-style-image: url("chrome://messenger/skin/icons/dropmarker.svg");
+}
+
+.tabs-alltabs-button:hover > .toolbarbutton-menu-dropmarker {
+  list-style-image: url("chrome://messenger/skin/icons/dropmarker-hover.svg");
+}
+
+.tabs-alltabs-button > .toolbarbutton-icon {
+  display: none;
+  margin-inline-end: 0;
+}
+
+.alltabs-item > .menu-iconic-left {
+  visibility: visible !important;
+}

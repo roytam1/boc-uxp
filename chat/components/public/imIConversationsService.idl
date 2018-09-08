@@ -1,0 +1,104 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#include "nsISupports.idl"
+#include "prplIConversation.idl"
+#include "prplIMessage.idl"
+#include "imIContactsService.idl"
+
+interface imIMessage;
+
+[scriptable, uuid(81b8d9a9-4715-4109-b522-84b9d31493a3)]
+interface imIConversation: prplIConversation {
+  // Will be null for MUCs and IMs from people not in the contacts list.
+  readonly attribute imIContact contact;
+
+  // Write a system message into the conversation.
+  // Note: this will not be logged.
+  void systemMessage(in AUTF8String aMessage, [optional] in boolean aIsError);
+
+  attribute prplIConversation target;
+
+  // Number of unread messages (all messages, including system
+  // messages are counted).
+  readonly attribute unsigned long unreadMessageCount;
+  // Number of unread incoming messages targeted at the user (= IMs or
+  // message containing the user's nick in MUCs).
+  readonly attribute unsigned long unreadTargetedMessageCount;
+  // Number of unread incoming messages (both targeted and untargeted
+  // messages are counted).
+  readonly attribute unsigned long unreadIncomingMessageCount;
+  // Reset all unread message counts.
+  void markAsRead();
+
+  // Can be used instead of the topic when no topic is set.
+  readonly attribute AUTF8String noTopicString;
+
+  // Call this to give the core an opportunity to close an inactive
+  // conversation.  If the conversation is a left MUC or an IM
+  // conversation without unread message, the implementation will call
+  // close().
+  // The returned value indicates if the conversation was closed.
+  boolean checkClose();
+
+  // Get an array of all messages of the conversation.
+  void getMessages([optional] out unsigned long messageCount,
+                   [retval, array, size_is(messageCount)] out imIMessage messages);
+};
+
+[scriptable, uuid(984e182c-d395-4fba-ba6e-cc80c71f57bf)]
+interface imIConversationsService: nsISupports {
+  void initConversations();
+  void unInitConversations();
+
+  // Register a conversation. This will create a unique id for the
+  // conversation and set it.
+  void addConversation(in prplIConversation aConversation);
+  void removeConversation(in prplIConversation aConversation);
+
+  void getUIConversations([optional] out unsigned long conversationCount,
+                          [retval, array, size_is(conversationCount)] out imIConversation conversations);
+  imIConversation getUIConversation(in prplIConversation aConversation);
+  imIConversation getUIConversationByContactId(in long aId);
+
+  nsISimpleEnumerator getConversations();
+  prplIConversation getConversationById(in unsigned long aId);
+  prplIConversation getConversationByNameAndAccount(in AUTF8String aName,
+                                                    in imIAccount aAccount,
+                                                    in boolean aIsChat);
+};
+
+// Because of limitations in libpurple (write_conv is called without context),
+// there's an implicit contract that whatever message string the conversation
+// service passes to a protocol, it'll get back as the originalMessage when
+// "new-text" is notified. This is required for the OTR extensions to work.
+
+// A cancellable outgoing message. Before handing a message off to a protocol,
+// the conversation service notifies observers of `preparing-message` and
+// `sending-message` (typically add-ons) of an outgoing message, which can be
+// transformed or cancelled.
+[scriptable, uuid(f88535b1-0b99-433b-a6de-c1a4bf8b43ea)]
+interface imIOutgoingMessage: nsISupports {
+           attribute AUTF8String message;
+           attribute boolean cancelled;
+  // Outgoing message is an action command.
+  readonly attribute boolean action;
+  readonly attribute prplIConversation conversation;
+};
+
+// A cancellable message to be displayed. When the conversation service is
+// notified of a `new-text` (ie. an incoming or outgoing message to be
+// displayed), it in turn notifies observers of `received-message`
+// (again, typically add-ons), which have the opportunity to swap or cancel
+// the message.
+[scriptable, uuid(3f88cc5c-6940-4eb5-a576-c65770f49ce9)]
+interface imIMessage: prplIMessage {
+           attribute boolean cancelled;
+           // Holds the sender color for Chats.
+           // Empty string by default, it is set by the conversation binding.
+           attribute AUTF8String color;
+
+           // What eventually gets shown to the user.
+           attribute AUTF8String displayMessage;
+};

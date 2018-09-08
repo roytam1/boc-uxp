@@ -1,0 +1,525 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/* ===== messenger.css ==================================================
+  == Styles shared throughout the Messenger application.
+  ======================================================================= */
+
+@import url("chrome://global/skin/");
+@import url("chrome://messenger/content/messenger.css");
+@import url("chrome://messenger/skin/shared/messenger.css");
+
+:root {
+  --toolbarHighlight: rgba(255, 255, 255, .4);
+  --fgTabTexture: linear-gradient(transparent 2px, var(--toolbarHighlight) 2px, var(--toolbarHighlight));
+  --fgTabTextureLWT: var(--fgTabTexture);
+  --fgTabBackgroundColor: -moz-dialog;
+
+  --toolbarbutton-text-color: #222;
+  --toolbarbutton-hover-background: rgba(255, 255, 255, .5) linear-gradient(rgba(255, 255, 255, .5), transparent);
+  --toolbarbutton-hover-bordercolor: rgba(0, 0, 0, .25);
+  --toolbarbutton-header-bordercolor: rgba(0, 0, 0, .25);
+  --toolbarbutton-hover-boxshadow: none;
+
+  --toolbarbutton-active-background: rgba(154, 154, 154, .5) linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .4));
+  --toolbarbutton-active-bordercolor: rgba(0, 0, 0, .3);
+  --toolbarbutton-active-boxshadow: 0 1px 1px rgba(0, 0, 0, .1) inset, 0 0 1px rgba(0, 0, 0, .3) inset;
+
+  --toolbarbutton-checkedhover-backgroundcolor: rgba(200, 200, 200, .5);
+}
+
+#header-view-toolbar[brighttext],
+#ab-toolbox > toolbar[brighttext],
+.mail-toolbox > toolbar[brighttext],
+#event-toolbox > toolbar[brighttext],
+#compose-toolbox > toolbar[brighttext] {
+  --toolbarbutton-text-color: #fff;
+  --toolbarbutton-hover-background: rgba(255, 255, 255, .25);
+  --toolbarbutton-hover-bordercolor: rgba(255, 255, 255, .5);
+  --toolbarbutton-header-bordercolor: rgba(255, 255, 255, .25);
+
+  --toolbarbutton-active-background: rgba(255, 255, 255, .4);
+  --toolbarbutton-active-bordercolor: rgba(255, 255, 255, .7);
+  --toolbarbutton-active-boxshadow: 0 0 0 1px rgba(255, 255, 255, .4) inset;
+
+  --toolbarbutton-checkedhover-backgroundcolor: rgba(255, 255, 255, .5);
+}
+
+#ab-toolbox > toolbar:-moz-lwtheme,
+.mail-toolbox > toolbar:-moz-lwtheme,
+#compose-toolbox > toolbar:-moz-lwtheme {
+  --toolbarbutton-text-color: currentColor;
+  --toolbarbutton-hover-background: rgba(255, 255, 255, .25);
+  --toolbarbutton-hover-bordercolor: rgba(0, 0, 0, .2);
+  --toolbarbutton-header-bordercolor: rgba(0, 0, 0, .2);
+
+  --toolbarbutton-active-background: rgba(70%, 70%, 70%, .25);
+  --toolbarbutton-active-bordercolor: rgba(0, 0, 0, .3);
+  --toolbarbutton-active-boxshadow: 0 0 2px rgba(0, 0, 0, .6) inset;
+
+  --toolbarbutton-checkedhover-backgroundcolor: rgba(85%, 85%, 85%, .25);
+}
+
+toolbar:not(.inline-toolbar):not(:-moz-lwtheme) {
+  -moz-appearance: menubar;
+  color: -moz-menubartext;
+}
+
+/*
+ * Override the menulist icon forbidding in menu.css so that we can show
+ * check-marks. radio-marks and folder icons. bug 443516
+ */
+.menulist-menupopup > menuitem > .menu-iconic-left,
+menulist > menupopup >
+  menuitem:-moz-any(.menuitem-iconic, [type="radio"], [type="checkbox"]) >
+  .menu-iconic-left,
+.menulist-menupopup > menu > .menu-iconic-left,
+menulist > menupopup >
+  menu:-moz-any(.menuitem-iconic, [type="radio"], [type="checkbox"]) >
+  .menu-iconic-left {
+  display: -moz-box;
+}
+
+/* ::::: toolbarbutton ::::: */
+
+.toolbarbutton-1 {
+  -moz-box-orient: vertical;
+}
+
+.toolbarbutton-1:-moz-lwtheme,
+.toolbarbutton-menubutton-button:-moz-lwtheme {
+  color: inherit;
+}
+
+toolbox[labelalign="end"] .toolbarbutton-1,
+toolbox[labelalign="end"] .toolbarbutton-1[type="menu-button"]
+  > .toolbarbutton-menubutton-button {
+  -moz-box-orient: horizontal;
+}
+
+toolbox[labelalign="end"] > toolbar[mode="full"] .toolbarbutton-1 .toolbarbutton-text {
+  padding-inline-start: 2px;
+}
+
+toolbox[labelalign="end"] > toolbar[mode="full"] deck .toolbarbutton-text {
+  text-align: start;
+}
+
+.toolbarbutton-1[type="menu"] {
+  -moz-binding: url("chrome://global/content/bindings/toolbarbutton.xml#menu-vertical");
+}
+
+toolbox[labelalign="end"] .toolbarbutton-1[type="menu"] {
+  -moz-binding: url("chrome://global/content/bindings/toolbarbutton.xml#menu");
+}
+
+.toolbarbutton-1,
+.toolbarbutton-menubutton-button {
+  -moz-appearance: none;
+  min-height: 24px;
+  min-width: 32px;
+  margin: 1px;
+  padding: 1px 6px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  transition-property: background-color, border-color;
+  transition-duration: 150ms;
+}
+
+.toolbarbutton-menubutton-button {
+  min-height: 0;
+  margin: 0;
+  border-top-style: none;
+  border-inline-start-style: none;
+  border-bottom-style: none;
+}
+
+.findbar-button:not(:-moz-any([checked="true"],[disabled="true"])):hover,
+.toolbarbutton-1:not([disabled=true]):hover {
+  background: var(--toolbarbutton-hover-background);
+  background-clip: padding-box;
+  box-shadow: var(--toolbarbutton-hover-boxshadow);
+}
+
+.findbar-button:not(:-moz-any([checked="true"],[disabled="true"])):hover,
+.toolbarbutton-1:not([disabled=true]):hover,
+.toolbarbutton-1[open]:not([disabled=true]) > .toolbarbutton-menubutton-button,
+.toolbarbutton-1:not([disabled=true]):not(:-moz-any(:active, [open])):hover > .toolbarbutton-menubutton-button,
+.toolbarbutton-1:not([disabled=true]):not([open]):hover > .toolbarbutton-menubutton-dropmarker {
+  border-color: var(--toolbarbutton-hover-bordercolor);
+}
+
+.toolbarbutton-1:not([disabled=true]):-moz-any([open],[checked="true"],:hover:active) {
+  border-color: var(--toolbarbutton-active-bordercolor);
+}
+
+.findbar-button:not([disabled=true]):-moz-any([checked="true"],:hover:active),
+.toolbarbutton-1:not([type="menu-button"]):not([disabled=true]):-moz-any([open],[checked="true"],:hover:active),
+.toolbarbutton-1 > .toolbarbutton-menubutton-button:not([disabled=true]):-moz-any(:hover:active, [open="true"]),
+.toolbarbutton-1[open="true"] > .toolbarbutton-menubutton-dropmarker:not([disabled="true"]) {
+  background: var(--toolbarbutton-active-background);
+  background-clip: padding-box;
+  box-shadow: var(--toolbarbutton-active-boxshadow);
+  border-color: var(--toolbarbutton-active-bordercolor);
+  transition-duration: 10ms;
+}
+
+.toolbarbutton-1[checked="true"]:not(:active):hover {
+  background-color: var(--toolbarbutton-checkedhover-backgroundcolor);
+  transition: background-color 150ms;
+}
+
+.toolbarbutton-1 > .toolbarbutton-menubutton-button:-moz-locale-dir(ltr),
+.toolbarbutton-1 > .toolbarbutton-menubutton-dropmarker:-moz-locale-dir(rtl) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.toolbarbutton-1 > .toolbarbutton-menubutton-button:-moz-locale-dir(rtl),
+.toolbarbutton-1 > .toolbarbutton-menubutton-dropmarker:-moz-locale-dir(ltr) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.toolbarbutton-1 .toolbarbutton-menu-dropmarker,
+.toolbarbutton-1 > .toolbarbutton-menubutton-dropmarker {
+  -moz-appearance: none !important;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.toolbarbutton-1 .toolbarbutton-menu-dropmarker > .dropmarker-icon,
+.toolbarbutton-1 > .toolbarbutton-menubutton-dropmarker > .dropmarker-icon {
+  width: 9px;
+  height: 7px;
+  background: url("chrome://messenger/skin/icons/toolbarbutton-arrow.png") no-repeat center;
+}
+
+.toolbarbutton-1 > .toolbarbutton-menubutton-dropmarker > .dropmarker-icon {
+  margin-right: 6px;
+  margin-left: 6px;
+}
+
+toolbar[brighttext] .toolbarbutton-1 .toolbarbutton-menu-dropmarker > .dropmarker-icon,
+toolbar[brighttext] .toolbarbutton-1 > .toolbarbutton-menubutton-dropmarker > .dropmarker-icon {
+  background-image: url("chrome://messenger/skin/icons/toolbarbutton-arrow-inverted.png");
+}
+
+.toolbarbutton-1:not(:hover):not(:active):not([open]) > .toolbarbutton-menubutton-dropmarker::before {
+  content: "";
+  display: -moz-box;
+  width: 1px;
+  height: 18px;
+  margin-inline-start: -1px;
+  background-image: linear-gradient(currentColor 0, currentColor 100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1px 18px;
+  opacity: .2;
+}
+
+toolbar[brighttext] .toolbarbutton-1:not(:hover):not(:active):not([open]) > .toolbarbutton-menubutton-dropmarker::before {
+  opacity: .3;
+}
+
+toolbox:not([labelalign="end"]) toolbar[mode="full"] .toolbarbutton-1 {
+  padding-bottom: 0;
+}
+
+
+.toolbarbutton-1 .toolbarbutton-menu-dropmarker {
+  margin-inline-start: 3px;
+}
+
+.toolbarbutton-1 .toolbarbutton-icon,
+.formatting-button .toolbarbutton-icon {
+  margin-inline-end: 0;
+}
+
+.toolbarbutton-1:not(:-moz-lwtheme) .toolbarbutton-text {
+  color: var(--toolbarbutton-text-color);
+}
+
+toolbar:not(.inline-toolbar):not(:-moz-lwtheme)
+.toolbarbutton-1 .toolbarbutton-text {
+  color: -moz-menubartext;
+}
+
+.toolbarbutton-1[disabled=true] .toolbarbutton-icon,
+.toolbarbutton-1[disabled=true] .toolbarbutton-text,
+.toolbarbutton-1[disabled=true] .toolbarbutton-menu-dropmarker,
+.toolbarbutton-1[disabled=true] > .toolbarbutton-menubutton-dropmarker,
+.toolbarbutton-1[disabled=true] > .toolbarbutton-menubutton-button >
+.toolbarbutton-icon {
+  opacity: .4;
+}
+
+.toolbarbutton-menubutton-button > .toolbarbutton-icon,
+.toolbarbutton-1 .toolbarbutton-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.toolbarbutton-1[disabled=true]:-moz-lwtheme,
+.toolbarbutton-menubutton-button[disabled=true]:-moz-lwtheme {
+  color: inherit;
+}
+
+toolbar[mode="full"] .toolbarbutton-1 {
+  min-width: 55px;
+}
+
+sidebarheader .toolbarbutton-text:not([value]) {
+  display: none;
+}
+
+/* Stock icons for the menu bar items */
+menuitem:not([type]) {
+  -moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic");
+}
+
+#menu_New {
+  -moz-binding: url("chrome://global/content/bindings/menu.xml#menu-iconic");
+  list-style-image: url("moz-icon://stock/gtk-new?size=menu");
+}
+
+menuitem[command="cmd_newMessage"],
+splitmenu[command="cmd_newMessage"] {
+  list-style-image: url("chrome://messenger/skin/icons/mail-toolbar-small.png");
+  -moz-image-region: rect(0px 32px 16px 16px);
+}
+
+#menu_newFolder,
+#appmenu_newFolder {
+  list-style-image: url("moz-icon://stock/gtk-directory?size=menu");
+}
+
+#menu_newVirtualFolder,
+#appmenu_newVirtualFolder {
+  list-style-image: url("chrome://messenger/skin/icons/folder-pane.png");
+  -moz-image-region: rect(128px 16px 144px 0px);
+}
+
+#menu_newCard,
+#appmenu_newCard {
+  list-style-image: url("chrome://messenger/skin/addressbook/icons/addressbook-toolbar.png");
+  -moz-image-region: rect(44px 22px 66px 0px); /* contact-add.png */
+}
+
+#openMessageFileMenuitem,
+#appmenu_openMessageFileMenuitem {
+  list-style-image: url("moz-icon://stock/gtk-open?size=menu");
+}
+
+#menu_close,
+#appmenu_close {
+  list-style-image: url("moz-icon://stock/gtk-close?size=menu");
+}
+
+#menu_saveAs,
+#appmenu_saveAs {
+  -moz-binding: url("chrome://global/content/bindings/menu.xml#menu-iconic");
+  list-style-image: url("moz-icon://stock/gtk-save-as?size=menu");
+}
+
+#mailContext-saveAs,
+#mailContext-savelink,
+#mailContext-saveimage {
+  list-style-image: url("moz-icon://stock/gtk-save-as?size=menu");
+}
+
+menuitem[command="cmd_print"],
+#mailContext-print,
+#mailContext-print {
+  list-style-image: url("moz-icon://stock/gtk-print?size=menu");
+}
+
+menuitem[command="cmd_printpreview"],
+#mailContext-printpreview,
+#mailContext-printpreview {
+  list-style-image: url("moz-icon://stock/gtk-print-preview?size=menu");
+}
+
+menuitem[command="cmd_quit"] {
+  list-style-image: url("moz-icon://stock/gtk-quit?size=menu");
+}
+
+menuitem[command="cmd_undo"] {
+  list-style-image: url("moz-icon://stock/gtk-undo?size=menu");
+}
+
+menuitem[command="cmd_undo"][disabled] {
+  list-style-image: url("moz-icon://stock/gtk-undo?size=menu&state=disabled");
+}
+
+menuitem[command="cmd_redo"] {
+  list-style-image: url("moz-icon://stock/gtk-redo?size=menu");
+}
+
+menuitem[command="cmd_redo"][disabled] {
+  list-style-image: url("moz-icon://stock/gtk-redo?size=menu&state=disabled");
+}
+
+menuitem[command="cmd_cut"] {
+  list-style-image: url("moz-icon://stock/gtk-cut?size=menu");
+}
+
+menuitem[command="cmd_cut"][disabled] {
+  list-style-image: url("moz-icon://stock/gtk-cut?size=menu&state=disabled");
+}
+
+menuitem[command="cmd_copy"],
+#mailContext-copy,
+#mailContext-copyimage,
+#mailContext-copylink,
+#mailContext-copyemail {
+  list-style-image: url("moz-icon://stock/gtk-copy?size=menu");
+}
+
+menuitem[command="cmd_copy"][disabled],
+#mailContext-copy[disabled] {
+  list-style-image: url("moz-icon://stock/gtk-copy?size=menu&state=disabled");
+}
+
+menuitem[command="cmd_paste"]{
+  list-style-image: url("moz-icon://stock/gtk-paste?size=menu");
+}
+
+menuitem[command="cmd_paste"][disabled] {
+  list-style-image: url("moz-icon://stock/gtk-paste?size=menu&state=disabled");
+}
+
+menuitem[command="cmd_delete"],
+#mailContext-delete,
+#folderPaneContext-remove {
+  list-style-image: url("moz-icon://stock/gtk-delete?size=menu");
+}
+
+menuitem[command="cmd_delete"][disabled],
+#mailContext-delete[disabled] {
+  list-style-image: url("moz-icon://stock/gtk-delete?size=menu&state=disabled");
+}
+
+menuitem[command="cmd_selectAll"] {
+  list-style-image: url("moz-icon://stock/gtk-select-all?size=menu");
+}
+
+#menu_find {
+  -moz-binding: url("chrome://global/content/bindings/menu.xml#menu-iconic");
+}
+
+#appmenu_find > .splitmenu-menuitem,
+#appmenu_customize > .splitmenu-menuitem {
+  -moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic");
+}
+
+#menu_find,
+#appmenu_find {
+  list-style-image: url("moz-icon://stock/gtk-find?size=menu");
+}
+
+#folderPaneContext-searchMessages {
+  list-style-image: url("moz-icon://stock/gtk-find?size=menu");
+}
+
+#folderPaneContext-searchMessages[disabled] {
+  list-style-image: url("moz-icon://stock/gtk-find?size=menu&state=disabled");
+}
+
+#folderPaneContext-properties {
+  list-style-image: url("moz-icon://stock/gtk-properties?size=menu");
+}
+
+#menu_preferences,
+#appmenu_customize {
+  list-style-image: url("moz-icon://stock/gtk-preferences?size=menu");
+}
+
+menuitem[command="cmd_fullZoomEnlarge"] {
+  list-style-image: url("moz-icon://stock/gtk-zoom-in?size=menu");
+}
+
+menuitem[command="cmd_fullZoomReduce"] {
+  list-style-image: url("moz-icon://stock/gtk-zoom-out?size=menu");
+}
+
+menuitem[command="cmd_fullZoomReset"] {
+  list-style-image: url("moz-icon://stock/gtk-zoom-100?size=menu");
+}
+
+menuitem[command="cmd_goBack"] {
+  list-style-image: url("moz-icon://stock/gtk-go-back-ltr?size=menu");
+}
+
+menuitem[key="cmd_goBack"][disabled] {
+  list-style-image: url("moz-icon://stock/gtk-go-back-ltr?size=menu&state=disabled");
+}
+
+menuitem[command="cmd_goBack"]:-moz-locale-dir(rtl) {
+  list-style-image: url("moz-icon://stock/gtk-go-back-rtl?size=menu");
+}
+
+menuitem[command="cmd_goBack"][disabled]:-moz-locale-dir(rtl) {
+  list-style-image: url("moz-icon://stock/gtk-go-back-rtl?size=menu&state=disabled");
+}
+
+menuitem[command="cmd_goForward"] {
+  list-style-image: url("moz-icon://stock/gtk-go-forward-ltr?size=menu");
+}
+
+menuitem[command="cmd_goForward"][disabled] {
+  list-style-image: url("moz-icon://stock/gtk-go-forward-ltr?size=menu&state=disabled");
+}
+
+menuitem[command="cmd_goForward"]:-moz-locale-dir(rtl) {
+  list-style-image: url("moz-icon://stock/gtk-go-forward-rtl?size=menu");
+}
+
+menuitem[command="cmd_goForward"][disabled]:-moz-locale-dir(rtl) {
+  list-style-image: url("moz-icon://stock/gtk-go-forward-rtl?size=menu&state=disabled");
+}
+
+#goStartPage,
+#appmenu_goStartPage {
+  list-style-image: url("moz-icon://stock/gtk-home?size=menu");
+}
+
+#menu_openHelp,
+#appmenu_openHelp {
+  list-style-image: url("moz-icon://stock/gtk-help?size=menu");
+}
+
+#aboutName,
+#appmenu_about {
+  list-style-image: url("moz-icon://stock/gtk-about?size=menu");
+}
+
+#addressBook,
+#appmenu_addressBook {
+  list-style-image: url("chrome://messenger/skin/addressbook/icons/addrbook.png");
+}
+
+#javascriptConsole {
+  list-style-image: url("chrome://global/skin/console/console.png");
+}
+
+statusbarpanel {
+  -moz-appearance: none !important;
+  border: none !important;
+}
+
+treechildren::-moz-tree-cell-text {
+  padding-inline-start: 5px;
+}
+
+/* ::::: Notifications ::::: */
+
+notification[type="critical"] .messageCloseButton:not(:hover):not(:active) {
+  background-image: -moz-image-rect(url("chrome://global/skin/icons/close.svg"), 0, 64, 16, 48);
+}
+
+/* Fix to show the menulist-dropmarker under newer GTK3 versions */
+menulist[editable="true"] > .menulist-dropmarker {
+  min-width: 2em;
+}

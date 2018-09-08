@@ -1,0 +1,2 @@
+
+https://hg.mozilla.org/releases/mozilla-esr52/rev/cec38740232fcc883e8bab0a6ebd7cffdfbab7de

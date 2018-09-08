@@ -1,0 +1,219 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/* ===== addressbook.css ================================================
+  == Styles for the main Address Book window.
+  ======================================================================= */
+
+@import url("chrome://messenger/skin/");
+@import url("chrome://messenger/skin/shared/addressbook.css");
+
+#ab-toolbox > toolbar {
+  /* force iconsize="small" on these toolbars */
+  counter-reset: smallicons;
+}
+
+/* ::::: primary toolbar buttons ::::: */
+
+#button-newcard {
+  list-style-image: url("chrome://messenger/skin/addressbook/icons/addressbook-toolbar.svg#newcard");
+}
+
+#button-newlist {
+  list-style-image: url("chrome://messenger/skin/addressbook/icons/addressbook-toolbar.svg#newlist");
+}
+
+#button-editcard {
+  list-style-image: url("chrome://messenger/skin/addressbook/icons/addressbook-toolbar.svg#editcard");
+}
+
+#button-newmessage {
+  list-style-image: url("chrome://messenger/skin/addressbook/icons/addressbook-toolbar.svg#newmessage");
+}
+
+#button-newim {
+  list-style-image: url("chrome://messenger/skin/addressbook/icons/addressbook-toolbar.svg#newim");
+}
+
+#button-abdelete {
+  list-style-image: url("chrome://messenger/skin/addressbook/icons/addressbook-toolbar.svg#abdelete");
+}
+
+#ab-bar2[brighttext] #button-newcard {
+  list-style-image: url("chrome://messenger/skin/addressbook/icons/addressbook-toolbar.svg#newcard-inverted");
+}
+
+#ab-bar2[brighttext] #button-newlist {
+  list-style-image: url("chrome://messenger/skin/addressbook/icons/addressbook-toolbar.svg#newlist-inverted");
+}
+
+#ab-bar2[brighttext] #button-editcard {
+  list-style-image: url("chrome://messenger/skin/addressbook/icons/addressbook-toolbar.svg#editcard-inverted");
+}
+
+#ab-bar2[brighttext] #button-newmessage {
+  list-style-image: url("chrome://messenger/skin/addressbook/icons/addressbook-toolbar.svg#newmessage-inverted");
+}
+
+#ab-bar2[brighttext] #button-newim {
+  list-style-image: url("chrome://messenger/skin/addressbook/icons/addressbook-toolbar.svg#newim-inverted");
+}
+
+#ab-bar2[brighttext] #button-abdelete {
+  list-style-image: url("chrome://messenger/skin/addressbook/icons/addressbook-toolbar.svg#abdelete-inverted");
+}
+
+/* ::::: directory pane adjustments ::::: */
+
+#abDirTreeHeader {
+  border-bottom: 1px solid ThreeDShadow;
+}
+
+#abDirTreeHeader-title {
+  padding-inline-start: 4px;
+}
+
+#dirTree {
+  border-bottom: 1px solid ThreeDShadow;
+}
+
+/* ::::: splitters ::::: */
+
+#dirTree-splitter {
+  -moz-appearance: none;
+  border-inline-end: 1px solid ThreeDShadow;
+  /* splitter grip area */
+  width: 4px;
+  /* make only the splitter border visible */
+  margin-inline-start: -4px;
+  /* because of the negative margin needed to make the splitter visible */
+  position: relative;
+  z-index: 10;
+}
+
+#results-splitter {
+  -moz-appearance: none;
+  border-top: 1px solid ThreeDShadow;
+  /* splitter grip area */
+  height: 4px;
+  /* make only the splitter border visible */
+  margin-bottom: -4px;
+  /* because of the negative margin needed to make the splitter visible */
+  position: relative;
+  z-index: 10;
+}
+
+/* ::::: results pane ::::: */
+
+#blankResultsPaneMessageBox {
+  border-bottom: 1px solid ThreeDShadow;
+}
+
+#GeneratedName {
+  padding-inline-start: 26px;
+}
+
+/* ::::: card view pane ::::: */
+
+#CardViewOuterBox {
+  border-bottom: 1px solid ThreeDShadow;
+}
+
+#CardViewBox {
+  -moz-user-focus: ignore;
+  overflow: auto;
+  min-width: 150px;
+  background-color: -moz-Field;
+  color: -moz-FieldText;
+}
+
+#CardViewInnerBox {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  padding: 0 8px;
+}
+
+#CardTitle {
+  font-size: 150%;
+  font-weight: bold;
+  border-bottom: 2px solid -moz-FieldText;
+  min-width: 120px;
+  margin: 0px;
+}
+
+.cardViewGroup {
+  margin-top: 8px;
+  padding-bottom: 5px;
+  min-width: 50px;
+}
+
+.CardViewHeading {
+  padding: 1px;
+  padding-inline-start: 5px;
+  background-color: Highlight;
+  color: HighlightText;
+  font-weight: bold;
+  min-width: 30px;
+}
+
+#cvHomeMapIt,
+#cvWorkMapIt {
+  margin-bottom: 0;
+}
+
+/** Stock icons for the menu items. */
+#menu_New {
+  -moz-binding: url("chrome://global/content/bindings/menu.xml#menu-iconic");
+  list-style-image: url("moz-icon://stock/gtk-new?size=menu");
+}
+
+#menu_newContact,
+#dirTreeContext-newcard {
+  list-style-image: url("chrome://messenger/skin/addressbook/icons/addressbook-toolbar-small.png");
+  -moz-image-region: rect(32px 16px 48px 0px); /* contact-add-small.png */
+}
+
+#menu_newList,
+#dirTreeContext-newlist {
+  list-style-image: url("chrome://messenger/skin/addressbook/icons/addressbook-toolbar-small.png");
+  -moz-image-region: rect(64px 16px 80px 0px); /* contact-list-add-small.png */
+}
+
+#menu_newMessage,
+#abResultsTreeContext-newmessage {
+  list-style-image: url("chrome://messenger/skin/addressbook/icons/addressbook-toolbar-small.png");
+  -moz-image-region: rect(128px 16px 144px 0px); /* message-compose-small.png */
+}
+
+#abResultsTreeContext-newim {
+  list-style-image: url("chrome://messenger/skin/addressbook/icons/addressbook-toolbar-small.png");
+  -moz-image-region: rect(0px 16px 16px 0px); /* chat-new-small.png */
+}
+
+#menu_search_addresses {
+  list-style-image: url("moz-icon://stock/gtk-find?size=menu");
+}
+
+#menu_properties,
+#dirTreeContext-properties,
+#abResultsTreeContext-properties {
+  list-style-image: url("chrome://messenger/skin/addressbook/icons/addressbook-toolbar-small.png");
+  -moz-image-region: rect(96px 16px 112px 0px); /* contact-properties-small.png */
+}
+
+#dirTreeContext-delete,
+#abResultsTreeContext-delete {
+  list-style-image: url("moz-icon://stock/gtk-delete?size=menu");
+}
+
+#printPreviewMenuItem,
+#printPreviewAddressBook {
+  list-style-image: url("moz-icon://stock/gtk-print-preview?size=menu");
+}
+
+#printMenuItem,
+#printAddressBook,
+#abResultsTreeContext-print {
+  list-style-image: url("moz-icon://stock/gtk-print?size=menu");
+}

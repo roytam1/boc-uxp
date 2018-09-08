@@ -1,0 +1,114 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ *  * License, v. 2.0. If a copy of the MPL was not distributed with this
+ *   * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+@namespace html url("http://www.w3.org/1999/xhtml");
+
+#addressbookWindow:-moz-lwtheme {
+  background-repeat: no-repeat;
+  background-position: top right;
+}
+
+toolbox[labelalign="end"] > toolbar[mode="full"] deck .toolbarbutton-text {
+  text-align: start;
+}
+
+#abContent {
+  text-shadow: none;
+  color: -moz-DialogText;
+  background-color: -moz-Dialog;
+}
+
+#dirTree [sortDirection="ascending"],
+#dirTree [sortDirection="descending"] {
+  list-style-image: none;
+}
+
+/* ::::: directory pane icons ::::: */
+
+treechildren::-moz-tree-image(DirCol) {
+  margin-inline-end: 2px;
+  list-style-image: url("chrome://messenger/skin/addressbook/icons/addrbook.png");
+}
+
+treechildren::-moz-tree-image(DirCol, IsMailList-true) {
+  list-style-image: url("chrome://messenger/skin/addressbook/icons/ablist.png");
+}
+
+treechildren::-moz-tree-image(DirCol, IsRemote-true) {
+  list-style-image: url("chrome://messenger/skin/addressbook/icons/remote-addrbook.png");
+}
+
+treechildren::-moz-tree-image(DirCol, IsRemote-true, IsSecure-true) {
+  list-style-image: url("chrome://messenger/skin/addressbook/icons/secure-remote-addrbook.png");
+}
+
+/* ::::: results pane ::::: */
+
+treechildren::-moz-tree-image(GeneratedName) {
+  margin-inline-end: 2px;
+  list-style-image: url("chrome://messenger/skin/addressbook/icons/abcard.png");
+}
+
+treechildren::-moz-tree-image(GeneratedName, MailList) {
+  margin-inline-end: 2px;
+  list-style-image: url("chrome://messenger/skin/addressbook/icons/ablist.png");
+}
+
+treechildren::-moz-tree-cell-text(GeneratedName) {
+  padding-inline-start: 0;
+}
+
+/* ::::: card view pane ::::: */
+
+#cvPhoto {
+  list-style-image: url("chrome://messenger/skin/addressbook/icons/contact-generic.png");
+}
+
+#cvBuddyIcon {
+  padding-inline-start: 20px;
+  padding-top: 2px;
+}
+
+.CardViewText,
+.CardViewLink {
+  padding-inline-start: 20px;
+  padding-inline-end: 2px;
+  min-width: 30px;
+  margin: 0px;
+}
+
+.CardViewLink {
+  color: -moz-nativehyperlinktext;
+  cursor: pointer;
+}
+
+#blankResultsPaneMessageBox {
+  background-color: -moz-field;
+}
+
+#blankResultsPaneMessage {
+  font-style: italic;
+}
+
+#localResultsOnlyMessage {
+  font-style: italic;
+  text-align: center;
+}
+
+/* Hide the splitter when the blankResultsPaneMessageBox is shown */
+#abResultsTree[hidden="true"] + #results-splitter {
+  display: none;
+}
+
+html|a {
+  padding-inline-start: 0px;
+  padding-inline-end: 2px;
+  border: none !important;
+  text-decoration: underline;
+}
+
+html|p {
+  border: none !important;
+}

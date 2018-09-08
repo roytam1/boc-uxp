@@ -1,0 +1,45 @@
+# Always ignore node_modules.
+**/node_modules/**/*.*
+
+# lint eslint config files which are excluded by default
+!**/.eslintrc.js
+
+# Exclude expected objdirs.
+obj*/**
+
+# Exclude mozilla directory, this one is checked separately
+mozilla/**
+
+# These directories don't contain any js and are not meant to
+config/**
+db/**
+other-licenses/**
+testing/**
+
+# We ignore all these directories by default, until we get them enabled.
+# If you are enabling a directory, please add directory specific exclusions
+# below.
+build/**
+chat/**
+editor/**
+im/**
+ldap/**
+mail/**
+mailnews/**
+suite/**
+
+# calendar/ exclusions
+
+# prefs files
+calendar/lightning/content/lightning.js
+calendar/locales/en-US/lightning-l10n.js
+
+# gdata-provider uses non-standard javascript for Postbox compatibility
+calendar/providers/gdata/**
+
+# third party library
+calendar/base/modules/ical.js
+
+# preprocessed files
+calendar/base/content/dialogs/calendar-migration-dialog.js
+calendar/base/content/calendar-dnd-listener.js

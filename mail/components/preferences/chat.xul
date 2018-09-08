@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<!-- -*- Mode: Java; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
+   - This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
+<!DOCTYPE overlay [
+<!ENTITY % brandDTD SYSTEM "chrome://branding/locale/brand.dtd">
+<!ENTITY % chatDTD SYSTEM "chrome://messenger/locale/preferences/chat.dtd">
+%brandDTD;
+%chatDTD;
+]>
+
+<overlay id="ChatPaneOverlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <prefpane id="paneChat" onpaneload="gChatPane.init();">
+    <script type="application/javascript" src="chrome://messenger/content/preferences/chat.js"/>
+
+    <preferences id="chatPreferences">
+      <preference id="messenger.startup.action"            name="messenger.startup.action"     type="int"/>
+      <preference id="purple.conversations.im.send_typing" name="purple.conversations.im.send_typing" type="bool"/>
+      <preference id="messenger.status.reportIdle"         name="messenger.status.reportIdle"         type="bool"
+                  onchange="gChatPane.updateDisabledState();"/>
+      <preference id="messenger.status.timeBeforeIdle"     name="messenger.status.timeBeforeIdle"     type="int"/>
+      <preference id="messenger.status.awayWhenIdle"       name="messenger.status.awayWhenIdle"       type="bool"
+                  onchange="gChatPane.updateMessageDisabledState();"/>
+      <preference id="messenger.status.defaultIdleAwayMessage" name="messenger.status.defaultIdleAwayMessage" type="wstring"/>
+      <preference id="purple.logging.log_chats"            name="purple.logging.log_chats"            type="bool"/>
+      <preference id="purple.logging.log_ims"              name="purple.logging.log_ims"              type="bool"/>
+      <preference id="purple.logging.log_system"           name="purple.logging.log_system"           type="bool"/>
+      <preference id="pref.privacy.disable_button.view_passwords" name="pref.privacy.disable_button.view_passwords" type="bool"/>
+      <preference id="mail.chat.show_desktop_notifications" name="mail.chat.show_desktop_notifications" type="bool"/>
+      <preference id="mail.chat.notification_info" name="mail.chat.notification_info" type="int"/>
+      <preference id="mail.chat.play_sound" name="mail.chat.play_sound" type="bool"/>
+      <preference id="mail.chat.play_sound.type" name="mail.chat.play_sound.type" type="int"/>
+      <preference id="mail.chat.play_sound.url" name="mail.chat.play_sound.url" type="string"/>
+    </preferences>
+
+    <broadcaster id="idleReportingEnabled"/>
+
+    <!-- Startup -->
+    <hbox align="center">
+      <label value="&startupAction.label;" accesskey="&startupAction.accesskey;"
+             control="messengerStartupAction"/>
+      <menulist id="messengerStartupAction" preference="messenger.startup.action">
+        <menupopup>
+          <menuitem label="&startupOffline.label;"     value="0"/>
+          <menuitem label="&startupConnectAuto.label;" value="1"/>
+        </menupopup>
+      </menulist>
+    </hbox>
+    <separator/>
+
+    <!-- Status -->
+    <hbox align="center">
+      <checkbox id="reportIdle" label="&reportIdleAfter.label;"
+                accesskey="&reportIdleAfter.accesskey;"
+                preference="messenger.status.reportIdle"/>
+      <textbox id="timeBeforeAway" type="number" min="1" max="720"
+               observes="idleReportingEnabled"
+               preference="messenger.status.timeBeforeIdle"
+               onsyncfrompreference="var elt = document.getElementById(this.getAttribute('preference'));
+                                     return (elt.instantApply ? elt.valueFromPreferences : elt.value) / 60;"
+               onsynctopreference="return this.value * 60;"/>
+      <label value="&idleTime;" control="timeBeforeAway"/>
+    </hbox>
+    <vbox class="indent">
+      <hbox>
+        <checkbox id="autoAway"
+                  label="&andSetStatusToAway.label;"
+                  observes="idleReportingEnabled"
+                  accesskey="&andSetStatusToAway.accesskey;"
+                  preference="messenger.status.awayWhenIdle"/>
+        <spacer flex="1"/>
+      </hbox>
+      <textbox id="defaultIdleAwayMessage" class="indent"
+               observes="idleReportingEnabled"
+               preference="messenger.status.defaultIdleAwayMessage"/>
+    </vbox>
+    <separator/>
+    <hbox>
+      <checkbox id="sendTyping"
+                label="&sendTyping.label;"
+                accesskey="&sendTyping.accesskey;"
+                preference="purple.conversations.im.send_typing"/>
+      <spacer flex="1"/>
+    </hbox>
+    <groupbox>
+      <caption label="&chatNotifications.label;"/>
+      <hbox>
+        <hbox>
+          <checkbox id="desktopChatNotifications"
+                    label="&desktopChatNotifications.label;"
+                    accesskey="&desktopChatNotifications.accesskey;"
+                    preference="mail.chat.show_desktop_notifications"/>
+          <spacer flex="1"/>
+        </hbox>
+        <menulist id="chatNotificationInfo" preference="mail.chat.notification_info">
+          <menupopup>
+            <menuitem label="&completeNotification.label;" value="0"/>
+            <menuitem label="&buddyInfoOnly.label;" value="1"/>
+            <menuitem label="&dummyNotification.label;" value="2"/>
+          </menupopup>
+        </menulist>
+      </hbox>
+      <hbox align="center">
+        <checkbox id="chatNotification"
+                  label="&chatSound.label;"
+                  accesskey="&chatSound.accesskey;"
+                  preference="mail.chat.play_sound"
+                  oncommand="gChatPane.updatePlaySound();"/>
+        <spacer flex="1"/>
+        <button id="playChatSound" label="&play.label;" accesskey="&play.accesskey;"
+                oncommand="gChatPane.previewSound();"/>
+      </hbox>
+      <radiogroup id="chatSoundType"
+                  class="indent"
+                  orient="vertical"
+                  preference="mail.chat.play_sound.type"
+                  oncommand="gChatPane.updatePlaySound();"
+                  aria-labelledby="chatNotification">
+        <hbox>
+          <radio id="chatSoundSystemSound"
+                 label="&systemSound.label;"
+                 value="0"
+                 accesskey="&systemSound.accesskey;"/>
+          <spacer flex="1"/>
+        </hbox>
+        <hbox>
+          <radio id="chatSoundCustom"
+                 label="&customsound.label;"
+                 value="1"
+                 accesskey="&customsound.accesskey;"/>
+          <spacer flex="1"/>
+        </hbox>
+        <hbox>
+          <filefield id="chatSoundUrlLocation"
+                     class="indent"
+                     preference="mail.chat.play_sound.url"
+                     preference-editable="true"
+                     onsyncfrompreference="return gChatPane.readSoundLocation();"
+                     aria-labelledby="chatSoundCustom"
+                     flex="1"/>
+          <button id="browseForChatSound"
+                  label="&browse.label;"
+                  accesskey="&browse.accesskey;"
+                  oncommand="gChatPane.browseForSoundFile();">
+            <observes element="chatSoundUrlLocation" attribute="disabled"/>
+          </button>
+        </hbox>
+      </radiogroup>
+    </groupbox>
+  </prefpane>
+</overlay>
