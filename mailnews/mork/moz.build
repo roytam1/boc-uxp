@@ -5,7 +5,7 @@
 
 if not CONFIG['NSS_DISABLE_DBM'] and CONFIG['MOZ_MORK']:
     DIRS += [
-        'mork/public',
-        'mork/src',
-        'mork/build',
+        'public',
+        'src',
+        'build',
     ]

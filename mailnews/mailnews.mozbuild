@@ -10,7 +10,7 @@ if CONFIG['MOZ_LDAP_XPCOM']:
     ]
 
 if CONFIG['MOZ_MORK']:
-    DIRS += ['/db']
+    DIRS += ['/mailnews/mork']
 
 DIRS += ['/mailnews/core']
 
