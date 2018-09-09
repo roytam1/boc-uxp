@@ -244,7 +244,6 @@ var DefaultController =
       case "cmd_viewAllHeader":
       case "cmd_viewNormalHeader":
       case "cmd_stop":
-      case "cmd_chat":
       case "cmd_watchThread":
       case "cmd_killThread":
       case "cmd_killSubthread":
@@ -258,10 +257,6 @@ var DefaultController =
         return !!gFolderTreeController;
       case "cmd_goFolder":
         return !!gFolderTreeView;
-      case "cmd_joinChat":
-      case "cmd_addChatBuddy":
-      case "cmd_chatStatus":
-        return !!chatHandler;
 
       default:
         return false;
@@ -578,17 +573,11 @@ var DefaultController =
         if (document.getElementById("tabmail").selectedTab.mode.name == "message")
           return true;
         return IsFolderSelected() && !IsMessagePaneCollapsed();
-      case "cmd_chat":
-        return true;
       case "cmd_newFolder":
       case "cmd_newVirtualFolder":
         return !!gFolderTreeController;
       case "cmd_goFolder":
         return !!gFolderTreeView;
-      case "cmd_joinChat":
-      case "cmd_addChatBuddy":
-      case "cmd_chatStatus":
-        return !!chatHandler;
 
       default:
         return false;
@@ -997,20 +986,11 @@ var DefaultController =
       case "cmd_fullZoomToggle":
         ZoomManager.toggleZoom();
         break;
-      case "cmd_chat":
-        showChatTab();
-        break;
       case "cmd_newFolder":
         gFolderTreeController.newFolder();
         break;
       case "cmd_newVirtualFolder":
         gFolderTreeController.newVirtualFolder();
-        break;
-      case "cmd_joinChat":
-        chatHandler.joinChat();
-        break;
-      case "cmd_addChatBuddy":
-        chatHandler.addBuddy();
         break;
     }
   },

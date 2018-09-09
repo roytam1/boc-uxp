@@ -231,7 +231,6 @@
   <command id="cmd_goForward" oncommand="goDoCommand('cmd_goForward')" disabled="true"/>
   <command id="cmd_goBack" oncommand="goDoCommand('cmd_goBack')" disabled="true"/>
   <command id="cmd_goFolder" oncommand="gFolderTreeView.selectFolder(event.target._folder, true);" disabled="true"/>
-  <command id="cmd_chat" oncommand="goDoCommand('cmd_chat')" disabled="true"/>
 </commandset>
 
 <commandset id="mailMessageMenuItems"
@@ -286,7 +285,6 @@
   <command id="button_junk"/>
   <command id="button_showconversation"/>
   <command id="button_compact"/>
-  <command id="cmd_chat"/>
 </commandset>
 
 <commandset id="mailGetMsgMenuItems"
@@ -344,9 +342,6 @@
            valueMessageAccessKey="&filtersApplyToMessage.accesskey;"/>
   <command id="cmd_runJunkControls" oncommand="goDoCommand('cmd_runJunkControls');" disabled="true"/>
   <command id="cmd_deleteJunk" oncommand="goDoCommand('cmd_deleteJunk');" disabled="true"/>
-  <command id="cmd_joinChat" oncommand="goDoCommand('cmd_joinChat');" disabled="true"/>
-  <command id="cmd_chatStatus" oncommand="chatHandler.setStatusMenupopupCommand(event);" disabled="true"/>
-  <command id="cmd_addChatBuddy" oncommand="goDoCommand('cmd_addChatBuddy');" disabled="true"/>
 </commandset>
 
 #ifdef XP_MACOSX
@@ -418,7 +413,6 @@
   <key id="key_archive" key="&archiveMsgCmd.key;"                    oncommand="goDoCommand('cmd_archive')"/>
   <key id="key_goForward" key="&goForwardCmd.commandKey;"            oncommand="goDoCommand('cmd_goForward')"/>
   <key id="key_goBack" key="&goBackCmd.commandKey;"                  oncommand="goDoCommand('cmd_goBack')"/>
-  <key id="key_goChat" key="&goChatCmd.key;"                         oncommand="goDoCommand('cmd_chat')" modifiers="accel,shift"/>
   <key id="key_goStartPage" keycode="VK_HOME"                        oncommand="goDoCommand('cmd_goStartPage')" modifiers="alt"/>
   <key id="key_undoCloseTab" key="&undoCloseTabCmd.commandkey;"      oncommand="goDoCommand('cmd_undoCloseTab')" modifiers="accel, shift"/>
   <key id="key_reply" key="&replyMsgCmd.key;"                        oncommand="goDoCommand('cmd_reply')" modifiers="accel"/>
@@ -1089,9 +1083,6 @@
               <menuitem id="appmenu_newMailAccountMenuItem"
                         label="&newExistingEmailAccountCmd.label;"
                         oncommand="NewMailAccount(msgWindow);"/>
-              <menuitem id="appmenu_newIMAccountMenuItem"
-                        label="&newIMAccountCmd.label;"
-                        oncommand="openIMAccountWizard();"/>
               <menuitem id="appmenu_newFeedAccountMenuItem"
                         label="&newFeedAccountCmd.label;"
                         accesskey="&newFeedAccountCmd.accesskey;"
@@ -1103,9 +1094,6 @@
               <menuitem id="appmenu_newCard"
                         label="&appmenuNewContactCmd.label;"
                         command="cmd_newCard"/>
-              <menuitem id="appmenu_newIMContactMenuItem"
-                        label="&newIMContactCmd.label;"
-                        command="cmd_addChatBuddy"/>
             </menupopup>
         </splitmenu>
         <menu id="appmenu_msgAttachmentMenu"
@@ -1850,11 +1838,6 @@
                       key="key_goBack"
                       command="cmd_goBack"/>
             <menuseparator id="appmenu_goNextSeparator"/>
-            <menuitem id="appmenu_goChat"
-                      label="&goChatCmd.label;"
-                      key="key_goChat"
-                      command="cmd_chat"/>
-            <menuseparator id="appmenu_goChatSeparator"/>
             <menu id="appmenu_goFolderMenu"
                   label="&folderMenu.label;"
                   command="cmd_goFolder">
@@ -2089,32 +2072,6 @@
                       label="&savedFiles.label;"
                       key="key_savedFiles"
                       oncommand="openSavedFilesWnd();"/>
-            <menu id="appmenu_imAccountsStatus"
-                  label="&imAccountsStatus.label;"
-                  command="cmd_chatStatus">
-              <menupopup id="appmenu_imStatusMenupopup">
-                <menuitem id="appmenu_imStatusAvailable"
-                          status="available"
-                          label="&imStatus.available;"
-                          class="menuitem-iconic"/>
-                <menuitem id="appmenu_imStatusUnavailable"
-                          status="unavailable"
-                          label="&imStatus.unavailable;"
-                          class="menuitem-iconic"/>
-                <menuseparator id="appmenu_imStatusOfflineSeparator"/>
-                <menuitem id="appmenu_imStatusOffline"
-                          status="offline"
-                          label="&imStatus.offline;"
-                          class="menuitem-iconic"/>
-                <menuseparator id="appmenu_imStatusShowAccountsSeparator"/>
-                <menuitem id="appmenu_imStatusShowAccounts"
-                          label="&imStatus.showAccounts;"/>
-              </menupopup>
-            </menu>
-            <menuitem id="appmenu_joinChatMenuItem"
-                      label="&joinChatCmd.label;"
-                      command="cmd_joinChat"/>
-            <menuseparator id="appmenu_afterChatSeparator"/>
             <menuitem id="appmenu_runJunkControls"
                       label="&runJunkControls.label;"
                       command="cmd_runJunkControls"/>
@@ -2297,10 +2254,6 @@
                         label="&newExistingEmailAccountCmd.label;"
                         accesskey="&newExistingEmailAccountCmd.accesskey;"
                         oncommand="NewMailAccount(msgWindow);"/>
-              <menuitem id="newIMAccountMenuItem"
-                        label="&newIMAccountCmd.label;"
-                        accesskey="&newIMAccountCmd.accesskey;"
-                        oncommand="openIMAccountWizard();"/>
               <menuitem id="newFeedAccountMenuItem"
                         label="&newFeedAccountCmd.label;"
                         accesskey="&newFeedAccountCmd.accesskey;"
@@ -2311,10 +2264,6 @@
                         oncommand="MsgAccountWizard();"/>
               <menuseparator id="newPopupMenuSeparator"/>
               <menuitem id="menu_newCard"/>
-              <menuitem id="newIMContactMenuItem"
-                        label="&newIMContactCmd.label;"
-                        accesskey="&newIMContactCmd.accesskey;"
-                        command="cmd_addChatBuddy"/>
             </menupopup>
           </menu>
           <menuitem id="openMessageFileMenuitem" label="&openMessageFileCmd.label;"
@@ -2738,11 +2687,6 @@
                     accesskey="&goBackCmd.accesskey;" command="cmd_goBack"
                     key="key_goBack"/>
           <menuseparator id="goNextSeparator"/>
-          <menuitem id="menu_goChat" label="&goChatCmd.label;"
-                    accesskey="&goChatCmd.accesskey;"
-                    command="cmd_chat"
-                    key="key_goChat"/>
-          <menuseparator id="goChatSeparator"/>
           <menu id="goFolderMenu"
                 label="&folderMenu.label;"
                 accesskey="&folderMenu.accesskey;"
@@ -2994,23 +2938,6 @@
         <menuitem id="activityManager" label="&activitymanager.label;"
                   accesskey="&activitymanager.accesskey;"
                   oncommand="openActivityMgr();"/>
-        <menu id="imAccountsStatus" label="&imAccountsStatus.label;"
-              accesskey="&imAccountsStatus.accesskey;"
-              command="cmd_chatStatus">
-          <menupopup id="imStatusMenupopup">
-            <menuitem id="imStatusAvailable" status="available" label="&imStatus.available;" class="menuitem-iconic"/>
-            <menuitem id="imStatusUnavailable" status="unavailable" label="&imStatus.unavailable;" class="menuitem-iconic"/>
-            <menuseparator id="imStatusOfflineSeparator"/>
-            <menuitem id="imStatusOffline" status="offline" label="&imStatus.offline;" class="menuitem-iconic"/>
-            <menuseparator id="imStatusShowAccountsSeparator"/>
-            <menuitem id="imStatusShowAccounts" label="&imStatus.showAccounts;"/>
-          </menupopup>
-        </menu>
-        <menuitem id="joinChatMenuItem"
-                  label="&joinChatCmd.label;"
-                  accesskey="&joinChatCmd.accesskey;"
-                  command="cmd_joinChat"/>
-
         <menuseparator id="devToolsSeparator"/>
         <menuitem id="filtersCmd" label="&filtersCmd2.label;"
                   accesskey="&filtersCmd2.accesskey;"
@@ -3400,12 +3327,6 @@
                    label="&addressBookButton.label;"
                    oncommand="toAddressBook();"
                    tooltiptext="&addressBookButton.tooltip;"/>
-    <toolbarbutton id="button-chat"
-                   class="toolbarbutton-1"
-                   label="&chatButton.label;"
-                   command="cmd_chat"
-                   observes="cmd_chat"
-                   tooltiptext="&chatButton.tooltip;"/>
     <toolbaritem id="throbber-box" title="&throbberItem.title;" align="center" pack="center"
                  mousethrough="always">
        <image/>

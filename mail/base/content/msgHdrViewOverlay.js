@@ -12,8 +12,6 @@ Components.utils.import("resource://gre/modules/Services.jsm");
 Components.utils.import("resource:///modules/displayNameUtils.js");
 Components.utils.import("resource:///modules/mailServices.js");
 Components.utils.import("resource:///modules/gloda/utils.js");
-var {Status: statusUtils} =
-  Components.utils.import("resource:///modules/imStatusUtils.jsm");
 
 ////////////////////////////////////////////////////////////////////////////////////
 // Warning: It's critical that the code in here for displaying the message
@@ -1360,26 +1358,8 @@ function UpdateEmailNodeDetails(aEmailAddress, aDocumentNode, aCardDetails) {
 }
 
 function UpdateEmailPresenceDetails(aDocumentNode, aChatContact) {
-  if (!aChatContact) {
-    aDocumentNode.removeAttribute("chatStatus");
-    aDocumentNode.removeAttribute("presenceTooltip");
-    return;
-  }
-
-  let statusType = aChatContact.statusType;
-  if (statusType < Ci.imIStatusInfo.STATUS_IDLE)
-    aDocumentNode.removeAttribute("chatStatus");
-  else if (statusType == Ci.imIStatusInfo.STATUS_AVAILABLE)
-    aDocumentNode.setAttribute("chatStatus", "available");
-  else
-    aDocumentNode.setAttribute("chatStatus", "away");
-
-  let tooltipText = aChatContact.preferredBuddy.protocol.name + "\n" +
-                    statusUtils.toLabel(aChatContact.statusType);
-  let statusText = aChatContact.statusText;
-  if (statusText)
-    tooltipText += " - " + statusText;
-  aDocumentNode.setAttribute("presenceTooltip", tooltipText);
+  aDocumentNode.removeAttribute("chatStatus");
+  aDocumentNode.removeAttribute("presenceTooltip");
 }
 
 function UpdateExtraAddressProcessing(aAddressData, aDocumentNode, aAction,

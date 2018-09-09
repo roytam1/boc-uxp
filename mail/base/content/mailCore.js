@@ -482,36 +482,14 @@ function openActivityMgr()
 
 function openIMAccountMgr()
 {
-  var win = Services.wm.getMostRecentWindow("Messenger:Accounts");
-  if (win)
-    win.focus();
-  else {
-    win = Services.ww.openWindow(null,
-                                 "chrome://messenger/content/chat/imAccounts.xul",
-                                 "Accounts", "chrome,resizable,centerscreen",
-                                 null);
-  }
-  return win;
+  // XXXTobin: Remove consumers
+  return;
 }
 
 function openIMAccountWizard()
 {
-  const kFeatures = "chrome,centerscreen,modal,titlebar";
-  const kUrl = "chrome://messenger/content/chat/imAccountWizard.xul";
-  const kName = "IMAccountWizard";
-
-  if (AppConstants.platform == "macosx") {
-    // On Mac, avoid using the hidden window as a parent as that would
-    // make it visible.
-    let hiddenWindowUrl =
-      Services.prefs.getCharPref("browser.hiddenWindowChromeURL");
-    if (window.location.href == hiddenWindowUrl) {
-      Services.ww.openWindow(null, kUrl, kName, kFeatures, null);
-      return;
-    }
-  }
-
-  window.openDialog(kUrl, kName, kFeatures);
+  // XXXTobin: Remove consumers
+  return;
 }
 
 function openSavedFilesWnd()

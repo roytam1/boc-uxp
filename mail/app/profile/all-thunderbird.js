@@ -84,12 +84,12 @@ pref("app.update.certs.2.issuerName", "CN=thawte SSL CA - G2,O=\"thawte, Inc.\",
 pref("app.update.certs.2.commonName", "aus5.mozilla.org");
 
 // Whether or not app updates are enabled
-pref("app.update.enabled", true);
+pref("app.update.enabled", false);
 
 // If set to true, the Update Service will automatically download updates when
 // app updates are enabled per the app.update.enabled preference and if the user
 // can apply updates.
-pref("app.update.auto", true);
+pref("app.update.auto", false);
 
 // If set to true, the Update Service will present no UI for any event.
 pref("app.update.silent", false);
@@ -99,7 +99,8 @@ pref("app.update.silent", false);
 pref("app.update.staging.enabled", true);
 
 // Update service URL:
-pref("app.update.url", "https://aus5.mozilla.org/update/6/%PRODUCT%/%VERSION%/%BUILD_ID%/%BUILD_TARGET%/%LOCALE%/%CHANNEL%/%OS_VERSION%/%SYSTEM_CAPABILITIES%/%DISTRIBUTION%/%DISTRIBUTION_VERSION%/update.xml");
+//pref("app.update.url", "https://aus5.mozilla.org/update/6/%PRODUCT%/%VERSION%/%BUILD_ID%/%BUILD_TARGET%/%LOCALE%/%CHANNEL%/%OS_VERSION%/%SYSTEM_CAPABILITIES%/%DISTRIBUTION%/%DISTRIBUTION_VERSION%/update.xml");
+pref("app.update.url", "https://aus5.mozilla.org/update/6/");
 
 // URL user can browse to manually if for some reason all update installation
 // attempts fail.
