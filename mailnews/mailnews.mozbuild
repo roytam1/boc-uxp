@@ -4,10 +4,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 if CONFIG['MOZ_LDAP_XPCOM']:
-    DIRS += [
-        '/ldap',
-        '/ldap/xpcom',
-    ]
+    DIRS += ['/mailnews/ldap']
 
 if CONFIG['MOZ_MORK']:
     DIRS += ['/mailnews/mork']
