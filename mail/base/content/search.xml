@@ -240,11 +240,6 @@
               let args = {
                 searcher: new GlodaMsgSearcher(null, searchString)
               };
-              if (Services.prefs.getBoolPref("mail.chat.enabled")) {
-                if (!("GlodaIMSearcher" in window))
-                  Cu.import("resource:///modules/search_im.js");
-                args.IMSearcher = new GlodaIMSearcher(null, searchString);
-              }
               tabmail.openTab("glodaFacet", args);
             }
           } catch (e) {
