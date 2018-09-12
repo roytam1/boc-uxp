@@ -41,22 +41,22 @@ if CONFIG['MOZ_WIDGET_TOOLKIT'] == 'cocoa':
     OS_LIBS += ['-framework Cocoa']
 
 LOCAL_INCLUDES += [
-    '/mailnews/core/addrbook/src',
-    '/mailnews/core/base/search/src',
-    '/mailnews/core/base/src',
-    '/mailnews/core/base/util',
-    '/mailnews/core/compose/src',
-    '/mailnews/core/extensions/bayesian-spam-filter/src',
-    '/mailnews/core/extensions/fts3/src',
-    '/mailnews/core/extensions/mailviews/src',
-    '/mailnews/core/extensions/mdn/src',
-    '/mailnews/core/extensions/smime/src',
-    '/mailnews/core/imap/src',
-    '/mailnews/core/intl',
-    '/mailnews/core/local/src',
-    '/mailnews/core/mime/emitters',
-    '/mailnews/core/mime/src',
-    '/mailnews/core/news/src',
+    '../addrbook/src',
+    '../base/search/src',
+    '../base/src',
+    '../base/util',
+    '../compose/src',
+    '../extensions/bayesian-spam-filter/src',
+    '../extensions/fts3/src',
+    '../extensions/mailviews/src',
+    '../extensions/mdn/src',
+    '../extensions/smime/src',
+    '../imap/src',
+    '../intl',
+    '../local/src',
+    '../mime/emitters',
+    '../mime/src',
+    '../news/src',
 ]
 
 if CONFIG['MOZ_LDAP_XPCOM']:
