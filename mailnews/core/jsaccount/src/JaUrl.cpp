@@ -162,6 +162,7 @@ NS_IMPL_ISUPPORTS(JaCppUrlDelegator::Super,
                   nsIMsgMailNewsUrl,
                   nsIMsgMessageUrl,
                   nsIURI,
+                  nsIURIWithQuery,
                   nsIURL,
                   nsIInterfaceRequestor)
 
@@ -198,6 +199,7 @@ NS_IMETHODIMP JaCppUrlDelegator::SetJsDelegate(nsISupports *aJsDelegate)
   mJsISupports = aJsDelegate;
   mJsIMsgMailNewsUrl = do_QueryInterface(aJsDelegate);
   mJsIURI = do_QueryInterface(aJsDelegate);
+  mJsIURIWithQuery = do_QueryInterface(aJsDelegate);
   mJsIURL = do_QueryInterface(aJsDelegate);
   mJsIMsgMessageUrl = do_QueryInterface(aJsDelegate);
   mJsIInterfaceRequestor = do_QueryInterface(aJsDelegate);
