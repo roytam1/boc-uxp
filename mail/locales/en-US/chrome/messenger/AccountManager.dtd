@@ -6,18 +6,10 @@
 
 <!ENTITY accountManagerTitle.label "Account Settings">
 
-<!ENTITY accountActionsButton.label "Account Actions">
-<!ENTITY accountActionsButton.accesskey "A">
-<!ENTITY addMailAccountButton.label "Add Mail Account…">
-<!ENTITY addMailAccountButton.accesskey "A">
-<!ENTITY addIMAccountButton.label "Add Chat Account…">
-<!ENTITY addIMAccountButton.accesskey "C">
-<!ENTITY addFeedAccountButton.label "Add Feed Account…">
-<!ENTITY addFeedAccountButton.accesskey "F">
-<!ENTITY addOtherAccountButton.label "Add Other Account…">
-<!ENTITY addOtherAccountButton.accesskey "O">
+<!ENTITY addAccountButton.label "Add Account…">
+<!ENTITY addAccountButton.accesskey "A">
 <!ENTITY setDefaultButton.label "Set as Default">
-<!ENTITY setDefaultButton.accesskey "D">
+<!ENTITY setDefaultButton.accesskey "f">
 <!ENTITY removeButton.label "Remove Account">
 <!ENTITY removeButton.accesskey "R">
 

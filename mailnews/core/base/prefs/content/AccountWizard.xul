@@ -10,7 +10,7 @@
 <wizard id="AccountWizard" title="&windowTitle.label;"
         onwizardcancel="return onCancel();"
         onwizardfinish="return FinishAccount();"
-#ifdef MOZ_THUNDERBIRD
+#if defined(MOZ_THUNDERBIRD) && defined(MOZ_MAILNEWS_BABY_MODE_ACCOUNT_CREATION)
         onload="onAccountWizardLoad(); initAccountWizardTB(window.arguments);"
 #else
         onload="onAccountWizardLoad();"
@@ -43,11 +43,12 @@
       <label control="acctyperadio">&accountTypeDirections.label;</label>
       <separator/>
       <radiogroup id="acctyperadio" >
-#ifndef MOZ_THUNDERBIRD
+#if !defined(MOZ_THUNDERBIRD) || !defined(MOZ_MAILNEWS_BABY_MODE_ACCOUNT_CREATION)
         <radio id="mailaccount" value="mailaccount"
                label="&accountTypeMail.label;" accesskey="&accountTypeMail.accesskey;"
                selected="true"/>
 #endif
+
         <vbox datasources="rdf:ispdefaults" 
               containment="http://home.netscape.com/NC-rdf#providers"
               id="ispBox"
