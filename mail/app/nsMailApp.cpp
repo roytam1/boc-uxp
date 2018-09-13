@@ -175,7 +175,8 @@ static int do_main(int argc, char* argv[], char* envp[], nsIFile *xreDirectory)
       argv[i] = argv[i + 1];
     }
 
-    return XRE_XPCShellMain(--argc, argv, envp);
+    XREShellData shellData;
+    return XRE_XPCShellMain(--argc, argv, envp, &shellData);
   }
 
   if (appini) {
