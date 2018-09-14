@@ -208,9 +208,6 @@ pref("extensions.update.interval", 86400);  // Check for updates to Extensions a
 pref("extensions.dss.enabled", false);          // Dynamic Skin Switching
 pref("extensions.dss.switchPending", false);    // Non-dynamic switch pending after next
 
-pref("extensions.{972ce4c6-7e08-4474-a285-3208198ce6fd}.name", "chrome://messenger/locale/messenger.properties");
-pref("extensions.{972ce4c6-7e08-4474-a285-3208198ce6fd}.description", "chrome://messenger/locale/messenger.properties");
-
 pref("lightweightThemes.update.enabled", true);
 
 pref("xpinstall.whitelist.add", "addons.mozilla.org");
