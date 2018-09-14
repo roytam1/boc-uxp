@@ -1077,9 +1077,6 @@
                         label="&newVirtualFolderCmd.label;"
                         command="cmd_newVirtualFolder"/>
               <menuseparator id="appmenu_newAccountPopupMenuSeparator"/>
-              <menuitem id="appmenu_newCreateEmailAccountMenuItem"
-                        label="&newCreateEmailAccountCmd.label;"
-                        oncommand="NewMailAccountProvisioner(msgWindow);"/>
               <menuitem id="appmenu_newMailAccountMenuItem"
                         label="&newExistingEmailAccountCmd.label;"
                         oncommand="NewMailAccount(msgWindow);"/>
@@ -2246,10 +2243,6 @@
                         command="cmd_newVirtualFolder"
                         accesskey="&newVirtualFolderCmd.accesskey;"/>
               <menuseparator id="newAccountPopupMenuSeparator"/>
-              <menuitem id="newCreateEmailAccountMenuItem"
-                        label="&newCreateEmailAccountCmd.label;"
-                        accesskey="&newCreateEmailAccountCmd.accesskey;"
-                        oncommand="NewMailAccountProvisioner(msgWindow);"/>
               <menuitem id="newMailAccountMenuItem"
                         label="&newExistingEmailAccountCmd.label;"
                         accesskey="&newExistingEmailAccountCmd.accesskey;"
