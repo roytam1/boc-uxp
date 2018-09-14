@@ -122,11 +122,6 @@ img[overflowing][shrinktofit] {
   outline: none;
 }
 
-/* New style feed summary body. */
-body[selected="false"] {
-  display: none;
-}
-
 /* Old style feeds. */
 #_mailrssiframe {
   position: fixed;
