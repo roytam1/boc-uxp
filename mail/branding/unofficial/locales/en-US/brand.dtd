@@ -1,0 +1,10 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
+<!ENTITY  brandShortName        "MailNews">
+<!ENTITY  brandFullName         "MailNews">
+<!ENTITY  vendorShortName       "BinOC">
+<!ENTITY  vendorFullName        "Binary Outcast">
+<!ENTITY  vendorURL             "http://binaryoutcast.com/">
+<!ENTITY  trademarkInfo.part1   " ">
