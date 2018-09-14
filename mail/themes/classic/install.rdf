@@ -24,8 +24,8 @@
     </em:targetApplication>
     
     <!-- Front End MetaData -->
-    <em:name>Default</em:name>
-    <em:description>The default theme.</em:description>
+    <em:name>Austrata Style (Non-default Default Theme)</em:name>
+    <em:description>The Hybrid of Strata and Australis that some people actually find acceptable.</em:description>
 
     <!-- EXTENSION AUTHORS!
          DO NOT COPY THIS PROPERTY INTO YOUR INSTALL RDF FILES
