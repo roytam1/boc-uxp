@@ -372,36 +372,23 @@ var MailPrefObserver = {
  */
 function AutoConfigWizard(okCallback)
 {
-  let suppressDialogs = false;
+    let suppressDialogs = false;
 
-  // Try to get the suppression pref that we stashed away in accountProvisionerTab.js.
-  // If it doesn't exist, nsIPrefBranch throws, so we eat it silently and move along.
-  try {
-    suppressDialogs = Services.prefs.getBoolPref("mail.provider.suppress_dialog_on_startup");
-  } catch(e) {};
+    // Try to get the suppression pref that we stashed away in accountProvisionerTab.js.
+    // If it doesn't exist, nsIPrefBranch throws, so we eat it silently and move along.
+    try {
+      suppressDialogs = Services.prefs.getBoolPref("mail.provider.suppress_dialog_on_startup");
+    } catch(e) {};
 
-  if (suppressDialogs) {
-    // Looks like we were in the middle of filling out an account form. We
-    // won't display the dialogs in that case.
-    Services.prefs.clearUserPref("mail.provider.suppress_dialog_on_startup");
-    okCallback();
-    return;
-  }
+    if (suppressDialogs) {
+      // Looks like we were in the middle of filling out an account form. We
+      // won't display the dialogs in that case.
+      Services.prefs.clearUserPref("mail.provider.suppress_dialog_on_startup");
+      okCallback();
+      return;
+    }
 
-  if (Services.prefs.getBoolPref("mail.provider.enabled")) {
-    Services.obs.addObserver({
-      observe: function(aSubject, aTopic, aData) {
-        if (aTopic == "mail-tabs-session-restored" && aSubject === window) {
-          // We're done here, unregister this observer.
-          Services.obs.removeObserver(this, "mail-tabs-session-restored");
-          NewMailAccountProvisioner(msgWindow, { okCallback: null });
-        }
-      }
-    }, "mail-tabs-session-restored", false);
-    okCallback();
-  }
-  else
-    NewMailAccount(msgWindow, okCallback);
+    msgOpenAccountWizard(okCallback, null);
 }
 
 /**

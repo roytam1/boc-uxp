@@ -59,11 +59,6 @@ var gDisallow_classes_no_html = 1;
 // dialog, and the account provisioner window.
 function menu_new_init()
 {
-  // If the account provisioner is pref'd off, we shouldn't display the menu
-  // item.
-  ShowMenuItem("newCreateEmailAccountMenuItem",
-               Services.prefs.getBoolPref("mail.provider.enabled"));
-
   // If we don't have a gFolderDisplay, just get out of here and leave the menu
   // as it is.
   if (!gFolderDisplay)
