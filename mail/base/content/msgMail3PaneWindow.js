@@ -388,7 +388,20 @@ function AutoConfigWizard(okCallback)
     return;
   }
 
-  NewMailAccount(msgWindow, okCallback);
+  if (Services.prefs.getBoolPref("mail.provider.enabled")) {
+    Services.obs.addObserver({
+      observe: function(aSubject, aTopic, aData) {
+        if (aTopic == "mail-tabs-session-restored" && aSubject === window) {
+          // We're done here, unregister this observer.
+          Services.obs.removeObserver(this, "mail-tabs-session-restored");
+          NewMailAccountProvisioner(msgWindow, { okCallback: null });
+        }
+      }
+    }, "mail-tabs-session-restored", false);
+    okCallback();
+  }
+  else
+    NewMailAccount(msgWindow, okCallback);
 }
 
 /**
