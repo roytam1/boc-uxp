@@ -20,6 +20,13 @@ if test "$OS_ARCH" = "WINNT" -o \
   MOZ_BUNDLED_FONTS=1
 fi
 
+if test "$OS_ARCH" = "WINNT"; then
+  if ! test "$HAVE_64BIT_BUILD"; then
+    MOZ_VERIFY_MAR_SIGNATURE=1
+    MOZ_MAINTENANCE_SERVICE=1
+  fi
+fi
+
 MOZ_SAFE_BROWSING=1
 MOZ_MORK=1
 
@@ -29,7 +36,9 @@ MOZ_APP_VERSION_DISPLAY_TXT=${_topsrcdir}/$MOZ_BUILD_APP/config/version_display.
 MOZ_APP_VERSION_DISPLAY=`cat $MOZ_APP_VERSION_DISPLAY_TXT`
 THUNDERBIRD_VERSION=$MOZ_APP_VERSION
 
-MOZ_BRANDING_DIRECTORY=${_topsrcdir}/$MOZ_BUILD_APP/branding/unofficial
+MOZ_UA_BUILDID=20100101
+
+MOZ_BRANDING_DIRECTORY=mail/branding/aurora
 MOZ_OFFICIAL_BRANDING_DIRECTORY=other-licenses/branding/thunderbird
 MOZ_APP_ID={3550f703-e582-4d05-9a08-453d09bdfdc6}
 # This should usually be the same as the value MAR_CHANNEL_ID.

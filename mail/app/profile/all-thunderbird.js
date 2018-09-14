@@ -12,7 +12,7 @@
 #endif
 
 pref("general.useragent.locale", "@AB_CD@");
-pref("general.skins.selectedSkin", "ClassicTB2");
+pref("general.skins.selectedSkin", "classic/1.0");
 
 #ifdef XP_MACOSX
 pref("browser.chromeURL", "chrome://messenger/content/messengercompose/messengercompose.xul");
@@ -22,7 +22,12 @@ pref("mail.biff.animate_dock_icon", false);
 pref("mail.rights.version", 0);
 
 // Don't show the about:rights notification in debug or non-official builds.
+#ifdef DEBUG
 pref("mail.rights.override", true);
+#endif
+#ifndef MOZILLA_OFFICIAL
+pref("mail.rights.override", true);
+#endif
 
 // gtk2 (*nix) lacks transparent/translucent drag support (bug 376238), so we
 // want to disable it so people can see where they are dragging things.
@@ -111,7 +116,7 @@ pref("app.update.idletime", 60);
 
 // Whether or not to attempt using the service for updates.
 #ifdef MOZ_MAINTENANCE_SERVICE
-pref("app.update.service.enabled", false);
+pref("app.update.service.enabled", true);
 #endif
 
 // Release notes URL
@@ -474,7 +479,11 @@ pref("mail.tabs.closeWindowWithLastTab", true);
 pref("mail.tabs.closeButtons", 1);
 
 // Allow the tabs to be in the titlebar on supported systems
+#ifdef UNIX_BUT_NOT_MAC
 pref("mail.tabs.drawInTitlebar", false);
+#else
+pref("mail.tabs.drawInTitlebar", true);
+#endif
 
 // The breakpad report server to link to in about:crashes
 pref("breakpad.reportURL", "https://crash-stats.mozilla.com/report/index/");
