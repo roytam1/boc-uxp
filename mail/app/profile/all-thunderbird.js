@@ -813,7 +813,7 @@ pref("mail.chat.play_sound.type", 0);
 pref("mail.chat.play_sound.url", "");
 
 // BigFiles
-pref("mail.cloud_files.enabled", true);
+pref("mail.cloud_files.enabled", false);
 pref("mail.cloud_files.inserted_urls.footer.link", "http://www.getthunderbird.com");
 pref("mail.cloud_files.learn_more_url", "https://support.mozillamessaging.com/kb/filelink-large-attachments");
 
