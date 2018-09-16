@@ -369,6 +369,7 @@ xplatform.jar:
   skin/xplatform/messenger/icons/message-ignored.png        (messenger/icons/message-ignored.png)
   skin/xplatform/messenger/icons/message.png        (messenger/icons/message.png)
   skin/xplatform/messenger/icons/multicolor.png        (messenger/icons/multicolor.png)
+  skin/xplatform/messenger/icons/nextcloud.png        (messenger/icons/nextcloud.png)
   skin/xplatform/messenger/icons/new-mail-alert.png        (messenger/icons/new-mail-alert.png)
   skin/xplatform/messenger/icons/notchecked.gif        (messenger/icons/notchecked.gif)
   skin/xplatform/messenger/icons/offline.png        (messenger/icons/offline.png)
