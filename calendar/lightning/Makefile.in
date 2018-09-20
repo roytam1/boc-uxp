@@ -47,15 +47,9 @@ ifdef MOZ_SOURCE_REPO
 DEFINES += -DMOZ_SOURCE_REPO='$(MOZ_SOURCE_REPO)'
 endif
 
-ifdef NIGHTLY_BUILD
-# On nightly builds, install as a global extension in
+# Install as a global extension in
 # dist/bin/extensions/
 XPI_INSTALL_EXTENSION = $(XPI_EM_ID)
-else
-# For beta and release builds, install as a distribution extension in
-# dist/bin/distribution/extensions/
-INSTALL_EXTENSION_ID = $(XPI_EM_ID)
-endif
 
 DEFINES += -DTHUNDERBIRD_VERSION=$(THUNDERBIRD_VERSION) \
            -DTHUNDERBIRD_MAXVERSION=$(THUNDERBIRD_MAXVERSION) \
