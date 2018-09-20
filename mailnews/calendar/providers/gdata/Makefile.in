@@ -30,5 +30,5 @@ stage-package:
 	(cd $(FINAL_TARGET) && tar $(TAR_CREATE_FLAGS) - *) | (cd $(PKG_STAGE)/extensions/$(XPI_EM_ID) && tar -xf -)
 
 include $(topsrcdir)/config/rules.mk
-include $(topsrcdir)/calendar/lightning/versions.mk
-include $(topsrcdir)/calendar/lightning/lightning-packager.mk
+include $(topsrcdir)/mailnews/calendar/lightning/versions.mk
+include $(topsrcdir)/mailnews/calendar/lightning/lightning-packager.mk
