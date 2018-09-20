@@ -24,6 +24,19 @@ if test "$OS_ARCH" != "WINNT"; then
 fi
 AC_SUBST(MOZ_MOVEMAIL)
 
+dnl Get other versions (for the calendar plugin)
+SEAMONKEY_VERSION=`cat ${_topsrcdir}/../suite/config/version.txt`
+AC_SUBST(SEAMONKEY_VERSION)
+
+dnl =========================================================
+dnl = Lightning extension
+dnl =========================================================
+MOZ_ARG_ENABLE_BOOL(calendar,
+[  --enable-calendar      Enable building of the Lightning calendar extension],
+    MOZ_CALENDAR=1,
+    MOZ_CALENDAR= )
+AC_SUBST(MOZ_CALENDAR)
+
 MOZ_ARG_ENABLE_BOOL(incomplete-external-linkage,
 [  --enable-incomplete-external-linkage Changes some comm-central code to be built with external linkage. Developer only option, incomplete broken builds will result - There are already existing bugs for this. ],
     MOZ_INCOMPLETE_EXTERNAL_LINKAGE=1,
