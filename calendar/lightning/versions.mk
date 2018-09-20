@@ -4,7 +4,7 @@
 
 # Lighting version number
 THUNDERBIRD_VERSION := $(shell cat $(topsrcdir)/mail/config/version.txt)
-SEAMONKEY_VERSION := $(shell cat $(topsrcdir)/suite/config/version.txt)
+SEAMONKEY_VERSION := "2.49"
 
 ifdef MOZ_SUITE
 LIGHTNING_VERSION := $(shell $(PYTHON) $(topsrcdir)/calendar/lightning/build/makeversion.py $(THUNDERBIRD_VERSION))

@@ -24,8 +24,8 @@ if test "$OS_ARCH" != "WINNT"; then
 fi
 AC_SUBST(MOZ_MOVEMAIL)
 
-dnl Get other versions (for the calendar plugin)
-SEAMONKEY_VERSION=`cat ${_topsrcdir}/../suite/config/version.txt`
+dnl Get other versions (for the calendar extension)
+SEAMONKEY_VERSION=2.49
 AC_SUBST(SEAMONKEY_VERSION)
 
 dnl =========================================================
