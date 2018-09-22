@@ -8,6 +8,4 @@ DIRS += [
     'components',
 ]
 
-TEST_DIRS += ['test']
-
 JAR_MANIFESTS += ['jar.mn']

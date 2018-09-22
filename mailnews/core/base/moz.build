@@ -11,5 +11,3 @@ DIRS += [
     'search/public',
     'search/src',
 ]
-
-TEST_DIRS += ['test']

@@ -13,5 +13,3 @@ EXTRA_JS_MODULES.jsaccount += [
     'modules/JaBaseUrl.jsm',
     'modules/JSAccountUtils.jsm',
 ]
-
-TEST_DIRS += ['test']
