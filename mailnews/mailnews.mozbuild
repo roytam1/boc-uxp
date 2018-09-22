@@ -9,11 +9,5 @@ if CONFIG['MOZ_LDAP_XPCOM']:
 if CONFIG['MOZ_MORK']:
     DIRS += ['/mailnews/mork']
 
-if CONFIG['MOZ_CALENDAR']:
-    DIRS += [
-        '/mailnews/calendar/lightning',
-        '/mailnews/calendar/timezones'
-    ]
-
 DIRS += ['/mailnews/core']
 

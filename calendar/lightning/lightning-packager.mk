@@ -107,7 +107,7 @@ ifdef LOCALE_MERGEDIR
 	$(RM) -rf $(LOCALE_MERGEDIR)/calendar
 	$(MOZILLA_SRCDIR)/mach compare-locales \
 	    --merge-dir $(LOCALE_MERGEDIR) \
-	    --l10n-ini $(topsrcdir)/mailnews/calendar/locales/l10n.ini \
+	    --l10n-ini $(topsrcdir)/calendar/locales/l10n.ini \
 	    $*
 
 	# This file requires a bugfix with string changes, see bug 1154448

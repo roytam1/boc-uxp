@@ -7,12 +7,12 @@ THUNDERBIRD_VERSION := $(shell cat $(topsrcdir)/mail/config/version.txt)
 SEAMONKEY_VERSION := "2.49"
 
 ifdef MOZ_SUITE
-LIGHTNING_VERSION := $(shell $(PYTHON) $(topsrcdir)/mailnews/calendar/lightning/build/makeversion.py $(THUNDERBIRD_VERSION))
+LIGHTNING_VERSION := $(shell $(PYTHON) $(topsrcdir)/calendar/lightning/build/makeversion.py $(THUNDERBIRD_VERSION))
 else
-LIGHTNING_VERSION := $(shell $(PYTHON) $(topsrcdir)/mailnews/calendar/lightning/build/makeversion.py $(word 1,$(MOZ_PKG_VERSION) $(THUNDERBIRD_VERSION)))
+LIGHTNING_VERSION := $(shell $(PYTHON) $(topsrcdir)/calendar/lightning/build/makeversion.py $(word 1,$(MOZ_PKG_VERSION) $(THUNDERBIRD_VERSION)))
 endif
 
-GDATA_VERSION := $(shell $(PYTHON) $(topsrcdir)/mailnews/calendar/providers/gdata/makeversion.py $(LIGHTNING_VERSION))
+GDATA_VERSION := $(shell $(PYTHON) $(topsrcdir)/calendar/providers/gdata/makeversion.py $(LIGHTNING_VERSION))
 
 # For extensions we require a max version that is compatible across security releases.
 # THUNDERBIRD_MAXVERSION and SEAMONKEY_MAXVERSION is our method for doing that.

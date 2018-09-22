@@ -18,7 +18,7 @@ include $(DEPTH)/config/autoconf.mk
 include $(topsrcdir)/mozilla/toolkit/mozapps/installer/package-name.mk
 
 THUNDERBIRD_VERSION := $(shell cat $(topsrcdir)/mail/config/version.txt)
-LIGHTNING_VERSION := $(shell $(PYTHON) $(topsrcdir)/mailnews/calendar/lightning/build/makeversion.py $(word 1,$(MOZ_PKG_VERSION) $(THUNDERBIRD_VERSION)))
+LIGHTNING_VERSION := $(shell $(PYTHON) $(topsrcdir)/calendar/lightning/build/makeversion.py $(word 1,$(MOZ_PKG_VERSION) $(THUNDERBIRD_VERSION)))
 XPI_PKGNAME = lightning-$(LIGHTNING_VERSION).$(AB_CD).$(MOZ_PKG_PLATFORM)
 
 STANDALONE_MAKEFILE := 1

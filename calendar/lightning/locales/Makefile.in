@@ -4,7 +4,7 @@
 
 # Setting this to calendar/locales sets up LOCALE_SRCDIR to the correct locale
 # directory
-relativesrcdir = mailnews/calendar/locales
+relativesrcdir = calendar/locales
 
 DEFINES += -DTHEME=$(THEME) \
            -DLOCALE_SRCDIR=$(LOCALE_SRCDIR) \
