@@ -9,8 +9,6 @@ XPIDL_SOURCES += [
 
 XPIDL_MODULE = 'steel'
 
-XPCSHELL_TESTS_MANIFESTS += ['test/xpcshell.ini']
-
 EXTRA_COMPONENTS += [
     'steelApplication.manifest',
 ]
