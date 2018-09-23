@@ -403,3 +403,5 @@ tabpanels {
 .alltabs-item[busy] {
   list-style-image: url("chrome://global/skin/icons/loading.png") !important;
 }
+
+#tabs-toolbar:not(:-moz-lwtheme)::before {box-shadow: none !important;}
