@@ -24,7 +24,7 @@
 <!ENTITY moveToNewWindow.accesskey "W">
 <!ENTITY newVirtualFolderCmd.label "Saved Search…">
 <!ENTITY newVirtualFolderCmd.accesskey "S">
-<!ENTITY newOtherAccountsCmd.label "Create a New Account…">
+<!ENTITY newOtherAccountsCmd.label "Account…">
 <!ENTITY newOtherAccountsCmd.accesskey "O">
 <!ENTITY newIMAccountCmd.label "Chat Account…">
 <!ENTITY newIMAccountCmd.accesskey "C">
