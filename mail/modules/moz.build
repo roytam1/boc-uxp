@@ -20,7 +20,7 @@ EXTRA_JS_MODULES += [
     'searchSpec.js',
     'sessionStoreManager.js',
     'summaryFrameManager.js',
-    'windowsJumpLists.js',
     'Windows8WindowFrameColor.jsm',
+    'windowsJumpLists.js',
 ]
 

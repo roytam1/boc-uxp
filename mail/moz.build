@@ -27,5 +27,3 @@ if CONFIG['MAKENSISU']:
 # app is always last as it packages up the built files on mac.
 DIRS += ['app']
 
-TEST_DIRS += ['test/mozmill']
-

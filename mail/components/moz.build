@@ -22,8 +22,6 @@ DIRS += [
 if CONFIG['MOZ_WIDGET_TOOLKIT'] in ('windows', 'gtk2', 'gtk3', 'cocoa', 'qt'):
     DIRS += ['shell']
 
-TEST_DIRS += ['test']
-
 DIRS += ['build']
 
 XPIDL_SOURCES += [
