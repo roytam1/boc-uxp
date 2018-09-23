@@ -17,6 +17,7 @@ DIRS += [
     'search',
     'about-support',
     'newmailaccount',
+    'steel',
 ]
 
 if CONFIG['MOZ_WIDGET_TOOLKIT'] in ('windows', 'gtk2', 'gtk3', 'cocoa', 'qt'):
