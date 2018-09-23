@@ -3,27 +3,32 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-MOZ_APP_BASENAME=Interlink
-MOZ_APP_NAME=interlink
+MOZ_APP_BASENAME=Thunderbird
+MOZ_APP_NAME=thunderbird
 MOZ_UPDATER=1
 MOZ_THUNDERBIRD=1
 MOZ_APP_STATIC_INI=1
-MOZ_MORK=1
+MOZ_DISABLE_EXPORT_JS=1
+MOZ_NO_ACTIVEX_SUPPORT=1
+MOZ_ACTIVEX_SCRIPTING_SUPPORT=
 MOZ_LDAP_XPCOM=1
 MOZ_COMPOSER=1
 MOZ_PLACES=1
-MOZ_SAFE_BROWSING=1
-MOZ_PROFILE_MIGRATOR=1
-MOZ_JSDOWNLOADS=1
-MOZ_BINARY_EXTENSIONS=1
-MOZ_SEPARATE_MANIFEST_FOR_THEME_OVERRIDES=1
-
-MOZ_DEVTOOLS=1
 
 if test "$OS_ARCH" = "WINNT" -o \
         "$OS_ARCH" = "Linux"; then
   MOZ_BUNDLED_FONTS=1
 fi
+
+if test "$OS_ARCH" = "WINNT"; then
+  if ! test "$HAVE_64BIT_BUILD"; then
+    MOZ_VERIFY_MAR_SIGNATURE=1
+    MOZ_MAINTENANCE_SERVICE=1
+  fi
+fi
+
+MOZ_SAFE_BROWSING=1
+MOZ_MORK=1
 
 MOZ_APP_VERSION_TXT=${_topsrcdir}/$MOZ_BUILD_APP/config/version.txt
 MOZ_APP_VERSION=`cat $MOZ_APP_VERSION_TXT`
@@ -43,4 +48,13 @@ ACCEPTED_MAR_CHANNEL_IDS=thunderbird-comm-release
 # The MAR_CHANNEL_ID must not contain the following 3 characters: ",\t "
 MAR_CHANNEL_ID=thunderbird-comm-release
 # Enable generational GC on desktop.
+JSGC_GENERATIONAL=1
+MOZ_PROFILE_MIGRATOR=1
+MOZ_JSDOWNLOADS=1
+MOZ_BINARY_EXTENSIONS=1
+MOZ_SEPARATE_MANIFEST_FOR_THEME_OVERRIDES=1
 
+# Enable building ./signmar and running libmar signature tests
+MOZ_ENABLE_SIGNMAR=1
+
+MOZ_DEVTOOLS=all
