@@ -323,7 +323,7 @@ function onViewToolbarsPopupShowing(aEvent, toolboxIds, aInsertPoint)
 
 function toJavaScriptConsole()
 {
-  HUDService.openBrowserConsoleOrFocus();
+  toOpenWindowByType("global:console", "chrome://global/content/console.xul");
 }
 
 function openAboutDebugging(hash)
