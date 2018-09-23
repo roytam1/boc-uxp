@@ -3,10 +3,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-DIRS += ['modules']
-
-JAR_MANIFESTS += ['jar.mn']
-
 DEFINES['PRE_RELEASE_SUFFIX'] = ''
 DEFINES['MOZ_APP_VERSION'] = CONFIG['MOZ_APP_VERSION']
 DEFINES['MOZ_APP_VERSION_DISPLAY'] = CONFIG['MOZ_APP_VERSION_DISPLAY']
@@ -20,3 +16,5 @@ if CONFIG['MOZ_WIDGET_TOOLKIT'] in ('windows', 'gtk2', 'gtk3', 'cocoa'):
 
 if CONFIG['MOZ_UPDATER']:
     DEFINES['MOZ_UPDATER'] = 1
+
+JAR_MANIFESTS += ['jar.mn']

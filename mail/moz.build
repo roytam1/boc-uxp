@@ -5,14 +5,13 @@
 
 CONFIGURE_SUBST_FILES += ['installer/Makefile']
 
-# app is always last as it packages up the built files on mac.
 DIRS += [
     'base',
     'locales',
     'extensions',
+    'modules',
     'steel',
     'themes',
-    'app',
 ]
 
 # Add components for external linkage build
@@ -24,6 +23,9 @@ if CONFIG['MAKENSISU']:
 
 # if CONFIG['MOZ_BUNDLED_FONTS']:
 #     DIRS += ['/mozilla/application/basilisk/fonts']
+
+# app is always last as it packages up the built files on mac.
+DIRS += ['app']
 
 TEST_DIRS += ['test/mozmill']
 

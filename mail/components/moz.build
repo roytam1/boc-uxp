@@ -16,7 +16,6 @@ DIRS += [
     'activity',
     'search',
     'about-support',
-    'wintaskbar',
     'newmailaccount',
 ]
 
@@ -40,9 +39,5 @@ EXTRA_COMPONENTS += [
     'mailContentHandler.js',
     'mailGlue.js',
     'nsMailDefaultHandler.js',
-]
-
-EXTRA_JS_MODULES += [
-    'appIdleManager.js',
 ]
 

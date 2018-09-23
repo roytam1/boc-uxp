@@ -4,6 +4,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 EXTRA_JS_MODULES += [
+    'appIdleManager.js',
     'attachmentChecker.js',
     'dbViewWrapper.js',
     'displayNameUtils.js',
@@ -19,6 +20,7 @@ EXTRA_JS_MODULES += [
     'searchSpec.js',
     'sessionStoreManager.js',
     'summaryFrameManager.js',
+    'windowsJumpLists.js',
     'Windows8WindowFrameColor.jsm',
 ]
 
