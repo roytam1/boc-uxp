@@ -9,9 +9,10 @@ if CONFIG['MOZ_LDAP_XPCOM']:
 if CONFIG['MOZ_MORK']:
     DIRS += ['/modules/mork']
 
-DIRS += ['/mailnews']
-
-DIRS += ['/mail/components']
+DIRS += [
+    '/mailnews',
+    '/mail/components'
+]
 
 include('/toolkit/toolkit.mozbuild')
 
@@ -29,4 +30,6 @@ if CONFIG['MOZ_CALENDAR']:
         '/calendar/timezones'
     ]
 
+# Never add tier dirs after mail because they apparently won't get
+# packaged properly on Mac.
 DIRS += ['/mail']
