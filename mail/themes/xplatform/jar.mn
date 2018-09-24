@@ -38,7 +38,15 @@ xplatform.jar:
   skin/xplatform/global/aboutCacheEntry.css                                           (global/aboutCacheEntry.css)
   skin/xplatform/global/aboutMemory.css                                               (global/aboutMemory.css)
   skin/xplatform/global/aboutSupport.css                                              (global/aboutSupport.css)
-  skin/xplatform/global/alerts/alert.css                                              (global/alerts/alert.css)
+#  skin/xplatform/global/alerts/alert.css                                              (global/alerts/alert.css)
+#ifdef XP_LINUX
+  skin/xplatform/global/alerts/alert.css                                              (../../../mozilla/toolkit/themes/linux/global/alerts/alert.css)
+#elif XP_MACOSX
+  skin/xplatform/global/alerts/alert.css                                              (../../../mozilla/toolkit/themes/osx/global/alerts/alert.css)
+#else
+  skin/xplatform/global/alerts/alert.css                                              (../../../mozilla/toolkit/themes/windows/global/alerts/alert.css)
+#endif
+  skin/xplatform/global/alerts/alert-common.css                                       (../../../mozilla//toolkit/themes/shared/alert-common.css)
   skin/xplatform/global/appPicker.css                                                 (global/appPicker.css)
   skin/xplatform/global/arrow/arrow-dn-dis.gif                                        (global/arrow/arrow-dn-dis.gif)
   skin/xplatform/global/arrow/arrow-dn-hov.gif                                        (global/arrow/arrow-dn-hov.gif)
