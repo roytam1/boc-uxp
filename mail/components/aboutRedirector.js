@@ -3,9 +3,16 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 var Cc = Components.classes;
 var Ci = Components.interfaces;
+var Cr = Components.results;
+var Cu = Components.utils;
 
-Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
-Components.utils.import("resource://gre/modules/Services.jsm");
+Cu.import("resource://gre/modules/XPCOMUtils.jsm");
+Cu.import("resource://gre/modules/Services.jsm");
+
+const ALLOW_SCRIPT = Ci.nsIAboutModule.ALLOW_SCRIPT;
+const URI_SAFE_FOR_UNTRUSTED_CONTENT = Ci.nsIAboutModule.URI_SAFE_FOR_UNTRUSTED_CONTENT;
+const HIDE_FROM_ABOUTABOUT = Ci.nsIAboutModule.HIDE_FROM_ABOUTABOUT;
+const ENABLE_INDEXED_DB = Ci.nsIAboutModule.ENABLE_INDEXED_DB;
 
 function AboutRedirector() {}
 AboutRedirector.prototype = {
@@ -17,15 +24,18 @@ AboutRedirector.prototype = {
   // value as a record with url and flags entries. Note that each addition here
   // should be coupled with a corresponding addition in mailComponents.manifest.
   _redirMap: {
-    "rights": {url: "chrome://messenger/content/aboutRights.xhtml",
-               flags: (Ci.nsIAboutModule.ALLOW_SCRIPT |
-                       Ci.nsIAboutModule.URI_SAFE_FOR_UNTRUSTED_CONTENT)},
-    "support": {url: "chrome://messenger/content/about-support/aboutSupport.xhtml",
-                flags: Ci.nsIAboutModule.ALLOW_SCRIPT},
-    "preferences": {url: "chrome://messenger/content/preferences/aboutPreferences.xul",
-                    flags: Ci.nsIAboutModule.ALLOW_SCRIPT},
-    "downloads": {url: "chrome://messenger/content/downloads/aboutDownloads.xul",
-                  flags: Ci.nsIAboutModule.ALLOW_SCRIPT},
+    "downloads": {
+      url: "chrome://messenger/content/downloads/aboutDownloads.xul",
+      flags: ALLOW_SCRIPT
+    },
+    "support": {
+      url: "chrome://messenger/content/about-support/aboutSupport.xhtml",
+      flags: ALLOW_SCRIPT
+    },
+    "rights": {
+      url: "chrome://messenger/content/aboutRights.xhtml",
+      flags: (ALLOW_SCRIPT | URI_SAFE_FOR_UNTRUSTED_CONTENT)
+    },
   },
 
   /**
@@ -40,14 +50,14 @@ AboutRedirector.prototype = {
   getURIFlags: function(aURI) {
     let name = this._getModuleName(aURI);
     if (!(name in this._redirMap))
-      throw Components.results.NS_ERROR_ILLEGAL_VALUE;
+      throw Cr.NS_ERROR_ILLEGAL_VALUE;
     return this._redirMap[name].flags;
   },
 
   newChannel: function(aURI, aLoadInfo) {
     let name = this._getModuleName(aURI);
     if (!(name in this._redirMap))
-      throw Components.results.NS_ERROR_ILLEGAL_VALUE;
+      throw Cr.NS_ERROR_ILLEGAL_VALUE;
 
     let newURI = Services.io.newURI(this._redirMap[name].url, null, null);
     let channel = Services.io.newChannelFromURIWithLoadInfo(newURI, aLoadInfo);
