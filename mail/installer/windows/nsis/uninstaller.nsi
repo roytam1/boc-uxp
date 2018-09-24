@@ -203,29 +203,29 @@ Section "Uninstall"
   ${EndIf}
 
   ; setup the application model id registration value
-  ${un.InitHashAppModelId} "$INSTDIR" "Software\Mozilla\${AppName}\TaskBarIDs"
+  ${un.InitHashAppModelId} "$INSTDIR" "Software\Binary Outcast\${AppName}\TaskBarIDs"
 
   SetShellVarContext current  ; Set SHCTX to HKCU
-  ${un.RegCleanMain} "Software\Mozilla"
+  ${un.RegCleanMain} "Software\Binary Outcast"
   ${un.RegCleanUninstall}
   ${un.DeleteShortcuts}
 
   ClearErrors
-  WriteRegStr HKLM "Software\Mozilla" "${BrandShortName}InstallerTest" "Write Test"
+  WriteRegStr HKLM "Software\Binary Outcast" "${BrandShortName}InstallerTest" "Write Test"
   ${If} ${Errors}
     StrCpy $TmpVal "HKCU" ; used primarily for logging
   ${Else}
     SetShellVarContext all  ; Set SHCTX to HKLM
-    DeleteRegValue HKLM "Software\Mozilla" "${BrandShortName}InstallerTest"
+    DeleteRegValue HKLM "Software\Binary Outcast" "${BrandShortName}InstallerTest"
     StrCpy $TmpVal "HKLM" ; used primarily for logging
-    ${un.RegCleanMain} "Software\Mozilla"
+    ${un.RegCleanMain} "Software\Binary Outcast"
     ${un.RegCleanUninstall}
     ${un.DeleteShortcuts}
   ${EndIf}
 
-  ${un.RegCleanAppHandler} "Thunderbird.Url.mailto"
-  ${un.RegCleanAppHandler} "Thunderbird.Url.news"
-  ${un.RegCleanAppHandler} "ThunderbirdEML"
+  ${un.RegCleanAppHandler} "Interlink.Url.mailto"
+  ${un.RegCleanAppHandler} "Interlink.Url.news"
+  ${un.RegCleanAppHandler} "InterlinkEML"
   ${un.RegCleanProtocolHandler} "mailto"
   ${un.RegCleanProtocolHandler} "news"
   ${un.RegCleanProtocolHandler} "nntp"
@@ -238,27 +238,27 @@ Section "Uninstall"
   ${EndIf}
 
   ; Remove any app model id's stored in the registry for this install path
-  DeleteRegValue HKCU "Software\Mozilla\${AppName}\TaskBarIDs" "$INSTDIR"
-  DeleteRegValue HKLM "Software\Mozilla\${AppName}\TaskBarIDs" "$INSTDIR"
+  DeleteRegValue HKCU "Software\Binary Outcast\${AppName}\TaskBarIDs" "$INSTDIR"
+  DeleteRegValue HKLM "Software\Binary Outcast\${AppName}\TaskBarIDs" "$INSTDIR"
 
   ClearErrors
-  ReadRegStr $R9 HKCR "ThunderbirdEML" ""
-  ; Don't clean up the file handlers if the ThunderbirdEML key still exists
+  ReadRegStr $R9 HKCR "InterlinkEML" ""
+  ; Don't clean up the file handlers if the InterlinkEML key still exists
   ; since there could be a second installation that may be the default file
   ; handler.
   ${If} ${Errors}
-    ${un.RegCleanFileHandler}  ".eml"   "ThunderbirdEML"
-    ${un.RegCleanFileHandler}  ".wdseml" "ThunderbirdEML"
+    ${un.RegCleanFileHandler}  ".eml"   "InterlinkEML"
+    ${un.RegCleanFileHandler}  ".wdseml" "InterlinkEML"
     DeleteRegValue HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\explorer\KindMap" ".wdseml"
     ; It doesn't matter if the value didn't exist
     ClearErrors
   ${EndIf}
 
   SetShellVarContext all  ; Set SHCTX to HKLM
-  ${un.GetSecondInstallPath} "Software\Mozilla" $R9
+  ${un.GetSecondInstallPath} "Software\Binary Outcast" $R9
   ${If} $R9 == "false"
     SetShellVarContext current  ; Set SHCTX to HKCU
-    ${un.GetSecondInstallPath} "Software\Mozilla" $R9
+    ${un.GetSecondInstallPath} "Software\Binary Outcast" $R9
   ${EndIf}
 
   StrCpy $0 "Software\Clients\Mail\${ClientsRegName}\shell\open\command"
@@ -271,7 +271,7 @@ Section "Uninstall"
   ; of the default app for the OS settings. The XPInstall base un-installer 
   ; always removes these keys if it is uninstalling the default app and it 
   ; will always replace the keys when installing even if there is another 
-  ; install of Thunderbird that is set as the
+  ; install of Interlink that is set as the
   ; default app. Now the keys are always updated on install but are only
   ; removed if they refer to this install location.
   ${If} "$INSTDIR" == "$R1"
@@ -321,7 +321,7 @@ Section "Uninstall"
   ${EndIf}
 
   ; Remove the updates directory for Vista and above
-  ${un.CleanUpdatesDir} "Thunderbird"
+  ${un.CleanUpdatesDir} "Interlink"
 
   ; Remove files that may be left behind by the application in the
   ; VirtualStore directory.
@@ -526,7 +526,7 @@ Function .onInit
 
   ; We need this set up for most of the helper.exe operations.
   !ifdef AppName
-  ${InitHashAppModelId} "$INSTDIR" "Software\Mozilla\${AppName}\TaskBarIDs"
+  ${InitHashAppModelId} "$INSTDIR" "Software\Binary Outcast\${AppName}\TaskBarIDs"
   !endif
   ${UninstallOnInitCommon}
 FunctionEnd

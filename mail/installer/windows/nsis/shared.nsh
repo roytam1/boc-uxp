@@ -6,23 +6,23 @@
   ${CreateShortcutsLog}
 
   ; Remove registry entries for non-existent apps and for apps that point to our
-  ; install location in the Software\Mozilla key and uninstall registry entries
+  ; install location in the Software\Binary Outcast key and uninstall registry entries
   ; that point to our install location for both HKCU and HKLM.
   SetShellVarContext current  ; Set SHCTX to the current user (e.g. HKCU)
-  ${RegCleanMain} "Software\Mozilla"
+  ${RegCleanMain} "Software\Binary Outcast"
   ${RegCleanUninstall}
   ${UpdateProtocolHandlers}
   ; Win7 taskbar and start menu link maintenance
   Call FixShortcutAppModelIDs
 
   ; setup the application model id registration value
-  ${InitHashAppModelId} "$INSTDIR" "Software\Mozilla\${AppName}\TaskBarIDs"
+  ${InitHashAppModelId} "$INSTDIR" "Software\Binary Outcast\${AppName}\TaskBarIDs"
 
   ; Upgrade the copies of the MAPI DLL's
   ${UpgradeMapiDLLs}
 
   ; Delete two files installed by Kaspersky Anti-Spam extension that are only
-  ; compatible with Thunderbird 2 (bug 533692).
+  ; compatible with Interlink 2 (bug 533692).
   ${If} ${FileExists} "$INSTDIR\components\klthbplg.dll"
     Delete /REBOOTOK "$INSTDIR\components\klthbplg.dll"
   ${EndIf}
@@ -31,14 +31,14 @@
   ${EndIf}
 
   ClearErrors
-  WriteRegStr HKLM "Software\Mozilla" "${BrandShortName}InstallerTest" "Write Test"
+  WriteRegStr HKLM "Software\Binary Outcast" "${BrandShortName}InstallerTest" "Write Test"
   ${If} ${Errors}
     StrCpy $TmpVal "HKCU" ; used primarily for logging
   ${Else}
-    DeleteRegValue HKLM "Software\Mozilla" "${BrandShortName}InstallerTest"
+    DeleteRegValue HKLM "Software\Binary Outcast" "${BrandShortName}InstallerTest"
     SetShellVarContext all    ; Set SHCTX to all users (e.g. HKLM)
     StrCpy $TmpVal "HKLM" ; used primarily for logging
-    ${RegCleanMain} "Software\Mozilla"
+    ${RegCleanMain} "Software\Binary Outcast"
     ${RegCleanUninstall}
     ${UpdateProtocolHandlers}
 
@@ -242,17 +242,17 @@
   StrCpy $1 "$\"$8$\" $\"%1$\""
   StrCpy $2 "$\"$8$\" -osint -compose $\"%1$\""
 
-  ; An empty string is used for the 5th param because ThunderbirdEML is not a
+  ; An empty string is used for the 5th param because InterlinkEML is not a
   ; protocol handler
-  ${AddHandlerValues} "$0\ThunderbirdEML"  "$1" "$8,0" \
+  ${AddHandlerValues} "$0\InterlinkEML"  "$1" "$8,0" \
                       "${AppRegNameMail} Document" "" ""
-  ${AddHandlerValues} "$0\Thunderbird.Url.mailto"  "$2" "$8,0" "${AppRegNameMail} URL" "delete" ""
+  ${AddHandlerValues} "$0\Interlink.Url.mailto"  "$2" "$8,0" "${AppRegNameMail} URL" "delete" ""
   ${AddHandlerValues} "$0\mailto" "$2" "$8,0" "${AppRegNameMail} URL" "true" ""
 
-  ; Associate the file handlers with ThunderbirdEML
+  ; Associate the file handlers with InterlinkEML
   ReadRegStr $6 SHCTX ".eml" ""
-  ${If} "$6" != "ThunderbirdEML"
-    WriteRegStr SHCTX "$0\.eml"   "" "ThunderbirdEML"
+  ${If} "$6" != "InterlinkEML"
+    WriteRegStr SHCTX "$0\.eml"   "" "InterlinkEML"
   ${EndIf}
 !macroend
 !define SetHandlersMail "!insertmacro SetHandlersMail"
@@ -262,7 +262,7 @@
   StrCpy $0 "SOFTWARE\Classes"
   StrCpy $1 "$\"$8$\" -osint -mail $\"%1$\""
 
-  ${AddHandlerValues} "$0\Thunderbird.Url.news" "$1" "$8,0" \
+  ${AddHandlerValues} "$0\Interlink.Url.news" "$1" "$8,0" \
                       "${AppRegNameNews} URL" "delete" ""
   ${AddHandlerValues} "$0\news"   "$1" "$8,0" "${AppRegNameNews} URL" "true" ""
   ${AddHandlerValues} "$0\nntp"   "$1" "$8,0" "${AppRegNameNews} URL" "true" ""
@@ -352,10 +352,10 @@
   WriteRegStr HKLM "$0\Capabilities" "ApplicationDescription" "$(REG_APP_DESC)"
   WriteRegStr HKLM "$0\Capabilities" "ApplicationIcon" "$8,0"
   WriteRegStr HKLM "$0\Capabilities" "ApplicationName" "${AppRegNameMail}"
-  WriteRegStr HKLM "$0\Capabilities\FileAssociations" ".eml"   "ThunderbirdEML"
-  WriteRegStr HKLM "$0\Capabilities\FileAssociations" ".wdseml" "ThunderbirdEML"
+  WriteRegStr HKLM "$0\Capabilities\FileAssociations" ".eml"   "InterlinkEML"
+  WriteRegStr HKLM "$0\Capabilities\FileAssociations" ".wdseml" "InterlinkEML"
   WriteRegStr HKLM "$0\Capabilities\StartMenu" "Mail" "${ClientsRegName}"
-  WriteRegStr HKLM "$0\Capabilities\URLAssociations" "mailto" "Thunderbird.Url.mailto"
+  WriteRegStr HKLM "$0\Capabilities\URLAssociations" "mailto" "Interlink.Url.mailto"
 
   ; Vista Registered Application
   WriteRegStr HKLM "Software\RegisteredApplications" "${AppRegNameMail}" "$0\Capabilities"
@@ -414,9 +414,9 @@
   WriteRegStr HKLM "$0\Capabilities" "ApplicationDescription" "$(REG_APP_DESC)"
   WriteRegStr HKLM "$0\Capabilities" "ApplicationIcon" "$8,0"
   WriteRegStr HKLM "$0\Capabilities" "ApplicationName" "${AppRegNameNews}"
-  WriteRegStr HKLM "$0\Capabilities\URLAssociations" "nntp" "Thunderbird.Url.news"
-  WriteRegStr HKLM "$0\Capabilities\URLAssociations" "news" "Thunderbird.Url.news"
-  WriteRegStr HKLM "$0\Capabilities\URLAssociations" "snews" "Thunderbird.Url.news"
+  WriteRegStr HKLM "$0\Capabilities\URLAssociations" "nntp" "Interlink.Url.news"
+  WriteRegStr HKLM "$0\Capabilities\URLAssociations" "news" "Interlink.Url.news"
+  WriteRegStr HKLM "$0\Capabilities\URLAssociations" "snews" "Interlink.Url.news"
 
   ; Protocols
   StrCpy $1 "$\"$8$\" -osint -mail $\"%1$\""
@@ -431,27 +431,27 @@
 
 !macro SetAppKeys
   ${GetLongPath} "$INSTDIR" $8
-  StrCpy $0 "Software\Mozilla\${BrandFullNameInternal}\${AppVersion} (${AB_CD})\Main"
+  StrCpy $0 "Software\Binary Outcast\${BrandFullNameInternal}\${AppVersion} (${AB_CD})\Main"
   ${WriteRegStr2} $TmpVal "$0" "Install Directory" "$8" 0
   ${WriteRegStr2} $TmpVal "$0" "PathToExe" "$8\${FileMainEXE}" 0
 
-  StrCpy $0 "Software\Mozilla\${BrandFullNameInternal}\${AppVersion} (${AB_CD})\Uninstall"
+  StrCpy $0 "Software\Binary Outcast\${BrandFullNameInternal}\${AppVersion} (${AB_CD})\Uninstall"
   ${WriteRegStr2} $TmpVal "$0" "Description" "${BrandFullNameInternal} ${AppVersion} (${ARCH} ${AB_CD})" 0
 
-  StrCpy $0 "Software\Mozilla\${BrandFullNameInternal}\${AppVersion} (${AB_CD})"
+  StrCpy $0 "Software\Binary Outcast\${BrandFullNameInternal}\${AppVersion} (${AB_CD})"
   ${WriteRegStr2} $TmpVal  "$0" "" "${AppVersion} (${AB_CD})" 0
 
-  StrCpy $0 "Software\Mozilla\${BrandFullNameInternal} ${AppVersion}\bin"
+  StrCpy $0 "Software\Binary Outcast\${BrandFullNameInternal} ${AppVersion}\bin"
   ${WriteRegStr2} $TmpVal "$0" "PathToExe" "$8\${FileMainEXE}" 0
 
-  StrCpy $0 "Software\Mozilla\${BrandFullNameInternal} ${AppVersion}\extensions"
+  StrCpy $0 "Software\Binary Outcast\${BrandFullNameInternal} ${AppVersion}\extensions"
   ${WriteRegStr2} $TmpVal "$0" "Components" "$8\components" 0
   ${WriteRegStr2} $TmpVal "$0" "Plugins" "$8\plugins" 0
 
-  StrCpy $0 "Software\Mozilla\${BrandFullNameInternal} ${AppVersion}"
+  StrCpy $0 "Software\Binary Outcast\${BrandFullNameInternal} ${AppVersion}"
   ${WriteRegStr2} $TmpVal "$0" "GeckoVer" "${GREVersion}" 0
 
-  StrCpy $0 "Software\Mozilla\${BrandFullNameInternal}"
+  StrCpy $0 "Software\Binary Outcast\${BrandFullNameInternal}"
   ${WriteRegStr2} $TmpVal "$0" "" "${GREVersion}" 0
   ${WriteRegStr2} $TmpVal "$0" "CurrentVersion" "${AppVersion} (${AB_CD})" 0
 !macroend
@@ -493,7 +493,7 @@
     ${WriteRegStr2} $1 "$0" "DisplayName" "${BrandFullNameInternal} ${AppVersion} (${ARCH} ${AB_CD})" 0
     ${WriteRegStr2} $1 "$0" "DisplayVersion" "${AppVersion}" 0
     ${WriteRegStr2} $1 "$0" "InstallLocation" "$8" 0
-    ${WriteRegStr2} $1 "$0" "Publisher" "Mozilla" 0
+    ${WriteRegStr2} $1 "$0" "Publisher" "Binary Outcast" 0
     ${WriteRegStr2} $1 "$0" "UninstallString" "$8\uninstall\helper.exe" 0
     ${WriteRegStr2} $1 "$0" "URLInfoAbout" "${URLInfoAbout}" 0
     ${WriteRegStr2} $1 "$0" "URLUpdateInfo" "${URLUpdateInfo}" 0
@@ -524,15 +524,15 @@
 
   ; Only set the file and protocol handlers if the existing one under HKCR is
   ; for this install location.
-  ${IsHandlerForInstallDir} "ThunderbirdEML" $R9
+  ${IsHandlerForInstallDir} "InterlinkEML" $R9
   ${If} "$R9" == "true"
-    ${AddHandlerValues} "SOFTWARE\Classes\ThunderbirdEML" "$3" "$8,0" \
+    ${AddHandlerValues} "SOFTWARE\Classes\InterlinkEML" "$3" "$8,0" \
                         "${AppRegNameMail} Document" "" ""
   ${EndIf}
 
-  ${IsHandlerForInstallDir} "Thunderbird.Url.mailto" $R9
+  ${IsHandlerForInstallDir} "Interlink.Url.mailto" $R9
   ${If} "$R9" == "true"
-    ${AddHandlerValues} "SOFTWARE\Classes\Thunderbird.Url.mailto" "$1" "$8,0" \
+    ${AddHandlerValues} "SOFTWARE\Classes\Interlink.Url.mailto" "$1" "$8,0" \
                         "${AppRegNameMail} URL" "delete" ""
   ${EndIf}
 
@@ -541,9 +541,9 @@
     ${AddHandlerValues} "SOFTWARE\Classes\mailto" "$1" "$8,0" "" "" ""
   ${EndIf}
 
-  ${IsHandlerForInstallDir} "Thunderbird.Url.news" $R9
+  ${IsHandlerForInstallDir} "Interlink.Url.news" $R9
   ${If} "$R9" == "true"
-    ${AddHandlerValues} "SOFTWARE\Classes\Thunderbird.Url.news" "$2" "$8,0" \
+    ${AddHandlerValues} "SOFTWARE\Classes\Interlink.Url.news" "$2" "$8,0" \
                         "${AppRegNameNews} URL" "delete" ""
   ${EndIf}
 
@@ -569,7 +569,7 @@
 ; For the cert to work, it must also be signed by a trusted cert for the user.
 !macro AddMaintCertKeys
   Push $R0
-  ; Allow main Mozilla cert information for updates
+  ; Allow main Binary Outcast cert information for updates
   ; This call will push the needed key on the stack
   ServicesHelper::PathToUniqueRegistryPath "$INSTDIR"
   Pop $R0
@@ -649,10 +649,10 @@
   ${EndUnless}
 
   ; The Vista shim for 1.5.0.10 writes out a set of bogus keys which we need to
-  ; cleanup. Intentionally hard coding Mozilla Thunderbird here
+  ; cleanup. Intentionally hard coding Binary Outcast Interlink here
   ; as this is the string used by the vista shim.
-  DeleteRegKey HKLM "$0\Mozilla Thunderbird.Url.mailto"
-  DeleteRegValue HKLM "Software\RegisteredApplications" "Mozilla Thunderbird"
+  DeleteRegKey HKLM "$0\Binary Outcast Interlink.Url.mailto"
+  DeleteRegValue HKLM "Software\RegisteredApplications" "Binary Outcast Interlink"
 
   ; Remove the app compatibility registry key
   StrCpy $0 "Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers"
@@ -680,7 +680,7 @@
       ${If} ${AtLeastWin7}
         ; No need to check the default on Win8 and later
         ${If} ${AtMostWin2008R2}
-          ; Check if the Thunderbird is the mailto handler for this user
+          ; Check if the Interlink is the mailto handler for this user
           SetShellVarContext current ; Set SHCTX to the current user
           ${IsHandlerForInstallDir} "mailto" $R9
           ${If} $TmpVal == "HKLM"

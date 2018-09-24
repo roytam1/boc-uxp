@@ -8,7 +8,7 @@
 # CityHash       http://mxr.mozilla.org/mozilla-central/source/other-licenses/nsis/Contrib/CityHash
 # ShellLink      http://nsis.sourceforge.net/ShellLink_plug-in
 # UAC            http://nsis.sourceforge.net/UAC_plug-in
-# ServicesHelper Mozilla specific plugin that is located in /other-licenses/nsis
+# ServicesHelper Binary Outcast specific plugin that is located in /other-licenses/nsis
 
 ; Set verbosity to 3 (e.g. no script) to lessen the noise in the build logs
 !verbose 3
@@ -208,7 +208,7 @@ Section "-InstallStartCleanup"
   ${EndIf}
 
   ; Delete two files installed by Kaspersky Anti-Spam extension that are only
-  ; compatible with Thunderbird 2 (bug 533692).
+  ; compatible with Interlink 2 (bug 533692).
   ${If} ${FileExists} "$INSTDIR\components\klthbplg.dll"
     Delete /REBOOTOK "$INSTDIR\components\klthbplg.dll"
   ${EndIf}
@@ -217,7 +217,7 @@ Section "-InstallStartCleanup"
   ${EndIf}
 
   ; Remove the updates directory for Vista and above
-  ${CleanUpdatesDir} "Thunderbird"
+  ${CleanUpdatesDir} "Interlink"
 
   ${GetParameters} $0
   ${GetOptions} "$0" "/INI=" $1
@@ -323,25 +323,25 @@ Section "-Application" APP_IDX
 
   ${LogHeader} "Adding Registry Entries"
   SetShellVarContext current  ; Set SHCTX to HKCU
-  ${RegCleanMain} "Software\Mozilla"
+  ${RegCleanMain} "Software\Binary Outcast"
   ${RegCleanUninstall}
   ${UpdateProtocolHandlers}
 
   ClearErrors
-  WriteRegStr HKLM "Software\Mozilla" "${BrandShortName}InstallerTest" "Write Test"
+  WriteRegStr HKLM "Software\Binary Outcast" "${BrandShortName}InstallerTest" "Write Test"
   ${If} ${Errors}
     StrCpy $TmpVal "HKCU" ; used primarily for logging
   ${Else}
     SetShellVarContext all  ; Set SHCTX to HKLM
-    DeleteRegValue HKLM "Software\Mozilla" "${BrandShortName}InstallerTest"
+    DeleteRegValue HKLM "Software\Binary Outcast" "${BrandShortName}InstallerTest"
     StrCpy $TmpVal "HKLM" ; used primarily for logging
-    ${RegCleanMain} "Software\Mozilla"
+    ${RegCleanMain} "Software\Binary Outcast"
     ${RegCleanUninstall}
     ${UpdateProtocolHandlers}
   ${EndIf}
 
   ; setup the application model id registration value
-  ${InitHashAppModelId} "$INSTDIR" "Software\Mozilla\${AppName}\TaskBarIDs"
+  ${InitHashAppModelId} "$INSTDIR" "Software\Binary Outcast\${AppName}\TaskBarIDs"
 
   ${RemoveDeprecatedKeys}
 
@@ -359,21 +359,21 @@ Section "-Application" APP_IDX
   ; it doesn't cause problems always add them.
   ${SetUninstallKeys}
 
-  ; On install always add the ThunderbirdEML, Thunderbird.Url.mailto, and
-  ; Thunderbird.Url.news keys.
+  ; On install always add the InterlinkEML, Interlink.Url.mailto, and
+  ; Interlink.Url.news keys.
   ${GetLongPath} "$INSTDIR\${FileMainEXE}" $8
   StrCpy $0 "SOFTWARE\Classes"
   StrCpy $1 "$\"$8$\" $\"%1$\""
   StrCpy $2 "$\"$8$\" -osint -compose $\"%1$\""
   StrCpy $3 "$\"$8$\" -osint -mail $\"%1$\""
 
-  ; An empty string is used for the 5th param because ThunderbirdEML is not a
+  ; An empty string is used for the 5th param because InterlinkEML is not a
   ; protocol handler
-  ${AddHandlerValues} "$0\ThunderbirdEML"  "$1" "$8,0" \
+  ${AddHandlerValues} "$0\InterlinkEML"  "$1" "$8,0" \
                       "${AppRegNameMail} Document" "" ""
-  ${AddHandlerValues} "$0\Thunderbird.Url.mailto"  "$2" "$8,0" \
+  ${AddHandlerValues} "$0\Interlink.Url.mailto"  "$2" "$8,0" \
                       "${AppRegNameMail} URL" "delete" ""
-  ${AddHandlerValues} "$0\Thunderbird.Url.news" "$3" "$8,0" \
+  ${AddHandlerValues} "$0\Interlink.Url.news" "$3" "$8,0" \
                       "${AppRegNameNews} URL" "delete" ""
 
   ; The following keys should only be set if we can write to HKLM
@@ -844,7 +844,7 @@ FunctionEnd
 !ifdef MOZ_MAINTENANCE_SERVICE
 Function preComponents
   ; If the service already exists, don't show this page
-  ServicesHelper::IsInstalled "MozillaMaintenance"
+  ServicesHelper::IsInstalled "Binary OutcastMaintenance"
   Pop $R9
   ${If} $R9 == 1
     ; The service already exists so don't show this page.
@@ -866,13 +866,13 @@ Function preComponents
 
   ; Only show the maintenance service page if we have write access to HKLM
   ClearErrors
-  WriteRegStr HKLM "Software\Mozilla" \
+  WriteRegStr HKLM "Software\Binary Outcast" \
               "${BrandShortName}InstallerTest" "Write Test"
   ${If} ${Errors}
     ClearErrors
     Abort
   ${Else}
-    DeleteRegValue HKLM "Software\Mozilla" "${BrandShortName}InstallerTest"
+    DeleteRegValue HKLM "Software\Binary Outcast" "${BrandShortName}InstallerTest"
   ${EndIf}
 
   StrCpy $PageName "Components"
@@ -1073,7 +1073,7 @@ Function .onInit
 
   ClearErrors
   ${If} ${AtLeastWinVista}
-    WriteRegStr HKLM "Software\Mozilla" "${BrandShortName}InstallerTest" "Write Test"
+    WriteRegStr HKLM "Software\Binary Outcast" "${BrandShortName}InstallerTest" "Write Test"
   ${EndIf}
   ${If} ${Errors}
     ; Setup the options.ini file for the Custom Options Page without the option
@@ -1081,7 +1081,7 @@ Function .onInit
     ; write to HKLM.
     WriteINIStr "$PLUGINSDIR\options.ini" "Settings" NumFields "5"
   ${Else}
-    DeleteRegValue HKLM "Software\Mozilla" "${BrandShortName}InstallerTest"
+    DeleteRegValue HKLM "Software\Binary Outcast" "${BrandShortName}InstallerTest"
     ; Setup the options.ini file for the Custom Options Page with the option
     ; to set as default
     WriteINIStr "$PLUGINSDIR\options.ini" "Settings" NumFields "6"
