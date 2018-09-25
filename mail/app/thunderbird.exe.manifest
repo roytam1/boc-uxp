@@ -6,7 +6,7 @@
         name="Interlink"
         type="win32"
 />
-<description>Pale Moon</description>
+<description>Interlink</description>
 <dependency>
         <dependentAssembly>
                 <assemblyIdentity
