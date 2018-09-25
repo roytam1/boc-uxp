@@ -849,3 +849,6 @@ pref("mail.save_msg_filename_underscores_for_space", false);
 
 // calendar promotion status
 pref("mail.calendar-integration.opt-out", false);
+
+// Toolkit Console in tab
+pref("toolkit.console.openInTab", true);

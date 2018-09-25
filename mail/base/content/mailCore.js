@@ -323,7 +323,22 @@ function onViewToolbarsPopupShowing(aEvent, toolboxIds, aInsertPoint)
 
 function toJavaScriptConsole()
 {
-  toOpenWindowByType("global:console", "chrome://global/content/console.xul");
+  let pref = Services.prefs.getBoolPref("toolkit.console.openInTab");
+  let url = "chrome://global/content/console.xul";
+
+  if (pref) {
+    let tabmail = document.getElementById("tabmail");
+    let jsConsole = tabmail.getBrowserForDocumentId("JSConsoleWindow");
+    if (jsConsole)
+      tabmail.switchToTab(jsConsole);
+    else {
+      tabmail.openTab("chromeTab", {chromePage: url,
+                                    clickHandler: "specialTabs.aboutClickHandler(event);"});
+    }
+  }
+  else {
+    toOpenWindowByType("global:console", url);
+  }
 }
 
 function openAboutDebugging(hash)
