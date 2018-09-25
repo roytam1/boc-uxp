@@ -11,6 +11,9 @@
    == (addressbook and compose) are already styled elsewhere.
    ====================================================================== */
 
+/* Steal Orginal Toolbar style from Aris */
+@import url("chrome://messenger/skin/shared/toolbars-aris.css");
+
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
 /* ::::: Mail Toolbars and Menubars ::::: */

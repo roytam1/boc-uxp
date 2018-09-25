@@ -9,6 +9,9 @@
 @import url("chrome://messenger/skin/");
 @import url("chrome://messenger/skin/shared/addressbook.css");
 
+/* Steal Orginal Toolbar style from Aris */
+@import url("chrome://messenger/skin/shared/toolbars-aris.css");
+
 /* ::::: directory pane adjustments ::::: */
 
 #abDirTreeHeader-title {

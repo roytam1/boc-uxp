@@ -24,8 +24,8 @@
     </em:targetApplication>
     
     <!-- Front End MetaData -->
-    <em:name>Austrata Style (Non-default Default Theme)</em:name>
-    <em:description>The Hybrid of Strata and Australis that some people actually find acceptable.</em:description>
+    <em:name>Strata Four-point-oh Style</em:name>
+    <em:description>The not-default theme</em:description>
 
     <!-- EXTENSION AUTHORS!
          DO NOT COPY THIS PROPERTY INTO YOUR INSTALL RDF FILES
@@ -38,7 +38,8 @@
     <em:locked>true</em:locked>
 
     <!-- Front End Integration Hooks (used by Theme Manager)-->
-    <em:creator>Mozilla</em:creator>
+    <em:creator>Open Source Contributors</em:creator>
+    <em:contributor>Aris-t2</em:contributor>
     <em:contributor>Mozilla Contributors</em:contributor>
 
     <em:internalName>classic/1.0</em:internalName>

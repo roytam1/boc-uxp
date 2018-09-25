@@ -3,6 +3,8 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 @import url("chrome://messenger/skin/shared/tabmail.css");
+/* Steal Orginal Tab style from Aris */
+@import url("chrome://messenger/skin/shared/tabmail-aris.css");
 
 /**
  * Tabmail Tabs
@@ -405,3 +407,12 @@ tabpanels {
 }
 
 #tabs-toolbar:not(:-moz-lwtheme)::before {box-shadow: none !important;}
+
+/* ========================================================================= */
+
+
+
+
+
+
+
