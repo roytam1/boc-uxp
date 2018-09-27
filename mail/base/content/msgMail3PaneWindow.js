@@ -388,7 +388,7 @@ function AutoConfigWizard(okCallback)
       return;
     }
 
-    msgOpenAccountWizard(okCallback, null);
+    MsgAccountWizard(okCallback, null);
 }
 
 /**
