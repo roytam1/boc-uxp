@@ -1053,7 +1053,7 @@ void nsImapProtocol::ReleaseUrlState(bool rerunning)
 
 class nsImapThreadShutdownEvent : public mozilla::Runnable {
 public:
-  nsImapThreadShutdownEvent(nsIThread *thread) : mThread(thread) {
+  explicit nsImapThreadShutdownEvent(nsIThread *thread) : mThread(thread) {
   }
   NS_IMETHOD Run() {
     mThread->Shutdown();
@@ -9529,7 +9529,7 @@ nsresult nsImapMockChannel::ReadFromMemCache(nsICacheEntry *entry)
 class nsReadFromImapConnectionFailure : public mozilla::Runnable
 {
 public:
-  nsReadFromImapConnectionFailure(nsImapMockChannel *aChannel)
+  explicit nsReadFromImapConnectionFailure(nsImapMockChannel *aChannel)
     : mImapMockChannel(aChannel)
   {}
 
