@@ -1,0 +1,40 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+#filter substitution
+
+[.] chrome.jar:
+% content @ADDON_CHROME_NAME@ chrome/content/
+* content/about.js
+* content/about.xul
+  content/composer.js
+* content/composer.xul
+  content/errors.html
+  content/filters-backup.js
+  content/filters-filteractions.js
+  content/filters-filterview.js
+  content/filters-search.js
+  content/filters-subscriptionactions.js
+  content/filters-subscriptionview.js
+  content/filters.js
+* content/filters.xul
+  content/firstRun.js
+* content/firstRun.xul
+  content/flasher.js
+* content/navigatorOverlay.xul
+  content/objtabs.css
+* content/overlay.js
+* content/overlayGeneral.xul
+* content/phoenixOverlay.xul
+  content/progressBar.xml
+  content/sendReport.js
+* content/sendReport.xul
+* content/settings.xul
+* content/sidebar.js
+* content/sidebar.xul
+* content/sidebarDetached.xul
+  content/subscriptions.xml
+  content/subscriptionSelection.js
+* content/subscriptionSelection.xul
+* content/utils.js
