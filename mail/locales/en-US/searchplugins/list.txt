@@ -1,0 +1,3 @@
+duckduckgo-palemoon
+ecosia
+wikipedia

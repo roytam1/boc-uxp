@@ -4,6 +4,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 MOZ_THUNDERBIRD=1
+BINOC_INTERLINK=1
 MOZ_APP_BASENAME=Interlink
 MOZ_APP_NAME=interlink
 MOZ_APP_VENDOR=BinOC
