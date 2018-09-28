@@ -1,5 +1,0 @@
-# Normally it doesn't quite matter WHEN the components load as long as they load..
-# However, ABPrime wants everything to be initallized well before the main window
-# spawns so we put the component registration in the main chrome.manifest elsewhere.
-# The build system demands to have a manifest file along side any components though,
-# so here it is to keep it from bitching.
