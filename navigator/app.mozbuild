@@ -13,7 +13,7 @@ if CONFIG['OS_TARGET'] in ('WINNT', 'Linux'):
 
     DIRS += [
         '/xpfe/components/autocomplete',
-        '/application/navigator',
+        '/navigator',
     ]
 else:
     error('This application does not support your platform.')

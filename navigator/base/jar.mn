@@ -247,10 +247,10 @@ comm.jar:
   content/communicator/sync/syncUtils.js                           (content/sync/syncUtils.js)
   content/communicator/sync/syncUI.js                              (content/sync/syncUI.js)
 
-  content/communicator/labelsencodings.properties                  (/dom/encoding/labelsencodings.properties)
+  content/communicator/labelsencodings.properties                  (/mozilla/dom/encoding/labelsencodings.properties)
 
 # the following file is a suite-specific override of the generic license.html, using suite/common/app-license.html as input:
-* content/communicator/license.html                                (/toolkit/content/license.html)
+* content/communicator/license.html                                (/mozilla/toolkit/content/license.html)
 
 #ifdef XP_MACOSX
   content/navigator/platformNavigationBindings.xul                 (content/mac/platformNavigationBindings.xul)
