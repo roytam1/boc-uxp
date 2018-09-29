@@ -390,6 +390,7 @@ pref("browser.display.auto_quality_min_font_size", 0);
 pref("view_source.syntax_highlight", false);
 
 pref("toolkit.telemetry.infoURL", "https://www.mozilla.org/thunderbird/legal/privacy/#telemetry");
+pref("toolkit.telemetry.enabled", false);
 
 pref("mousewheel.withcontrolkey.action", 3);
 /////////////////////////////////////////////////////////////////

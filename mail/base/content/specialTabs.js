@@ -611,11 +611,12 @@ var specialTabs = {
       Services.prefs.clearUserPref("app.update.postupdate");
     }
 
+    // XXXTobin: Remove
     // Show the about rights notification if we need to.
-    if (this.shouldShowAboutRightsNotification())
-      this.showAboutRightsNotification();
-    else if (this.shouldShowTelemetryNotification())
-      this.showTelemetryNotification();
+    //if (this.shouldShowAboutRightsNotification())
+      //this.showAboutRightsNotification();
+    //else if (this.shouldShowTelemetryNotification())
+      //this.showTelemetryNotification();
   },
 
   /**

@@ -50,7 +50,7 @@
 @RESPATH@/chrome/@AB_CD@@JAREXT@
 @RESPATH@/chrome/@AB_CD@.manifest
 @RESPATH@/dictionaries/*
-@RESPATH@/searchplugins/*
+#@RESPATH@/searchplugins/*
 #ifdef MOZ_BUNDLED_FONTS
 #@RESPATH@/fonts/*
 #endif
