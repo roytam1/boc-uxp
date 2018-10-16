@@ -8,6 +8,7 @@ DIRS += [
     'components',
     'content',
     'locale',
+    'modules',
     'skin',
 ]
 
