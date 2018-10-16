@@ -23,7 +23,7 @@ def confvars(key):
     metadata = {
       'name': 'DOM Inspector',
       'id': 'inspector@mozilla.org',
-      'version': '3.0.0',
+      'version': '3.0.1',
       'creator': 'Binary Outcast',
       'description': 'DOM Inspector is a tool that can be used to inspect and edit the live DOM of any web document or XUL application.',
       'slug': 'domi',
