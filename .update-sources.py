@@ -86,19 +86,6 @@ elif platform.system() == "Linux":
 
 # ===| Main |==================================================================
 
-listRaw = os.listdir(strProjectsPath)
-listDirectories = []
-
-for _value in listRaw:
-    if os.path.isdir(strProjectsPath + _value):
-        listDirectories += [ _value ]
-
-for _value in listDirectories:
-    if os.path.exists(strProjectsPath + _value + '/.git'):
-        funcOutputMessage('statusGen', 'Updating repository in ' + _value)
-        subprocess.call('"{0}" {1}'.format(strGitBinary, 'checkout -q'), shell=True, cwd=strProjectsPath + _value)
-        subprocess.call('"{0}" {1}'.format(strGitBinary, 'pull -q'), shell=True, cwd=strProjectsPath + _value)
-
 strSubPath = ''
 
 # ambassador
