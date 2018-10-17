@@ -103,8 +103,8 @@ subprocess.call('"{0}" {1}'.format(strGitBinary, 'pull -q'), shell=True, cwd=str
 # uxp
 strSubPath = '/mozilla/'
 funcOutputMessage('statusGen', 'Updating unified xul platform repository')
-subprocess.call('"{0}" {1}'.format(strGitBinary, 'checkout -q'), shell=True, cwd=strScriptPath)
-subprocess.call('"{0}" {1}'.format(strGitBinary, 'pull -q'), shell=True, cwd=strScriptPath)
+subprocess.call('"{0}" {1}'.format(strGitBinary, 'checkout -q'), shell=True, cwd=strScriptPath + strSubPath)
+subprocess.call('"{0}" {1}'.format(strGitBinary, 'pull -q'), shell=True, cwd=strScriptPath + strSubPath)
 
 # top-level
 funcOutputMessage('statusGen', 'Updating top-level repository')
