@@ -89,19 +89,19 @@ elif platform.system() == "Linux":
 strSubPath = ''
 
 # ambassador
-strSubPath = 'mozilla/application/ambassador/'
+strSubPath = '/mozilla/application/ambassador/'
 funcOutputMessage('statusGen', 'Updating ambassador repository')
 subprocess.call('"{0}" {1}'.format(strGitBinary, 'checkout -q'), shell=True, cwd=strScriptPath + strSubPath)
 subprocess.call('"{0}" {1}'.format(strGitBinary, 'pull -q'), shell=True, cwd=strScriptPath + strSubPath)
 
 # iceweasel-uxp
-strSubPath = 'mozilla/application/iceweasel-uxp/'
+strSubPath = '/mozilla/application/iceweasel-uxp/'
 funcOutputMessage('statusGen', 'Updating iceweasel repository')
 subprocess.call('"{0}" {1}'.format(strGitBinary, 'checkout -q'), shell=True, cwd=strScriptPath + strSubPath)
 subprocess.call('"{0}" {1}'.format(strGitBinary, 'pull -q'), shell=True, cwd=strScriptPath + strSubPath)
 
 # uxp
-strSubPath = 'mozilla/'
+strSubPath = '/mozilla/'
 funcOutputMessage('statusGen', 'Updating unified xul platform repository')
 subprocess.call('"{0}" {1}'.format(strGitBinary, 'checkout -q'), shell=True, cwd=strScriptPath)
 subprocess.call('"{0}" {1}'.format(strGitBinary, 'pull -q'), shell=True, cwd=strScriptPath)
