@@ -12,5 +12,3 @@ FINAL_TARGET_FILES.chrome.icons.default += [
 ]
 
 FINAL_TARGET_FILES.defaults.preferences += ['inspector.js']
-
-JAR_MANIFESTS += ['jar.mn']

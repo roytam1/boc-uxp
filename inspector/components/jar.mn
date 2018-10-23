@@ -3,8 +3,6 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 [.] chrome.jar:
-% resource  inspector modules/
-
 % category command-line-handler m-inspector @mozilla.org/commandlinehandler/general-startup;1?type=inspector
 % component {38293526-6b13-4d4f-a075-71939435b408} components/inspector-cmdline.js
 % contract @mozilla.org/commandlinehandler/general-startup;1?type=inspector {38293526-6b13-4d4f-a075-71939435b408}
