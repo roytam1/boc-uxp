@@ -52,7 +52,7 @@
 @RESPATH@/dictionaries/*
 #@RESPATH@/searchplugins/*
 #ifdef MOZ_BUNDLED_FONTS
-#@RESPATH@/fonts/*
+@RESPATH@/fonts/*
 #endif
 @RESPATH@/hyphenation/*
 #ifdef HAVE_MAKENSISU
