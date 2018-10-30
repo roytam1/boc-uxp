@@ -421,13 +421,9 @@
             <menuitem id="menu_properties"
                       key="key_properties"
                       command="cmd_properties-menu"/>
-#ifdef XP_UNIX
-#ifndef XP_MACOSX
-        <menuseparator id="prefSep"/>
-        <menuitem id="menu_preferences" label="&preferencesCmdUnix.label;" accesskey="&preferencesCmdUnix.accesskey;"
-                  command="cmd_preferences"/>
-#endif
-#endif
+            <menuseparator id="prefSep"/>
+            <menuitem id="menu_preferences" label="&preferencesCmdUnix.label;" accesskey="&preferencesCmdUnix.accesskey;"
+                      command="cmd_preferences"/>
           </menupopup>
         </menu>
 
@@ -575,21 +571,6 @@
             <menuitem label="&exportCmd.label;"
                       accesskey="&exportCmd.accesskey;"
                       oncommand="AbExportSelection();"/>
-
-#ifndef XP_UNIX
-            <menuseparator id="prefSep"/>
-            <menuitem id="menu_preferences"
-                      label="&preferencesCmd2.label;"
-                      accesskey="&preferencesCmd2.accesskey;"
-                      command="cmd_preferences"/>
-#else
-#ifdef XP_MACOSX
-            <menuitem id="menu_preferences"
-                      label="&preferencesCmd2.label;"
-                      accesskey="&preferencesCmd2.accesskey;"
-                      command="cmd_preferences"/>
-#endif
-#endif
           </menupopup>
         </menu>
 

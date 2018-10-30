@@ -107,17 +107,9 @@
   <!-- Not needed yet, window will need this: -->
   <!-- broadcaster id="cmd_preferences"/ -->
 
-#ifndef XP_MACOSX
   <menuitem id="menu_preferences"
-#ifdef XP_UNIX
-
             label="&preferencesCmdUnix.label;"
             accesskey="&preferencesCmdUnix.accesskey;"/>
-#else
-            label="&preferencesCmd2.label;"
-            accesskey="&preferencesCmd2.accesskey;"/>
-#endif
-#endif
 
   <!-- View Menu -->
   <menu id="menu_View" label="&viewMenu.label;" accesskey="&viewMenu.accesskey;"/>

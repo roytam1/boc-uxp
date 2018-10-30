@@ -2365,15 +2365,12 @@
         <menuitem id="menu_properties" label="&folderPropsCmd2.label;"
                   accesskey="&folderPropsCmd.accesskey;"
                   command="cmd_properties"/>
-#ifdef XP_UNIX
-#ifndef XP_MACOSX
+        <menuseparator id="prefSep"/>
         <menuitem id="menu_accountmgr"
                   label="&accountManagerCmd2.label;"
                   accesskey="&accountManagerCmdUnix2.accesskey;"
                   oncommand="MsgAccountManager(null);"/>
         <menuitem id="menu_preferences" oncommand="openOptionsDialog()"/>
-#endif
-#endif
       </menupopup>
     </menu>
 
@@ -2941,29 +2938,12 @@
                   accesskey="&clearRecentHistory.accesskey;"
                   key="key_sanitizeHistory"
                   oncommand="toSanitize();"/>
-#ifndef XP_UNIX
-        <menuseparator id="prefSep"/>
-        <menuitem id="menu_accountmgr"
-                  label="&accountManagerCmd2.label;"
-                  accesskey="&accountManagerCmd2.accesskey;"
-                  oncommand="MsgAccountManager(null);"/>
-        <menuitem id="menu_preferences" oncommand="openOptionsDialog()"/>
-#else
 #ifdef XP_MACOSX
         <menuseparator id="prefSep"/>
-        <menuitem id="menu_accountmgr"
-                  label="&accountManagerCmd2.label;"
-                  accesskey="&accountManagerCmd2.accesskey;"
-                  oncommand="MsgAccountManager(null);"/>
-        <menuitem id="menu_preferences"
-                  label="&preferencesCmdMac2.label;"
-                  key="key_preferencesCmdMac"
-                  oncommand="openOptionsDialog()"/>
         <menuitem id="menu_mac_services" label="&servicesMenuMac.label;"/>
         <menuitem id="menu_mac_hide_app" label="&hideThisAppCmdMac.label;" key="key_hideThisAppCmdMac"/>
         <menuitem id="menu_mac_hide_others" label="&hideOtherAppsCmdMac.label;" key="key_hideOtherAppsCmdMac"/>
         <menuitem id="menu_mac_show_all" label="&showAllAppsCmdMac.label;"/>
-#endif
 #endif
        </menupopup>
       </menu>

@@ -574,8 +574,6 @@
                     accesskey="&findPrevCmd.accesskey;"
                     key="key_findPrev"
                     command="cmd_findPrev"/>
-#ifdef XP_UNIX
-#ifndef XP_MACOSX
           <menuseparator id="prefSep"/>
           <menuitem id="menu_accountmgr"
                     label="&accountManagerCmd2.label;"
@@ -583,8 +581,6 @@
                     command="cmd_account"/>
           <menuitem id="menu_preferences" label="&preferencesCmdUnix.label;" accesskey="&preferencesCmdUnix.accesskey;"
                     oncommand="openOptionsDialog('paneCompose');"/>
-#endif
-#endif
         </menupopup>
       </menu>
 
@@ -709,19 +705,6 @@
                       accesskey="&addressBookCmd.accesskey;"
                       key="key_addressbook"
                       oncommand="toAddressBook();"/>
-#endif
-
-#ifndef XP_UNIX
-            <menuseparator id="prefSep"/>
-            <menuitem label="&accountManagerCmd2.label;" accesskey="&accountManagerCmd2.accesskey;" command="cmd_account"/>
-            <menuitem id="menu_preferences" label="&preferencesCmd2.label;" accesskey="&preferencesCmd2.accesskey;"
-                      oncommand="openOptionsDialog('paneCompose');"/>
-#else
-#ifdef XP_MACOSX
-            <menuitem label="&accountManagerCmd2.label;" accesskey="&accountManagerCmd2.accesskey;" command="cmd_account"/>
-            <menuitem id="menu_preferences" label="&preferencesCmd2.label;" accesskey="&preferencesCmd2.accesskey;"
-                      oncommand="openOptionsDialog('paneCompose');"/>
-#endif
 #endif
          </menupopup>
       </menu>
