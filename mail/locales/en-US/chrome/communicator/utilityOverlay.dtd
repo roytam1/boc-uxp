@@ -31,8 +31,8 @@
 <!ENTITY selectAllCmd.label          "Select All">
 <!ENTITY selectAllCmd.key          "A">
 <!ENTITY selectAllCmd.accesskey        "A">
-<!ENTITY preferencesCmd2.label "Options">
-<!ENTITY preferencesCmd2.accesskey "O">
+<!ENTITY preferencesCmd2.label "Preferences">
+<!ENTITY preferencesCmd2.accesskey "n">
 <!ENTITY preferencesCmdUnix.label       "Preferences">
 <!ENTITY preferencesCmdUnix.accesskey     "n">
 
