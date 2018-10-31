@@ -451,7 +451,7 @@ pref("dom.disable_window_status_change",          true);
 // 0 - open it in a new window
 // 1 - open it in an existing window
 // 2 - open it in a new tab
-pref("mail.openMessageBehavior", 2);
+pref("mail.openMessageBehavior", 0);
 pref("mail.openMessageBehavior.version", 0);
 // If messages or folders are opened using the context menu or a middle click,
 // should we open them in the foreground or in the background?
@@ -461,7 +461,7 @@ pref("mail.tabs.loadInBackground", true);
 pref("mail.tabs.tabMinWidth", 100);
 pref("mail.tabs.tabMaxWidth", 210);
 pref("mail.tabs.tabClipWidth", 140);
-pref("mail.tabs.autoHide", false);
+pref("mail.tabs.autoHide", true);
 pref("mail.tabs.closeWindowWithLastTab", true);
 
 // Where to show tab close buttons:

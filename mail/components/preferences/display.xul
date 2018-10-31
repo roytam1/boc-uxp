@@ -42,6 +42,12 @@
       <preference id="font.language.group" name="font.language.group"
                   type="wstring" onchange="gDisplayPane._rebuildFonts();"/>
 
+      <!-- TABS -->
+      <preference id="mail.openMessageBehavior" name="mail.openMessageBehavior" type="int"/>
+      <preference id="mail.autoHideTabBar" name="mail.tabs.autoHide" type="bool"/>
+      <preference id="mail.close_message_window.on_delete"
+                  name="mail.close_message_window.on_delete" type="bool"/>
+
       <!-- Advanced -->
       <preference id="mail.showCondensedAddresses" name="mail.showCondensedAddresses" type="bool"/>
       <preference id="mailnews.mark_message_read.auto"
@@ -51,15 +57,13 @@
                   onchange="gDisplayPane.updateMarkAsReadTextbox(this.value);"/>
       <preference id="mailnews.mark_message_read.delay.interval"
                   name="mailnews.mark_message_read.delay.interval" type="int"/>
-      <preference id="mail.openMessageBehavior" name="mail.openMessageBehavior" type="int"/>
-      <preference id="mail.close_message_window.on_delete"
-                  name="mail.close_message_window.on_delete" type="bool"/>
     </preferences>
 
     <tabbox id="displayPrefs" flex="1" onselect="gDisplayPane.tabSelectionChanged();">
       <tabs id="displayPrefsTabs">
         <tab id="formattingTab" label="&itemFormatting.label;"/>
         <tab id="tagTab" label="&itemTags.label;"/>
+        <tab id="TabsTab" label="&itemTabs.label;"/>
         <tab id="displayTab" label="&itemAdvanced.label;"/>
       </tabs>
 
@@ -189,6 +193,40 @@
           </hbox>
         </tabpanel>
 
+       <!-- Tabs -->
+        <tabpanel orient="vertical">
+          <vbox>
+            <hbox>
+              <label value="&openMsgIn.label;"
+                     control="mailOpenMessageBehavior"/>
+            </hbox>
+
+            <hbox>
+              <radiogroup id="mailOpenMessageBehavior" class="indent"
+                          preference="mail.openMessageBehavior"
+                          orient="horizontal">
+                <radio id="newWindow" value="0" label="&reuseExpRadio0.label;"
+                       accesskey="&reuseExpRadio0.accesskey;"/>
+                <radio id="existingWindow" value="1"
+                       label="&reuseExpRadio1.label;"
+                       accesskey="&reuseExpRadio1.accesskey;"/>
+                <radio id="newTab" value="2" label="&openMsgInNewTab.label;"
+                       accesskey="&openMsgInNewTab.accesskey;"/>
+              </radiogroup>
+            </hbox>
+            <separator flex="1" />
+            <vbox>
+              <checkbox id="autoHideTabBar"
+                        label="&autoHide.label;"
+                        preference="mail.autoHideTabBar"/>
+              <checkbox id="closeMsgOnMoveOrDelete"
+                        label="&closeMsgOnMoveOrDelete.label;"
+                        accesskey="&closeMsgOnMoveOrDelete.accesskey;"
+                        preference="mail.close_message_window.on_delete"/>
+            </vbox>
+          </vbox>
+        </tabpanel>
+
         <!-- Advanced -->
         <tabpanel orient="vertical">
           <groupbox>
@@ -223,34 +261,6 @@
                 </hbox>
               </radiogroup>
             </vbox>
-
-            <vbox>
-              <hbox>
-                <label value="&openMsgIn.label;"
-                       control="mailOpenMessageBehavior"/>
-              </hbox>
-
-              <hbox>
-                <radiogroup id="mailOpenMessageBehavior" class="indent"
-                            preference="mail.openMessageBehavior"
-                            orient="horizontal">
-                  <radio id="newTab" value="2" label="&openMsgInNewTab.label;"
-                         accesskey="&openMsgInNewTab.accesskey;"/>
-                  <radio id="newWindow" value="0" label="&reuseExpRadio0.label;"
-                         accesskey="&reuseExpRadio0.accesskey;"/>
-                  <radio id="existingWindow" value="1"
-                         label="&reuseExpRadio1.label;"
-                         accesskey="&reuseExpRadio1.accesskey;"/>
-                </radiogroup>
-              </hbox>
-              <hbox>
-                <checkbox id="closeMsgOnMoveOrDelete"
-                          label="&closeMsgOnMoveOrDelete.label;"
-                          accesskey="&closeMsgOnMoveOrDelete.accesskey;"
-                          preference="mail.close_message_window.on_delete"/>
-              </hbox>
-            </vbox>
-
           </groupbox>
 
           <groupbox>
