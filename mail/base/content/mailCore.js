@@ -450,46 +450,57 @@ function openOptionsDialog(aPaneID, aTabID, aOtherArgs)
 
 function openAddonsMgr(aView)
 {
-  if (aView) {
-    let emWindow;
-    let browserWindow;
+  let pref = Services.prefs.getBoolPref("extensions.openInTab");
+  let type = "Addons:Manager";
+  let url = "chrome://mozapps/content/extensions/extensions.xul";
+  let features = "chrome,resizable,centerscreen";
 
-    let receivePong = function receivePong(aSubject, aTopic, aData) {
-      let browserWin = aSubject.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
-        .getInterface(Components.interfaces.nsIWebNavigation)
-        .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
-        .rootTreeItem
-        .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
-        .getInterface(Components.interfaces.nsIDOMWindow);
-      if (!emWindow || browserWin == window /* favor the current window */) {
-        emWindow = aSubject;
-        browserWindow = browserWin;
+  if (pref) {
+    if (aView) {
+      let emWindow;
+      let browserWindow;
+
+      let receivePong = function receivePong(aSubject, aTopic, aData) {
+        let browserWin = aSubject.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+          .getInterface(Components.interfaces.nsIWebNavigation)
+          .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
+          .rootTreeItem
+          .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+          .getInterface(Components.interfaces.nsIDOMWindow);
+        if (!emWindow || browserWin == window /* favor the current window */) {
+          emWindow = aSubject;
+          browserWindow = browserWin;
+        }
+      }
+      Services.obs.addObserver(receivePong, "EM-pong", false);
+      Services.obs.notifyObservers(null, "EM-ping", "");
+      Services.obs.removeObserver(receivePong, "EM-pong");
+
+      if (emWindow) {
+        emWindow.loadView(aView);
+        let tabmail = browserWindow.document.getElementById("tabmail");
+        tabmail.switchToTab(tabmail.getBrowserForDocument(emWindow));
+        emWindow.focus();
+        return;
       }
     }
-    Services.obs.addObserver(receivePong, "EM-pong", false);
-    Services.obs.notifyObservers(null, "EM-ping", "");
-    Services.obs.removeObserver(receivePong, "EM-pong");
 
-    if (emWindow) {
-      emWindow.loadView(aView);
-      let tabmail = browserWindow.document.getElementById("tabmail");
-      tabmail.switchToTab(tabmail.getBrowserForDocument(emWindow));
-      emWindow.focus();
-      return;
+    openContentTab(url, "tab", "addons.mozilla.org");
+
+
+    if (aView) {
+      // This must be a new load, else the ping/pong would have
+      // found the window above.
+      Services.obs.addObserver(function loadViewOnLoad(aSubject, aTopic, aData) {
+        Services.obs.removeObserver(loadViewOnLoad, aTopic);
+        aSubject.loadView(aView);
+      }, "EM-loaded", false);
     }
   }
-
-  openContentTab("about:addons", "tab", "addons.mozilla.org");
-
-
-  if (aView) {
-    // This must be a new load, else the ping/pong would have
-    // found the window above.
-    Services.obs.addObserver(function loadViewOnLoad(aSubject, aTopic, aData) {
-      Services.obs.removeObserver(loadViewOnLoad, aTopic);
-      aSubject.loadView(aView);
-    }, "EM-loaded", false);
+  else {
+    toOpenWindowByType(type, url, features);
   }
+ 
 }
 
 function openActivityMgr()

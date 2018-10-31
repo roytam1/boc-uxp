@@ -47,6 +47,8 @@
       <preference id="mail.autoHideTabBar" name="mail.tabs.autoHide" type="bool"/>
       <preference id="mail.close_message_window.on_delete"
                   name="mail.close_message_window.on_delete" type="bool"/>
+      <preference id="mail.addonsManager" name="extensions.openInTab" type="bool"/>
+      <preference id="mail.errorConsole" name="toolkit.console.openInTab" type="bool"/>
 
       <!-- Advanced -->
       <preference id="mail.showCondensedAddresses" name="mail.showCondensedAddresses" type="bool"/>
@@ -193,37 +195,35 @@
           </hbox>
         </tabpanel>
 
-       <!-- Tabs -->
+       <!-- Tabbed Mail -->
         <tabpanel orient="vertical">
           <vbox>
-            <hbox>
-              <label value="&openMsgIn.label;"
-                     control="mailOpenMessageBehavior"/>
-            </hbox>
+            <label value="&openMsgIn.label;"
+                   control="mailOpenMessageBehavior"/>
+            <radiogroup id="mailOpenMessageBehavior" class="indent"
+                        preference="mail.openMessageBehavior">
+              <radio id="newWindow" value="0" label="&reuseExpRadio0.label;"
+                     accesskey="&reuseExpRadio0.accesskey;"/>
+              <radio id="existingWindow" value="1"
+                     label="&reuseExpRadio1.label;"
+                     accesskey="&reuseExpRadio1.accesskey;"/>
+              <radio id="newTab" value="2" label="&openMsgInNewTab.label;"
+                     accesskey="&openMsgInNewTab.accesskey;"/>
+            </radiogroup>
 
-            <hbox>
-              <radiogroup id="mailOpenMessageBehavior" class="indent"
-                          preference="mail.openMessageBehavior"
-                          orient="horizontal">
-                <radio id="newWindow" value="0" label="&reuseExpRadio0.label;"
-                       accesskey="&reuseExpRadio0.accesskey;"/>
-                <radio id="existingWindow" value="1"
-                       label="&reuseExpRadio1.label;"
-                       accesskey="&reuseExpRadio1.accesskey;"/>
-                <radio id="newTab" value="2" label="&openMsgInNewTab.label;"
-                       accesskey="&openMsgInNewTab.accesskey;"/>
-              </radiogroup>
-            </hbox>
-            <separator flex="1" />
-            <vbox>
-              <checkbox id="autoHideTabBar"
-                        label="&autoHide.label;"
-                        preference="mail.autoHideTabBar"/>
-              <checkbox id="closeMsgOnMoveOrDelete"
-                        label="&closeMsgOnMoveOrDelete.label;"
-                        accesskey="&closeMsgOnMoveOrDelete.accesskey;"
-                        preference="mail.close_message_window.on_delete"/>
-            </vbox>
+            <checkbox id="autoHideTabBar"
+                      label="&autoHide.label;"
+                      preference="mail.autoHideTabBar"/>
+            <checkbox id="closeMsgOnMoveOrDelete"
+                      label="&closeMsgOnMoveOrDelete.label;"
+                      accesskey="&closeMsgOnMoveOrDelete.accesskey;"
+                      preference="mail.close_message_window.on_delete"/>
+            <checkbox id="addonsManager"
+                      label="&addonsManager.label;"
+                      preference="mail.addonsManager"/>
+            <checkbox id="errorConsole"
+                      label="&errorConsole.label;"
+                      preference="mail.errorConsole"/>
           </vbox>
         </tabpanel>
 

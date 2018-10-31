@@ -127,6 +127,9 @@ pref("app.support.baseURL", "https://support.live.mozillamessaging.com/%LOCALE%/
 // Show error messages in error console.
 pref("javascript.options.showInConsole", true);
 
+// Open Add-ons Manager in a tab or window
+pref("extensions.openInTab", false);
+
 // Controls enabling of the extension system logging (can reduce performance)
 pref("extensions.logging.enabled", false);
 
@@ -855,4 +858,4 @@ pref("mail.save_msg_filename_underscores_for_space", false);
 pref("mail.calendar-integration.opt-out", false);
 
 // Toolkit Console in tab
-pref("toolkit.console.openInTab", true);
+pref("toolkit.console.openInTab", false);

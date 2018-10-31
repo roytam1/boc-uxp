@@ -55,9 +55,11 @@
 <!ENTITY reuseExpRadio0.accesskey         "n">
 <!ENTITY reuseExpRadio1.label             "An existing message window">
 <!ENTITY reuseExpRadio1.accesskey         "e">
-<!ENTITY autoHide.label                   "Hide the tab bar when only one tab is open">
 <!ENTITY closeMsgOnMoveOrDelete.label     "Close message window/tab on move or delete">
 <!ENTITY closeMsgOnMoveOrDelete.accesskey "C">
+<!ENTITY autoHide.label                   "Hide the tab bar when only one tab is open">
+<!ENTITY addonsManager.label              "Open the Add-ons Manager in a Tab">
+<!ENTITY errorConsole.label               "Open the Error Console in a Tab">
 
 <!-- Advanced -->
 <!ENTITY reading.caption                  "Reading">
