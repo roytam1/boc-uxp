@@ -34,7 +34,7 @@
 
     <stringbundle id="bundlePreferences" src="chrome://messenger/locale/preferences/preferences.properties"/>
 
-    <groupbox>
+    <groupbox hidden="true">
       <caption label="&messengerStartPage.label;"/>
         <hbox align="start">
           <checkbox id="mailnewsStartPageEnabled" label="&enableStartPage.label;"
