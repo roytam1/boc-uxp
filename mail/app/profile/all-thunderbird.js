@@ -799,7 +799,7 @@ pref("devtools.chrome.enabled", true);
 pref("devtools.debugger.remote-enabled", true);
 pref("devtools.selfxss.count", 5);
 
-pref("mail.chat.enabled", true);
+pref("mail.chat.enabled", false);
 // Whether to show chat notifications or not.
 pref("mail.chat.show_desktop_notifications", true);
 // Decide how much information is to be shown in the notification.

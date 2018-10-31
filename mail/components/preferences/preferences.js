@@ -28,13 +28,6 @@ window.addEventListener("load", function () {
   }
 
   let prefWindow = document.getElementById("MailPreferences");
-  if (!Services.prefs.getBoolPref("mail.chat.enabled")) {
-    let radio =
-      document.getAnonymousElementByAttribute(prefWindow, "pane", "paneChat");
-    if (radio.selected)
-      prefWindow.showPane(document.getElementById("paneGeneral"));
-    radio.hidden = true;
-  }
 
   selectPaneAndTab(prefWindow, paneID, tabID, subdialogID);
 });
