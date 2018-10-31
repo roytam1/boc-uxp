@@ -347,11 +347,14 @@ function openAboutDebugging(hash)
   document.getElementById('tabmail').openTab("contentTab", { contentPage: url });
 }
 
-function toOpenWindowByType(inType, uri)
+function toOpenWindowByType(inType, uri, features)
 {
   var topWindow = Services.wm.getMostRecentWindow(inType);
+
   if (topWindow)
     topWindow.focus();
+  else if (features)
+    window.open(uri, "_blank", features);
   else
     window.open(uri, "_blank", "chrome,extrachrome,menubar,resizable,scrollbars,status,toolbar");
 }
