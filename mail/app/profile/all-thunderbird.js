@@ -153,7 +153,8 @@ pref("extensions.hotfix.certs.2.sha1Fingerprint", "39:E7:2B:7A:5B:CF:37:78:F9:5D
 pref("extensions.autoDisableScopes", 15);
 
 // Preferences for AMO integration
-pref("extensions.getAddons.cache.enabled", true);
+pref("extensions.getAddons.showPane", false);
+pref("extensions.getAddons.cache.enabled", false);
 pref("extensions.getAddons.maxResults", 15);
 pref("extensions.getAddons.get.url", "https://services.addons.mozilla.org/%LOCALE%/%APP%/api/%API_VERSION%/search/guid:%IDS%?src=thunderbird&appOS=%OS%&appVersion=%VERSION%");
 pref("extensions.getAddons.getWithPerformance.url", "https://services.addons.mozilla.org/%LOCALE%/%APP%/api/%API_VERSION%/search/guid:%IDS%?src=thunderbird&appOS=%OS%&appVersion=%VERSION%&tMain=%TIME_MAIN%&tFirstPaint=%TIME_FIRST_PAINT%&tSessionRestored=%TIME_SESSION_RESTORED%");
