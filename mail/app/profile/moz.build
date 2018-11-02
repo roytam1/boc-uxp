@@ -5,6 +5,17 @@
 
 DIRS += ['extensions']
 
+DEFINES['APP_VERSION'] = CONFIG['MOZ_APP_VERSION']
+
+if CONFIG['MOZILLA_OFFICIAL']:
+    DEFINES['MOZILLA_OFFICIAL'] = True
+
+DEFINES['MOZ_WIDGET_TOOLKIT'] = CONFIG['MOZ_WIDGET_TOOLKIT']
+
+JS_PREFERENCE_PP_FILES += [
+    'all-thunderbird.js',
+]
+
 FINAL_TARGET_FILES.defaults.profile += [
     'mimeTypes.rdf',
 ]

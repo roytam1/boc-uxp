@@ -3,10 +3,10 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 // Default start page
-pref("mailnews.start_page.url","https://live.mozillamessaging.com/%APP%/start?locale=%LOCALE%&version=%VERSION%&os=%OS%&buildid=%APPBUILDID%");
+pref("mailnews.start_page.url","about:blank");
 
 // start page override to load after an update
-pref("mailnews.start_page.override_url","https://live.mozillamessaging.com/%APP%/whatsnew?locale=%LOCALE%&version=%VERSION%&os=%OS%&buildid=%APPBUILDID%");
+pref("mailnews.start_page.override_url","about:blank");
 
 // Interval: Time between checks for a new version (in seconds)
 // nightly=8 hours, official=24 hours
@@ -19,4 +19,4 @@ pref("app.update.download.backgroundInterval", 60);
 // Give the user x seconds to react before showing the big UI. default=24 hours
 pref("app.update.promptWaitTime", 86400);
 
-pref("app.vendorURL", "http://www.mozilla.org/projects/%APP%/");
+pref("app.vendorURL", "http://binaryoutcast.com/projects/interlink/");
