@@ -79,7 +79,7 @@ pref("app.update.certs.2.issuerName", "CN=thawte SSL CA - G2,O=\"thawte, Inc.\",
 pref("app.update.certs.2.commonName", "aus5.mozilla.org");
 
 // Whether or not app updates are enabled
-pref("app.update.enabled", false);
+pref("app.update.enabled", true);
 
 // If set to true, the Update Service will automatically download updates when
 // app updates are enabled per the app.update.enabled preference and if the user
