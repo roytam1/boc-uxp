@@ -6,16 +6,18 @@
 # Only Mac and Windows have search integration components, but we include at
 # least one module from search/ on all platforms
 DIRS += [
-    'compose',
-    'cloudfile',
-    'downloads',
-    'preferences',
-    'addrbook',
-    'migration',
-    'activity',
-    'search',
     'about-support',
+    'activity',
+    'addrbook',
+    'cloudfile',
+    'compose',
+    'downloads',
+    'mailviews',
+    'migration',
     'newmailaccount',
+    'preferences',
+    'search',
+    'smime',
     'steel',
 ]
 
