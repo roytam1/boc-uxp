@@ -453,7 +453,7 @@ function openAddonsMgr(aView)
   let pref = Services.prefs.getBoolPref("extensions.openInTab");
   let type = "Addons:Manager";
   let url = "chrome://mozapps/content/extensions/extensions.xul";
-  let features = "chrome,resizable,centerscreen";
+  let features = "chrome,titlebar,resizable,centerscreen";
 
   if (pref) {
     if (aView) {

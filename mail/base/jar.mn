@@ -75,6 +75,7 @@ messenger.jar:
     content/messenger/configEditorOverlay.xul       (content/configEditorOverlay.xul)
     content/messenger/EdSpellCheckOverlay.xul       (content/EdSpellCheckOverlay.xul)
     content/messenger/EdSpellCheckOverlay.js        (content/EdSpellCheckOverlay.js)
+    content/messenger/extensionsOverlay.xul         (content/extensionsOverlay.xul)
     content/messenger/composerOverlay.css           (content/composerOverlay.css)
     content/messenger/threadPane.js                 (content/threadPane.js)
     content/messenger/threadPaneColumnPicker.xml    (content/threadPaneColumnPicker.xml)
@@ -127,3 +128,4 @@ comm.jar:
 toolkit.jar:
 % overlay chrome://global/content/customizeToolbar.xul chrome://messenger/content/customizeToolbarOverlay.xul
 % overlay chrome://mozapps/content/downloads/downloads.xul chrome://messenger/content/downloadsOverlay.xul
+% overlay chrome://mozapps/content/extensions/extensions.xul chrome://messenger/content/extensionsOverlay.xul
