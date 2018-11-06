@@ -3,23 +3,37 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-MOZ_THUNDERBIRD=1
-BINOC_INTERLINK=1
+# Application
 MOZ_APP_BASENAME=Interlink
 MOZ_APP_NAME=interlink
 MOZ_APP_VENDOR=BinOC
 MOZ_APP_ID={3550f703-e582-4d05-9a08-453d09bdfdc6}
-MOZ_UPDATER=1
 MOZ_APP_STATIC_INI=1
+MOZ_APP_VERSION=`cat ${_topsrcdir}/$MOZ_BUILD_APP/config/version.txt`.`$PYTHON ${_topsrcdir}/../config/version2k.py`
+MOZ_APP_VERSION_DISPLAY=$MOZ_APP_VERSION
+MOZ_BRANDING_DIRECTORY=mail/branding/unofficial
+MOZ_OFFICIAL_BRANDING_DIRECTORY=mail/branding/official
+MOZ_PROFILE_MIGRATOR=1
+
+# Platform Conditional code for application
+MOZ_THUNDERBIRD=1
+BINOC_INTERLINK=1
+
+# Comm build options
 MOZ_MORK=1
 MOZ_LDAP_XPCOM=1
 MOZ_COMPOSER=1
+MOZ_CALENDAR=
+THUNDERBIRD_VERSION=$MOZ_APP_VERSION
+
+# Platform build options
 MOZ_PLACES=1
-MOZ_SAFE_BROWSING=1
-MOZ_PROFILE_MIGRATOR=1
 MOZ_JSDOWNLOADS=1
 MOZ_SEPARATE_MANIFEST_FOR_THEME_OVERRIDES=1
-
+MOZ_SAFE_BROWSING=1
+MOZ_SERVICES_SYNC=
+MOZ_SERVICES_COMMON=
+MOZ_SERVICES_CLOUDSYNC=
 MOZ_JETPACK=
 MOZ_DEVTOOLS_SERVER=
 MOZ_DEVTOOLS=
@@ -29,18 +43,10 @@ if test "$OS_ARCH" = "WINNT" -o \
   MOZ_BUNDLED_FONTS=1
 fi
 
-MOZ_APP_VERSION=`cat ${_topsrcdir}/$MOZ_BUILD_APP/config/version.txt`.`$PYTHON ${_topsrcdir}/../config/version2k.py`
-MOZ_APP_VERSION_DISPLAY=$MOZ_APP_VERSION
-THUNDERBIRD_VERSION=$MOZ_APP_VERSION
-
-MOZ_BRANDING_DIRECTORY=mail/branding/unofficial
-MOZ_OFFICIAL_BRANDING_DIRECTORY=other-licenses/branding/thunderbird
-
 # This should usually be the same as the value MAR_CHANNEL_ID.
 # If more than one ID is needed, then you should use a comma separated list
 # of values.
-ACCEPTED_MAR_CHANNEL_IDS=thunderbird-comm-release
+ACCEPTED_MAR_CHANNEL_IDS=release,unstable
 # The MAR_CHANNEL_ID must not contain the following 3 characters: ",\t "
-MAR_CHANNEL_ID=thunderbird-comm-release
-# Enable generational GC on desktop.
-
+MAR_CHANNEL_ID=release
+MOZ_UPDATER=1
