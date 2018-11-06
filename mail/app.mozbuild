@@ -3,13 +3,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-if CONFIG['MOZ_LDAP_XPCOM']:
-    DIRS += ['/modules/ldap']
-
-if CONFIG['MOZ_MORK']:
-    DIRS += ['/modules/mork']
-
 DIRS += [
+    '/modules/ldap',
+    '/modules/mork',
     '/mailnews',
     '/mail/components'
 ]
@@ -26,6 +22,7 @@ if CONFIG['MOZ_COMPOSER']:
 
 if CONFIG['MOZ_CALENDAR']:
     DIRS += [
+        '/modules/libical',
         '/calendar/lightning',
         '/calendar/timezones'
     ]
