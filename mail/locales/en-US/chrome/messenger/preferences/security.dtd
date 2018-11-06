@@ -2,10 +2,13 @@
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 
-<!ENTITY itemJunk.label          "Junk">
-<!ENTITY itemPhishing.label      "E-mail Scams">
-<!ENTITY itemPasswords.label     "Passwords">
-<!ENTITY itemAntiVirus.label     "Antivirus">
+<!ENTITY itemGeneral.label        "General">
+<!ENTITY itemPasswords.caption    "Passwords">
+
+<!ENTITY itemEmail.label        "E-Mail">
+<!ENTITY itemJunk.caption         "Junk Mail Controls">
+<!ENTITY itemPhishing.caption     "Phishing Protection">
+<!ENTITY itemAntiVirus.caption    "Antivirus Integration">
 
 <!-- Junk Mail Controls -->
 <!ENTITY junkMail.intro "Set your default junk mail settings. Account-specific junk mail settings can be configured in Account Settings.">
