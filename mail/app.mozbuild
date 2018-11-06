@@ -7,8 +7,10 @@ DIRS += [
     '/modules/ldap',
     '/modules/mork',
     '/mailnews',
-    '/mail/components'
 ]
+
+if not CONFIG['MOZ_INCOMPLETE_EXTERNAL_LINKAGE']:
+    DIRS += ['/mail/components']
 
 include('/toolkit/toolkit.mozbuild')
 
