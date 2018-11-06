@@ -4,11 +4,9 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 DIRS += [
-    '../libical',
     '../base',
-    '../providers',
-    '../import-export',
-    '../itip',
+    '../components',
+    '../providers/gdata',
     'components',
     'locales',
     'modules',

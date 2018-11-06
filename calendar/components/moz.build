@@ -4,8 +4,16 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 DIRS = [
-    'libical',
-    'icaljs'
+    '../../modules/libical',
+    'build',
+    'caldav',
+    'composite',
+    'ical',
+    'icaljs',
+    'import-export',
+    'itip',
+    'memory',
+    'wcap'
 ]
 
 EXTRA_COMPONENTS += [

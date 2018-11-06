@@ -3,18 +3,12 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-DIRS = [
-    'build'
-]
-
 SOURCES += [
-    'calDateTime.cpp',
-    'calDuration.cpp',
-    'calICSService.cpp',
-    'calPeriod.cpp',
-    'calRecurrenceRule.cpp',
-    'calTimezone.cpp',
-    'calUtils.cpp',
+    'nsModule.cpp',
 ]
 
-FINAL_LIBRARY = 'xul'
+LOCAL_INCLUDES += [
+    '../ical'
+]
+
+FINAL_LIBRARY = "xul"
