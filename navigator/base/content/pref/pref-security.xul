@@ -39,6 +39,14 @@
       <preference id="browser.safebrowsing.phishing.enabled"
                   name="browser.safebrowsing.phishing.enabled"
                   type="bool"/>
+
+      <!-- Opportunistic Encryption -->
+      <preference id="network.http.upgrade-insecure-requests"
+                  name="network.http.upgrade-insecure-requests"
+                  type="bool"/>
+      <preference id="network.http.altsvc.oe"
+                  name="network.http.altsvc.oe"
+                  type="bool"/>
     </preferences>
 
     <!-- User Tracking -->
@@ -92,6 +100,17 @@
                 label="&blockWebForgeries.label;"
                 accesskey="&blockWebForgeries.accesskey;"
                 preference="browser.safebrowsing.phishing.enabled"/>
+    </groupbox>
+
+    <!-- Opportunistic Encryption -->
+    <groupbox id="OpportunisticEncryption">
+      <caption label="&OpEnc.label;"/>
+      <checkbox id="enableUIROpEnc"
+                label="&enableUIROpEnc.label;"
+                preference="network.http.upgrade-insecure-requests" />
+      <checkbox id="enableAltSvcOpEnc"
+                label="&enableAltSvcOpEnc.label;"
+                preference="network.http.altsvc.oe" />
     </groupbox>
   </prefpane>
 </overlay>

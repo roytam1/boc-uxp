@@ -37,3 +37,7 @@
 
 <!ENTITY blockWebForgeries.label          "Block reported web forgeries (Phishing)">
 <!ENTITY blockWebForgeries.accesskey      "P">
+
+<!ENTITY  OpEnc.label                "Opportunistic Encryption">
+<!ENTITY  enableUIROpEnc.label       "Enable Upgrade Insecure Requests">
+<!ENTITY  enableAltSvcOpEnc.label    "Enable HTTP Alternative Services">
