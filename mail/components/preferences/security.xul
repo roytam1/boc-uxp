@@ -21,6 +21,12 @@
     <stringbundle id="bundleMasterPwPreferences" src="chrome://mozapps/locale/preferences/preferences.properties"/>
 
     <preferences id="securityPreferences">
+      <preference id="network.http.upgrade-insecure-requests"
+                  name="network.http.upgrade-insecure-requests"
+                  type="bool"/>
+      <preference id="network.http.altsvc.oe"
+                  name="network.http.altsvc.oe"
+                  type="bool"/>
       <preference id="mail.preferences.security.selectedTabIndex"
                   name="mail.preferences.security.selectedTabIndex" type="int"/>
       <preference id="mail.spam.manualMark"
@@ -70,9 +76,7 @@
                       preference="pref.privacy.disable_button.view_passwords"/>
             </hbox>
             <!-- XXX button to do a showExceptions()? -->
-
             <separator class="thin"/>
-
             <description>&masterPassword.intro;</description>
             <hbox>
               <checkbox id="useMasterPassword"
@@ -87,8 +91,18 @@
             </hbox>
             <separator flex="1"/>
           </groupbox>
+          <groupbox id="OpportunisticEncryption">
+            <caption label="&OpEnc.label;"/>
+            <checkbox id="enableUIROpEnc"
+                      label="&enableUIROpEnc.label;"
+                      preference="network.http.upgrade-insecure-requests" />
+            <checkbox id="enableAltSvcOpEnc"
+                      label="&enableAltSvcOpEnc.label;"
+                      preference="network.http.altsvc.oe" />
+          </groupbox>
         </tabpanel>
 
+        <!-- E-mail -->
         <tabpanel orient="vertical">
           <groupbox>
             <caption label="&itemJunk.caption;" />

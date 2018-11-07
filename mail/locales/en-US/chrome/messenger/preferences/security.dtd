@@ -5,6 +5,10 @@
 <!ENTITY itemGeneral.label        "General">
 <!ENTITY itemPasswords.caption    "Passwords">
 
+<!ENTITY  OpEnc.label                "Opportunistic Encryption">
+<!ENTITY  enableUIROpEnc.label       "Enable Upgrade Insecure Requests">
+<!ENTITY  enableAltSvcOpEnc.label    "Enable HTTP Alternative Services">
+
 <!ENTITY itemEmail.label        "E-Mail">
 <!ENTITY itemJunk.caption         "Junk Mail Controls">
 <!ENTITY itemPhishing.caption     "Phishing Protection">
