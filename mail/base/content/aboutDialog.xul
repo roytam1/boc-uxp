@@ -45,10 +45,8 @@
       <vbox id="leftBox" flex="1"/>
       <vbox id="rightBox" flex="1">
         <hbox align="baseline">
-#expand <label id="version">__MOZ_APP_VERSION_DISPLAY__</label>
-#ifndef NIGHTLY_BUILD
-#expand <label id="releasenotes" class="text-link" href="https://www.mozilla.org/thunderbird/__MOZ_APP_VERSION__/releasenotes/">&releaseNotes.link;</label>
-#endif
+#expand <label id="version" tooltiptext="Mozilla Compatibility Version: __MOZ_APP_VERSION__">Version: __MOZ_APP_VERSION_DISPLAY__</label>
+#expand <label id="releasenotes" class="text-link" href="http://binaryoutcast.com/projects/interlink/#release-notes">&releaseNotes.link;</label>
         </hbox>
 
         <label id="distribution" class="text-blurb"/>
@@ -114,36 +112,15 @@
             &channel.description.start;<label id="currentChannel"/>&channel.description.end;
           </description>
 #endif
-          <vbox id="experimental" hidden="true">
-            <description class="text-blurb" id="warningDesc">
-              &warningDesc.version;
-#ifdef MOZ_TELEMETRY_ON_BY_DEFAULT
-              &warningDesc.telemetryDesc;
-#endif
-            </description>
-            <description class="text-blurb" id="communityExperimentalDesc">
-              &community.exp.start;<label class="text-link" href="http://www.mozilla.org/">&community.exp.mozillaLink;</label>&community.exp.middle;<label class="text-link" href="about:credits">&community.exp.creditsLink;</label>&community.exp.end;
-            </description>
-          </vbox>
           <description class="text-blurb" id="communityDesc">
-            &community.start2;<label class="text-link" onclick="openURL('http://www.mozilla.org/');" oncommand="openUILink(this.getAttribute('href'), event);">&community.mozillaLink;</label>&community.middle2;<label class="text-link" onclick="openAboutTab('about:credits');">&community.creditsLink;</label>&community.end3;
+            &community.start2;<label class="text-link" onclick="openURL('http://binaryoutcast.com/');" oncommand="openUILink(this.getAttribute('href'), event);">&community.mozillaLink;</label>&community.middle2;
           </description>
-          <description class="text-blurb" id="contributeDesc">
-            &helpus.start;<label class="text-link" onclick="openUILink(this.getAttribute('href'), event)" href="https://donate.mozilla.org/thunderbird/about/">&helpus.donateLink;</label>&helpus.middle;<label class="text-link" onclick="openUILink(this.getAttribute('href'), event)" href="http://www.mozilla.org/contribute/" >&helpus.getInvolvedLink;</label>&helpus.end;
+          <description class="text-blurb">
+            &trademarkInfo.part1;
           </description>
        </vbox>
      </vbox>
     </hbox>
-    <vbox id="bottomBox">
-      <hbox pack="center">
-        <label class="text-link bottom-link" onclick="openAboutTab('about:license');">&bottomLinks.license;</label>
-        <label class="text-link bottom-link" onclick="openAboutTab('about:rights');">&bottomLinks.rights;</label>
-        <label class="text-link bottom-link" onclick="openURL('https://www.mozilla.org/en-US/thunderbird/legal/privacy/');">&bottomLinks.privacy;</label>
-      </hbox>
-      <description id="trademark">
-        <label class="trademark-label">&trademarkInfo.part1;</label>
-     </description>
-    </vbox>
   </vbox>
 
   <keyset id="mainKeyset">
