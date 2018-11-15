@@ -4,7 +4,18 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-include("../add-ons.configure")
+# We could use confvars.sh and configure.in but for some reason it gets a bit messy...
+# Just use what we have.. While UXP may reduce the importance of moz.configure we
+# likely will never be able to eliminate it entirely... Oh well.
+
+# Disables building the platform code
+# NOTE: This negates any possiblity of an XPIDL or Binary XPCOM Components
+set_config('MOZ_DISABLE_PLATFORM', '1')
+
+# Minimum required by moz.configure since we don't want everything in
+# toolkit/moz.configure when the platform isn't built
+set_config('MOZ_PACKAGER_FORMAT', 'omni')
+set_config('MOZ_JAR_MAKER_FILE_FORMAT', 'flat')
 
 # moz.configure won't allow setting normal variables in a global context so
 # create a function that can be called to get specific info
