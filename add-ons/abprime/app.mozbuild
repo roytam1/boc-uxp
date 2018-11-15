@@ -5,4 +5,4 @@
 
 # Never add tier dirs after the application srcdir because they
 # apparently won't get packaged properly on Mac.
-DIRS += ['/abprime']
+DIRS += ['/add-ons/abprime']
