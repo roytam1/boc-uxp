@@ -131,7 +131,7 @@
   <toolbox id="navigation-toolbox" class="toolbox-top">
   <!-- mail-toolbox is provided by mailWindowOverlay.xul -->
   <toolbar id="mail-toolbar-menubar2" />
-  <toolbox id="mail-toolbox" />
+  <toolbox id="mail-toolbox" messagewindow="true"/>
   </toolbox>
 
   <tooltip id="aHTMLTooltip" page="true"/>

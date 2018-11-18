@@ -19,7 +19,9 @@
 
 #tabs-toolbar {
   border-bottom: 1px solid rgba(10, 31, 51, .35);
+%ifdef MOZ_CALENDAR
   padding-bottom: 2px;
+%endif
 }
 
 #tabs-toolbar:-moz-lwtheme {
@@ -44,6 +46,13 @@
   -moz-appearance: none;
   background: transparent;
 }
+
+%ifdef MOZ_CALENDAR
+.mail-toolbox:not([messagewindow="true"]) {
+  border-top: 0px;
+  border-bottom: 1px solid threedshadow;
+}
+%endif
 
 .contentTabToolbox {
   -moz-appearance: none;

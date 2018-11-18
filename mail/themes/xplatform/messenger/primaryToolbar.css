@@ -27,9 +27,15 @@
   border-bottom-color: transparent;
 }
 
+
 #tabs-toolbar {
+%ifdef MOZ_CALENDAR
   -moz-box-ordinal-group: 20;
+%else
+  padding-bottom: 2px;
+%endif
 }
+
 
 #tabs-toolbar[collapsed=true] {
   visibility: inherit;
@@ -41,7 +47,9 @@
 }
 
 #mail-toolbar-menubar2 {
+%ifdef MOZ_CALENDAR
   -moz-box-ordinal-group: 10;
+%endif
   padding: 0px 0 0;
   margin: 0 0 0px;
 }
@@ -50,9 +58,21 @@
 .contentTabToolbox {
   -moz-appearance: none;
   border-top: none;
-  border-bottom: 1px solid threedshadow;
+}
+
+%ifndef MOZ_CALENDAR
+.mail-toolbox {
+  border-bottom: 0px;
+}
+%endif
+
+%ifdef MOZ_CALENDAR
+.mail-toolbox,
+%endif
+.contentTabToolbox {
   background-image: -moz-linear-gradient(rgba(255, 255, 255, .5),
                     rgba(255, 255, 255, .1) 19px) !important;
+  border-bottom: 1px solid threedshadow;
 }
 
 .mail-toolbox > toolbar:-moz-lwtheme,

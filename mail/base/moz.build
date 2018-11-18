@@ -18,4 +18,7 @@ if CONFIG['MOZ_WIDGET_TOOLKIT'] in ('windows', 'gtk2', 'gtk3', 'cocoa'):
 if CONFIG['MOZ_UPDATER']:
     DEFINES['MOZ_UPDATER'] = 1
 
+if CONFIG['MOZ_CALENDAR']:
+    DEFINES['MOZ_CALENDAR'] = 1
+
 JAR_MANIFESTS += ['jar.mn']

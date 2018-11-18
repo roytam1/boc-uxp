@@ -7,14 +7,17 @@ FINAL_TARGET_PP_FILES += ['install.rdf']
 
 DIST_SUBDIR = 'extensions/xplatform@interlink.projects.binaryoutcast.com'
 
-JAR_MANIFESTS += ['jar.mn']
+FINAL_TARGET_FILES += [
+    'icon.png',
+    'preview.png',
+]
 
 USE_EXTENSION_MANIFEST = True
 
 DEFINES['MOZ_APP_VERSION'] = CONFIG['MOZ_APP_VERSION']
 DEFINES['MOZ_APP_ID'] = CONFIG['MOZ_APP_ID']
 
-FINAL_TARGET_FILES += [
-    'icon.png',
-    'preview.png',
-]
+if CONFIG['MOZ_CALENDAR']:
+    DEFINES['MOZ_CALENDAR'] = 1
+
+JAR_MANIFESTS += ['jar.mn']
