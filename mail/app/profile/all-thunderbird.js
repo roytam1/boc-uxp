@@ -12,7 +12,12 @@
 #endif
 
 pref("general.useragent.locale", "@AB_CD@");
+
+#ifdef MOZ_CALENDAR
 pref("general.skins.selectedSkin", "ClassicTB2");
+#else
+pref("general.skins.selectedSkin", "classic/1.0");
+#endif
 
 #ifdef XP_MACOSX
 pref("browser.chromeURL", "chrome://messenger/content/messengercompose/messengercompose.xul");

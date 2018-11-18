@@ -29,7 +29,7 @@ include $(topsrcdir)/config/config.mk
 
 ifeq ($(OS_ARCH),WINNT)
 # Extract the icons we care about embedding into the EXE
-mailtoolbar = $(MOZILLA_SRCDIR)/$(MOZ_BUILD_APP)/themes/classic/windows/mail/icons/jumplist.png
+mailtoolbar = $(MOZILLA_SRCDIR)/$(MOZ_BUILD_APP)/themes/jumplist.png
 
 # png to ico converter. The function takes 5 arguments, in order: source png
 # file, left, top, size, output ico file.

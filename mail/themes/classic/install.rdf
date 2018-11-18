@@ -10,7 +10,7 @@
      xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 
   <Description about="urn:mozilla:install-manifest">
-    <em:id>classic@interlink.projects.binaryoutcast.com</em:id>
+    <em:id>{972ce4c6-7e08-4474-a285-3208198ce6fd}</em:id>
     <em:version>@MOZ_APP_VERSION@</em:version>
     <em:type>4</em:type>
 
@@ -25,8 +25,8 @@
     </em:targetApplication>
 
     <!-- Front End MetaData -->
-    <em:name>Classic Style</em:name>
-    <em:description>Toolkit is life</em:description>
+    <em:name>Toolkit Style</em:name>
+    <em:description>Minimal native styling</em:description>
 
     <!-- EXTENSION AUTHORS!
          DO NOT COPY THIS PROPERTY INTO YOUR INSTALL RDF FILES
@@ -45,7 +45,7 @@
     <em:contributor>Christoph Wirsching</em:contributor>
     <em:contributor>Mozilla Foundation</em:contributor>
 
-    <em:internalName>classic/2.0</em:internalName>
+    <em:internalName>classic/1.0</em:internalName>
   </Description>
 
 </RDF>

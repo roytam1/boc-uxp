@@ -19,7 +19,7 @@
 
 #tabs-toolbar {
   border-bottom: 1px solid rgba(10, 31, 51, .35);
-%ifdef MOZ_CALENDAR
+%ifndef MOZ_CALENDAR
   padding-bottom: 2px;
 %endif
 }
