@@ -194,7 +194,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 @RESPATH@/chrome/classic@JAREXT@
-;@RESPATH@/chrome/classic.manifest
+@RESPATH@/chrome/classic.manifest
 
 ; DevTools
 #ifdef MOZ_DEVTOOLS
