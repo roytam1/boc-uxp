@@ -240,7 +240,9 @@
 
   <!-- navigation-toolbox is augmented by mailWindowOverlay.xul -->
   <toolbox id="navigation-toolbox" class="toolbox-top">
-
+    <!-- mail-toolbox is provided by mailWindowOverlay.xul -->
+    <toolbar id="mail-toolbar-menubar2" />
+    <toolbox id="mail-toolbox" />
     <toolbar id="tabs-toolbar" class="toolbar-primary">
 
       <tabs flex="1"
@@ -313,9 +315,6 @@
              the folder pane next to the thread view, with the message pane/reader
              beneath both of them. -->
         <box id="mailContent" orient="vertical" flex="1">
-          <!-- mail-toolbox is provided by mailWindowOverlay.xul -->
-          <toolbox id="mail-toolbox" />
-
           <box id="messengerBox" orient="horizontal" flex="1" minheight="100" height="100" persist="height">
             <vbox id="folderPaneBox" minwidth="125" width="200" persist="width">
               <sidebarheader id="folderPaneHeader" hidden="true" align="center"/>

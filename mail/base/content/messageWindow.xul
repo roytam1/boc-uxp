@@ -128,10 +128,11 @@
 #endif
 
   <!-- navigation-toolbox is provided by mailWindowOverlay.xul -->
-  <toolbox id="navigation-toolbox" class="toolbox-top" />
-
+  <toolbox id="navigation-toolbox" class="toolbox-top">
   <!-- mail-toolbox is provided by mailWindowOverlay.xul -->
+  <toolbar id="mail-toolbar-menubar2" />
   <toolbox id="mail-toolbox" />
+  </toolbox>
 
   <tooltip id="aHTMLTooltip" page="true"/>
 
