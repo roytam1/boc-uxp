@@ -5,5 +5,6 @@
 
 DIRS += [
     'classic',
+    'classic2',
     'xplatform',
 ]

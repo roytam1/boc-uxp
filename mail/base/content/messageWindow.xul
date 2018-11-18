@@ -127,20 +127,12 @@
   </vbox>
 #endif
 
-#ifdef MOZ_CALENDAR
-  <!-- navigation-toolbox is provided by mailWindowOverlay.xul -->
-  <toolbox id="navigation-toolbox" class="toolbox-top" />
-
-  <!-- mail-toolbox is provided by mailWindowOverlay.xul -->
-  <toolbox id="mail-toolbox" />
-#else
   <!-- navigation-toolbox is provided by mailWindowOverlay.xul -->
   <toolbox id="navigation-toolbox" class="toolbox-top">
-    <!-- mail-toolbox is provided by mailWindowOverlay.xul -->
-    <toolbar id="mail-toolbar-menubar2" />
-    <toolbox id="mail-toolbox" />
+  <!-- mail-toolbox is provided by mailWindowOverlay.xul -->
+  <toolbar id="mail-toolbar-menubar2" />
+  <toolbox id="mail-toolbox" />
   </toolbox>
-#endif
 
   <tooltip id="aHTMLTooltip" page="true"/>
 
