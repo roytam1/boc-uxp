@@ -286,7 +286,8 @@ function onViewToolbarsPopupShowing(aEvent, toolboxIds, aInsertPoint)
       else
         potentialToolbars.push(externalToolbar);
     }
-
+    
+    let mailToolbarMenubar = false;
     for (let toolbarElement of potentialToolbars) {
 
       // We have to bind to toolbar because Javascript doesn't do fresh
@@ -295,6 +296,15 @@ function onViewToolbarsPopupShowing(aEvent, toolboxIds, aInsertPoint)
 
       let toolbarName = toolbar.getAttribute("toolbarname");
       if (toolbarName) {
+        if (toolbar.id == "mail-toolbar-menubar2") {
+          if (!mailToolbarMenubar) {
+            mailToolbarMenubar = true;
+          }
+          else {
+            continue;
+          }
+        }
+
         let menuItem = document.createElement("menuitem");
         let hidingAttribute = toolbar.getAttribute("type") == "menubar" ?
                               "autohide" : "collapsed";
