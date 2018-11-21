@@ -696,20 +696,3 @@ mail-headerfield > .headerValue {
 #header-view-toolbox:-moz-locale-dir(rtl) {
   float: left;
 }
-
-
-/* Hide buttons from the message pane */
-#msgHeaderView:not([classicTB2showMsgButtons=true]) #header-view-toolbox,
-#msgHeaderView:not([classicTB2showMsgButtons=true]) #otherActionsButton,
-#msgHeaderView:not([classicTB2showMsgButtons=true]) #expandedBoxSpacer{
-  display: none;
-}
-
-/* Remove the extra space left from the buttons */
-/* and squeeze the headers a little closer */
-#msgHeaderView:not([classicTB2showMsgButtons=true]) #expandedHeaderRows{
-  padding-top: 0px;
-}
-#msgHeaderView:not([classicTB2showMsgButtons=true]) .headerValue{
-  line-height: 1.25em;
-}
