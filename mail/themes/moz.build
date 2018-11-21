@@ -5,5 +5,5 @@
 
 DIRS += ['classic']
 
-if CONFIG['MOZ_CALENDAR']:
+if CONFIG['MOZ_MAIL_LEGACY']:
     DIRS += ['ClassicTB2']

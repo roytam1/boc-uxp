@@ -29,7 +29,7 @@
 
 
 #tabs-toolbar {
-%ifdef MOZ_CALENDAR
+%ifdef MOZ_MAIL_LEGACY
   -moz-box-ordinal-group: 20;
 %else
   padding-bottom: 2px;
@@ -47,7 +47,7 @@
 }
 
 #mail-toolbar-menubar2 {
-%ifdef MOZ_CALENDAR
+%ifdef MOZ_MAIL_LEGACY
   -moz-box-ordinal-group: 10;
 %endif
   padding: 0px 0 0;
@@ -60,13 +60,13 @@
   border-top: none;
 }
 
-%ifndef MOZ_CALENDAR
+%ifndef MOZ_MAIL_LEGACY
 .mail-toolbox {
   border-bottom: 0px;
 }
 %endif
 
-%ifdef MOZ_CALENDAR
+%ifdef MOZ_MAIL_LEGACY
 .mail-toolbox,
 %endif
 .contentTabToolbox {

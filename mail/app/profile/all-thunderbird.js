@@ -13,7 +13,7 @@
 
 pref("general.useragent.locale", "@AB_CD@");
 
-#ifdef MOZ_CALENDAR
+#ifdef MOZ_MAIL_LEGACY
 pref("general.skins.selectedSkin", "ClassicTB2");
 #else
 pref("general.skins.selectedSkin", "classic/1.0");

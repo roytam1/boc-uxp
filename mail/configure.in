@@ -53,6 +53,12 @@ MOZ_ARG_ENABLE_BOOL(calendar,
 [  --enable-calendar      Enable building of the Lightning calendar extension],
     MOZ_CALENDAR=1,
     MOZ_CALENDAR= )
+
+if test -n "$MOZ_CALENDAR"; then
+    MOZ_MAIL_LEGACY=1
+    AC_SUBST(MOZ_MAIL_LEGACY)
+fi
+
 AC_SUBST(MOZ_CALENDAR)
 
 dnl =========================================================

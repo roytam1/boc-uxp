@@ -166,7 +166,7 @@
 </menupopup>
 
 <hbox id="msgHeaderView"
-#ifdef MOZ_CALENDAR
+#ifdef MOZ_MAIL_LEGACY
       showToolbar="true"
 #endif
       collapsed="true"
