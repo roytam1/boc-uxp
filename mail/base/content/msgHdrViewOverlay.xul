@@ -11,6 +11,7 @@
 
 <?xml-stylesheet href="chrome://messenger/skin/messageHeader.css" type="text/css"?>
 <?xml-stylesheet href="chrome://messenger/skin/attachmentList.css" type="text/css"?>
+<?xml-stylesheet href="chrome://messenger/content/msgHdrViewOverlay.css" type="text/css"?>
 <overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
 <script type="application/javascript"
@@ -164,7 +165,12 @@
   <menuitem label="&copyLinkCmd.label;" accesskey="&copyLinkCmd.accesskey;" oncommand="CopyWebsiteAddress(document.popupNode)"/>
 </menupopup>
 
-<hbox id="msgHeaderView" collapsed="true" class="main-header-area">
+<hbox id="msgHeaderView"
+#ifdef MOZ_CALENDAR
+      showToolbar="true"
+#endif
+      collapsed="true"
+      class="main-header-area">
   <deck id="msgHeaderViewDeck" selectedIndex="0"
         persist="selectedIndex" flex="1"
         context="header-toolbar-context-menu">
