@@ -13,20 +13,22 @@
 
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
+%ifdef XP_WIN
 #navigation-toolbox {
   border-top-width: 0;
 }
 
-#tabs-toolbar {
+@media (-moz-os-version: windows-win7) {
+  #tabs-toolbar { -moz-appearance: -moz-win-browsertabbar-toolbox; }
+}
+%endif
+
 %ifdef MOZ_CALENDAR
+#tabs-toolbar {
   border-bottom: 1px solid rgba(10, 31, 51, .35);
   padding-bottom: 1px;
-%else
-%ifdef XP_WIN
-  -moz-appearance: -moz-win-browsertabbar-toolbox;
-%endif 
-%endif
 }
+%endif
 
 #tabs-toolbar:-moz-lwtheme {
   border-bottom-color: transparent;
