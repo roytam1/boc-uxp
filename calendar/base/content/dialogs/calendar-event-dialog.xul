@@ -264,7 +264,8 @@
            defaulticonsize="small"
 #endif
            labelalign="end"
-           defaultlabelalign="end">
+           defaultlabelalign="end"
+           isNotMainWindow="true">
 
     <!-- Menubar -->
     <menubar id="event-menubar">

@@ -127,11 +127,20 @@
   </vbox>
 #endif
 
-  <!-- navigation-toolbox is provided by mailWindowOverlay.xul -->
-  <toolbox id="navigation-toolbox" class="toolbox-top">
-  <!-- mail-toolbox is provided by mailWindowOverlay.xul -->
-  <toolbar id="mail-toolbar-menubar2" />
-  <toolbox id="mail-toolbox" messagewindow="true"/>
+  <!-- mail-toolbox children are provided by mailWindowOverlay.xul -->
+  <toolbox id="mail-toolbox"
+           class="mail-toolbox"
+           mode="full"
+           defaultmode="full"
+           iconsize="small"
+           defaulticonsize="small"
+           labelalign="end"
+           defaultlabelalign="end"
+           isNotMainWindow="true">
+    <toolbar id="mail-toolbar-menubar2" />
+    <toolbarpalette id="MailToolbarPalette" />
+    <toolbar id="mail-bar3" />
+    <toolbarset id="customToolbars" context="toolbar-context-menu"/>
   </toolbox>
 
   <tooltip id="aHTMLTooltip" page="true"/>

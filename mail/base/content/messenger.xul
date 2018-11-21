@@ -238,12 +238,29 @@
 </vbox>
 #endif
 
-  <!-- navigation-toolbox is augmented by mailWindowOverlay.xul -->
-  <toolbox id="navigation-toolbox" class="toolbox-top">
 #ifndef MOZ_CALENDAR
-    <!-- mail-toolbox is provided by mailWindowOverlay.xul -->
+  <!-- mail-toolbox children are provided by mailWindowOverlay.xul -->
+  <toolbox id="mail-toolbox"
+           class="mail-toolbox"
+           mode="full"
+           defaultmode="full"
+           iconsize="small"
+           defaulticonsize="small"
+           labelalign="end"
+           defaultlabelalign="end">
     <toolbar id="mail-toolbar-menubar2" />
-    <toolbox id="mail-toolbox" />
+    <toolbarpalette id="MailToolbarPalette" />
+    <toolbar id="mail-bar3" />
+    <toolbarset id="customToolbars" context="toolbar-context-menu"/>
+  </toolbox>
+#endif
+
+  <toolbox id="navigation-toolbox"
+           class="toolbox-top"
+           labelalign="end"
+           defaultlabelalign="end">
+#ifdef MOZ_CALENDAR
+    <toolbar id="mail-toolbar-menubar2" />
 #endif
     <toolbar id="tabs-toolbar" class="toolbar-primary">
 
@@ -282,21 +299,7 @@
                    id="alltabs-popup" position="after_end"
                    tabcontainer="tabcontainer"/>
       </toolbarbutton>
-#ifdef CAN_DRAW_IN_TITLEBAR
-      <hbox class="titlebar-placeholder" type="caption-buttons"
-            id="titlebar-placeholder-on-TabsToolbar-for-captions-buttons" persist="width"
-#ifndef XP_MACOSX
-            ordinal="1000"
-#endif
-            />
-#ifdef XP_MACOSX
-      <hbox class="titlebar-placeholder" type="fullscreen-button"
-            id="titlebar-placeholder-on-TabsToolbar-for-fullscreen-button" persist="width"
-            />
-#endif
-#endif
-    </toolbar>
-
+    </toolbar>  
   </toolbox>
 
   <!-- XXX This extension point (tabmail-container) is only temporary!
@@ -318,8 +321,19 @@
              beneath both of them. -->
         <box id="mailContent" orient="vertical" flex="1">
 #ifdef MOZ_CALENDAR
-          <!-- mail-toolbox is provided by mailWindowOverlay.xul -->
-          <toolbox id="mail-toolbox" />
+          <!-- mail-toolbox children are provided by mailWindowOverlay.xul -->
+          <toolbox id="mail-toolbox"
+                   class="mail-toolbox"
+                   mode="full"
+                   defaultmode="full"
+                   iconsize="small"
+                   defaulticonsize="small"
+                   labelalign="end"
+                   defaultlabelalign="end">
+            <toolbarpalette id="MailToolbarPalette" />
+            <toolbar id="mail-bar3" />
+            <toolbarset id="customToolbars" context="toolbar-context-menu"/>
+          </toolbox>
 #endif
           <box id="messengerBox" orient="horizontal" flex="1" minheight="100" height="100" persist="height">
             <vbox id="folderPaneBox" minwidth="125" width="200" persist="width">
@@ -388,7 +402,9 @@
               </tree>
             </vbox>
 
-            <splitter id="folderpane_splitter" collapse="before"/>
+            <splitter id="folderpane_splitter" collapse="before">
+              <grippy />
+            </splitter>
 
             <vbox flex="1">
               <box orient="vertical" id="messagesBox" flex="1">
@@ -511,7 +527,7 @@
                 <splitter id="threadpane-splitter"
                           collapse="after"
                           collapsed="true"
-                          onmouseup="OnMouseUpThreadAndMessagePaneSplitter()"/>
+                          onmouseup="OnMouseUpThreadAndMessagePaneSplitter()" />
 
                 <!-- a convenience box for ease of extension overlaying -->
                 <hbox id="messagepaneboxwrapper"

@@ -6,4 +6,4 @@
 DIRS += ['classic']
 
 if CONFIG['MOZ_CALENDAR']:
-    DIRS += ['xplatform']
+    DIRS += ['ClassicTB2']
