@@ -1329,6 +1329,10 @@ var specialTabs = {
 
   xpInstallObserver: {
     observe: function (aSubject, aTopic, aData) {
+      if (!Services.prefs.getBoolPref("extensions.openInTab")) {
+        return;
+      }
+
       const Ci = Components.interfaces;
       let brandBundle = document.getElementById("bundle_brand");
       let messengerBundle = document.getElementById("bundle_messenger");
