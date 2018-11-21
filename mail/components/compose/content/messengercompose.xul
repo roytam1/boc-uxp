@@ -1048,7 +1048,9 @@
 
   </toolbox>
 
-  <splitter id="compose-toolbar-sizer" onmousedown="awSizerListen()"/>
+  <splitter id="compose-toolbar-sizer" onmousedown="awSizerListen()" collapse="before">
+    <grippy />
+  </splitter>
 
   <!-- The mail message body frame -->
   <vbox id="appcontent" flex="1">
