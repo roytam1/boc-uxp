@@ -666,6 +666,13 @@ var specialTabs = {
 
       let toolbox = clone.firstChild;
       toolbox.setAttribute("id", "contentTabToolbox" + this.lastBrowserId);
+
+      // XXXTobin: This will mean that any content tab that wants to have a toolbox
+      // MUST pass {"toolbox": true} in aArgs
+      if (!aArgs.toolbox) {
+        toolbox.setAttribute("collapsed", true);
+      }
+
       toolbox.firstChild.setAttribute("id", "contentTabToolbar" + this.lastBrowserId);
 
       aTab.panel.appendChild(clone);
@@ -1116,6 +1123,13 @@ var specialTabs = {
 
       let toolbox = clone.firstChild;
       toolbox.setAttribute("id", "chromeTabToolbox" + this.lastBrowserId);
+
+      // XXXTobin: This will mean that any chrome tab that wants to have a toolbox
+      // MUST pass {"toolbox": true} in aArgs
+      if (!aArgs.toolbox) {
+        toolbox.setAttribute("collapsed", true);
+      }
+
       toolbox.firstChild.setAttribute("id", "chromeTabToolbar" + this.lastBrowserId);
 
       aTab.panel.appendChild(clone);
