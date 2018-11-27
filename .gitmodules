@@ -1,0 +1,3 @@
+[submodule "UXP"]
+	path = mozilla
+	url = https://github.com/MoonchildProductions/UXP.git
