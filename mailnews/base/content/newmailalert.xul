@@ -19,7 +19,7 @@
 
   <stack id="alertContainer" mousethrough="always">
     <hbox id="alertBox">
-      <hbox id ="alertImageBox" align="center" pack="center">
+      <hbox id ="alertImageBox" align="top" pack="center">
         <image id="alertImage"/>
       </hbox>
 
