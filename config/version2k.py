@@ -1,10 +1,36 @@
 from datetime import date
 from datetime import timedelta
+from datetime import datetime
 import sys
-if len(sys.argv) > 1:
-  try:
-    print date(2000,01,01)+timedelta(days=int(sys.argv[1]))
-  except:
-    print 'Invalid argument'
-else:
+import argparse
+
+moduleOptionParser = argparse.ArgumentParser()
+moduleOptionParser.add_argument("--version", dest="version", nargs="*")
+moduleOptionParser.add_argument("--msbuild", dest="msbuild", action="store_true")
+moduleOptionParser.add_argument("--msdate", dest="msdate", type=int)
+args = moduleOptionParser.parse_args()
+
+if len(sys.argv) <= 1:
+  moduleOptionParser.print_help()
+  sys.exit(1)
+
+if args.version:
+  with open(args.version[0]) as f:
+    strVersion = f.readline()
+  f.close()
+
+  if (strVersion == '52.9.0000'):
+    strVersion = '{0}.{1}'.format('52.9', (date.today()-date(2000,01,01)).days)
+  
+  if len(args.version) == 2 and args.version[1] == 'build':
+    print strVersion[5:]
+  else:
+    print strVersion
+
+if args.msbuild:
   print (date.today()-date(2000,01,01)).days
+  sys.exit(0)
+
+if args.msdate:
+  print date(2000,01,01)+timedelta(days=args.msdate)
+  sys.exit(0)
