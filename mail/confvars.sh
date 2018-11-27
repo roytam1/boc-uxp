@@ -38,6 +38,10 @@ MOZ_SERVICES_HEALTHREPORT=
 MOZ_JETPACK=
 MOZ_DEVTOOLS_SERVER=
 MOZ_DEVTOOLS=
+MOZ_GAMEPAD=
+MOZ_NECKO_WIFI=
+MOZ_AV1=
+MOZ_WEBRTC=
 
 if test "$OS_ARCH" = "WINNT" -o \
         "$OS_ARCH" = "Linux"; then
@@ -50,4 +54,3 @@ fi
 ACCEPTED_MAR_CHANNEL_IDS=release,unstable
 # The MAR_CHANNEL_ID must not contain the following 3 characters: ",\t "
 MAR_CHANNEL_ID=release
-MOZ_UPDATER=1
