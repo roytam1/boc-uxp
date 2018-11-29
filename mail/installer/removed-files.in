@@ -1191,7 +1191,4 @@ uninstall/uninstall.exe
 # ****************************************************************************
 # * End of XPTs at the time we started linking them on Linux and Mac.        *
 # ****************************************************************************
-#ifndef MOZ_MAINTENANCE_SERVICE
-@DIR_MACOS@maintenanceservice.exe
-@DIR_MACOS@maintenanceservice_installer.exe
-#endif
+

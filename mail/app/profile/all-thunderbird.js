@@ -129,11 +129,6 @@ pref("app.update.url.details", "http://binaryoutcast.com/projects/interlink/");
 // Show the Update Checking/Ready UI when the user was idle for x seconds
 pref("app.update.idletime", 60);
 
-// Whether or not to attempt using the service for updates.
-#ifdef MOZ_MAINTENANCE_SERVICE
-pref("app.update.service.enabled", false);
-#endif
-
 // Release notes URL
 pref("app.releaseNotesURL", "http://binaryoutcast.com/projects/interlink/");
 

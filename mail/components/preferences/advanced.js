@@ -267,24 +267,6 @@ updateReadPrefs: function ()
   // or the binary platform or OS version is not known.
   // A locked pref is sufficient to disable the radiogroup.
   radiogroup.disabled = !canCheck || enabledPref.locked || autoPref.locked;
-
-  if (AppConstants.MOZ_MAINTENANCE_SERVICE) {
-    // Check to see if the maintenance service is installed.
-    // If it is don't show the preference at all.
-    let installed;
-    try {
-      let wrk = Components.classes["@mozilla.org/windows-registry-key;1"]
-                          .createInstance(Components.interfaces.nsIWindowsRegKey);
-      wrk.open(wrk.ROOT_KEY_LOCAL_MACHINE,
-               "SOFTWARE\\Mozilla\\MaintenanceService",
-               wrk.ACCESS_READ | wrk.WOW64_64);
-      installed = wrk.readIntValue("Installed");
-      wrk.close();
-    } catch(e) { }
-    if (installed != 1) {
-      document.getElementById("useService").hidden = true;
-    }
-  }
 },
 
 /**

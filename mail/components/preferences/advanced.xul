@@ -100,12 +100,6 @@ type="bool"/>
       <preference id="app.update.disable_button.showUpdateHistory"
                   name="app.update.disable_button.showUpdateHistory"
                   type="bool"/>
-
-#ifdef MOZ_MAINTENANCE_SERVICE
-      <preference id="app.update.service.enabled"
-                  name="app.update.service.enabled"
-                  type="bool"/>
-#endif
 #endif
       <!-- Certificates tab -->
       <preference id="security.default_personal_cert"
@@ -368,14 +362,6 @@ type="bool"/>
                       oncommand="gAdvancedPane.showUpdates();"/>
             </hbox>
           </groupbox>
-
-#ifdef MOZ_MAINTENANCE_SERVICE
-          <separator/>
-          <checkbox id="useService"
-                    label="&useService.label;"
-                    accesskey="&useService.accesskey;"
-                    preference="app.update.service.enabled"/>
-#endif
         </tabpanel>
 #endif
 

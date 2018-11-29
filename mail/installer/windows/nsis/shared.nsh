@@ -93,45 +93,6 @@
   ; VirtualStore directory.
   ${CleanVirtualStore}
 
-!ifdef MOZ_MAINTENANCE_SERVICE
-  Call IsUserAdmin
-  Pop $R0
-  ${If} $R0 == "true"
-  ; Only proceed if we have HKLM write access
-  ${AndIf} $TmpVal == "HKLM"
-  ; On Windows 2000 we do not install the maintenance service.
-  ${AndIf} ${AtLeastWinXP}
-    ; Add the registry keys for allowed certificates.
-    ${AddMaintCertKeys}
-
-    ; We check to see if the maintenance service install was already attempted.
-    ; Since the Maintenance service can be installed either x86 or x64,
-    ; always use the 64-bit registry for checking if an attempt was made.
-    SetRegView 64
-    ReadRegDWORD $5 HKLM "Software\Mozilla\MaintenanceService" "Attempted"
-    ClearErrors
-    SetRegView lastused
-
-    ; If the maintenance service is already installed, do nothing.
-    ; The maintenance service will launch:
-    ; maintenanceservice_installer.exe /Upgrade to upgrade the maintenance
-    ; service if necessary.   If the update was done from updater.exe without
-    ; the service (i.e. service is failing), updater.exe will do the update of
-    ; the service.  The reasons we do not do it here is because we don't want
-    ; to have to prompt for limited user accounts when the service isn't used
-    ; and we currently call the PostUpdate twice, once for the user and once
-    ; for the SYSTEM account.  Also, this would stop the maintenance service
-    ; and we need a return result back to the service when run that way.
-    ${If} $5 == ""
-      ; An install of maintenance service was never attempted.
-      ; We call ExecShell (which is ShellExecute) with the verb "runas"
-      ; to ask for elevation if the user isn't already elevated.  If the user
-      ; is already elevated it will just launch the program.
-      ExecShell "runas" "$\"$INSTDIR\maintenanceservice_installer.exe$\""
-    ${EndIf}
-  ${EndIf}
-!endif
-
   ; Remove talkback if it is present (remove after bug 386760 is fixed)
   ${If} ${FileExists} "$INSTDIR\extensions\talkback@mozilla.org\"
     RmDir /r "$INSTDIR\extensions\talkback@mozilla.org\"
@@ -563,41 +524,6 @@
   ${EndIf}
 !macroend
 !define UpdateProtocolHandlers "!insertmacro UpdateProtocolHandlers"
-
-!ifdef MOZ_MAINTENANCE_SERVICE
-; Adds maintenance service certificate keys for the install dir.
-; For the cert to work, it must also be signed by a trusted cert for the user.
-!macro AddMaintCertKeys
-  Push $R0
-  ; Allow main Binary Outcast cert information for updates
-  ; This call will push the needed key on the stack
-  ServicesHelper::PathToUniqueRegistryPath "$INSTDIR"
-  Pop $R0
-  ${If} $R0 != ""
-    ; More than one certificate can be specified in a different subfolder
-    ; for example: $R0\1, but each individual binary can be signed
-    ; with at most one certificate.  A fallback certificate can only be used
-    ; if the binary is replaced with a different certificate.
-    ; We always use the 64bit registry for certs.
-    ; This call is ignored on 32-bit systems.
-    SetRegView 64
-    DeleteRegKey HKLM "$R0"
-    WriteRegStr HKLM "$R0\0" "name" "${CERTIFICATE_NAME}"
-    WriteRegStr HKLM "$R0\0" "issuer" "${CERTIFICATE_ISSUER}"
-    ; These values associate the allowed certificates for the previous
-    ;  installation, so that we can update from it cleanly using the
-    ;  old updater.exe (which will still have this signature).
-    WriteRegStr HKLM "$R0\1" "name" "${CERTIFICATE_NAME_PREVIOUS}"
-    WriteRegStr HKLM "$R0\1" "issuer" "${CERTIFICATE_ISSUER_PREVIOUS}"
-
-    SetRegView lastused
-    ClearErrors
-  ${EndIf}
-  ; Restore the previously used value back
-  Pop $R0
-!macroend
-!define AddMaintCertKeys "!insertmacro AddMaintCertKeys"
-!endif
 
 ; Removes various registry entries for reasons noted below (does not use SHCTX).
 !macro RemoveDeprecatedKeys

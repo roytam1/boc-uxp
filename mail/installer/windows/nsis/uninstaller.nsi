@@ -354,21 +354,6 @@ Section "Uninstall"
   ; removed and other ugly things will happen like recreation of the app's
   ; clients registry key by the OS under some conditions.
   System::Call "shell32::SHChangeNotify(i, i, i, i) v (0x08000000, 0, 0, 0)"
-
-!ifdef MOZ_MAINTENANCE_SERVICE
-  ; Get the path the allowed cert is at and remove it
-  ; Keep this block of code last since it modfies the reg view
-  ServicesHelper::PathToUniqueRegistryPath "$INSTDIR"
-  Pop $MaintCertKey
-  ${If} $MaintCertKey != ""
-    ; We always use the 64bit registry for certs
-    ; This call is ignored on 32-bit systems.
-    SetRegView 64
-    DeleteRegKey HKLM "$MaintCertKey\"
-    SetRegView lastused
-  ${EndIf}
-!endif
-
 SectionEnd
 
 ################################################################################
