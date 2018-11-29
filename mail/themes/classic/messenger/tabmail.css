@@ -72,6 +72,10 @@
   margin-bottom: 0;
 }
 
+.tabmail-tab:not(:hover):not([selected]):last-child {
+  -moz-border-right-colors: ThreeDShadow rgba(255,255,255,.3);
+}
+
 .tabmail-tab:hover,
 .tabmail-tab[selected="true"] {
   border-radius: 4px 4px 0 0;
