@@ -88,6 +88,7 @@ classic.jar:
   skin/classic/messenger/contactStarred.png                                         (messenger/contactStarred.png)
   skin/classic/messenger/dialogs.css                                                (messenger/dialogs.css)
   skin/classic/messenger/editContactOverlay.css                                     (messenger/editContactOverlay.css)
+  skin/classic/messenger/extensionsOverlay.css                                      (messenger/extensionsOverlay.css)
   skin/classic/messenger/featureConfigurator.css                                    (messenger/featureConfigurator.css)
   skin/classic/messenger/filterDialog.css                                           (messenger/filterDialog.css)
   skin/classic/messenger/folderMenus.css                                            (messenger/folderMenus.css)

@@ -271,6 +271,7 @@ ClassicTB2.jar:
   skin/ClassicTB2/messenger/contactStarred.png                                         (messenger/contactStarred.png)
   skin/ClassicTB2/messenger/dialogs.css                                                (messenger/dialogs.css)
   skin/ClassicTB2/messenger/editContactOverlay.css                                     (messenger/editContactOverlay.css)
+  skin/ClassicTB2/messenger/extensionsOverlay.css                                      (messenger/extensionsOverlay.css)
   skin/ClassicTB2/messenger/featureConfigurator.css                                    (messenger/featureConfigurator.css)
   skin/ClassicTB2/messenger/filterDialog.css                                           (messenger/filterDialog.css)
   skin/ClassicTB2/messenger/folderMenus.css                                            (messenger/folderMenus.css)

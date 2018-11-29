@@ -5,6 +5,13 @@
 
 <!DOCTYPE overlay>
 
-<overlay id="extensionsPersistenceOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-  <page id="addons-page" persist="width height screenX screenY sizemode"/>
+<?xml-stylesheet href="chrome://messenger/skin/extensionsOverlay.css"?>
+
+<overlay id="extensionsOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script type="application/javascript" src="chrome://messenger/content/extensionsOverlay.js" />
+  <page id="addons-page" persist="width height screenX screenY sizemode">
+    <stringbundle id="bundle_brand" src="chrome://branding/locale/brand.properties" />
+    <stringbundle id="bundle_extensionsOverlay" src="chrome://messenger/locale/extensionsOverlay.properties" />
+    <notificationbox id="addons-notifications" notificationside="top" insertbefore="header" />
+  </page>
 </overlay>
