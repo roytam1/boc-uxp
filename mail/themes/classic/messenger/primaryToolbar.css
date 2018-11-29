@@ -22,6 +22,15 @@
 @media (-moz-os-version: windows-win7) {
   #tabs-toolbar { -moz-appearance: -moz-win-browsertabbar-toolbox; }
 }
+
+@media not all and (-moz-os-version: windows-win7) {
+  #tabs-toolbar {
+    -moz-appearance: none;
+    background-image: linear-gradient(rgba(0, 0, 0, .11), transparent, rgba(0, 0, 0, .06));
+    border-top: 1px solid ThreeDShadow !important;
+    border-bottom: none;
+  }
+}
 %endif
 %endif
 
