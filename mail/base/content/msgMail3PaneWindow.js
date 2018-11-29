@@ -107,70 +107,6 @@ var folderListener = {
     }
 }
 
-/*
- * Listen for Lightweight Theme styling changes and update the theme accordingly.
- */
-var LightweightThemeListener = {
-  _modifiedStyles: [],
-
-  init: function () {
-    XPCOMUtils.defineLazyGetter(this, "styleSheet", function() {
-      for (let i = document.styleSheets.length - 1; i >= 0; i--) {
-        let sheet = document.styleSheets[i];
-        if (sheet.href == "chrome://messenger/skin/messengerLWTheme.css")
-          return sheet;
-      }
-    });
-
-    Services.obs.addObserver(this, "lightweight-theme-styling-update", false);
-    Services.obs.addObserver(this, "lightweight-theme-optimized", false);
-    if (document.documentElement.hasAttribute("lwtheme"))
-      this.updateStyleSheet(document.documentElement.style.backgroundImage);
-  },
-
-  uninit: function () {
-    Services.obs.removeObserver(this, "lightweight-theme-styling-update");
-    Services.obs.removeObserver(this, "lightweight-theme-optimized");
-  },
-
-  /**
-   * Append the headerImage to the background-image property of all rulesets in
-   * messengerLWTheme.css.
-   *
-   * @param headerImage - a string containing a CSS image for the lightweight
-   * theme header.
-   */
-  updateStyleSheet: function(headerImage) {
-    if (!this.styleSheet)
-      return;
-    for (let i = 0; i < this.styleSheet.cssRules.length; i++) {
-      let rule = this.styleSheet.cssRules[i];
-      if (!rule.style.backgroundImage)
-        continue;
-
-      if (!this._modifiedStyles[i])
-        this._modifiedStyles[i] = { backgroundImage: rule.style.backgroundImage };
-
-      rule.style.backgroundImage = this._modifiedStyles[i].backgroundImage + ", " + headerImage;
-    }
-  },
-
-  // nsIObserver
-  observe: function (aSubject, aTopic, aData) {
-    if ((aTopic != "lightweight-theme-styling-update" && aTopic != "lightweight-theme-optimized") ||
-          !this.styleSheet)
-      return;
-
-    if (aTopic == "lightweight-theme-optimized" && aSubject != window)
-      return;
-
-    let themeData = JSON.parse(aData);
-    if (!themeData)
-      return;
-    this.updateStyleSheet("url(" + themeData.headerURL + ")");
-  },
-};
-
 function ServerContainsFolder(server, folder)
 {
   if (!folder || !server)
@@ -399,8 +335,6 @@ function OnLoadMessenger()
   migrateMailnews();
   // Rig up our TabsInTitlebar early so that we can catch any resize events.
   TabsInTitlebar.init();
-  // Listen for Lightweight Theme styling changes and update the theme accordingly.
-  LightweightThemeListener.init();
   // update the pane config before we exit onload otherwise the user may see a flicker if we poke the document
   // in delayedOnLoadMessenger...
   UpdateMailPaneConfig(false);
@@ -487,16 +421,7 @@ function OnLoadMessenger()
     tabmail.openFirstTab();
   }
 
-  // Install the light-weight theme handlers
-  let panelcontainer = document.getElementById("tabpanelcontainer");
-  if (panelcontainer) {
-    panelcontainer.addEventListener("InstallBrowserTheme",
-                                    LightWeightThemeWebInstaller, false, true);
-    panelcontainer.addEventListener("PreviewBrowserTheme",
-                                    LightWeightThemeWebInstaller, false, true);
-    panelcontainer.addEventListener("ResetBrowserThemePreview",
-                                    LightWeightThemeWebInstaller, false, true);
-  }
+
 
   Services.obs.addObserver(gPluginHandler.pluginCrashed, "plugin-crashed", false);
 
@@ -705,8 +630,6 @@ function OnUnloadMessenger()
   TabsInTitlebar.uninit();
 
   ToolbarIconColor.uninit();
-
-  LightweightThemeListener.uninit();
 
   let tabmail = document.getElementById("tabmail");
   tabmail._teardown();
@@ -1546,185 +1469,6 @@ function ThreadPaneOnDrop(aEvent) {
         MailServices.copy.CopyFileMessage(extFile, gFolderDisplay.displayedFolder,
                                           null, false, 1, "", null, msgWindow);
     }
-  }
-}
-
-var LightWeightThemeWebInstaller = {
-  handleEvent: function (event) {
-    switch (event.type) {
-      case "InstallBrowserTheme":
-      case "PreviewBrowserTheme":
-      case "ResetBrowserThemePreview":
-        // ignore requests from background tabs
-        if (event.target.ownerDocument.defaultView.top != content)
-          return;
-    }
-    switch (event.type) {
-      case "InstallBrowserTheme":
-        this._installRequest(event);
-        break;
-      case "PreviewBrowserTheme":
-        this._preview(event);
-        break;
-      case "ResetBrowserThemePreview":
-        this._resetPreview(event);
-        break;
-      case "pagehide":
-        this._resetPreview();
-        break;
-    }
-  },
-
-  onTabTitleChanged: function (aTab) {
-  },
-
-  onTabSwitched: function (aTab, aOldTab) {
-    this._resetPreview();
-  },
-
-  get _manager () {
-    let temp = {};
-    Components.utils.import("resource://gre/modules/LightweightThemeManager.jsm", temp);
-    delete this._manager;
-    return this._manager = temp.LightweightThemeManager;
-  },
-
-  _installRequest: function (event) {
-    let node = event.target;
-    let data = this._getThemeFromNode(node);
-    if (!data)
-      return;
-
-    if (this._isAllowed(node)) {
-      this._install(data);
-      return;
-    }
-
-    let messengerBundle = document.getElementById("bundle_messenger");
-
-    let buttons = [{
-      label: messengerBundle.getString("lwthemeInstallRequest.allowButton"),
-      accessKey: messengerBundle.getString("lwthemeInstallRequest.allowButton.accesskey"),
-      callback: function () {
-        LightWeightThemeWebInstaller._install(data);
-      }
-    }];
-
-    this._removePreviousNotifications();
-
-    let message =
-      messengerBundle.getFormattedString("lwthemeInstallRequest.message",
-                                         [node.ownerDocument.location.host]);
-
-    let notificationBox = this._getNotificationBox();
-    let notificationBar =
-      notificationBox.appendNotification(message, "lwtheme-install-request", "",
-                                         notificationBox.PRIORITY_INFO_MEDIUM,
-                                         buttons);
-    notificationBar.persistence = 1;
-  },
-
-  _install: function (newTheme) {
-    let previousTheme = this._manager.currentTheme;
-    this._manager.currentTheme = newTheme;
-    if (this._manager.currentTheme &&
-        this._manager.currentTheme.id == newTheme.id)
-      this._postInstallNotification(newTheme, previousTheme);
-  },
-
-  _postInstallNotification: function (newTheme, previousTheme) {
-    function text(id) {
-      return document.getElementById("bundle_messenger")
-                     .getString("lwthemePostInstallNotification." + id);
-    }
-
-    let buttons = [{
-      label: text("undoButton"),
-      accessKey: text("undoButton.accesskey"),
-      callback: function () {
-        LightWeightThemeWebInstaller._manager.forgetUsedTheme(newTheme.id);
-        LightWeightThemeWebInstaller._manager.currentTheme = previousTheme;
-      }
-    }, {
-      label: text("manageButton"),
-      accessKey: text("manageButton.accesskey"),
-      callback: function () {
-        openAddonsMgr("addons://list/theme");
-      }
-    }];
-
-    this._removePreviousNotifications();
-
-    let notificationBox = this._getNotificationBox();
-    let notificationBar =
-      notificationBox.appendNotification(text("message"),
-                                         "lwtheme-install-notification", "",
-                                         notificationBox.PRIORITY_INFO_MEDIUM,
-                                         buttons);
-    notificationBar.persistence = 1;
-    notificationBar.timeout = Date.now() + 20000; // 20 seconds
-  },
-
-  _removePreviousNotifications: function () {
-    let box = this._getNotificationBox();
-
-    ["lwtheme-install-request",
-     "lwtheme-install-notification"].forEach(function (value) {
-        var notification = box.getNotificationWithValue(value);
-        if (notification)
-          box.removeNotification(notification);
-      });
-  },
-
-  _previewWindow: null,
-  _preview: function (event) {
-    if (!this._isAllowed(event.target))
-      return;
-
-    let data = this._getThemeFromNode(event.target);
-    if (!data)
-      return;
-
-    this._resetPreview();
-
-    this._previewWindow = event.target.ownerDocument.defaultView;
-    this._previewWindow.addEventListener("pagehide", this, true);
-    document.getElementById('tabmail').registerTabMonitor(this);
-
-    this._manager.previewTheme(data);
-  },
-
-  _resetPreview: function (event) {
-    if (!this._previewWindow ||
-        event && !this._isAllowed(event.target))
-      return;
-
-    this._previewWindow.removeEventListener("pagehide", this, true);
-    this._previewWindow = null;
-    document.getElementById('tabmail').unregisterTabMonitor(this);
-
-    this._manager.resetPreview();
-  },
-
-  _isAllowed: function (node) {
-    let uri = node.ownerDocument.documentURIObject;
-    return Services.perms.testPermission(uri, "install") == Services.perms.ALLOW_ACTION;
-  },
-
-  _getNotificationBox: function () {
-    // Try and get the notification box for the selected tab.
-    let browser = document.getElementById('tabmail').getBrowserForSelectedTab();
-    // The messagepane doesn't have a notification bar yet.
-    if (browser && browser.parentNode.tagName == "notificationbox")
-      return browser.parentNode;
-
-    // Otherwise, default to the global notificationbox
-    return document.getElementById("mail-notification-box");
-  },
-
-  _getThemeFromNode: function (node) {
-    return this._manager.parseTheme(node.getAttribute("data-browsertheme"),
-                                    node.baseURI);
   }
 }
 

@@ -212,8 +212,6 @@ pref("extensions.update.interval", 86400);  // Check for updates to Extensions a
 pref("extensions.dss.enabled", false);          // Dynamic Skin Switching
 pref("extensions.dss.switchPending", false);    // Non-dynamic switch pending after next
 
-pref("lightweightThemes.update.enabled", true);
-
 pref("xpinstall.whitelist.add", "addons.mozilla.org");
 
 pref("general.smoothScroll", true);
