@@ -90,7 +90,7 @@
 }
 
 .tabmail-tab:not([selected="true"]):hover {
-  background: url("chrome://messenger/skin/icons/tab-hover-bkgnd.apng") 0px -2px repeat-x;
+  background: url("chrome://messenger/skin/icons/tab-hover-bkgnd.png") 0px 0px repeat-x;
   padding-top: 2px;
 }
 
