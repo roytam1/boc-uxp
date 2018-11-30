@@ -17,19 +17,25 @@
 #navigation-toolbox {
   border-top-width: 0;
 }
+%endif
 
 %ifndef MOZ_MAIL_LEGACY
-@media (-moz-os-version: windows-win7) {
-  #tabs-toolbar { -moz-appearance: -moz-win-browsertabbar-toolbox; }
+#tabs-toolbar {
+  -moz-appearance: none;
+  background-image: linear-gradient(rgba(0, 0, 0, .11), transparent, rgba(0, 0, 0, .06));
+%ifndef XP_WIN
+  border-top: 1px solid ThreeDShadow !important;
+%endif
+  border-bottom: none;
 }
 
-@media not all and (-moz-os-version: windows-win7) {
-  #tabs-toolbar {
-    -moz-appearance: none;
-    background-image: linear-gradient(rgba(0, 0, 0, .11), transparent, rgba(0, 0, 0, .06));
-    border-top: 1px solid ThreeDShadow !important;
-    border-bottom: none;
-  }
+%ifdef XP_WIN
+@media (-moz-os-version: windows-win8), (-moz-os-version: windows-win10) {
+  #tabs-toolbar { border-top: 1px solid ThreeDShadow !important; }
+}
+
+@media (-moz-os-version: windows-win7) and (-moz-windows-theme: aero) {
+  #tabs-toolbar { -moz-appearance: -moz-win-browsertabbar-toolbox; }
 }
 %endif
 %endif
