@@ -3,10 +3,10 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 // Default start page
-pref("mailnews.start_page.url","about:blank");
+pref("mailnews.start_page.url","about:logopage");
 
 // start page override to load after an update
-pref("mailnews.start_page.override_url","about:blank");
+pref("mailnews.start_page.override_url","about:logopage");
 
 // Interval: Time between checks for a new version (in seconds)
 // nightly=8 hours, official=24 hours

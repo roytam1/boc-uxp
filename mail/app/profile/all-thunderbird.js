@@ -262,7 +262,7 @@ pref("accessibility.typeaheadfind.flashBar", 1);
 pref("mail.close_message_window.on_delete", false);
 
 // Disable the start page
-pref("mailnews.start_page.enabled", false);
+pref("mailnews.start_page.enabled", true);
 
 // Number of lines of To/CC/BCC address headers to show before "more"
 // truncates the list.

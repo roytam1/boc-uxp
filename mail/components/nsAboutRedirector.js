@@ -9,10 +9,10 @@ var Cu = Components.utils;
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 Cu.import("resource://gre/modules/Services.jsm");
 
-const ALLOW_SCRIPT = Ci.nsIAboutModule.ALLOW_SCRIPT;
-const URI_SAFE_FOR_UNTRUSTED_CONTENT = Ci.nsIAboutModule.URI_SAFE_FOR_UNTRUSTED_CONTENT;
-const HIDE_FROM_ABOUTABOUT = Ci.nsIAboutModule.HIDE_FROM_ABOUTABOUT;
-const ENABLE_INDEXED_DB = Ci.nsIAboutModule.ENABLE_INDEXED_DB;
+// See: netwerk/protocol/about/nsIAboutModule.idl
+const URI_SAFE_FOR_UNTRUSTED_CONTENT  = Ci.nsIAboutModule.URI_SAFE_FOR_UNTRUSTED_CONTENT;
+const ALLOW_SCRIPT                    = Ci.nsIAboutModule.ALLOW_SCRIPT;
+const HIDE_FROM_ABOUTABOUT            = Ci.nsIAboutModule.HIDE_FROM_ABOUTABOUT;
 
 function AboutRedirector() {}
 AboutRedirector.prototype = {
@@ -27,6 +27,10 @@ AboutRedirector.prototype = {
     "downloads": {
       url: "chrome://messenger/content/downloads/aboutDownloads.xul",
       flags: ALLOW_SCRIPT
+    },
+    "logopage": {
+      url: "chrome://global/content/logopage.xhtml",
+      flags: (URI_SAFE_FOR_UNTRUSTED_CONTENT || HIDE_FROM_ABOUTABOUT)
     },
     "support": {
       url: "chrome://messenger/content/about-support/aboutSupport.xhtml",
