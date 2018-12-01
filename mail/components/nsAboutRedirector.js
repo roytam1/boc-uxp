@@ -30,7 +30,7 @@ AboutRedirector.prototype = {
     },
     "logopage": {
       url: "chrome://global/content/logopage.xhtml",
-      flags: (URI_SAFE_FOR_UNTRUSTED_CONTENT || HIDE_FROM_ABOUTABOUT)
+      flags: (URI_SAFE_FOR_UNTRUSTED_CONTENT | HIDE_FROM_ABOUTABOUT)
     },
     "support": {
       url: "chrome://messenger/content/about-support/aboutSupport.xhtml",
