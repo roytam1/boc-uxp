@@ -35,7 +35,7 @@
 
   <!-- Tools menu -->
   <menupopup id="menu_ToolsPopup">
-    <menu id="abp-menuitem"/>
+    <menu id="abp-menuitem" insertbefore="webDeveloperMenu" />
   </menupopup>
 
   <!-- Context menu -->
