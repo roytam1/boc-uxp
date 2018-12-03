@@ -7,11 +7,7 @@
  */
 
 .tabmail-arrowscrollbox {
-%ifdef MOZ_MAIL_LEGACY
   margin-bottom: -1px;
-%else
-  margin-bottom: 3px;
-%endif
  }
 
 .tabmail-tabs[overflow="true"] {
@@ -32,47 +28,105 @@
 
 .tabmail-tab {
   -moz-appearance: none;
-  background: url("chrome://messenger/skin/icons/tab-bkgnd.png") repeat-x;
-  margin: 3px 0px 4px;
-  border: 2px solid;
-  border-right-width: 1px;
-  border-bottom: none;
-  border-radius: 2px 2px 0 0;
-  padding: 1px 4px 2px 4px;
-  -moz-border-right-colors: rgba(0,0,0,.1);
-  -moz-border-top-colors: ThreeDShadow rgba(255,255,255,.3);
-  -moz-border-left-colors: ThreeDShadow rgba(255,255,255,.3);
-  margin-bottom: 0;
-  height: 23px !important;
+  background:
+    -moz-linear-gradient(
+      bottom,
+      rgba(10%, 10%, 10%, .4) 1px,
+      transparent 1px
+    ),
+    -moz-linear-gradient(
+      transparent,
+      hsla(0, 0%, 32%, .2) 80%,
+      hsla(0, 0%, 0%, .2)
+    ),
+    -moz-linear-gradient(
+      -moz-dialog,
+      -moz-dialog
+    );
+  background-origin: border-box;
+  background-position: 1px 2px;
+  background-size: -moz-calc(100% - 2px) -moz-calc(100% - 2px);
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 1px 0 3px;
+  -moz-border-image: url(icons/tab.png) 4 3 0 / 4px 3px 0 repeat stretch;
+  height: 24px;
+  min-height: 24px;
+  border-radius: 0;
+  border-width: 0;
+  margin-top: 1px;
+%ifndef MOZ_MAIL_LEGACY
+  margin-bottom: 4px;
+%endif
 }
 
-.tabmail-tab:not(:hover):not([selected]):last-child {
-  -moz-border-right-colors: ThreeDShadow rgba(255,255,255,.3);
+.tabmail-tab:not(:-moz-lwtheme):not([selected="true"]):hover {
+  background-image:
+    -moz-linear-gradient(
+      bottom,
+      rgba(10%, 10%, 10%, .4) 1px,
+      transparent 1px
+    ),
+    -moz-linear-gradient(
+      hsla(0, 0%, 100%, .3) 1px,
+      hsla(0, 0%, 75%, .2) 80%,
+      hsla(0, 0%, 60%, .2)
+    ),
+    -moz-linear-gradient(
+      -moz-dialog,
+      -moz-dialog
+    );
 }
 
-.tabmail-tab:hover,
-.tabmail-tab[selected="true"] {
-  border-radius: 4px 4px 0 0;
-  -moz-border-top-colors: ThreeDShadow transparent;
-  -moz-border-right-colors: ThreeDShadow transparent;
-  -moz-border-left-colors: ThreeDShadow transparent;
-  margin-top: 2px;
+.tabmail-tab[selected="true"]:not(:-moz-lwtheme) {
+  background-image: -moz-linear-gradient(
+                      rgba(255, 255, 255, .7),
+                      rgba(255, 255, 255, .5) 30%
+                    ),
+                    -moz-linear-gradient(
+                      -moz-dialog,
+                      -moz-dialog
+                    );
+  color: -moz-dialogText;
 }
 
-.tabmail-tab:not([selected="true"]):hover {
-  background: url("chrome://messenger/skin/icons/tab-hover-bkgnd.png") 0px 0px repeat-x;
-  padding: 1px 4px 1px 4px;
+.tabmail-tab:-moz-lwtheme {
+  color: inherit;
 }
 
-.tabmail-tab[selected="true"] {
-  background: -moz-Dialog url("chrome://messenger/skin/icons/tab-active-bkgnd.png") repeat-x;
-  font-weight: bold;
-  padding: 1px 4px 0px 4px;
-  height: 24px !important;
+.tabmail-tab[selected="true"]:-moz-lwtheme {
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, .7),
+                    rgba(255, 255, 255, .5) 50%);
 }
 
-.tabmail-tab[selected="true"] .tab-text {
-  margin-top: -1px !important;
+.tabmail-tab:-moz-lwtheme-brighttext:not([selected="true"]) {
+  background-image: -moz-linear-gradient(hsla(0, 0%, 40%, .6),
+                    hsla(0, 0%, 30%, .6) 80%);
+}
+
+.tabmail-tab:-moz-lwtheme-brighttext:not([selected="true"]):hover {
+  background-image: -moz-linear-gradient(hsla(0, 0%, 60%, .6),
+                    hsla(0, 0%, 45%, .6) 80%);
+}
+
+.tabmail-tab:-moz-lwtheme-darktext:not([selected="true"]) {
+  background-image: -moz-linear-gradient(hsla(0, 0%, 60%, .5),
+                    hsla(0, 0%, 45%, .5) 80%);
+}
+
+.tabmail-tab:-moz-lwtheme-darktext:not([selected="true"]):hover {
+  background-image: -moz-linear-gradient(hsla(0, 0%, 80%, .5),
+                    hsla(0, 0%, 60%, .5) 80%);
+}
+
+.tab-content {
+  -moz-padding-start: 3px;
+  -moz-padding-end: 3px;
+}
+
+.tabmail-tab > .tab-image-middle {
+  padding-top: 1px;
+  -moz-padding-start: 1px;
 }
 
 .tabmail-tab[busy],
@@ -83,6 +137,30 @@
 
 .tabmail-tab[type="glodaSearch"] {
   list-style-image: url("chrome://global/skin/icons/Search-glass.png");
+}
+
+.tabmail-tab[selected="true"] > .tab-image-middle > .tab-text {
+  opacity: 1.0 !important;
+}
+
+.tabmail-arrowscrollbox > .scrollbutton-up:-moz-lwtheme-brighttext,
+.tabmail-arrowscrollbox > .scrollbutton-down:-moz-lwtheme-brighttext,
+.tabs-alltabs-button:-moz-lwtheme-brighttext,
+.tabs-closebutton:-moz-lwtheme-brighttext {
+  background-color: rgba(0,0,0,.5);
+}
+
+.tabmail-arrowscrollbox > .scrollbutton-up:-moz-lwtheme-darktext,
+.tabmail-arrowscrollbox > .scrollbutton-down:-moz-lwtheme-darktext,
+.tabs-alltabs-button:-moz-lwtheme-darktext,
+.tabs-closebutton:-moz-lwtheme-darktext {
+  background-color: rgba(255,255,255,.5);
+}
+
+.tabmail-tabs:-moz-lwtheme {
+  padding-top: 1px;
+  background-color: transparent;
+  background-image: none;
 }
 
 %ifndef MOZ_MAIL_LEGACY
@@ -135,7 +213,6 @@ tabpanels {
   margin-bottom: 0; /* Move up into tabs since menu is not below anymore */
 }
 
-
 /**
  * close buttons
  */
@@ -153,7 +230,6 @@ tabpanels {
 %endif
 }
 
-%ifndef XP_WIN
 .tabmail-tab:not([selected]):not(:hover) .tab-close-button {
   margin-top: -1px;
   margin-bottom: -2px;
@@ -162,13 +238,9 @@ tabpanels {
 .tabmail-tab:not([selected]):hover .tab-close-button {
   margin-bottom: -1px;
 }
-%endif
 
 .tab-close-button,
 .tabs-closebutton {
-%ifdef XP_WIN
-  -moz-appearance: none;
-%endif
   border: none !important;
   padding: 0px;
   cursor: default;
@@ -238,6 +310,11 @@ tabpanels {
   margin-bottom: 0px;
   -moz-margin-start: 1px;
   -moz-margin-end: 0px;
+}
+
+.tabmail-arrowscrollbox > .scrollbutton-up:-moz-lwtheme-brighttext,
+.tabmail-arrowscrollbox > stack > .scrollbutton-down:-moz-lwtheme-brighttext {
+  list-style-image: url(chrome://messenger/skin/icons/tab-arrow-left-inverted.png);
 }
 
 .tabmail-arrowscrollbox > .scrollbutton-up[disabled],
@@ -310,7 +387,19 @@ tabpanels {
   display: none;
 }
 
+.contentTabToolbox:not(:-moz-lwtheme) {
+  height: 3px;
+  border-bottom: 1px solid rgb(105, 105, 105);
+}
+
+.contentTabToolbox:-moz-lwtheme {
+  height: 1px;
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) 50%);
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
 .contentTabToolbar {
   height: 0px;
   min-height: 0px;
 }
+
