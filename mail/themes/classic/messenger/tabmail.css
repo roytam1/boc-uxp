@@ -150,7 +150,7 @@ tabpanels {
   margin-top: 1px;
 }
 
-%ifdef XP_LINUX
+%ifndef XP_WIN
 .tabmail-tab:not([selected]):not(:hover) .tab-close-button {
   margin-top: -1px;
   margin-bottom: -2px;
