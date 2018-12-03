@@ -142,7 +142,7 @@ tabpanels {
 .tabs-closebutton-box {
   margin-top: 2px;
   margin-bottom: 4px;
-}
+} 
 
 .tab-close-button > .toolbarbutton-icon {
   -moz-margin-end: 0px !important;
@@ -152,42 +152,19 @@ tabpanels {
 .tab-close-button,
 .tabs-closebutton {
   -moz-appearance: none;
-  -moz-image-region: rect(0, 16px, 16px, 0);
   border: none !important;
-  padding: 1px;
+  padding: 0px;
   cursor: default;
-  list-style-image: url("chrome://global/skin/icons/close.svg");
 }
 
 .tabs-closebutton {
-  padding: 1px 3px;
+  padding: 0 3px;
 }
 
-.tabmail-tab:not([selected="true"]) > .tab-close-button {
-  margin-bottom: 1px;
-}
-
-.tabmail-tab:not([selected="true"]) > .tab-close-button > .toolbarbutton-icon {
-  margin-top: 2px;
-}
-
-.tab-close-button:hover,
-.tabs-closebutton:hover,
-.tabmail-tab[selected="true"] > .tab-close-button:hover {
-  -moz-image-region: rect(0, 32px, 16px, 16px);
-  opacity: 1.0;
-}
-
-.tab-close-button:hover:active,
-.tabs-closebutton:hover:active,
-.tabmail-tab[selected="true"] > .tab-close-button:hover:active {
-  -moz-image-region: rect(0, 48px, 16px, 32px);
-  opacity: 1.0;
-}
-
-
-.tabmail-tab[selected="true"] > .tab-close-button {
-  -moz-image-region: rect(0, 16px, 16px, 0);
+.tabmail-tab:not([selected="true"]) > .tab-stack > .tab-content > .tab-close-button:not(:hover):not(:active) {
+%ifndef XP_LINUX
+  -moz-image-region: rect(0px, 64px, 16px, 48px);
+%endif
   /* Make this button focusable so clicking on it will not focus the tab while
      it's getting closed */
   -moz-user-focus: normal;
