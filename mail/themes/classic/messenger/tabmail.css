@@ -38,10 +38,12 @@
   border-right-width: 1px;
   border-bottom: none;
   border-radius: 2px 2px 0 0;
+  padding: 1px 4px 2px 4px;
   -moz-border-right-colors: rgba(0,0,0,.1);
   -moz-border-top-colors: ThreeDShadow rgba(255,255,255,.3);
   -moz-border-left-colors: ThreeDShadow rgba(255,255,255,.3);
   margin-bottom: 0;
+  height: 23px !important;
 }
 
 .tabmail-tab:not(:hover):not([selected]):last-child {
@@ -57,22 +59,16 @@
   margin-top: 2px;
 }
 
-.tabmail-tab:not([selected]) {
-  padding-bottom: 3px;
-}
-
 .tabmail-tab:not([selected="true"]):hover {
   background: url("chrome://messenger/skin/icons/tab-hover-bkgnd.png") 0px 0px repeat-x;
-  padding-top: 2px;
+  padding: 1px 4px 1px 4px;
 }
 
 .tabmail-tab[selected="true"] {
   background: -moz-Dialog url("chrome://messenger/skin/icons/tab-active-bkgnd.png") repeat-x;
   font-weight: bold;
-  padding-top: 1px;
-  padding-left: 4px;
-  padding-right: 4px;
-  min-height: 24px !important;
+  padding: 1px 4px 0px 4px;
+  height: 24px !important;
 }
 
 .tabmail-tab[selected="true"] .tab-text {
@@ -139,6 +135,7 @@ tabpanels {
   margin-bottom: 0; /* Move up into tabs since menu is not below anymore */
 }
 
+
 /**
  * close buttons
  */
@@ -153,9 +150,22 @@ tabpanels {
   margin-top: 1px;
 }
 
+%ifdef XP_LINUX
+.tabmail-tab:not([selected]):not(:hover) .tab-close-button {
+  margin-top: -1px;
+  margin-bottom: -2px;
+}
+
+.tabmail-tab:not([selected]):hover .tab-close-button {
+  margin-bottom: -1px;
+}
+%endif
+
 .tab-close-button,
 .tabs-closebutton {
+%ifdef XP_WIN
   -moz-appearance: none;
+%endif
   border: none !important;
   padding: 0px;
   cursor: default;
@@ -166,7 +176,7 @@ tabpanels {
 }
 
 .tabmail-tab:not([selected="true"]) > .tab-stack > .tab-content > .tab-close-button:not(:hover):not(:active) {
-%ifndef XP_LINUX
+%ifdef XP_WIN
   -moz-image-region: rect(0px, 64px, 16px, 48px);
 %endif
   /* Make this button focusable so clicking on it will not focus the tab while
