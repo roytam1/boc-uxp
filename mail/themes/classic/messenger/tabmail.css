@@ -148,6 +148,9 @@ tabpanels {
 .tab-close-button > .toolbarbutton-icon {
   -moz-margin-end: 0px !important;
   margin-top: 1px;
+%ifndef XP_WIN
+  margin: -4px
+%endif
 }
 
 %ifndef XP_WIN
