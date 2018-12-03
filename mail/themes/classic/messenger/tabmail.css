@@ -7,7 +7,11 @@
  */
 
 .tabmail-arrowscrollbox {
+%ifdef MOZ_MAIL_LEGACY
+  margin-bottom: -1px;
+%else
   margin-bottom: 3px;
+%endif
  }
 
 .tabmail-tabs[overflow="true"] {
