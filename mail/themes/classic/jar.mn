@@ -258,7 +258,11 @@ classic.jar:
   skin/classic/messenger/starContact.png                                            (messenger/starContact.png)
   skin/classic/messenger/starred48.png                                              (messenger/starred48.png)
   skin/classic/messenger/subscribe.css                                              (messenger/subscribe.css)
-* skin/classic/messenger/tabmail.css                                                (messenger/tabmail.css)
+#ifdef XP_WIN
+* skin/classic/messenger/tabmail.css                                                (messenger/tabmail-windows.css)
+#else
+* skin/classic/messenger/tabmail.css                                                (messenger/tabmail-linux.css)
+#endif
   skin/classic/messenger/tagbg.png                                                  (messenger/tagbg.png)
   skin/classic/messenger/tagColors.css                                              (messenger/tagColors.css)
   skin/classic/messenger/userIcon.png                                               (messenger/userIcon.png)
