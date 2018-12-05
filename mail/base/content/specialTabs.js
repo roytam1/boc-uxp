@@ -596,14 +596,6 @@ var specialTabs = {
     // check this pref anyway and clear it so that we are consistent with what Firefox
     // actually does. It will help developers switching between branches without updating.
     if (Services.prefs.prefHasUserValue("app.update.postupdate")) {
-      // Only show what's new tab if this is actually an upgraded version,
-      // not just a new installation/profile (and don't show if the major version
-      // hasn't changed).
-      if (fromVer && (fromVer[0] != toVer[0])) {
-          // showWhatsNewPage checks the details of the update manager before
-          // showing the page.
-          this.showWhatsNewPage();
-      }
       Services.prefs.clearUserPref("app.update.postupdate");
     }
 

@@ -2095,9 +2095,6 @@
                         label="&openHelp.label;"
                         key="key_openHelp"
                         oncommand="openSupportURL();"/>
-              <menuitem id="appmenu_whatsNew"
-                        label="&whatsNewCmd.label;"
-                        oncommand="openWhatsNew();"/>
               <menuitem id="appmenu_releaseNotes"
                         label="&releaseCmd2.label;"
                         oncommand="openFormattedURL('app.releaseNotesURL');"/>
