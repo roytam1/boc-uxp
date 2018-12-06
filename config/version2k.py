@@ -5,9 +5,9 @@ import sys
 import argparse
 
 moduleOptionParser = argparse.ArgumentParser()
-moduleOptionParser.add_argument("--version", dest="version", nargs="*")
-moduleOptionParser.add_argument("--msbuild", dest="msbuild", action="store_true")
-moduleOptionParser.add_argument("--msdate", dest="msdate", type=int)
+moduleOptionParser.add_argument("--version", "-v", dest="version", nargs="*")
+moduleOptionParser.add_argument("--msbuild", "-b", dest="msbuild", action="store_true")
+moduleOptionParser.add_argument("--msdate", "-d", dest="msdate", type=int)
 args = moduleOptionParser.parse_args()
 
 if len(sys.argv) <= 1:
@@ -20,12 +20,14 @@ if args.version:
   f.close()
 
   if (strVersion == '52.9.0000'):
-    strVersion = '{0}.{1}'.format('52.9', (datetime.utcnow.date()-date(2000,01,01)).days)
+    strVersion = '{0}.{1}'.format('52.9', (datetime.utcnow().date()-date(2000,01,01)).days)
   
   if len(args.version) == 2 and args.version[1] == 'build':
     print strVersion[5:]
   else:
     print strVersion
+  
+  sys.exit(0)
 
 if args.msbuild:
   print (datetime.utcnow().date()-date(2000,01,01)).days
