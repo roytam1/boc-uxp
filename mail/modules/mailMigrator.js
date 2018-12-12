@@ -102,7 +102,7 @@ var MailMigrator = {
   _migrateUI: function() {
     // The code for this was ported from
     // mozilla/browser/components/nsBrowserGlue.js
-    const UI_VERSION = 15;
+    const UI_VERSION = 16;
     const MESSENGER_DOCURL = "chrome://messenger/content/messenger.xul";
     const UI_VERSION_PREF = "mail.ui-rdf.version";
     let currentUIVersion = 0;
@@ -378,6 +378,25 @@ var MailMigrator = {
             Services.prefs.setBoolPref(soundPref, false);
           }
         }
+      }
+
+      // Interlink doesn't support langpacks so we need to reset the UI lang pref
+      if (currentUIVersion < 16) {
+        Services.prefs.clearUserPref("general.useragent.locale");
+
+        var disableLangPacks16 = function() {
+          Cu.import("resource://gre/modules/AddonManager.jsm");
+
+          function disableAddons(aAddons) {
+            for each(let addon in aAddons) {
+              addon.userDisabled = true;
+            }
+          }
+
+          AddonManager.getAddonsByTypes(['locale'], disableAddons);
+        }
+
+        disableLangPacks16();
       }
 
       // Update the migration version.
