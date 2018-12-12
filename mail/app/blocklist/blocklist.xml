@@ -8,6 +8,4 @@
 
 #include graphics.inc.xml
 
-#include certificates.inc.xml
-
 </blocklist>
