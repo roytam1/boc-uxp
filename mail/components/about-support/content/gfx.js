@@ -105,7 +105,9 @@ function populateGraphicsSection() {
       if (errorMessage)
         message = errorMessage;
     }
+   
     let string = displayName || bundle.GetStringFromName(name);
+
     table.push(createParentElement("tr", [
       createHeader(string),
       createElement("td", message),
@@ -198,7 +200,7 @@ function populateGraphicsSection() {
           gfxInfo.getFeatureStatus(gfxInfo.FEATURE_WEBGL_OPENGL) == gfxInfo.FEATURE_STATUS_OK)
         webglfeature = gfxInfo.FEATURE_WEBGL_OPENGL;
     }
-    pushFeatureInfoRow(trGraphics, "webglRenderer", webglfeature, webglenabled, webglrenderer);
+    pushFeatureInfoRow(trGraphics, "webgl1Renderer", webglfeature, webglenabled, webglrenderer);
 
     appendChildren(graphics_tbody, trGraphics);
 
