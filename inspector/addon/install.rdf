@@ -10,11 +10,11 @@
     xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 
   <Description about="urn:mozilla:install-manifest"
-               em:id="@ADDON_ID@"
-               em:version="@ADDON_VERSION@"
-               em:name="@ADDON_NAME@"
-               em:description="@ADDON_SHORT_DESC@"
-               em:creator="@ADDON_AUTHOR@"
+               em:id="@INSPECTOR_ID@"
+               em:version="@INSPECTOR_VERSION@"
+               em:name="@INSPECTOR_NAME@"
+               em:description="@INSPECTOR_SHORT_DESC@"
+               em:creator="@INSPECTOR_AUTHOR@"
                em:type="2"
                em:unpack="true">
     <em:targetApplication name="Pale Moon">

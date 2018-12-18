@@ -5,7 +5,7 @@
 #filter substitution
 
 [.] chrome.jar:
-% content @ADDON_CHROME_NAME@ chrome/content/
+% content @INSPECTOR_CHROME_NAME@ chrome/content/
   content/commandOverlay.xul
   content/editingOverlay.xul
   content/Flasher.js

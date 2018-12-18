@@ -5,7 +5,7 @@
 #filter substitution
 
 [.] chrome.jar:
-% skin @ADDON_CHROME_NAME@ modern/1.0 chrome/skin/modern/
+% skin @INSPECTOR_CHROME_NAME@ modern/1.0 chrome/skin/modern/
   skin/modern/btnFind-dis.gif
   skin/modern/btnFind.gif
   skin/modern/btnSelecting-act.gif

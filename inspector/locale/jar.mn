@@ -5,7 +5,7 @@
 #filter substitution
 
 [.] chrome.jar:
-% locale @ADDON_CHROME_NAME@ en-US chrome/locale/
+% locale @INSPECTOR_CHROME_NAME@ en-US chrome/locale/
   locale/editing.dtd
   locale/inspector.dtd
   locale/inspector.properties
