@@ -2,8 +2,6 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#filter substitution
-
 function toProfileManager()
 {
   var promgrWin = Services.wm.getMostRecentWindow("mozilla:profileSelection");
@@ -15,7 +13,7 @@ function toProfileManager()
 
     params.SetNumberStrings(1);
     params.SetString(0, "menu");
-    window.openDialog("chrome://@ADDON_CHROME_NAME@/content/profileSelection.xul",
+    window.openDialog("chrome://profile-switcher/content/profileSelection.xul",
                 "",
                 "centerscreen,chrome,titlebar,centerscreen,modal",
                 params);

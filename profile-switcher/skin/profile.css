@@ -8,15 +8,13 @@
 
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
-%filter substitution
-
 treechildren::-moz-tree-image {
   margin-inline-end: 2px;
   list-style-image: url("chrome://mozapps/skin/profile/profileicon.png");
 }
 
 treechildren::-moz-tree-image(rowMigrate-no) {
-  list-style-image: url("chrome://@ADDON_CHROME_NAME@/skin/migrate.gif");
+  list-style-image: url("chrome://profile-switcher/skin/migrate.gif");
 }
 
 /* profile selection dialog */

@@ -4,17 +4,15 @@
      License, v. 2.0. If a copy of the MPL was not distributed with this
      file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 
-#filter substitution
-
 <!DOCTYPE overlay [
-<!ENTITY % overlayDTD SYSTEM "chrome://@ADDON_CHROME_NAME@/locale/overlay.dtd">
+<!ENTITY % overlayDTD SYSTEM "chrome://profile-switcher/locale/overlay.dtd">
 %overlayDTD;
 ]>
 
 <overlay id="profileswitcher-overlay"
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
     
-    <script type="application/javascript" src="chrome://@ADDON_CHROME_NAME@/content/overlay.js" />
+    <script type="application/javascript" src="chrome://profile-switcher/content/overlay.js" />
      
     <menupopup id="menu_ToolsPopup">
       <menuseparator id="sep_switchprofile"/>

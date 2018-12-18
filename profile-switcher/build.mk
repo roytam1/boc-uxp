@@ -4,4 +4,4 @@
 
 package:
 	cd $(DIST)/bin; \
-  zip -Dr9X ../${ADDON_XPI_NAME}-${ADDON_VERSION}.xpi * -x \*/.mkdir.done; \
+  zip -Dr9X ../${PROFILESWITCHER_XPI_NAME}-${PROFILESWITCHER_VERSION}.xpi * -x \*/.mkdir.done; \

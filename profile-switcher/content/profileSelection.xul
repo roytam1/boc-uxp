@@ -5,15 +5,13 @@
      License, v. 2.0. If a copy of the MPL was not distributed with this
      file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 
-#filter substitution
-
 <?xml-stylesheet href="chrome://browser/skin/" type="text/css"?>
-<?xml-stylesheet href="chrome://@ADDON_CHROME_NAME@/skin/profile.css" type="text/css"?>
+<?xml-stylesheet href="chrome://profile-switcher/skin/profile.css" type="text/css"?>
 
 <!DOCTYPE dialog [
 <!ENTITY % brandDTD SYSTEM "chrome://branding/locale/brand.dtd">
 %brandDTD;
-<!ENTITY % profileDTD SYSTEM "chrome://@ADDON_CHROME_NAME@/locale/profileSelection.dtd">
+<!ENTITY % profileDTD SYSTEM "chrome://profile-switcher/locale/profileSelection.dtd">
 %profileDTD;
 ]>
 
@@ -31,11 +29,11 @@
         onload="StartUp();">
 
   <stringbundle id="bundle_profile"
-                src="chrome://@ADDON_CHROME_NAME@/locale/profileSelection.properties"/>
+                src="chrome://profile-switcher/locale/profileSelection.properties"/>
   <stringbundle id="bundle_brand"
                 src="chrome://branding/locale/brand.properties"/>
 
-  <script type="application/javascript" src="chrome://@ADDON_CHROME_NAME@/content/profileSelection.js"/>
+  <script type="application/javascript" src="chrome://profile-switcher/content/profileSelection.js"/>
   <script type="application/javascript" src="chrome://mozapps/content/profile/createProfileWizard.js"/>
 
   <dialogheader id="header" title="&profileManager.title;"/>
