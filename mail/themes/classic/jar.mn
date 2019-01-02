@@ -274,3 +274,8 @@ classic.jar:
   skin/classic/messenger-newsblog/feed-subscriptions.css                            (messenger-newsblog/feed-subscriptions.css)
   skin/classic/messenger-newsblog/icons/rss-feed.png                                (messenger-newsblog/icons/rss-feed.png)
   skin/classic/messenger-newsblog/icons/server-rss.png                              (messenger-newsblog/icons/server-rss.png)
+
+#ifdef XP_MACOSX
+toolkit.jar:
+  skin/classic/global/icons/close.svg                                               (/mozilla/toolkit/themes/linux/global/icons/close.svg)
+#endif
