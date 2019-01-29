@@ -505,23 +505,6 @@ function Startup()
              .getInterface(Components.interfaces.nsIXULWindow);
   xw.XULBrowserWindow = window.XULBrowserWindow = new nsBrowserStatusHandler();
 
-  if (!window.content.opener &&
-      Services.prefs.getBoolPref("browser.doorhanger.enabled")) {
-    var tmp = {};
-    Components.utils.import("resource://gre/modules/PopupNotifications.jsm", tmp);
-    window.PopupNotifications = new tmp.PopupNotifications(
-        getBrowser(),
-        document.getElementById("notification-popup"),
-        document.getElementById("notification-popup-box"));
-    // Setting the popup notification attribute causes the XBL to bind
-    // and call the constructor again, so we have to destroy it first.
-    gBrowser.getNotificationBox().destroy();
-    gBrowser.setAttribute("popupnotification", "true");
-    // The rebind also resets popup window scrollbar visibility, so override it.
-    if (!(xw.chromeFlags & Components.interfaces.nsIWebBrowserChrome.CHROME_SCROLLBARS))
-      gBrowser.selectedBrowser.style.overflow = "hidden";
-  }
-
   addPrefListener(gTabStripPrefListener);
   addPrefListener(gHomepagePrefListener);
   addPrefListener(gStatusBarPopupIconPrefListener);
