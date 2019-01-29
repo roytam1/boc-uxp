@@ -217,7 +217,7 @@
              toolbarname="&bookmarksToolbarCmd.label;"
              nowindowdrag="true"
              customizable="true"
-             defaultset="home-button,separator,bookmarks-button,personal-bookmarks"
+             defaultset="home-button,separator,personal-bookmarks"
              mode="full"
              iconsize="small"
              labelalign="end"
@@ -473,9 +473,6 @@
           </hbox>
         </hbox>
       </toolbaritem>
-
-      <!-- see utilityOverlay.xul -->
-      <toolbarbutton id="sync-button"/>
     </toolbarpalette>
   </toolbox>
 
@@ -507,7 +504,7 @@
   <panel id="customizeToolbarSheetPopup"/>
 
   <statusbar id="status-bar" class="chromeclass-status">
-    <statusbarpanel id="component-bar" hidden="true"/>
+    <statusbarpanel id="component-bar"/>
     <statusbarpanel id="statusbar-display" label="&statusText.label;" flex="1"/>
     <statusbarpanel class="statusbarpanel-progress" id="statusbar-progresspanel" collapsed="true">
       <progressmeter class="progressmeter-statusbar" id="statusbar-icon" mode="normal" value="0"/>

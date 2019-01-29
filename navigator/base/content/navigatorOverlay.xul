@@ -98,7 +98,6 @@
     <key id="manBookmarkKb" key="&manBookmarksCmd.commandkey;" command="Browser:ManageBookmark" modifiers="accel"/>
 
     <!-- Tools Menu -->
-    <key id="searchInternetKb" key="&searchInternet.commandKey;" modifiers="accel,shift" command="Browser:SearchInternet"/>
 
     <!-- Misc -->
     <!-- the amazing fishcam, suppress warning by ',' at the beginning of modifiers, see bug 496322 -->
@@ -192,7 +191,6 @@
     <commandset id="tasksCommands"/>
 
     <!-- Tools Menu -->
-    <command id="Browser:SearchInternet" oncommand="BrowserSearch.webSearch();"/>
     <command id="Tools:Sanitize"
              oncommand="Components.classes['@mozilla.org/suite/suiteglue;1'].getService(Components.interfaces.nsISuiteGlue).sanitize(window);"/>
 
@@ -400,10 +398,6 @@
         </menu>
         <menuseparator id="startHistorySeparator" hidden="true"/>
         <menuseparator id="endHistorySeparator" hidden="true"/>
-        <menuitem id="sync-tabs-menuitem"
-                  label="&syncTabsMenu.label;"
-                  oncommand="BrowserOpenSyncTabs();"
-                  disabled="true"/>
       </menupopup>
     </menu>
 
@@ -469,15 +463,11 @@
 
     <menu id="tasksMenu">
       <menupopup id="taskPopup">
-        <menuitem id="menu_searchWeb"
-                  label="&searchInternetCmd.label;"
-                  accesskey="&searchInternetCmd.accesskey;"
-                  key="searchInternetKb"
-                  command="Browser:SearchInternet"/>
-        <menuitem id="menu_translate"
-                  label="&translateMenu.label;"
-                  accesskey="&translateMenu.accesskey;"
-                  oncommand="Translate();"/>
+        <menuitem id="sanitizeItem"
+                  label="&clearPrivateDataCmd.label;"
+                  accesskey="&clearPrivateDataCmd.accesskey;"
+                  key="key_sanitize" command="Tools:Sanitize"/>
+        <menuseparator/>
         <menu id="menu_cookieManager"
               label="&cookieCookieManager.label;"
               accesskey="&cookieCookieManager.accesskey;"
@@ -596,10 +586,6 @@
           </menupopup>
         </menu>
         <menuseparator id="navBeginGlobalItems"/>
-        <menuitem id="sanitizeItem"
-                  label="&clearPrivateDataCmd.label;"
-                  accesskey="&clearPrivateDataCmd.accesskey;"
-                  key="key_sanitize" command="Tools:Sanitize"/>
       </menupopup>
     </menu>
 

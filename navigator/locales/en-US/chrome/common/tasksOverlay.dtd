@@ -18,7 +18,7 @@
 <!ENTITY taskNavigator.tooltip  "Navigator">
 <!ENTITY taskComposer.tooltip  "Composer">
 
-<!ENTITY webDevelopment.label "Web Development">
+<!ENTITY webDevelopment.label "Developer Tools">
 <!ENTITY webDevelopment.accesskey "W">
 
 <!ENTITY windowMenu.label "Window">
@@ -36,7 +36,7 @@
 <!ENTITY passwordDisplayCmd.label "Manage Stored Passwords">
 <!ENTITY passwordDisplayCmd.accesskey "M">
 
-<!ENTITY passwordExpireCmd.label "Log Out">
+<!ENTITY passwordExpireCmd.label "Clear Basic Authentication">
 <!ENTITY passwordExpireCmd.accesskey "l">
 
 <!ENTITY downloadManagerCmd.label "Download Manager">

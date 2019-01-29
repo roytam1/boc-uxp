@@ -3,27 +3,6 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-function toggleTabsFromOtherComputers()
-  {
-    // enable/disable the Tabs From Other Computers menu
-    let menuitem = document.getElementById("sync-tabs-menuitem");
-
-    // If Sync isn't configured yet, then don't show the menuitem.
-    if (Weave.Status.checkSetup() == Weave.CLIENT_NOT_CONFIGURED ||
-        Weave.Svc.Prefs.get("firstSync", "") == "notReady") {
-      menuitem.hidden = true;
-      return;
-    }
-
-    // The tabs engine might never be inited (if services.sync.registerEngines
-    // is modified), so make sure we avoid undefined errors.
-    let enabled = Weave.Service.isLoggedIn &&
-                  Weave.Service.engineManager.get("tabs") &&
-                  Weave.Service.engineManager.get("tabs").enabled;
-    menuitem.setAttribute("disabled", !enabled);
-    menuitem.hidden = false;
-  }
-
 function FillHistoryMenu(aParent, aMenu)
 {
   // Remove old entries if any
@@ -75,7 +54,6 @@ function FillHistoryMenu(aParent, aMenu)
         if (entry)
           createHistoryMenuItem(aParent, j, entry, endHistory, j == index);
       }
-      toggleTabsFromOtherComputers();
       endHistory.hidden = (endHistory == aParent.lastChild || syncMenuItem.hidden);
       break;
   }

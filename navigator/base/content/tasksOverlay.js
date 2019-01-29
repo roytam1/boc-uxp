@@ -26,11 +26,12 @@ function ExpirePassword()
             .getService(Components.interfaces.nsIHttpAuthManager)
             .clearAll();
 
-  // Expires the master password
+  /* Expires the master password
   Components.classes["@mozilla.org/security/pk11tokendb;1"]
             .createInstance(Components.interfaces.nsIPK11TokenDB)
             .getInternalKeyToken()
             .checkPassword("");
+  */
 }
 
 function toDownloadManager()
