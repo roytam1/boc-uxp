@@ -10,13 +10,7 @@
 
 // Services = object with smart getters for common XPCOM services
 Components.utils.import("resource://gre/modules/Services.jsm");
-
 Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
-XPCOMUtils.defineLazyGetter(this, "Weave", function() {
-  let tmp = {};
-  Components.utils.import("resource://services-sync/main.js", tmp);
-  return tmp.Weave;
-});
 
 /*
   Note: All Editor/Composer-related methods have been moved to editorApplicationOverlay.js,

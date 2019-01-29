@@ -28,8 +28,6 @@ About.prototype = {
   sessionrestoreFlags: SCRIPT | HIDE,
   steamedhamsURI: "chrome://navigator/content/aboutSH.xhtml",
   steamedhamsFlags: SCRIPT | HIDE,
-  synctabsURI: "chrome://communicator/content/aboutSyncTabs.xul",
-  synctabsFlags: SCRIPT,
 
   classID: Components.ID("{d54f2c89-8fd6-4eeb-a7a4-51d4dcdf460f}"),
   QueryInterface: XPCOMUtils.generateQI([Components.interfaces.nsIAboutModule]),

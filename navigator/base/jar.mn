@@ -216,8 +216,6 @@ comm.jar:
   content/communicator/pref/pref-smartupdate.xul                   (content/pref/pref-smartupdate.xul)
   content/communicator/pref/pref-spelling.js                       (content/pref/pref-spelling.js)
   content/communicator/pref/pref-spelling.xul                      (content/pref/pref-spelling.xul)
-  content/communicator/pref/pref-sync.js                           (content/pref/pref-sync.js)
-  content/communicator/pref/pref-sync.xul                          (content/pref/pref-sync.xul)
   content/communicator/pref/pref-tabs.xul                          (content/pref/pref-tabs.xul)
 
   content/communicator/profile/profileSelection.js                 (content/profile/profileSelection.js)
@@ -229,23 +227,6 @@ comm.jar:
   content/communicator/search/searchbarBindings.css                (content/search/searchbarBindings.css)
   content/communicator/search/search-panel.js                      (content/search/search-panel.js)
   content/communicator/search/search-panel.xul                     (content/search/search-panel.xul)
-
-  content/communicator/aboutSyncTabs.xul                           (content/sync/aboutSyncTabs.xul)
-  content/communicator/aboutSyncTabs.js                            (content/sync/aboutSyncTabs.js)
-  content/communicator/aboutSyncTabs.css                           (content/sync/aboutSyncTabs.css)
-  content/communicator/aboutSyncTabs-bindings.xml                  (content/sync/aboutSyncTabs-bindings.xml)
-  content/communicator/sync/syncAddDevice.xul                      (content/sync/syncAddDevice.xul)
-  content/communicator/sync/syncAddDevice.js                       (content/sync/syncAddDevice.js)
-  content/communicator/sync/syncSetup.xul                          (content/sync/syncSetup.xul)
-  content/communicator/sync/syncSetup.js                           (content/sync/syncSetup.js)
-  content/communicator/sync/syncGenericChange.xul                  (content/sync/syncGenericChange.xul)
-  content/communicator/sync/syncGenericChange.js                   (content/sync/syncGenericChange.js)
-  content/communicator/sync/syncKey.xhtml                          (content/sync/syncKey.xhtml)
-  content/communicator/sync/syncNotification.xml                   (content/sync/syncNotification.xml)
-  content/communicator/sync/syncQuota.xul                          (content/sync/syncQuota.xul)
-  content/communicator/sync/syncQuota.js                           (content/sync/syncQuota.js)
-  content/communicator/sync/syncUtils.js                           (content/sync/syncUtils.js)
-  content/communicator/sync/syncUI.js                              (content/sync/syncUI.js)
 
   content/communicator/labelsencodings.properties                  (/mozilla/dom/encoding/labelsencodings.properties)
 

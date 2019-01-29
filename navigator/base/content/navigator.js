@@ -690,9 +690,6 @@ function Startup()
   if (!gPrivate) {
     DownloadTaskbarProgress.onBrowserWindowLoad(window);
 
-    // initialize the sync UI
-    gSyncUI.init();
-
     // initialize the session-restore service
     setTimeout(InitSessionStoreCallback, 0);
   }
@@ -1461,11 +1458,6 @@ function BrowserOpenTabFromTabBarMiddleClick(e)
   if ('object' === typeof e && e.button == 1) {
     BrowserOpenTab();
   }
-}
-
-function BrowserOpenSyncTabs()
-{
-  switchToTabHavingURI("about:sync-tabs", true);
 }
 
 /* Show file picker dialog configured for opening a file, and return
