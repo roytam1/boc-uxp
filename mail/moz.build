@@ -6,6 +6,7 @@
 CONFIGURE_SUBST_FILES += ['installer/Makefile']
 
 DIRS += [
+    '/mozilla/application/palemoon/fonts',
     'base',
     'locales',
     'modules',
@@ -18,9 +19,6 @@ if CONFIG['MOZ_INCOMPLETE_EXTERNAL_LINKAGE']:
 
 if CONFIG['MAKENSISU']:
     DIRS += ['installer/windows']
-
-if CONFIG['MOZ_BUNDLED_FONTS']:
-    DIRS += ['/mozilla/application/palemoon/fonts']
 
 # app is always last as it packages up the built files on mac.
 DIRS += ['app']
