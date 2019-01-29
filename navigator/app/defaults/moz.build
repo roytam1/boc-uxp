@@ -23,9 +23,9 @@ FINAL_TARGET_FILES.defaults.profile.chrome += [
 ]
 
 FINAL_TARGET_FILES.searchplugins += [
-    'searchplugins/duckduckgo-palemoon.xml',
-    'searchplugins/ecosia.xml',
+    '/mozilla/application/palemoon/locales/en-US/searchplugins/duckduckgo-palemoon.xml',
+    '/mozilla/application/palemoon/locales/en-US/searchplugins/ecosia.xml',
+    '/mozilla/application/palemoon/locales/en-US/searchplugins/wikipedia.xml',
     'searchplugins/navigator-cross-reference.xml',
     'searchplugins/uxp-cross-reference.xml',
-    'searchplugins/wikipedia.xml',
 ]
