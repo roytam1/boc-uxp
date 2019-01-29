@@ -8,7 +8,6 @@ DIRS += [
     'dirprovider',
     'downloads',
     'feeds',
-    'migration',
     'sessionstore',
     'shell',
     'sidebar',
