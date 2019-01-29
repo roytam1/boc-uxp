@@ -54,7 +54,7 @@ $(CONFIG_DIR)/setup.exe::
 	$(call py_action,preprocessor,-Fsubstitution $(DEFINES) $(ACDEFINES) \
 	  $(srcdir)/nsis/defines.nsi.in -o $(CONFIG_DIR)/defines.nsi)
 	$(PYTHON) $(MOZILLA_SRCDIR)/toolkit/mozapps/installer/windows/nsis/preprocess-locale.py \
-	  --preprocess-locale $(topsrcdir) \
+	  --preprocess-locale $(MOZILLA_SRCDIR) \
 	  $(call EXPAND_LOCALE_SRCDIR,navigator/locales)/installer/windows $(AB_CD) $(CONFIG_DIR)
 
 include $(topsrcdir)/config/rules.mk
