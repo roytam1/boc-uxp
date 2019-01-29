@@ -43,8 +43,6 @@ comm.jar:
   content/navigator/nsBrowserContentListener.js                    (content/nsBrowserContentListener.js)
   content/navigator/nsBrowserStatusHandler.js                      (content/nsBrowserStatusHandler.js)
   content/navigator/sessionHistoryUI.js                            (content/sessionHistoryUI.js)
-  content/navigator/safeBrowsingOverlay.js                         (content/safeBrowsingOverlay.js)
-  content/navigator/safeBrowsingOverlay.xul                        (content/safeBrowsingOverlay.xul)
   content/navigator/tabbrowser.xml                                 (content/tabbrowser.xml)
   content/navigator/urlbarBindings.xml                             (content/urlbarBindings.xml)
   content/navigator/aboutSH.xhtml                                  (content/aboutSH.xhtml)
