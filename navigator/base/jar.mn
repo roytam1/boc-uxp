@@ -206,7 +206,6 @@ comm.jar:
   content/communicator/pref/pref-proxies-advanced.xul              (content/pref/pref-proxies-advanced.xul)
   content/communicator/pref/pref-scripts.js                        (content/pref/pref-scripts.js)
 * content/communicator/pref/pref-scripts.xul                       (content/pref/pref-scripts.xul)
-  content/communicator/pref/pref-search.js                         (content/pref/pref-search.js)
   content/communicator/pref/pref-search.xul                        (content/pref/pref-search.xul)
   content/communicator/pref/pref-security.js                       (content/pref/pref-security.js)
   content/communicator/pref/pref-security.xul                      (content/pref/pref-security.xul)
