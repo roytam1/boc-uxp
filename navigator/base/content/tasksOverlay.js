@@ -12,6 +12,13 @@ function toNavigator()
     OpenBrowserWindow();
 }
 
+function toCookieManager()
+{
+  toOpenWindowByType("Navigator:Cookies",
+                     "chrome://navigator/content/cookies/cookieManager.xul",
+                     "resizable");
+}
+
 function toPasswordManager()
 {
   toOpenWindowByType("Toolkit:PasswordManager",

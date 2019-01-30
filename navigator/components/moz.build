@@ -5,6 +5,7 @@
 
 DIRS += [
     'build',
+    'cookies',
     'dirprovider',
     'downloads',
     'feeds',
