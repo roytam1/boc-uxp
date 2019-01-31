@@ -5,10 +5,10 @@
 
 DIRS += [
     'build',
-    'cookies',
     'dirprovider',
     'downloads',
     'feeds',
+    'permissions',
     'sessionstore',
     'shell',
     'sidebar',

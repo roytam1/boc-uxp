@@ -134,12 +134,6 @@ comm.jar:
   content/communicator/history/tree.xml                            (content/history/tree.xml)
   content/communicator/history/treeView.js                         (content/history/treeView.js)
 
-  content/communicator/permissions/cookieViewer.js                 (content/permissions/cookieViewer.js)
-  content/communicator/permissions/cookieViewer.xul                (content/permissions/cookieViewer.xul)
-  content/communicator/permissions/permissionsManager.js           (content/permissions/permissionsManager.js)
-  content/communicator/permissions/permissionsManager.xul          (content/permissions/permissionsManager.xul)
-  content/communicator/permissions/treeUtils.js                    (content/permissions/treeUtils.js)
-
 * content/communicator/places/browserPlacesViews.js                (content/places/browserPlacesViews.js)
   content/communicator/places/controller.js                        (content/places/controller.js)
 * content/communicator/places/menu.xml                             (content/places/menu.xml)

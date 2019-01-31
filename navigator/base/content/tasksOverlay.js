@@ -15,7 +15,7 @@ function toNavigator()
 function toCookieManager()
 {
   toOpenWindowByType("Navigator:Cookies",
-                     "chrome://navigator/content/cookies/cookieManager.xul",
+                     "chrome://navigator/content/permissions/cookies.xul",
                      "resizable");
 }
 
@@ -39,6 +39,32 @@ function ExpirePassword()
             .getInternalKeyToken()
             .checkPassword("");
   */
+}
+
+// cookie, popup, image, install, geo, desktop-notification, login-saving, offline-app
+function toPermissionsManager(aViewerType, aHost = "") {
+  var windowtype = "Navigator:Permissions-" + aViewerType
+  var wm = Components.classes["@mozilla.org/appshell/window-mediator;1"]
+                     .getService(Components.interfaces.nsIWindowMediator);
+  var existingWindow = wm.getMostRecentWindow(windowtype);
+
+  var params = { allowVisible: true,
+                 blockVisible: (aViewerType == "image" || aViewerType == "cookie"),
+                 sessionVisible: (aViewerType == "cookie"),
+                 prefilledHost: aHost,
+                 permissionType: aViewerType,
+                 windowType: windowtype,
+                 windowTitle: aViewerType + ".title",
+                 introText: aViewerType + ".text"};
+
+  if (existingWindow) {
+    existingWindow.initWithParams(params)
+    existingWindow.focus();
+  }
+  else {
+    window.openDialog("chrome://navigator/content/permissions/permissions.xul", "",
+                      "chrome,resizable=yes", params);
+  }
 }
 
 function toDownloadManager()
