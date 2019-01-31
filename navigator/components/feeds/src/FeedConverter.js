@@ -402,8 +402,7 @@ FeedResultService.prototype = {
       // fall through
     case "bookmarks":
       var topWindow = Services.wm.getMostRecentWindow("navigator:browser");
-      topWindow.PlacesCommandHook.addLiveBookmark(spec, title, subtitle)
-                                 .catch(Components.utils.reportError);
+      topWindow.PlacesCommandHook.addLiveBookmark(spec, title, subtitle);
       break;
     case "messenger":
       Components.classes["@mozilla.org/newsblog-feed-downloader;1"]
