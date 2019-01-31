@@ -48,8 +48,10 @@ function toPermissionsManager(aViewerType, aHost = "") {
                      .getService(Components.interfaces.nsIWindowMediator);
   var existingWindow = wm.getMostRecentWindow(windowtype);
 
-  var params = { allowVisible: true,
-                 blockVisible: (aViewerType == "image" || aViewerType == "cookie"),
+  var params = { allowVisible: !(aViewerType == "offline-app"),
+                 blockVisible: (aViewerType == "image" ||
+                                aViewerType == "cookie" ||
+                                aViewerType == "offline-app"),
                  sessionVisible: (aViewerType == "cookie"),
                  prefilledHost: aHost,
                  permissionType: aViewerType,
