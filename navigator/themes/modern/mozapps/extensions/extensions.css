@@ -24,6 +24,7 @@
 
 #forward-btn {
   border-inline-start: none;
+  margin-left: -5px;
 }
 
 #back-btn:-moz-locale-dir(ltr),

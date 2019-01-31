@@ -107,7 +107,7 @@ function toEM(aView)
   if (useDlg) {
     var view = aView ? { view: aView } : null;
     var url = "chrome://mozapps/content/extensions/extensions.xul";
-    var win = toOpenWindowByType("Addons:Manager", url, "", view);
+    var win = toOpenWindowByType("Addons:Manager", url, "chrome,titlebar,resizable,centerscreen", view);
     if (win && aView)
       win.loadView(aView);
     return;
