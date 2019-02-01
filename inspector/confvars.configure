@@ -12,7 +12,7 @@ def ConfVars(mode='moz.configure'):
     confvars = {
         'INSPECTOR_NAME': 'DOM Inspector',
         'INSPECTOR_ID': 'inspector@mozilla.org',
-        'INSPECTOR_VERSION': '3.0.1',
+        'INSPECTOR_VERSION': '3.0.2',
         'INSPECTOR_AUTHOR': 'Binary Outcast',
         'INSPECTOR_SHORT_DESC': 'DOM Inspector is a tool that can be used to inspect and edit the live DOM of any web document or XUL application.',
         'INSPECTOR_XPI_NAME': 'domi',

@@ -22,6 +22,11 @@
                    em:minVersion="28.0.0a1"
                    em:maxVersion="28.*"/>
     </em:targetApplication>
+    <em:targetApplication name="Borealis Navigator">
+      <Description em:id="{a3210b97-8e8a-4737-9aa0-aa0e607640b9}"
+                   em:minVersion="1.0.0a1"
+                   em:maxVersion="1.*"/>
+    </em:targetApplication>
     <em:targetApplication name="Unified XUL Platform">
       <Description em:id="toolkit@mozilla.org"
                    em:minVersion="4.1.0a1"

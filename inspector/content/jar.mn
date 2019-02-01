@@ -25,6 +25,7 @@
   content/tasksOverlay-cz.xul
   content/tasksOverlay-ff.xul
   content/tasksOverlay-mobile.xul
+  content/tasksOverlay-bn.xul
   content/tasksOverlay-sb.xul
   content/tasksOverlay-tb.xul
   content/tasksOverlay.xul
@@ -127,8 +128,11 @@
 # Chat Overlays
 % overlay chrome://chatzilla/content/chatzilla.xul chrome://inspector/content/tasksOverlay-cz.xul
 
-# Suite Overlays
-% overlay chrome://communicator/content/pref/preferences.xul chrome://inspector/content/prefs/prefsOverlay.xul application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}
+# Suite/Navigator Overlays
 % overlay chrome://communicator/content/tasksOverlay.xul chrome://inspector/content/tasksOverlay.xul application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}
-% overlay chrome://inspector/content/inspector.xul chrome://communicator/content/tasksOverlay.xul application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}
-% overlay chrome://inspector/content/inspector.xul chrome://communicator/content/utilityOverlay.xul application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}
+% overlay chrome://communicator/content/pref/preferences.xul chrome://inspector/content/prefs/prefsOverlay.xul application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a} application={a3210b97-8e8a-4737-9aa0-aa0e607640b9}
+% overlay chrome://inspector/content/inspector.xul chrome://communicator/content/tasksOverlay.xul application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a} application={a3210b97-8e8a-4737-9aa0-aa0e607640b9}
+% overlay chrome://inspector/content/inspector.xul chrome://communicator/content/utilityOverlay.xul application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a} application={a3210b97-8e8a-4737-9aa0-aa0e607640b9}
+
+# Navigator Overlays
+% overlay chrome://communicator/content/tasksOverlay.xul chrome://inspector/content/tasksOverlay-bn.xul application={a3210b97-8e8a-4737-9aa0-aa0e607640b9}
