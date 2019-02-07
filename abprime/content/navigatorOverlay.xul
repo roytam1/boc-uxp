@@ -39,7 +39,7 @@
 
   <!-- Tools menu -->
   <menupopup id="taskPopup">
-    <menu id="abp-menuitem" insertafter="downloadmgr"/>
+    <menu id="abp-menuitem" insertbefore="navBeginGlobalItems"/>
   </menupopup>
 
   <!-- Context menu -->
