@@ -175,8 +175,10 @@
     <toolbar type="menubar" id="toolbar-menubar" class="chromeclass-menubar"
              persist="collapsed" grippytooltiptext="&menuBar.tooltip;" customizable="true"
              defaultset="menubar-items"
-             mode="icons" iconsize="small"
-             defaultmode="icons" defaulticonsize="small"
+             mode="full"
+             iconsize="small"
+             defaultmode="full"
+             defaulticonsize="small"
              context="toolbar-context-menu">
       <toolbaritem id="menubar-items" class="menubar-items" align="center">
         <menubar id="main-menubar"/>
@@ -189,7 +191,9 @@
              toolbarname="&navbarCmd.label;" accesskey="&navbarCmd.accesskey;"
              defaultset="back-button,forward-button,reload-button,stop-button,nav-bar-inner,search-container,window-controls"
              mode="icons"
+             labelalign="end"
              defaultmode="icons"
+             defaultlabelalign="end"
              context="toolbar-context-menu">
 
       <hbox id="window-controls" hidden="true" fullscreencontrol="true">
@@ -206,8 +210,6 @@
                        oncommand="BrowserTryToCloseWindow();"/>
       </hbox>
     </toolbar>
-
-    <toolbarset id="customToolbars" context="toolbar-context-menu"/>
 
     <toolbar id="PersonalToolbar"
              accesskey="&bookmarksToolbarCmd.accesskey;"
@@ -226,6 +228,10 @@
              defaultlabelalign="end"
              context="toolbar-context-menu">
     </toolbar>
+
+    <!-- XXXTobin: Screw custom toolbars
+    <toolbarset id="customToolbars" context="toolbar-context-menu"/>
+    -->
 
     <toolbarpalette id="BrowserToolbarPalette">
 
@@ -327,10 +333,6 @@
                 onmousedown="event.stopPropagation();"
                 onclick="event.stopPropagation();">
             <image id="feedsButton" hidden="true" popup="feedsPopup"/>
-            <!-- XXXTobin: This looks terrible
-            <image id="ev-button" hidden="true"
-                   onclick="if (event.button == 0) BrowserPageInfo(null, 'securityTab');"/>
-             -->
             <image id="star-button"
                    onclick="PlacesStarButton.onClick(event);"/>
           </hbox>
@@ -341,6 +343,13 @@
         </textbox>
       </toolbaritem>
 
+      <toolbaritem id="search-container" title="&searchItem.title;"
+                   align="center" class="chromeclass-toolbar-additional nav-bar-class"
+                   flex="1" persist="width" removable="true">
+        <searchbar id="searchbar" flex="1"/>
+      </toolbaritem>
+
+      <!-- XXXTobin: These need to be exterminated
       <toolbaritem id="go-button-container"
                    class="nav-bar-class"
                    title="&goButton.label;">
@@ -367,22 +376,11 @@
                 ondrop="searchButtonObserver.onDrop(event);"/>
       </toolbaritem>
 
-      <toolbaritem id="search-container" title="&searchItem.title;"
-                   align="center" class="chromeclass-toolbar-additional nav-bar-class"
-                   flex="1" persist="width" removable="true">
-        <searchbar id="searchbar" flex="1"/>
-      </toolbaritem>
-
       <toolbarbutton id="print-button"
                      label="&printButton.label;"
                      tooltiptext="&printButton.tooltip;"/>
+      -->
 
-      <toolbaritem id="throbber-box" align="center">
-        <button id="navigator-throbber"
-                oncommand="goClickThrobber('browser.throbber.url', event)"
-                onclick="checkForMiddleClick(this, event);"
-                tooltiptext="&throbber.tooltip;"/>
-      </toolbaritem>
 
       <!-- "Bookmarks" button on Bookmarks Toolbar -->
       <toolbarbutton type="menu" id="bookmarks-button"
@@ -473,6 +471,14 @@
           </hbox>
         </hbox>
       </toolbaritem>
+
+      <toolbaritem id="throbber-box" align="center">
+        <button id="navigator-throbber"
+                oncommand="goClickThrobber('browser.throbber.url', event)"
+                onclick="checkForMiddleClick(this, event);"
+                tooltiptext="&throbber.tooltip;"/>
+      </toolbaritem>
+
     </toolbarpalette>
   </toolbox>
 
