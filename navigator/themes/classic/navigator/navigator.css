@@ -803,3 +803,9 @@ toolbar[mode="text"] toolbarbutton.chevron > .toolbarbutton-icon {
 #feedsButton:hover {
   -moz-image-region: rect(16px 32px 32px 16px);
 }
+
+/* ::::: component bar ::::: */
+
+#component-bar {
+  -moz-box-align: stretch;
+}

@@ -76,9 +76,6 @@
         </menupopup>
       </menu>
 
-
-  <statusbarpanel id="component-bar" persist="collapsed">
-    <toolbarbutton class="taskbutton" id="mini-nav" oncommand="toNavigator();"
-                   tooltiptext="&taskNavigator.tooltip;"/>
-  </statusbarpanel>
+  <toolbarbutton id="mini-nav" class="taskbutton" oncommand="toNavigator();"
+                 label="&taskNavigator.tooltip;" tooltiptext="&taskNavigator.tooltip;"/>
 </overlay>

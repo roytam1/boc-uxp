@@ -510,7 +510,19 @@
   <panel id="customizeToolbarSheetPopup"/>
 
   <statusbar id="status-bar" class="chromeclass-status">
-    <statusbarpanel id="component-bar"/>
+      <toolbar id="component-bar"
+               context="toolbar-context-menu"
+               toolboxid="navigator-toolbox"
+               mode="icons"
+               iconsize="small"
+               labelalign="end"
+               defaultmode="icons"
+               defaultlabelalign="end" 
+               xpfe="false"
+               customizable="true"
+               persist="collapsed">
+        <toolbarbutton id="mini-nav"/>
+      </toolbar>
     <statusbarpanel id="statusbar-display" label="&statusText.label;" flex="1"/>
     <statusbarpanel class="statusbarpanel-progress" id="statusbar-progresspanel" collapsed="true">
       <progressmeter class="progressmeter-statusbar" id="statusbar-icon" mode="normal" value="0"/>

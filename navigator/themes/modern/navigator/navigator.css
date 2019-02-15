@@ -971,3 +971,21 @@ toolbar[mode="text"] toolbarbutton.chevron > .toolbarbutton-icon {
 #feedsButton:hover {
   -moz-image-region: rect(16px 32px 32px 16px);
 }
+
+/* ::::: component bar ::::: */
+
+#component-bar {
+  padding-right: 2px;
+  padding-left: 2px;
+  min-height: 16px;
+  max-height: 24px;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: rgb(137, 151, 161);
+}
+
+.taskbutton {
+  margin: 0px 3px;
+  border: none !important;
+  padding: 0px !important;
+}
