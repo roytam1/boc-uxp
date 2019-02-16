@@ -59,7 +59,7 @@ menuitem[default="true"] {
 {
   -moz-box-orient: horizontal;
 }
-toolbar[mode="full"] #abp-toolbarbutton[type="menu"]
+toolbar[mode="full"]:not([labelalign="end"]) #abp-toolbarbutton[type="menu"]
 {
   -moz-binding: url("chrome://global/content/bindings/toolbarbutton.xml#menu-vertical");
 }
