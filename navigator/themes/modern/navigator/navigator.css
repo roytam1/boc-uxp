@@ -978,8 +978,7 @@ toolbar[mode="text"] toolbarbutton.chevron > .toolbarbutton-icon {
   padding-right: 2px;
   padding-left: 4px;
   margin-bottom: -2px;
-  min-height: 16px;
-  max-height: 24px;
+  min-height: 18px;
   border-right-width: 1px;
   border-right-style: solid;
   border-right-color: rgb(137, 151, 161);

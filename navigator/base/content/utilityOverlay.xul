@@ -457,21 +457,19 @@
   <menu id="menu_Help"
         label="&helpMenu.label;"
         accesskey="&helpMenu.accesskey;">
+    
     <menupopup id="helpPopup" onpopupshowing="updateCheckUpdatesItem();">
+      <!-- XXXTobin: Get rid of this...
       <menuitem label="&openHelpCmd.label;"
                 accesskey="&openHelpCmd.accesskey;"
                 id="help"
                 key="key_openHelp"
                 command="cmd_openHelp"/>
-      <!-- For Internet Explorer Users is inserted here on Windows -->
+      -->
       <menuitem id="troubleShooting"
                 accesskey="&helpTroubleshootingInfo.accesskey;"
                 label="&helpTroubleshootingInfo.label;"
                 oncommand="goTroubleshootingPage();"/>
-      <menuitem id="releaseUrl"
-                accesskey="&releaseCmd.accesskey;"
-                label="&releaseCmd.label;"
-                oncommand="goReleaseNotes();"/>
       <menuitem id="helpSafeMode"
                 accesskey="&helpSafeMode.accesskey;"
                 label="&helpSafeMode.label;"
@@ -484,11 +482,10 @@
 
       <menuseparator id="menu_HelpAboutSeparator"/>
 
-      <menuitem class="about"
-                accesskey="&aboutCommPluginsCmd.accesskey;"
-                label="&aboutCommPluginsCmd.label;"
-                id="pluginInfo"
-                oncommand="goAbout('plugins');"/>
+      <menuitem id="releaseUrl"
+                accesskey="&releaseCmd.accesskey;"
+                label="&releaseCmd.label;"
+                oncommand="goReleaseNotes();"/>
       <menuitem accesskey="&aboutCmd.accesskey;"
                 label="&aboutCmd.label;"
                 id="aboutName"

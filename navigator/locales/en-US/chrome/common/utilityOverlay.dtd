@@ -108,8 +108,6 @@
 <!ENTITY updateCmd.accesskey                "C">
 <!ENTITY aboutCmd.label					"About &brandShortName;">
 <!ENTITY aboutCmd.accesskey				"A">
-<!ENTITY aboutCommPluginsCmd.label			"About Plugins">
-<!ENTITY aboutCommPluginsCmd.accesskey			"p">
 
 <!ENTITY direct.label                                   "Online (Proxy: None)">
 <!ENTITY direct.accesskey                               "N">

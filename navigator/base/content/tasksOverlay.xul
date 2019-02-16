@@ -34,12 +34,15 @@
         <menupopup id="taskPopup">
           <menuitem id="addonsmgr" label="&addOnsManagerCmd.label;"
                     accesskey="&addOnsManagerCmd.accesskey;"
+                    insertafter="navBeginGlobalItems"
                     key="key_addOnsManager" oncommand="toEM();"/>
           <menuitem id="downloadmgr" label="&downloadManagerCmd.label;"
                     accesskey="&downloadManagerCmd.accesskey;"
+                    insertafter="addonsmgr"
                     key="key_downloadManager" oncommand="toDownloadManager();"/>
           <menuitem id="menu_passwordManager"
                     label="&passwordManagerCmd.label;"
+                    insertafter="downloadmgr"
                     oncommand="toPasswordManager();"/>
           <menuseparator id="devToolsSeparator"/>
           <menu label="&webDevelopment.label;">

@@ -42,8 +42,8 @@ function FillHistoryMenu(aParent, aMenu)
       }
       break;
     case "go":
-      var startHistory = document.getElementById("startHistorySeparator");
-      var endHistory = document.getElementById("endHistorySeparator");
+      var startHistory = document.getElementById("startSessionHistorySeparator");
+      var endHistory = document.getElementById("endSessionHistorySeparator");
       var syncMenuItem = document.getElementById("sync-tabs-menuitem");
       startHistory.hidden = (count == 0);
       end = count > MAX_HISTORY_MENU_ITEMS ? count - MAX_HISTORY_MENU_ITEMS
@@ -141,5 +141,4 @@ function deleteHistoryItems(aParent)
 function updateGoMenu(event)
   {
     FillHistoryMenu(event.target, "go");
-    updateRecentMenuItems();
   }

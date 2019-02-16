@@ -53,11 +53,17 @@
 <!ENTITY pageInfoCmd.accesskey "I">
 <!ENTITY pageInfoCmd.commandkey "i">
 
-<!-- History Menu -->
+<!-- Go Menu -->
 <!ENTITY goMenu.label "Go">
 <!ENTITY goMenu.accesskey "G">
 <!ENTITY goHomeCmd.label "Home">
 <!ENTITY goHomeCmd.accesskey "H">
+<!ENTITY syncTabsMenu.label "Tabs From Other Computers">
+<!ENTITY syncTabsMenu.accesskey "O">
+
+<!-- History Menu -->
+<!ENTITY historyMenu.label "History">
+<!ENTITY historyMenu.accesskey "s">
 <!ENTITY historyCmd.label "Manage History">
 <!ENTITY historyCmd.accesskey "s">
 <!ENTITY history.commandKey "h">
@@ -69,8 +75,6 @@
 <!ENTITY recentWindows.commandkey "y">
 <!ENTITY historyRestoreLastSession.label "Restore Previous Session">
 <!ENTITY historyRestoreLastSession.accesskey "R">
-<!ENTITY syncTabsMenu.label "Tabs From Other Computers">
-<!ENTITY syncTabsMenu.accesskey "O">
 
 <!-- Bookmarks Menu -->
 <!ENTITY bookmarksMenu.label "Bookmarks">
@@ -132,7 +136,7 @@
 <!ENTITY popupBlockCmd.label "Block Popups from This Website">
 <!ENTITY popupBlockCmd.accesskey "B">
 <!ENTITY popupBlockMsg.label "Popups from this website will not be shown.">
-<!ENTITY popupsManage.label "Manage Popups">
+<!ENTITY popupsManage.label "Manage Popup Window Permissions">
 <!ENTITY popupsManage.accesskey "M">
 
 <!ENTITY cookieCookieManager.label "Cookie Manager">
