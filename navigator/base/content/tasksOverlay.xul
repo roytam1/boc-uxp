@@ -76,6 +76,11 @@
         </menupopup>
       </menu>
 
-  <toolbarbutton id="mini-nav" class="taskbutton" oncommand="toNavigator();"
-                 label="&taskNavigator.tooltip;" tooltiptext="&taskNavigator.tooltip;"/>
+  <toolbar id="component-bar">
+    <toolbarbutton id="mini-nav"
+                   class="toolbarbutton-1"
+                   oncommand="toNavigator();"
+                   label="&taskNavigator.tooltip;"
+                   tooltiptext="&taskNavigator.tooltip;"/>
+  </toolbar>
 </overlay>

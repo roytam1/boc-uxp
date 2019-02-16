@@ -976,7 +976,8 @@ toolbar[mode="text"] toolbarbutton.chevron > .toolbarbutton-icon {
 
 #component-bar {
   padding-right: 2px;
-  padding-left: 2px;
+  padding-left: 4px;
+  margin-bottom: -2px;
   min-height: 16px;
   max-height: 24px;
   border-right-width: 1px;
@@ -988,4 +989,20 @@ toolbar[mode="text"] toolbarbutton.chevron > .toolbarbutton-icon {
   margin: 0px 3px;
   border: none !important;
   padding: 0px !important;
+}
+
+/* ::::: component bar icons ::::: */
+
+#mini-nav {
+  list-style-image: url("chrome://communicator/skin/taskbar/taskbar.png");
+  -moz-image-region: rect(0 13px 13px 0);
+  margin-inline-end: 2px;
+}
+
+#mini-nav:hover:active {
+  -moz-image-region: rect(13px 13px 26px 0);
+}
+
+.icon-navigator16 {
+  list-style-image: url("chrome://communicator/skin/taskbar/taskmenu-browser.png");
 }

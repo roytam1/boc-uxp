@@ -521,7 +521,6 @@
                xpfe="false"
                customizable="true"
                persist="collapsed">
-        <toolbarbutton id="mini-nav"/>
       </toolbar>
     <statusbarpanel id="statusbar-display" label="&statusText.label;" flex="1"/>
     <statusbarpanel class="statusbarpanel-progress" id="statusbar-progresspanel" collapsed="true">
