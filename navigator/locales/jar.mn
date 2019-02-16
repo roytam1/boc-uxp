@@ -205,7 +205,6 @@
   locale/@AB_CD@/communicator-platform/unix/platformCommunicatorOverlay.dtd (%chrome/common/unix/platformCommunicatorOverlay.dtd)
   locale/@AB_CD@/communicator-platform/mac/platformCommunicatorOverlay.dtd  (%chrome/common/mac/platformCommunicatorOverlay.dtd)
   locale/@AB_CD@/communicator-region/region.properties                      (%chrome/common/region.properties)
-  locale/@AB_CD@/navigator/linkToolbar.dtd                                  (%chrome/browser/linkToolbar.dtd)
   locale/@AB_CD@/navigator/mailNavigatorOverlay.dtd                         (%chrome/browser/mailNavigatorOverlay.dtd)
   locale/@AB_CD@/navigator/metadata.dtd                                     (%chrome/browser/metadata.dtd)
   locale/@AB_CD@/navigator/metadata.properties                              (%chrome/browser/metadata.properties)

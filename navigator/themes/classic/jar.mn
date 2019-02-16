@@ -223,7 +223,6 @@ classic.jar:
   skin/classic/editor/icons/progress-failed.gif                         (editor/icons/progress-failed.gif)
 #ifdef XP_MACOSX
   skin/classic/navigator/navigator.css                                  (mac/navigator/navigator.css)
-  skin/classic/navigator/linkToolbar.css                                (mac/navigator/linkToolbar.css)
   skin/classic/navigator/pageInfo.css                                   (mac/navigator/pageInfo.css)
   skin/classic/navigator/tabbrowser.css                                 (mac/navigator/tabbrowser.css)
   skin/classic/navigator/webDeveloper.css                               (mac/navigator/webDeveloper.css)
@@ -236,7 +235,6 @@ classic.jar:
   skin/classic/navigator/icons/restore.png                              (mac/navigator/icons/restore.png)
 #else
   skin/classic/navigator/navigator.css                                  (navigator/navigator.css)
-  skin/classic/navigator/linkToolbar.css                                (navigator/linkToolbar.css)
   skin/classic/navigator/pageInfo.css                                   (navigator/pageInfo.css)
   skin/classic/navigator/tabbrowser.css                                 (navigator/tabbrowser.css)
   skin/classic/navigator/webDeveloper.css                               (navigator/webDeveloper.css)
