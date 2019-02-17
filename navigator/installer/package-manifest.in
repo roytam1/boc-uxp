@@ -203,9 +203,7 @@
 #endif
 
 ; shell icons
-#ifdef MOZ_GTK
 @RESPATH@/chrome/icons/default/*
-#endif
 
 ; [Default Preferences]
 ; All the browser/general pref files must be part of base to prevent migration bugs
