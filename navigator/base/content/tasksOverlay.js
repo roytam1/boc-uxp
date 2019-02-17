@@ -26,19 +26,21 @@ function toPasswordManager()
                      "resizable");
 }
 
-function ExpirePassword()
+// Queries the HTTP Auth Manager and clears all sessions
+function ExpireHTTPAuth()
 {
-  // Queries the HTTP Auth Manager and clears all sessions
   Components.classes['@mozilla.org/network/http-auth-manager;1']
             .getService(Components.interfaces.nsIHttpAuthManager)
             .clearAll();
+}
 
-  /* Expires the master password
+// Expires the master password
+function ExpirePassword()
+{
   Components.classes["@mozilla.org/security/pk11tokendb;1"]
             .createInstance(Components.interfaces.nsIPK11TokenDB)
             .getInternalKeyToken()
             .checkPassword("");
-  */
 }
 
 // cookie, popup, image, install, geo, desktop-notification, login-saving, offline-app

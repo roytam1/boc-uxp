@@ -15,13 +15,21 @@
 
 <script type="application/javascript" src="chrome://communicator/content/tasksOverlay.js"/>
 
-
-
 <keyset id="tasksKeys">
-  <key id="key_navigator"    key="&navigatorCmd.commandkey;"   command="Tasks:Navigator" modifiers="accel"/>
-  <key id="key_addOnsManager" key="&addOnsManagerCmd.commandkey;"
-       command="addonsmgr" modifiers="accel,shift"/>
+  <key id="key_navigator"
+       key="&navigatorCmd.commandkey;"
+       command="Tasks:Navigator"
+       modifiers="accel"/>
+  <key id="key_addOnsManager"
+       key="&addOnsManagerCmd.commandkey;"
+       command="addonsmgr"
+       modifiers="accel,shift"/>
+  <key id="key_downloadManager"
+       key="&downloadManagerCmd.commandkey;"
+       command="downloadmgr"
+       modifiers="accel"/>
 </keyset>
+
 <commandset id="tasksCommands">
   <command id="Tasks:Navigator" oncommand="toNavigator();"/>
   <command id="Tasks:ErrorConsole" oncommand="toJavaScriptConsole();"/>
@@ -34,22 +42,33 @@
         <menupopup id="taskPopup">
           <menuitem id="addonsmgr" label="&addOnsManagerCmd.label;"
                     accesskey="&addOnsManagerCmd.accesskey;"
-                    insertafter="navBeginGlobalItems"
-                    key="key_addOnsManager" oncommand="toEM();"/>
+                    key="key_addOnsManager" oncommand="toEM();"
+                    insertafter="navBeginGlobalItems"/>
           <menuitem id="downloadmgr" label="&downloadManagerCmd.label;"
                     accesskey="&downloadManagerCmd.accesskey;"
-                    insertafter="addonsmgr"
-                    key="key_downloadManager" oncommand="toDownloadManager();"/>
-          <menuitem id="menu_passwordManager"
-                    label="&passwordManagerCmd.label;"
-                    insertafter="downloadmgr"
-                    oncommand="toPasswordManager();"/>
+                    key="key_downloadManager"
+                    oncommand="toDownloadManager();"
+                    insertafter="addonsmgr"/>
+          <menu id="menu_passwordManager"
+                label="&passwordManagerCmd.label;"
+                accesskey="&passwordManagerCmd.accesskey;"
+                insertafter="downloadmgr">
+            <menupopup id="passwordPopup">
+              <menuitem label="&passwordHTTPAuthExpireCmd.label;"
+                        accesskey="&passwordHTTPAuthExpireCmd.accesskey;"
+                        oncommand="ExpireHTTPAuth();"/>
+              <menuitem label="&passwordMasterExpireCmd.label;"
+                        accesskey="&passwordMasterExpireCmd.accesskey;"
+                        oncommand="ExpireMasterPassword();"/>
+              <menuseparator/>
+              <menuitem label="&passwordDisplayCmd.label;"
+                        accesskey="&passwordDisplayCmd.accesskey;"
+                        oncommand="toPasswordManager();"/>
+            </menupopup>
+          </menu>
           <menuseparator id="devToolsSeparator"/>
           <menu label="&webDevelopment.label;">
             <menupopup id="toolsPopup">
-              <menuitem label="&passwordExpireCmd.label;"
-                        oncommand="ExpirePassword();"
-                        accesskey="&passwordExpireCmd.accesskey;"/>
               <menuitem id="javascriptConsole" label="&errorConsoleCmd.label;"
                         accesskey="&errorConsoleCmd.accesskey;"
                         command="Tasks:ErrorConsole"/>

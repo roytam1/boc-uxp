@@ -7,13 +7,13 @@
 <!ENTITY navigatorCmd.accesskey "B">
 <!ENTITY navigatorCmd.commandkey "1">
 <!-- LOCALIZATION NOTE (editorCmd.label): DONT_TRANSLATE -->
-<!ENTITY editorCmd.label					"Composer">
-<!ENTITY editorCmd.accesskey				"c">
-<!ENTITY editorCmd.commandkey				"4">
+<!ENTITY editorCmd.label "Composer">
+<!ENTITY editorCmd.accesskey "c">
+<!ENTITY editorCmd.commandkey "4">
 
-<!ENTITY errorConsoleCmd.label                                  "Error Console">
-<!ENTITY errorConsoleCmd.accesskey				"C">
-<!ENTITY errorConsoleCmd.commandkey				"o">
+<!ENTITY errorConsoleCmd.label "Error Console">
+<!ENTITY errorConsoleCmd.accesskey "C">
+<!ENTITY errorConsoleCmd.commandkey "o">
 
 <!ENTITY taskNavigator.tooltip  "Navigator">
 <!ENTITY taskComposer.tooltip  "Composer">
@@ -36,8 +36,11 @@
 <!ENTITY passwordDisplayCmd.label "Manage Stored Passwords">
 <!ENTITY passwordDisplayCmd.accesskey "M">
 
-<!ENTITY passwordExpireCmd.label "Clear Basic Authentication">
-<!ENTITY passwordExpireCmd.accesskey "l">
+<!ENTITY passwordHTTPAuthExpireCmd.label "Clear Basic Authentication">
+<!ENTITY passwordHTTPAuthExpireCmd.accesskey "l">
+
+<!ENTITY passwordMasterExpireCmd.label "Clear Master Password">
+<!ENTITY passwordMasterExpireCmd.accesskey "l">
 
 <!ENTITY downloadManagerCmd.label "Download Manager">
 <!ENTITY downloadManagerCmd.accesskey "n">
