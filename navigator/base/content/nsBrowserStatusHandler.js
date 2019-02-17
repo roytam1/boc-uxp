@@ -92,9 +92,10 @@ nsBrowserStatusHandler.prototype =
   setOverLink : function(link, context)
   {
     this.overLink = link;
-    // clear out 'Done' (or other message) on first hover
+    /* clear out 'Done' (or other message) on first hover
     if (this.defaultStatus)
       this.defaultStatus = "";
+    */
     this.updateStatusField();
     if (link)
       this.statusTextField.setAttribute('crop', 'center');
