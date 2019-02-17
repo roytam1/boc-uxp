@@ -9,7 +9,7 @@
 
 <!DOCTYPE dialog SYSTEM "chrome://navigator/locale/permissions/cookies.dtd" >
 
-<window id="CookiesDialog" windowtype="Navigator:Cookies"
+<window id="CookiesDialog" windowtype="permissions:cookieManager"
         class="windowDialog" title="&window.title;"
         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
         style="width: &window.width;;"

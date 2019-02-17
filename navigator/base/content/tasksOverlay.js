@@ -14,38 +14,14 @@ function toNavigator()
 
 function toCookieManager()
 {
-  toOpenWindowByType("Navigator:Cookies",
+  toOpenWindowByType("permissions:cookieManager",
                      "chrome://navigator/content/permissions/cookies.xul",
                      "resizable");
 }
 
-function toPasswordManager()
-{
-  toOpenWindowByType("Toolkit:PasswordManager",
-                     "chrome://passwordmgr/content/passwordManager.xul",
-                     "resizable");
-}
-
-// Queries the HTTP Auth Manager and clears all sessions
-function ExpireHTTPAuth()
-{
-  Components.classes['@mozilla.org/network/http-auth-manager;1']
-            .getService(Components.interfaces.nsIHttpAuthManager)
-            .clearAll();
-}
-
-// Expires the master password
-function ExpirePassword()
-{
-  Components.classes["@mozilla.org/security/pk11tokendb;1"]
-            .createInstance(Components.interfaces.nsIPK11TokenDB)
-            .getInternalKeyToken()
-            .checkPassword("");
-}
-
 // cookie, popup, image, install, geo, desktop-notification, login-saving, offline-app
 function toPermissionsManager(aViewerType, aHost = "") {
-  var windowtype = "Navigator:Permissions-" + aViewerType
+  var windowtype = "permissions:" + aViewerType
   var wm = Components.classes["@mozilla.org/appshell/window-mediator;1"]
                      .getService(Components.interfaces.nsIWindowMediator);
   var existingWindow = wm.getMostRecentWindow(windowtype);
@@ -59,7 +35,7 @@ function toPermissionsManager(aViewerType, aHost = "") {
                  permissionType: aViewerType,
                  windowType: windowtype,
                  windowTitle: aViewerType + ".title",
-                 introText: aViewerType + ".text"};
+                 introText: aViewerType + ".text" };
 
   if (existingWindow) {
     existingWindow.initWithParams(params)
@@ -71,35 +47,28 @@ function toPermissionsManager(aViewerType, aHost = "") {
   }
 }
 
-function toDownloadManager()
+// Queries the HTTP Auth Manager and clears all sessions
+function ExpireHTTPAuth()
 {
-  //Ported extensions may only implement the Basic toolkit Interface
-  //and not our progress dialogs.
-  var dlUI = Components.classes["@mozilla.org/download-manager-ui;1"]
-                       .getService(Components.interfaces.nsIDownloadManagerUI);
-  if (dlUI instanceof Components.interfaces.nsISuiteDownloadManagerUI) {
-    dlUI.showManager(window);
-  } else {
-    dlUI.show(window);
-  }
+  Components.classes['@mozilla.org/network/http-auth-manager;1']
+            .getService(Components.interfaces.nsIHttpAuthManager)
+            .clearAll();
 }
 
-function toDataManager(aView)
+// Expires the master password
+function ExpireMasterPassword()
 {
-  var useDlg = Services.prefs.getBoolPref("suite.manager.dataman.openAsDialog");
+  Components.classes["@mozilla.org/security/pk11tokendb;1"]
+            .createInstance(Components.interfaces.nsIPK11TokenDB)
+            .getInternalKeyToken()
+            .checkPassword("");
+}
 
-  if (useDlg) {
-    var url = "chrome://communicator/content/dataman/dataman.xul";
-    var win = toOpenWindowByType("data:manager", url, "", aView);
-    if (win && aView)
-      win.gDataman.loadView(aView);
-    return;
-  }
-
-  switchToTabHavingURI("about:data", true, function(browser) {
-    if (aView)
-      browser.contentWindow.wrappedJSObject.gDataman.loadView(aView);
-  });
+function toPasswordManager()
+{
+  toOpenWindowByType("Toolkit:PasswordManager",
+                     "chrome://passwordmgr/content/passwordManager.xul",
+                     "resizable");
 }
 
 function toEM(aView)
@@ -120,6 +89,21 @@ function toEM(aView)
       browser.contentWindow.wrappedJSObject.loadView(aView);
   });
 }
+
+function toDownloadManager()
+{
+  //Ported extensions may only implement the Basic toolkit Interface
+  //and not our progress dialogs.
+  var dlUI = Components.classes["@mozilla.org/download-manager-ui;1"]
+                       .getService(Components.interfaces.nsIDownloadManagerUI);
+  if (dlUI instanceof Components.interfaces.nsISuiteDownloadManagerUI) {
+    dlUI.showManager(window);
+  } else {
+    dlUI.show(window);
+  }
+}
+
+function toDataManager(aView){ return; }
 
 function toBookmarksManager()
 {

@@ -3,7 +3,7 @@
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 
 <!-- File Menu -->
-<!ENTITY tabCmd.label "Browser Tab">
+<!ENTITY tabCmd.label "Tab">
 <!ENTITY tabCmd.accesskey "T">
 <!ENTITY tabCmd.commandkey "t">
 <!ENTITY openCmd.label "Open Web Location…">
@@ -136,7 +136,7 @@
 <!ENTITY popupBlockCmd.label "Block Popups from This Website">
 <!ENTITY popupBlockCmd.accesskey "B">
 <!ENTITY popupBlockMsg.label "Popups from this website will not be shown.">
-<!ENTITY popupsManage.label "Manage Popup Window Permissions">
+<!ENTITY popupsManage.label "Manage Popup Permissions">
 <!ENTITY popupsManage.accesskey "M">
 
 <!ENTITY cookieCookieManager.label "Cookie Manager">

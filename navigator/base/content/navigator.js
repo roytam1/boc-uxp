@@ -1497,10 +1497,8 @@ function updateCloseItems()
     closeItem.setAttribute("accesskey", gNavigatorBundle.getString("tabs.closeTab.accesskey"));
   }
 
-  var hideCloseOtherTabs = !browser || !browser.getStripVisibility();
+  var hideCloseOtherTabs = !browser || !browser.getStripVisibility() || hideCloseWindow;
   document.getElementById("menu_closeOtherTabs").hidden = hideCloseOtherTabs;
-  if (!hideCloseOtherTabs)
-    document.getElementById("cmd_closeOtherTabs").setAttribute("disabled", hideCloseWindow);
 }
 
 function updateRecentMenuItems()

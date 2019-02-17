@@ -40,9 +40,11 @@
       <!-- Tasks Menu -->
       <menu id="tasksMenu" label="&tasksMenu.label;" accesskey="&tasksMenu.accesskey;">
         <menupopup id="taskPopup">
-          <menuitem id="addonsmgr" label="&addOnsManagerCmd.label;"
+          <menuitem id="addonsmgr"
+                    label="&addOnsManagerCmd.label;"
                     accesskey="&addOnsManagerCmd.accesskey;"
-                    key="key_addOnsManager" oncommand="toEM();"
+                    key="key_addOnsManager"
+                    oncommand="toEM();"
                     insertafter="navBeginGlobalItems"/>
           <menuitem id="downloadmgr" label="&downloadManagerCmd.label;"
                     accesskey="&downloadManagerCmd.accesskey;"

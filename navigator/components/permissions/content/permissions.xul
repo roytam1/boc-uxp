@@ -11,7 +11,7 @@
 <!DOCTYPE dialog SYSTEM "chrome://navigator/locale/permissions/permissions.dtd" >
 
 <window id="PermissionsDialog" class="windowDialog"
-        windowtype="Navigator:Permissions"
+        windowtype="permissions:manager"
         title="&window.title;"
         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
         style="width: &window.width;;"

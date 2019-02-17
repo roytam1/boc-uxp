@@ -4,7 +4,7 @@
 
 <!-- extracted from tasksOverlay.xul -->
 <!ENTITY navigatorCmd.label "Navigator">
-<!ENTITY navigatorCmd.accesskey "B">
+<!ENTITY navigatorCmd.accesskey "N">
 <!ENTITY navigatorCmd.commandkey "1">
 <!-- LOCALIZATION NOTE (editorCmd.label): DONT_TRANSLATE -->
 <!ENTITY editorCmd.label "Composer">
@@ -37,7 +37,7 @@
 <!ENTITY passwordDisplayCmd.accesskey "M">
 
 <!ENTITY passwordHTTPAuthExpireCmd.label "Clear Basic Authentication">
-<!ENTITY passwordHTTPAuthExpireCmd.accesskey "l">
+<!ENTITY passwordHTTPAuthExpireCmd.accesskey "A">
 
 <!ENTITY passwordMasterExpireCmd.label "Clear Master Password">
 <!ENTITY passwordMasterExpireCmd.accesskey "l">

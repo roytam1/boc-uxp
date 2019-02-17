@@ -230,19 +230,18 @@
             <menuitem id="menu_newPrivateWindow"/>
           </menupopup>
         </menu>
+        <!-- XXXTobin: Get rid of this
         <menuitem id="menu_openLocation"
                   label="&openCmd.label;"
                   accesskey="&openCmd.accesskey;"
                   key="openLocationKb"
                   command="Browser:Open"/>
+        -->
         <menuitem id="menu_openFile"
                   label="&openFileCmd.label;"
                   accesskey="&openFileCmd.accesskey;"
                   key="openFileKb"
                   command="Browser:OpenFile"/>
-        <menuitem id="menu_close"/>
-        <menuitem id="menu_closeOtherTabs" command="cmd_closeOtherTabs" label="&closeOtherTabs.label;" accesskey="&closeOtherTabs.accesskey;"/>
-        <menuitem id="menu_closeWindow" hidden="true" command="cmd_closeWindow" key="key_closeWindow" label="&closeWindow.label;" accesskey="&closeWindow.accesskey;"/>
         <menuseparator/>
         <menuitem id="savepage" valueSaveAs="&savePageAsCmd.label;" valueSave="&savePageCmd.label;"
                   accesskey="&savePageCmd.accesskey;" key="key_savePage" command="Browser:SavePage"/>
@@ -254,6 +253,10 @@
         <menuitem id="menu_print"/>
         <menuseparator/>
         <menuitem id="offlineGoOfflineCmd"/>
+        <menuseparator/>
+        <menuitem id="menu_close"/>
+        <menuitem id="menu_closeOtherTabs" hidden="true" command="cmd_closeOtherTabs" label="&closeOtherTabs.label;" accesskey="&closeOtherTabs.accesskey;"/>
+        <menuitem id="menu_closeWindow" hidden="true" command="cmd_closeWindow" key="key_closeWindow" label="&closeWindow.label;" accesskey="&closeWindow.accesskey;"/>
       </menupopup>
     </menu>
 
