@@ -4,6 +4,11 @@
 
 #filter substitution
 
+comm.jar:
+% content communicator %content/communicator/ contentaccessible=yes
+% content communicator-platform %content/communicator-platform/ platform
+% content communicator-region %content/communicator-region/
+
 navigator.jar:
 % content navigator %content/navigator/
 % content navigator-platform %content/navigator-platform/ platform
@@ -52,10 +57,14 @@ navigator.jar:
 % overlay chrome://mozapps/content/extensions/extensions.xul chrome://navigator/content/extensionsOverlay.xul
 
 en-US.jar:
+% locale communicator en-US %locale/en-US/communicator/
+% locale communicator-platform en-US %locale/en-US/communicator-platform/
+% locale communicator-region en-US %locale/en-US/communicator-region/
+
 % locale navigator en-US %locale/en-US/navigator/
 % locale navigator-platform en-US %locale/en-US/navigator-platform/
 % locale navigator-region en-US %locale/en-US/navigator-region/
- 
+
   locale/en-US/navigator/mailNavigatorOverlay.dtd                         (locale/mailNavigatorOverlay.dtd)
   locale/en-US/navigator/metadata.dtd                                     (locale/metadata.dtd)
   locale/en-US/navigator/metadata.properties                              (locale/metadata.properties)

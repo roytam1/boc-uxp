@@ -4,11 +4,14 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 DIRS += [
+    'bookmarks',
     'build',
     'dirprovider',
     'downloads',
     'feeds',
+    'history',
     'permissions',
+    'places',
     'sessionstore',
     'shell',
     'sidebar',

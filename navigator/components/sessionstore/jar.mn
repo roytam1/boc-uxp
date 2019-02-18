@@ -3,5 +3,8 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 comm.jar:
-   content/communicator/aboutSessionRestore.js          (content/aboutSessionRestore.js)
-   content/communicator/aboutSessionRestore.xhtml       (content/aboutSessionRestore.xhtml)
+  content/communicator/aboutSessionRestore.js          (content/aboutSessionRestore.js)
+  content/communicator/aboutSessionRestore.xhtml       (content/aboutSessionRestore.xhtml)
+
+navigator.jar:
+  locale/en-US/communicator/aboutSessionRestore.dtd    (locale/aboutSessionRestore.dtd)

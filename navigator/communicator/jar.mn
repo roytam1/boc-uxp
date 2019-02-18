@@ -5,15 +5,11 @@
 #filter substitution
 
 comm.jar:
-% content communicator %content/communicator/ contentaccessible=yes
-% content communicator-platform %content/communicator-platform/ platform
-% content communicator-region %content/communicator-region/
-
 % content help %content/communicator/helpviewer/
 
 % override chrome://global/content/license.html chrome://communicator/content/license.html
 % override chrome://mozapps/content/profile/profileSelection.xul chrome://communicator/content/profile/profileSelection.xul
-% override chrome://communicator/content/bookmarks/bm-props2.xul chrome://communicator/content/bookmarks/bm-props.xul
+
 
 % overlay chrome://global/content/console.xul chrome://communicator/content/consoleOverlay.xul
 % overlay chrome://global/content/viewSource.xul chrome://communicator/content/viewSourceOverlay.xul
@@ -61,19 +57,7 @@ comm.jar:
   content/communicator/bindings/toolbar.xml                        (content/bindings/toolbar.xml)
 * content/communicator/bindings/prefwindow.xml                     (content/bindings/prefwindow.xml)
 
-  content/communicator/bookmarks/bm-panel.js                       (content/bookmarks/bm-panel.js)
-  content/communicator/bookmarks/bm-panel.xul                      (content/bookmarks/bm-panel.xul)
-  content/communicator/bookmarks/bm-props.js                       (content/bookmarks/bm-props.js)
-  content/communicator/bookmarks/bm-props.xul                      (content/bookmarks/bm-props.xul)
-  content/communicator/bookmarks/bookmarksManager.css              (content/bookmarks/bookmarksManager.css)
-  content/communicator/bookmarks/bookmarksManager.js               (content/bookmarks/bookmarksManager.js)
-  content/communicator/bookmarks/bookmarksManager.xul              (content/bookmarks/bookmarksManager.xul)
-  content/communicator/bookmarks/browser-places.js                 (content/bookmarks/browser-places.js)
-  content/communicator/bookmarks/editBookmarkOverlay.js            (content/bookmarks/editBookmarkOverlay.js)
-  content/communicator/bookmarks/editBookmarkOverlay.xul           (content/bookmarks/editBookmarkOverlay.xul)
-  content/communicator/bookmarks/moveBookmarks.js                  (content/bookmarks/moveBookmarks.js)
-  content/communicator/bookmarks/moveBookmarks.xul                 (content/bookmarks/moveBookmarks.xul)
-  content/communicator/bookmarks/placesOverlay.xul                 (content/bookmarks/placesOverlay.xul)
+
 
   content/communicator/dataman/dataman.css                         (content/dataman/dataman.css)
   content/communicator/dataman/dataman.js                          (content/dataman/dataman.js)
@@ -89,23 +73,6 @@ comm.jar:
   content/communicator/directory/directory.html                    (content/directory/directory.html)
   content/communicator/directory/directory.js                      (content/directory/directory.js)
   content/communicator/directory/directory.xul                     (content/directory/directory.xul)
-
-  content/communicator/history/controller.js                       (content/history/controller.js)
-  content/communicator/history/history.js                          (content/history/history.js)
-  content/communicator/history/history.xul                         (content/history/history.xul)
-  content/communicator/history/history-panel.xul                   (content/history/history-panel.xul)
-  content/communicator/history/places.css                          (content/history/places.css)
-  content/communicator/history/placesOverlay.xul                   (content/history/placesOverlay.xul)
-  content/communicator/history/tree.xml                            (content/history/tree.xml)
-  content/communicator/history/treeView.js                         (content/history/treeView.js)
-
-* content/communicator/places/browserPlacesViews.js                (content/places/browserPlacesViews.js)
-  content/communicator/places/controller.js                        (content/places/controller.js)
-* content/communicator/places/menu.xml                             (content/places/menu.xml)
-  content/communicator/places/places.css                           (content/places/places.css)
-  content/communicator/places/sidebarUtils.js                      (content/places/sidebarUtils.js)
-  content/communicator/places/tree.xml                             (content/places/tree.xml)
-  content/communicator/places/treeView.js                          (content/places/treeView.js)
 
   content/communicator/pref/preferences.xul                        (content/pref/preferences.xul)
   content/communicator/pref/preferences.js                         (content/pref/preferences.js)
@@ -200,9 +167,6 @@ comm.jar:
 #endif
 
 en-US.jar:
-% locale communicator en-US %locale/en-US/communicator/
-% locale communicator-platform en-US %locale/en-US/communicator-platform/
-% locale communicator-region en-US %locale/en-US/communicator-region/
 % locale help en-US %locale/en-US/helpviewer/
 % override chrome://global/locale/notification.dtd chrome://communicator/locale/notification.dtd
 
@@ -211,9 +175,7 @@ en-US.jar:
   locale/en-US/communicator/consoleOverlay.dtd                            (locale/consoleOverlay.dtd)
   locale/en-US/communicator/contentAreaCommands.dtd                       (locale/contentAreaCommands.dtd)
   locale/en-US/communicator/contentAreaCommands.properties                (locale/contentAreaCommands.properties)
-  locale/en-US/communicator/defaultClientDialog.dtd                       (locale/defaultClientDialog.dtd)
-  locale/en-US/communicator/feeds/subscribe.dtd                           (locale/feeds/subscribe.dtd)
-  locale/en-US/communicator/feeds/subscribe.properties                    (locale/feeds/subscribe.properties)
+
   locale/en-US/communicator/gopherAddon.dtd                               (locale/gopherAddon.dtd)
   locale/en-US/communicator/notification.dtd                              (locale/notification.dtd)
   locale/en-US/communicator/notification.properties                       (locale/notification.properties)
@@ -222,9 +184,8 @@ en-US.jar:
   locale/en-US/communicator/passwordManager.dtd                           (locale/passwordManager.dtd)
   locale/en-US/communicator/printPreview.dtd                              (locale/printPreview.dtd)
   locale/en-US/communicator/quitDialog.properties                         (locale/quitDialog.properties)
-  locale/en-US/communicator/shellservice.properties                       (locale/shellservice.properties)
   locale/en-US/communicator/sanitize.dtd                                  (locale/sanitize.dtd)
-  locale/en-US/communicator/setDesktopBackground.dtd                      (locale/setDesktopBackground.dtd)
+
   locale/en-US/communicator/tasksOverlay.dtd                              (locale/tasksOverlay.dtd)
   locale/en-US/communicator/typeaheadfind.properties                      (locale/typeaheadfind.properties)
   locale/en-US/communicator/utilityOverlay.dtd                            (locale/utilityOverlay.dtd)
@@ -236,24 +197,14 @@ en-US.jar:
   locale/en-US/communicator/about.dtd                                     (locale/about.dtd)
 
   locale/en-US/communicator/aboutPrivateBrowsing.dtd                      (locale/aboutPrivateBrowsing.dtd)
-  locale/en-US/communicator/aboutSessionRestore.dtd                       (locale/aboutSessionRestore.dtd)
 
-  locale/en-US/communicator/bookmarks/bm-props.properties                 (locale/bookmarks/bm-props.properties)
-  locale/en-US/communicator/bookmarks/editBookmarkOverlay.dtd             (locale/bookmarks/editBookmarkOverlay.dtd)
-  locale/en-US/communicator/bookmarks/moveBookmarks.dtd                   (locale/bookmarks/moveBookmarks.dtd)
-  locale/en-US/communicator/bookmarks/places.dtd                          (locale/bookmarks/places.dtd)
 
-  locale/en-US/communicator/console/console.dtd                           (locale/console/console.dtd)
-  locale/en-US/communicator/console/console.properties                    (locale/console/console.properties)
+
 
   locale/en-US/communicator/dataman/dataman.dtd                           (locale/dataman/dataman.dtd)
   locale/en-US/communicator/dataman/dataman.properties                    (locale/dataman/dataman.properties)
 
   locale/en-US/communicator/directory/directory.dtd                       (locale/directory/directory.dtd)
-
-  locale/en-US/communicator/downloads/downloadmanager.dtd                 (locale/downloads/downloadmanager.dtd)
-  locale/en-US/communicator/downloads/downloadmanager.properties          (locale/downloads/downloadmanager.properties)
-  locale/en-US/communicator/downloads/progressDialog.dtd                  (locale/downloads/progressDialog.dtd)
 
   locale/en-US/communicator/help/cert_dialog_help.xhtml                   (locale/help/cert_dialog_help.xhtml)
   locale/en-US/communicator/help/certs_help.xhtml                         (locale/help/certs_help.xhtml)
@@ -339,9 +290,6 @@ en-US.jar:
   locale/en-US/helpviewer/help.properties                                 (locale/helpviewer/help.properties)
   locale/en-US/helpviewer/help.dtd                                        (locale/helpviewer/help.dtd)
 
-  locale/en-US/communicator/history/history.dtd                           (locale/history/history.dtd)
-  locale/en-US/communicator/places/places.properties                      (locale/places/places.properties)
-
   locale/en-US/communicator/pref/prefutilities.dtd                        (locale/pref/prefutilities.dtd)
   locale/en-US/communicator/pref/prefutilities.properties                 (locale/pref/prefutilities.properties)
   locale/en-US/communicator/pref/preferences.dtd                          (locale/pref/preferences.dtd)
@@ -388,15 +336,12 @@ en-US.jar:
   locale/en-US/communicator/profile/profileSelection.dtd                  (locale/profile/profileSelection.dtd)
   locale/en-US/communicator/profile/profileSelection.properties           (locale/profile/profileSelection.properties)
   locale/en-US/communicator/safeMode.dtd                                  (locale/safeMode.dtd)
+
   locale/en-US/communicator/search/engineManager.dtd                      (locale/search/engineManager.dtd)
   locale/en-US/communicator/search/engineManager.properties               (locale/search/engineManager.properties)
   locale/en-US/communicator/search/search.properties                      (locale/search/search.properties)
   locale/en-US/communicator/search/searchbar.dtd                          (locale/search/searchbar.dtd)
   locale/en-US/communicator/search/search-panel.dtd                       (locale/search/search-panel.dtd)
-  locale/en-US/communicator/sidebar/customize.dtd                         (locale/sidebar/customize.dtd)
-  locale/en-US/communicator/sidebar/preview.dtd                           (locale/sidebar/preview.dtd)
-  locale/en-US/communicator/sidebar/sidebar.properties                    (locale/sidebar/sidebar.properties)
-  locale/en-US/communicator/sidebar/sidebarOverlay.dtd                    (locale/sidebar/sidebarOverlay.dtd)
 
   locale/en-US/communicator-platform/win/platformCommunicatorOverlay.dtd  (locale/win/platformCommunicatorOverlay.dtd)
   locale/en-US/communicator-platform/unix/platformCommunicatorOverlay.dtd (locale/unix/platformCommunicatorOverlay.dtd)
