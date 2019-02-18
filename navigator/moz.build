@@ -10,7 +10,6 @@ DIRS += [
     'base',
     'communicator',
     'components',
-    'locales',
     'modules',
     'themes',
     'security',

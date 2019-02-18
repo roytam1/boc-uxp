@@ -2,6 +2,8 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
+#filter substitution
+
 comm.jar:
 % content communicator %content/communicator/ contentaccessible=yes
 % content communicator-platform %content/communicator-platform/ platform
@@ -11,13 +13,11 @@ comm.jar:
 
 % override chrome://global/content/license.html chrome://communicator/content/license.html
 % override chrome://mozapps/content/profile/profileSelection.xul chrome://communicator/content/profile/profileSelection.xul
+% override chrome://communicator/content/bookmarks/bm-props2.xul chrome://communicator/content/bookmarks/bm-props.xul
 
 % overlay chrome://global/content/console.xul chrome://communicator/content/consoleOverlay.xul
 % overlay chrome://global/content/viewSource.xul chrome://communicator/content/viewSourceOverlay.xul
 % overlay chrome://global/content/viewPartialSource.xul chrome://communicator/content/viewSourceOverlay.xul
-
-# Provide another URI for the bookmark properties dialog so we can persist the attributes separately
-% override chrome://communicator/content/bookmarks/bm-props2.xul chrome://communicator/content/bookmarks/bm-props.xul
 
   content/communicator/aboutPrivateBrowsing.css                    (content/aboutPrivateBrowsing.css)
   content/communicator/aboutPrivateBrowsing.js                     (content/aboutPrivateBrowsing.js)
@@ -54,14 +54,6 @@ comm.jar:
   content/communicator/viewSourceOverlay.xul                       (content/viewSourceOverlay.xul)
   content/communicator/viewZoomOverlay.xul                         (content/viewZoomOverlay.xul)
   content/communicator/viewZoomOverlay.js                          (content/viewZoomOverlay.js)
-
-  content/navigator/pageinfo/feeds.js                              (content/pageinfo/feeds.js)
-  content/navigator/pageinfo/feeds.xml                             (content/pageinfo/feeds.xml)
-  content/navigator/pageinfo/pageInfo.css                          (content/pageinfo/pageInfo.css)
-  content/navigator/pageinfo/pageInfo.js                           (content/pageinfo/pageInfo.js)
-  content/navigator/pageinfo/pageInfo.xul                          (content/pageinfo/pageInfo.xul)
-  content/navigator/pageinfo/permissions.js                        (content/pageinfo/permissions.js)
-  content/navigator/pageinfo/security.js                           (content/pageinfo/security.js)
 
   content/communicator/bindings/findbar.xml                        (content/bindings/findbar.xml)
   content/communicator/bindings/general.xml                        (content/bindings/general.xml)
@@ -206,3 +198,212 @@ comm.jar:
   content/communicator/platformCommunicatorOverlay.xul             (content/platform/unix/platformCommunicatorOverlay.xul)
 #endif
 #endif
+
+en-US.jar:
+% locale communicator en-US %locale/en-US/communicator/
+% locale communicator-platform en-US %locale/en-US/communicator-platform/
+% locale communicator-region en-US %locale/en-US/communicator-region/
+% locale help en-US %locale/en-US/helpviewer/
+% override chrome://global/locale/notification.dtd chrome://communicator/locale/notification.dtd
+
+  locale/en-US/communicator/askViewZoom.dtd                               (locale/askViewZoom.dtd)
+  locale/en-US/communicator/certError.dtd                                 (locale/certError.dtd)
+  locale/en-US/communicator/consoleOverlay.dtd                            (locale/consoleOverlay.dtd)
+  locale/en-US/communicator/contentAreaCommands.dtd                       (locale/contentAreaCommands.dtd)
+  locale/en-US/communicator/contentAreaCommands.properties                (locale/contentAreaCommands.properties)
+  locale/en-US/communicator/defaultClientDialog.dtd                       (locale/defaultClientDialog.dtd)
+  locale/en-US/communicator/feeds/subscribe.dtd                           (locale/feeds/subscribe.dtd)
+  locale/en-US/communicator/feeds/subscribe.properties                    (locale/feeds/subscribe.properties)
+  locale/en-US/communicator/gopherAddon.dtd                               (locale/gopherAddon.dtd)
+  locale/en-US/communicator/notification.dtd                              (locale/notification.dtd)
+  locale/en-US/communicator/notification.properties                       (locale/notification.properties)
+  locale/en-US/communicator/openLocation.dtd                              (locale/openLocation.dtd)
+  locale/en-US/communicator/openLocation.properties                       (locale/openLocation.properties)
+  locale/en-US/communicator/passwordManager.dtd                           (locale/passwordManager.dtd)
+  locale/en-US/communicator/printPreview.dtd                              (locale/printPreview.dtd)
+  locale/en-US/communicator/quitDialog.properties                         (locale/quitDialog.properties)
+  locale/en-US/communicator/shellservice.properties                       (locale/shellservice.properties)
+  locale/en-US/communicator/sanitize.dtd                                  (locale/sanitize.dtd)
+  locale/en-US/communicator/setDesktopBackground.dtd                      (locale/setDesktopBackground.dtd)
+  locale/en-US/communicator/tasksOverlay.dtd                              (locale/tasksOverlay.dtd)
+  locale/en-US/communicator/typeaheadfind.properties                      (locale/typeaheadfind.properties)
+  locale/en-US/communicator/utilityOverlay.dtd                            (locale/utilityOverlay.dtd)
+  locale/en-US/communicator/utilityOverlay.properties                     (locale/utilityOverlay.properties)
+  locale/en-US/communicator/viewApplyThemeOverlay.dtd                     (locale/viewApplyThemeOverlay.dtd)
+  locale/en-US/communicator/viewApplyThemeOverlay.properties              (locale/viewApplyThemeOverlay.properties)
+  locale/en-US/communicator/viewZoomOverlay.dtd                           (locale/viewZoomOverlay.dtd)
+  locale/en-US/communicator/viewZoomOverlay.properties                    (locale/viewZoomOverlay.properties)
+  locale/en-US/communicator/about.dtd                                     (locale/about.dtd)
+
+  locale/en-US/communicator/aboutPrivateBrowsing.dtd                      (locale/aboutPrivateBrowsing.dtd)
+  locale/en-US/communicator/aboutSessionRestore.dtd                       (locale/aboutSessionRestore.dtd)
+
+  locale/en-US/communicator/bookmarks/bm-props.properties                 (locale/bookmarks/bm-props.properties)
+  locale/en-US/communicator/bookmarks/editBookmarkOverlay.dtd             (locale/bookmarks/editBookmarkOverlay.dtd)
+  locale/en-US/communicator/bookmarks/moveBookmarks.dtd                   (locale/bookmarks/moveBookmarks.dtd)
+  locale/en-US/communicator/bookmarks/places.dtd                          (locale/bookmarks/places.dtd)
+
+  locale/en-US/communicator/console/console.dtd                           (locale/console/console.dtd)
+  locale/en-US/communicator/console/console.properties                    (locale/console/console.properties)
+
+  locale/en-US/communicator/dataman/dataman.dtd                           (locale/dataman/dataman.dtd)
+  locale/en-US/communicator/dataman/dataman.properties                    (locale/dataman/dataman.properties)
+
+  locale/en-US/communicator/directory/directory.dtd                       (locale/directory/directory.dtd)
+
+  locale/en-US/communicator/downloads/downloadmanager.dtd                 (locale/downloads/downloadmanager.dtd)
+  locale/en-US/communicator/downloads/downloadmanager.properties          (locale/downloads/downloadmanager.properties)
+  locale/en-US/communicator/downloads/progressDialog.dtd                  (locale/downloads/progressDialog.dtd)
+
+  locale/en-US/communicator/help/cert_dialog_help.xhtml                   (locale/help/cert_dialog_help.xhtml)
+  locale/en-US/communicator/help/certs_help.xhtml                         (locale/help/certs_help.xhtml)
+  locale/en-US/communicator/help/certs_prefs_help.xhtml                   (locale/help/certs_prefs_help.xhtml)
+  locale/en-US/communicator/help/composer_help.xhtml                      (locale/help/composer_help.xhtml)
+  locale/en-US/communicator/help/cs_nav_prefs_advanced.xhtml              (locale/help/cs_nav_prefs_advanced.xhtml)
+  locale/en-US/communicator/help/cs_nav_prefs_appearance.xhtml            (locale/help/cs_nav_prefs_appearance.xhtml)
+  locale/en-US/communicator/help/cs_nav_prefs_navigator.xhtml             (locale/help/cs_nav_prefs_navigator.xhtml)
+  locale/en-US/communicator/help/cs_priv_prefs_popup.xhtml                (locale/help/cs_priv_prefs_popup.xhtml)
+  locale/en-US/communicator/help/customize_help.xhtml                     (locale/help/customize_help.xhtml)
+  locale/en-US/communicator/help/developer_tools.xhtml                    (locale/help/developer_tools.xhtml)
+  locale/en-US/communicator/help/forieusers.xhtml                         (locale/help/forieusers.xhtml)
+  locale/en-US/communicator/help/glossary.xhtml                           (locale/help/glossary.xhtml)
+  locale/en-US/communicator/help/suitehelp.rdf                            (locale/help/suitehelp.rdf)
+  locale/en-US/communicator/help/helpFileLayout.css                       (locale/help/helpFileLayout.css)
+  locale/en-US/communicator/help/help-glossary.rdf                        (locale/help/help-glossary.rdf)
+  locale/en-US/communicator/help/help_help.xhtml                          (locale/help/help_help.xhtml)
+  locale/en-US/communicator/help/help-index1.rdf                          (locale/help/help-index1.rdf)
+  locale/en-US/communicator/help/help-indexAZ.rdf                         (locale/help/help-indexAZ.rdf)
+  locale/en-US/communicator/help/help-win.rdf                             (locale/help/help-win.rdf)
+  locale/en-US/communicator/help/mailnews_account_settings.xhtml          (locale/help/mailnews_account_settings.xhtml)
+  locale/en-US/communicator/help/mailnews_addressbooks.xhtml              (locale/help/mailnews_addressbooks.xhtml)
+  locale/en-US/communicator/help/mailnews_blogs_and_feeds.xhtml           (locale/help/mailnews_blogs_and_feeds.xhtml)
+  locale/en-US/communicator/help/mailnews_getting_started.xhtml           (locale/help/mailnews_getting_started.xhtml)
+  locale/en-US/communicator/help/mailnews_newsgroups.xhtml                (locale/help/mailnews_newsgroups.xhtml)
+  locale/en-US/communicator/help/mailnews_offline.xhtml                   (locale/help/mailnews_offline.xhtml)
+  locale/en-US/communicator/help/mailnews_organizing.xhtml                (locale/help/mailnews_organizing.xhtml)
+  locale/en-US/communicator/help/mailnews_preferences.xhtml               (locale/help/mailnews_preferences.xhtml)
+  locale/en-US/communicator/help/mailnews_security.xhtml                  (locale/help/mailnews_security.xhtml)
+  locale/en-US/communicator/help/mailnews_using_mail.xhtml                (locale/help/mailnews_using_mail.xhtml)
+  locale/en-US/communicator/help/nav_help.xhtml                           (locale/help/nav_help.xhtml)
+  locale/en-US/communicator/help/page_info_help.xhtml                     (locale/help/page_info_help.xhtml)
+  locale/en-US/communicator/help/passwords_help.xhtml                     (locale/help/passwords_help.xhtml)
+  locale/en-US/communicator/help/privacy_help.xhtml                       (locale/help/privacy_help.xhtml)
+  locale/en-US/communicator/help/privsec_help.xhtml                       (locale/help/privsec_help.xhtml)
+  locale/en-US/communicator/help/profiles_help.xhtml                      (locale/help/profiles_help.xhtml)
+  locale/en-US/communicator/help/shortcuts.xhtml                          (locale/help/shortcuts.xhtml)
+  locale/en-US/communicator/help/shortcuts_composer.xhtml                 (locale/help/shortcuts_composer.xhtml)
+  locale/en-US/communicator/help/shortcuts_mailnews.xhtml                 (locale/help/shortcuts_mailnews.xhtml)
+  locale/en-US/communicator/help/shortcuts_navigator.xhtml                (locale/help/shortcuts_navigator.xhtml)
+  locale/en-US/communicator/help/ssl_help.xhtml                           (locale/help/ssl_help.xhtml)
+  locale/en-US/communicator/help/suite-toc.rdf                            (locale/help/suite-toc.rdf)
+  locale/en-US/communicator/help/using_certs_help.xhtml                   (locale/help/using_certs_help.xhtml)
+  locale/en-US/communicator/help/using_priv_help.xhtml                    (locale/help/using_priv_help.xhtml)
+  locale/en-US/communicator/help/welcome_help.xhtml                       (locale/help/welcome_help.xhtml)
+  locale/en-US/communicator/help/images/anchor-in-doc.gif                 (locale/help/images/anchor-in-doc.gif)
+  locale/en-US/communicator/help/images/broken.gif                        (locale/help/images/broken.gif)
+  locale/en-US/communicator/help/images/bullets.gif                       (locale/help/images/bullets.gif)
+  locale/en-US/communicator/help/images/columns.png                       (locale/help/images/columns.png)
+  locale/en-US/communicator/help/images/composer_icon.png                 (locale/help/images/composer_icon.png)
+  locale/en-US/communicator/help/images/help_nav.png                      (locale/help/images/help_nav.png)
+  locale/en-US/communicator/help/images/help_print.gif                    (locale/help/images/help_print.gif)
+  locale/en-US/communicator/help/images/image.gif                         (locale/help/images/image.gif)
+  locale/en-US/communicator/help/images/link.gif                          (locale/help/images/link.gif)
+  locale/en-US/communicator/help/images/locationbar.png                   (locale/help/images/locationbar.png)
+  locale/en-US/communicator/help/images/mail_flag.png                     (locale/help/images/mail_flag.png)
+  locale/en-US/communicator/help/images/mail_flag_column.png              (locale/help/images/mail_flag_column.png)
+  locale/en-US/communicator/help/images/mail_junk_column.png              (locale/help/images/mail_junk_column.png)
+  locale/en-US/communicator/help/images/mail_newmail_alert.png            (locale/help/images/mail_newmail_alert.png)
+  locale/en-US/communicator/help/images/mail_newmail_balloon.png          (locale/help/images/mail_newmail_balloon.png)
+  locale/en-US/communicator/help/images/mail_newmail_trayicon.png         (locale/help/images/mail_newmail_trayicon.png)
+  locale/en-US/communicator/help/images/mail_quicksearch.png              (locale/help/images/mail_quicksearch.png)
+  locale/en-US/communicator/help/images/mail_read.png                     (locale/help/images/mail_read.png)
+  locale/en-US/communicator/help/images/mail_read_column.png              (locale/help/images/mail_read_column.png)
+  locale/en-US/communicator/help/images/mail_unread.png                   (locale/help/images/mail_unread.png)
+  locale/en-US/communicator/help/images/menubar.png                       (locale/help/images/menubar.png)
+  locale/en-US/communicator/help/images/numbers.gif                       (locale/help/images/numbers.gif)
+  locale/en-US/communicator/help/images/offline.png                       (locale/help/images/offline.png)
+  locale/en-US/communicator/help/images/online.png                        (locale/help/images/online.png)
+  locale/en-US/communicator/help/images/personalbar.png                   (locale/help/images/personalbar.png)
+  locale/en-US/communicator/help/images/reload.gif                        (locale/help/images/reload.gif)
+  locale/en-US/communicator/help/images/search.png                        (locale/help/images/search.png)
+  locale/en-US/communicator/help/images/search_personal_toolbar.gif       (locale/help/images/search_personal_toolbar.gif)
+  locale/en-US/communicator/help/images/sidebar.png                       (locale/help/images/sidebar.png)
+  locale/en-US/communicator/help/images/tabbed_browsing_bar.png           (locale/help/images/tabbed_browsing_bar.png)
+  locale/en-US/communicator/help/images/table.gif                         (locale/help/images/table.gif)
+  locale/en-US/communicator/help/images/taskbar.png                       (locale/help/images/taskbar.png)
+  locale/en-US/communicator/help/images/taskbar-ab.png                    (locale/help/images/taskbar-ab.png)
+  locale/en-US/communicator/help/images/task_mail.png                     (locale/help/images/task_mail.png)
+  locale/en-US/communicator/help/images/task_newmail.png                  (locale/help/images/task_newmail.png)
+  locale/en-US/communicator/help/images/threadbutton.png                  (locale/help/images/threadbutton.png)
+  locale/en-US/communicator/help/images/web-links.png                     (locale/help/images/web-links.png)
+  locale/en-US/helpviewer/help.properties                                 (locale/helpviewer/help.properties)
+  locale/en-US/helpviewer/help.dtd                                        (locale/helpviewer/help.dtd)
+
+  locale/en-US/communicator/history/history.dtd                           (locale/history/history.dtd)
+  locale/en-US/communicator/places/places.properties                      (locale/places/places.properties)
+
+  locale/en-US/communicator/pref/prefutilities.dtd                        (locale/pref/prefutilities.dtd)
+  locale/en-US/communicator/pref/prefutilities.properties                 (locale/pref/prefutilities.properties)
+  locale/en-US/communicator/pref/preferences.dtd                          (locale/pref/preferences.dtd)
+  locale/en-US/communicator/pref/pref-advanced.dtd                        (locale/pref/pref-advanced.dtd)
+  locale/en-US/communicator/pref/pref-appearance.dtd                      (locale/pref/pref-appearance.dtd)
+  locale/en-US/communicator/pref/pref-applications.dtd                    (locale/pref/pref-applications.dtd)
+  locale/en-US/communicator/pref/pref-applications.properties             (locale/pref/pref-applications.properties)
+  locale/en-US/communicator/pref/pref-applicationManager.dtd              (locale/pref/pref-applicationManager.dtd)
+  locale/en-US/communicator/pref/pref-applicationManager.properties       (locale/pref/pref-applicationManager.properties)
+  locale/en-US/communicator/pref/pref-cache.dtd                           (locale/pref/pref-cache.dtd)
+  locale/en-US/communicator/pref/pref-colors.dtd                          (locale/pref/pref-colors.dtd)
+  locale/en-US/communicator/pref/pref-content.dtd                         (locale/pref/pref-content.dtd)
+  locale/en-US/communicator/pref/pref-cookies.dtd                         (locale/pref/pref-cookies.dtd)
+  locale/en-US/communicator/pref/pref-download.dtd                        (locale/pref/pref-download.dtd)
+  locale/en-US/communicator/pref/pref-findasyoutype.dtd                   (locale/pref/pref-findasyoutype.dtd)
+  locale/en-US/communicator/pref/pref-fonts.dtd                           (locale/pref/pref-fonts.dtd)
+  locale/en-US/communicator/pref/pref-history.dtd                         (locale/pref/pref-history.dtd)
+  locale/en-US/communicator/pref/pref-http.dtd                            (locale/pref/pref-http.dtd)
+  locale/en-US/communicator/pref/pref-images.dtd                          (locale/pref/pref-images.dtd)
+  locale/en-US/communicator/pref/pref-keynav.dtd                          (locale/pref/pref-keynav.dtd)
+  locale/en-US/communicator/pref/pref-languages.dtd                       (locale/pref/pref-languages.dtd)
+  locale/en-US/communicator/pref/pref-languages.properties                (locale/pref/pref-languages.properties)
+  locale/en-US/communicator/pref/pref-links.dtd                           (locale/pref/pref-links.dtd)
+  locale/en-US/communicator/pref/pref-locationbar.dtd                     (locale/pref/pref-locationbar.dtd)
+  locale/en-US/communicator/pref/pref-mousewheel.dtd                      (locale/pref/pref-mousewheel.dtd)
+  locale/en-US/communicator/pref/pref-navigator.dtd                       (locale/pref/pref-navigator.dtd)
+  locale/en-US/communicator/pref/pref-offlineapps.dtd                     (locale/pref/pref-offlineapps.dtd)
+  locale/en-US/communicator/pref/pref-masterpass.dtd                      (locale/pref/pref-masterpass.dtd)
+  locale/en-US/communicator/pref/pref-popups.dtd                          (locale/pref/pref-popups.dtd)
+  locale/en-US/communicator/pref/pref-privatedata.dtd                     (locale/pref/pref-privatedata.dtd)
+  locale/en-US/communicator/pref/pref-proxies.dtd                         (locale/pref/pref-proxies.dtd)
+  locale/en-US/communicator/pref/pref-proxies-advanced.dtd                (locale/pref/pref-proxies-advanced.dtd)
+  locale/en-US/communicator/pref/pref-scripts.dtd                         (locale/pref/pref-scripts.dtd)
+  locale/en-US/communicator/pref/pref-search.dtd                          (locale/pref/pref-search.dtd)
+  locale/en-US/communicator/pref/pref-security.dtd                        (locale/pref/pref-security.dtd)
+  locale/en-US/communicator/pref/pref-smartupdate.dtd                     (locale/pref/pref-smartupdate.dtd)
+  locale/en-US/communicator/pref/pref-spelling.dtd                        (locale/pref/pref-spelling.dtd)
+  locale/en-US/communicator/pref/pref-tabs.dtd                            (locale/pref/pref-tabs.dtd)
+
+  locale/en-US/communicator-platform/mac/pref/platformPrefOverlay.dtd     (locale/pref/mac/platformPrefOverlay.dtd)
+  locale/en-US/communicator-platform/unix/pref/platformPrefOverlay.dtd    (locale/pref/unix/platformPrefOverlay.dtd)
+  locale/en-US/communicator-platform/win/pref/platformPrefOverlay.dtd     (locale/pref/win/platformPrefOverlay.dtd)
+
+  locale/en-US/communicator/profile/profileSelection.dtd                  (locale/profile/profileSelection.dtd)
+  locale/en-US/communicator/profile/profileSelection.properties           (locale/profile/profileSelection.properties)
+  locale/en-US/communicator/safeMode.dtd                                  (locale/safeMode.dtd)
+  locale/en-US/communicator/search/engineManager.dtd                      (locale/search/engineManager.dtd)
+  locale/en-US/communicator/search/engineManager.properties               (locale/search/engineManager.properties)
+  locale/en-US/communicator/search/search.properties                      (locale/search/search.properties)
+  locale/en-US/communicator/search/searchbar.dtd                          (locale/search/searchbar.dtd)
+  locale/en-US/communicator/search/search-panel.dtd                       (locale/search/search-panel.dtd)
+  locale/en-US/communicator/sidebar/customize.dtd                         (locale/sidebar/customize.dtd)
+  locale/en-US/communicator/sidebar/preview.dtd                           (locale/sidebar/preview.dtd)
+  locale/en-US/communicator/sidebar/sidebar.properties                    (locale/sidebar/sidebar.properties)
+  locale/en-US/communicator/sidebar/sidebarOverlay.dtd                    (locale/sidebar/sidebarOverlay.dtd)
+
+  locale/en-US/communicator-platform/win/platformCommunicatorOverlay.dtd  (locale/win/platformCommunicatorOverlay.dtd)
+  locale/en-US/communicator-platform/unix/platformCommunicatorOverlay.dtd (locale/unix/platformCommunicatorOverlay.dtd)
+  locale/en-US/communicator-platform/mac/platformCommunicatorOverlay.dtd  (locale/mac/platformCommunicatorOverlay.dtd)
+  locale/en-US/communicator-region/region.properties                      (locale/region.properties)
+
+  locale/en-US/pippki/pref-certs.dtd                                      (locale/pref/pref-certs.dtd)
+  locale/en-US/pippki/pref-ssl.dtd                                        (locale/pref/pref-ssl.dtd)
+
+
