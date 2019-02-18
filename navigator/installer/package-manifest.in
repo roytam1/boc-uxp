@@ -169,6 +169,8 @@
 ; [Browser Chrome Files]
 @RESPATH@/chrome/comm@JAREXT@
 @RESPATH@/chrome/comm.manifest
+@RESPATH@/chrome/navigator@JAREXT@
+@RESPATH@/chrome/navigator.manifest
 @RESPATH@/chrome/recording.manifest
 @RESPATH@/chrome/recording/*
 @RESPATH@/chrome/toolkit@JAREXT@

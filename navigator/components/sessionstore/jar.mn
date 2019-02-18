@@ -6,5 +6,5 @@ comm.jar:
   content/communicator/aboutSessionRestore.js          (content/aboutSessionRestore.js)
   content/communicator/aboutSessionRestore.xhtml       (content/aboutSessionRestore.xhtml)
 
-navigator.jar:
+en-US.jar:
   locale/en-US/communicator/aboutSessionRestore.dtd    (locale/aboutSessionRestore.dtd)
