@@ -8,6 +8,7 @@ CONFIGURE_SUBST_FILES += ['installer/Makefile']
 DIRS += [
     '/mozilla/application/palemoon/fonts',
     'base',
+    'communicator',
     'components',
     'locales',
     'modules',
@@ -19,7 +20,5 @@ if CONFIG['MAKENSISU']:
     DIRS += ['installer/windows']
 
 # app is always last as it packages up the built files on mac.
-DIRS += [
-    'app',
-]
+DIRS += ['app']
 

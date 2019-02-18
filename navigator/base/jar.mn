@@ -6,24 +6,6 @@ comm.jar:
 % content navigator %content/navigator/
 % content navigator-platform %content/navigator-platform/ platform
 % content navigator-region %content/navigator-region/
-
-% content communicator %content/communicator/ contentaccessible=yes
-% content communicator-platform %content/communicator-platform/ platform
-% content communicator-region %content/communicator-region/
-
-% content help %content/communicator/helpviewer/
-
-% override chrome://global/content/license.html chrome://communicator/content/license.html
-% override chrome://mozapps/content/profile/profileSelection.xul chrome://communicator/content/profile/profileSelection.xul
-
-% overlay chrome://mozapps/content/extensions/extensions.xul chrome://navigator/content/extensionsOverlay.xul
-% overlay chrome://global/content/console.xul chrome://communicator/content/consoleOverlay.xul
-% overlay chrome://global/content/viewSource.xul chrome://communicator/content/viewSourceOverlay.xul
-% overlay chrome://global/content/viewPartialSource.xul chrome://communicator/content/viewSourceOverlay.xul
-
-# Provide another URI for the bookmark properties dialog so we can persist the attributes separately
-% override chrome://communicator/content/bookmarks/bm-props2.xul chrome://communicator/content/bookmarks/bm-props.xul
-
   content/navigator/browser.js                                     (content/browser.js)
   content/navigator/content.js                                     (content/content.js)
   content/navigator/fullScreen.js                                  (content/fullScreen.js)
@@ -42,196 +24,17 @@ comm.jar:
   content/navigator/urlbarBindings.xml                             (content/urlbarBindings.xml)
   content/navigator/aboutSH.xhtml                                  (content/aboutSH.xhtml)
   content/navigator/extensionsOverlay.xul                          (content/extensionsOverlay.xul)
-
-  content/communicator/aboutPrivateBrowsing.css                    (content/aboutPrivateBrowsing.css)
-  content/communicator/aboutPrivateBrowsing.js                     (content/aboutPrivateBrowsing.js)
-  content/communicator/aboutPrivateBrowsing.xul                    (content/aboutPrivateBrowsing.xul)
-  content/communicator/askViewZoom.xul                             (content/askViewZoom.xul)
-  content/communicator/askViewZoom.js                              (content/askViewZoom.js)
-  content/communicator/blockedSite.js                              (content/blockedSite.js)
-  content/communicator/blockedSite.xhtml                           (content/blockedSite.xhtml)
-  content/communicator/certError.css                               (content/certError.css)
-  content/communicator/certError.js                                (content/certError.js)
-  content/communicator/certError.xhtml                             (content/certError.xhtml)  
-  content/communicator/certError.xml                               (content/certError.xml)
-  content/communicator/charsetOverlay.xul                          (content/charsetOverlay.xul)
-  content/communicator/communicator.css                            (content/communicator.css)
-  content/communicator/consoleOverlay.xul                          (content/consoleOverlay.xul)
-  content/communicator/contentAreaClick.js                         (content/contentAreaClick.js)
-  content/communicator/contentAreaContextOverlay.xul               (content/contentAreaContextOverlay.xul)
-  content/communicator/findUtils.js                                (content/findUtils.js)
-  content/communicator/fullscreen-video.xhtml                      (content/fullscreen-video.xhtml)
-  content/communicator/gopherAddon.xhtml                           (content/gopherAddon.xhtml)
-  content/communicator/helpEditorOverlay.xul                       (content/helpEditorOverlay.xul)
-  content/communicator/helpSecurityOverlay.xul                     (content/helpSecurityOverlay.xul)
-  content/communicator/nsContextMenu.js                            (content/nsContextMenu.js)
-  content/communicator/openLocation.js                             (content/openLocation.js)
-  content/communicator/openLocation.xul                            (content/openLocation.xul)
-  content/communicator/safeMode.js                                 (content/safeMode.js)
-  content/communicator/safeMode.xul                                (content/safeMode.xul)
-  content/communicator/sanitize.xul                                (content/sanitize.xul)  
-  content/communicator/tasksOverlay.js                             (content/tasksOverlay.js)
-  content/communicator/tasksOverlay.xul                            (content/tasksOverlay.xul)
-  content/communicator/utilityOverlay.js                           (content/utilityOverlay.js)
-  content/communicator/utilityOverlay.xul                          (content/utilityOverlay.xul)
-  content/communicator/viewSourceOverlay.js                        (content/viewSourceOverlay.js)
-  content/communicator/viewSourceOverlay.xul                       (content/viewSourceOverlay.xul)
-  content/communicator/viewZoomOverlay.xul                         (content/viewZoomOverlay.xul)
-  content/communicator/viewZoomOverlay.js                          (content/viewZoomOverlay.js)
-
-  content/navigator/pageinfo/feeds.js                              (content/pageinfo/feeds.js)
-  content/navigator/pageinfo/feeds.xml                             (content/pageinfo/feeds.xml)
-  content/navigator/pageinfo/pageInfo.css                          (content/pageinfo/pageInfo.css)
-  content/navigator/pageinfo/pageInfo.js                           (content/pageinfo/pageInfo.js)
-  content/navigator/pageinfo/pageInfo.xul                          (content/pageinfo/pageInfo.xul)
-  content/navigator/pageinfo/permissions.js                        (content/pageinfo/permissions.js)
-  content/navigator/pageinfo/security.js                           (content/pageinfo/security.js)
-
-  content/communicator/bindings/findbar.xml                        (content/bindings/findbar.xml)
-  content/communicator/bindings/general.xml                        (content/bindings/general.xml)
-  content/communicator/bindings/notification.xml                   (content/bindings/notification.xml)
-  content/communicator/bindings/toolbar.xml                        (content/bindings/toolbar.xml)
-* content/communicator/bindings/prefwindow.xml                     (content/bindings/prefwindow.xml)
-
-  content/communicator/bookmarks/bm-panel.js                       (content/bookmarks/bm-panel.js)
-  content/communicator/bookmarks/bm-panel.xul                      (content/bookmarks/bm-panel.xul)
-  content/communicator/bookmarks/bm-props.js                       (content/bookmarks/bm-props.js)
-  content/communicator/bookmarks/bm-props.xul                      (content/bookmarks/bm-props.xul)
-  content/communicator/bookmarks/bookmarksManager.css              (content/bookmarks/bookmarksManager.css)
-  content/communicator/bookmarks/bookmarksManager.js               (content/bookmarks/bookmarksManager.js)
-  content/communicator/bookmarks/bookmarksManager.xul              (content/bookmarks/bookmarksManager.xul)
-  content/communicator/bookmarks/browser-places.js                 (content/bookmarks/browser-places.js)
-  content/communicator/bookmarks/editBookmarkOverlay.js            (content/bookmarks/editBookmarkOverlay.js)
-  content/communicator/bookmarks/editBookmarkOverlay.xul           (content/bookmarks/editBookmarkOverlay.xul)
-  content/communicator/bookmarks/moveBookmarks.js                  (content/bookmarks/moveBookmarks.js)
-  content/communicator/bookmarks/moveBookmarks.xul                 (content/bookmarks/moveBookmarks.xul)
-  content/communicator/bookmarks/placesOverlay.xul                 (content/bookmarks/placesOverlay.xul)
-
-  content/communicator/dataman/dataman.css                         (content/dataman/dataman.css)
-  content/communicator/dataman/dataman.js                          (content/dataman/dataman.js)
-  content/communicator/dataman/dataman.xml                         (content/dataman/dataman.xml)
-  content/communicator/dataman/dataman.xul                         (content/dataman/dataman.xul)
-
-* content/communicator/helpviewer/help.xul                         (content/helpviewer/help.xul)
-* content/communicator/helpviewer/contextHelp.js                   (content/helpviewer/contextHelp.js)
-* content/communicator/helpviewer/help.js                          (content/helpviewer/help.js)
-* content/communicator/helpviewer/helpContextOverlay.xul           (content/helpviewer/helpContextOverlay.xul)
-* content/communicator/helpviewer/platformClasses.css              (content/helpviewer/platformClasses.css)
-
-  content/communicator/directory/directory.html                    (content/directory/directory.html)
-  content/communicator/directory/directory.js                      (content/directory/directory.js)
-  content/communicator/directory/directory.xul                     (content/directory/directory.xul)
-  content/communicator/history/controller.js                       (content/history/controller.js)
-  content/communicator/history/history.js                          (content/history/history.js)
-  content/communicator/history/history.xul                         (content/history/history.xul)
-  content/communicator/history/history-panel.xul                   (content/history/history-panel.xul)
-  content/communicator/history/places.css                          (content/history/places.css)
-  content/communicator/history/placesOverlay.xul                   (content/history/placesOverlay.xul)
-  content/communicator/history/tree.xml                            (content/history/tree.xml)
-  content/communicator/history/treeView.js                         (content/history/treeView.js)
-
-* content/communicator/places/browserPlacesViews.js                (content/places/browserPlacesViews.js)
-  content/communicator/places/controller.js                        (content/places/controller.js)
-* content/communicator/places/menu.xml                             (content/places/menu.xml)
-  content/communicator/places/places.css                           (content/places/places.css)
-  content/communicator/places/sidebarUtils.js                      (content/places/sidebarUtils.js)
-  content/communicator/places/tree.xml                             (content/places/tree.xml)
-  content/communicator/places/treeView.js                          (content/places/treeView.js)
-
-  content/communicator/pref/preferences.xul                        (content/pref/preferences.xul)
-  content/communicator/pref/preferences.js                         (content/pref/preferences.js)
-  content/communicator/pref/prefpanels.css                         (content/pref/prefpanels.css)
-  content/communicator/pref/prefpanels.xml                         (content/pref/prefpanels.xml)
-  content/communicator/pref/pref-advanced.js                       (content/pref/pref-advanced.js)
-  content/communicator/pref/pref-advanced.xul                      (content/pref/pref-advanced.xul)
-  content/communicator/pref/pref-appearance.js                     (content/pref/pref-appearance.js)
-  content/communicator/pref/pref-appearance.xul                    (content/pref/pref-appearance.xul)
-  content/communicator/pref/pref-applications.xul                  (content/pref/pref-applications.xul)
-* content/communicator/pref/pref-applications.js                   (content/pref/pref-applications.js)
-  content/communicator/pref/pref-applicationManager.js             (content/pref/pref-applicationManager.js)
-  content/communicator/pref/pref-applicationManager.xul            (content/pref/pref-applicationManager.xul)
-  content/communicator/pref/pref-cache.js                          (content/pref/pref-cache.js)
-  content/communicator/pref/pref-cache.xul                         (content/pref/pref-cache.xul)
-  content/communicator/pref/pref-colors.js                         (content/pref/pref-colors.js)
-  content/communicator/pref/pref-colors.xul                        (content/pref/pref-colors.xul)
-  content/communicator/pref/pref-content.js                        (content/pref/pref-content.js)
-  content/communicator/pref/pref-content.xul                       (content/pref/pref-content.xul)
-  content/communicator/pref/pref-cookies.js                        (content/pref/pref-cookies.js)
-  content/communicator/pref/pref-cookies.xul                       (content/pref/pref-cookies.xul)
-  content/communicator/pref/pref-download.js                       (content/pref/pref-download.js)
-  content/communicator/pref/pref-download.xul                      (content/pref/pref-download.xul)
-  content/communicator/pref/pref-findasyoutype.js                  (content/pref/pref-findasyoutype.js)
-  content/communicator/pref/pref-findasyoutype.xul                 (content/pref/pref-findasyoutype.xul)
-  content/communicator/pref/pref-fonts.js                          (content/pref/pref-fonts.js)
-  content/communicator/pref/pref-fonts.xul                         (content/pref/pref-fonts.xul)
-  content/communicator/pref/pref-history.js                        (content/pref/pref-history.js)
-  content/communicator/pref/pref-history.xul                       (content/pref/pref-history.xul)
-  content/communicator/pref/pref-http.js                           (content/pref/pref-http.js)
-  content/communicator/pref/pref-http.xul                          (content/pref/pref-http.xul)
-  content/communicator/pref/pref-images.xul                        (content/pref/pref-images.xul)
-  content/communicator/pref/pref-keynav.js                         (content/pref/pref-keynav.js)
-  content/communicator/pref/pref-keynav.xul                        (content/pref/pref-keynav.xul)
-  content/communicator/pref/pref-languages.js                      (content/pref/pref-languages.js)
-  content/communicator/pref/pref-languages.xul                     (content/pref/pref-languages.xul)
-  content/communicator/pref/pref-languages-add.xul                 (content/pref/pref-languages-add.xul)
-  content/communicator/pref/pref-languages-add.js                  (content/pref/pref-languages-add.js)
-  content/communicator/pref/pref-links.js                          (content/pref/pref-links.js)
-  content/communicator/pref/pref-links.xul                         (content/pref/pref-links.xul)
-  content/communicator/pref/pref-locationbar.js                    (content/pref/pref-locationbar.js)
-  content/communicator/pref/pref-locationbar.xul                   (content/pref/pref-locationbar.xul)
-  content/communicator/pref/pref-mousewheel.js                     (content/pref/pref-mousewheel.js)
-  content/communicator/pref/pref-mousewheel.xul                    (content/pref/pref-mousewheel.xul)
-  content/communicator/pref/pref-navigator.js                      (content/pref/pref-navigator.js)
-  content/communicator/pref/pref-navigator.xul                     (content/pref/pref-navigator.xul)
-  content/communicator/pref/pref-offlineapps.js                    (content/pref/pref-offlineapps.js)
-  content/communicator/pref/pref-offlineapps.xul                   (content/pref/pref-offlineapps.xul)
-  content/communicator/pref/pref-masterpass.js                     (content/pref/pref-masterpass.js)
-  content/communicator/pref/pref-masterpass.xul                    (content/pref/pref-masterpass.xul)
-  content/communicator/pref/pref-popups.js                         (content/pref/pref-popups.js)
-  content/communicator/pref/pref-popups.xul                        (content/pref/pref-popups.xul)
-  content/communicator/pref/pref-privatedata.js                    (content/pref/pref-privatedata.js)
-  content/communicator/pref/pref-privatedata.xul                   (content/pref/pref-privatedata.xul)
-  content/communicator/pref/pref-proxies.js                        (content/pref/pref-proxies.js)
-  content/communicator/pref/pref-proxies.xul                       (content/pref/pref-proxies.xul)
-  content/communicator/pref/pref-proxies-advanced.xul              (content/pref/pref-proxies-advanced.xul)
-  content/communicator/pref/pref-scripts.js                        (content/pref/pref-scripts.js)
-* content/communicator/pref/pref-scripts.xul                       (content/pref/pref-scripts.xul)
-  content/communicator/pref/pref-search.xul                        (content/pref/pref-search.xul)
-  content/communicator/pref/pref-security.js                       (content/pref/pref-security.js)
-  content/communicator/pref/pref-security.xul                      (content/pref/pref-security.xul)
-  content/communicator/pref/pref-smartupdate.js                    (content/pref/pref-smartupdate.js)
-  content/communicator/pref/pref-smartupdate.xul                   (content/pref/pref-smartupdate.xul)
-  content/communicator/pref/pref-spelling.js                       (content/pref/pref-spelling.js)
-  content/communicator/pref/pref-spelling.xul                      (content/pref/pref-spelling.xul)
-  content/communicator/pref/pref-tabs.xul                          (content/pref/pref-tabs.xul)
-
-  content/communicator/profile/profileSelection.js                 (content/profile/profileSelection.js)
-  content/communicator/profile/profileSelection.xul                (content/profile/profileSelection.xul)
-
-  content/communicator/search/engineManager.js                     (content/search/engineManager.js)
-  content/communicator/search/engineManager.xul                    (content/search/engineManager.xul)
-  content/communicator/search/search.xml                           (content/search/search.xml)
-  content/communicator/search/searchbarBindings.css                (content/search/searchbarBindings.css)
-  content/communicator/search/search-panel.js                      (content/search/search-panel.js)
-  content/communicator/search/search-panel.xul                     (content/search/search-panel.xul)
-
-  content/communicator/labelsencodings.properties                  (/mozilla/dom/encoding/labelsencodings.properties)
-
-# the following file is a suite-specific override of the generic license.html, using suite/common/app-license.html as input:
-* content/communicator/license.html                                (/mozilla/toolkit/content/license.html)
-
 #ifdef XP_MACOSX
-  content/navigator/platformNavigationBindings.xul                 (content/mac/platformNavigationBindings.xul)
-  content/navigator/platformMailOverlay.xul                        (content/mac/platformMailOverlay.xul)
-  content/communicator/platformCommunicatorOverlay.xul             (content/mac/platformCommunicatorOverlay.xul)
+  content/navigator/platformNavigationBindings.xul                 (content/platform/mac/platformNavigationBindings.xul)
+  content/navigator/platformMailOverlay.xul                        (content/platform/mac/platformMailOverlay.xul)
 #else
 #ifdef XP_WIN
-  content/navigator/platformNavigationBindings.xul                 (content/win/platformNavigationBindings.xul)
-  content/navigator/platformMailOverlay.xul                        (content/win/platformMailOverlay.xul)
-  content/communicator/platformCommunicatorOverlay.xul             (content/win/platformCommunicatorOverlay.xul)
+  content/navigator/platformNavigationBindings.xul                 (content/platform/win/platformNavigationBindings.xul)
+  content/navigator/platformMailOverlay.xul                        (content/platform/win/platformMailOverlay.xul)
 #else
-  content/navigator/platformNavigationBindings.xul                 (content/unix/platformNavigationBindings.xul)
-  content/navigator/platformMailOverlay.xul                        (content/unix/platformMailOverlay.xul)
-  content/communicator/platformCommunicatorOverlay.xul             (content/unix/platformCommunicatorOverlay.xul)
+  content/navigator/platformNavigationBindings.xul                 (content/platform/unix/platformNavigationBindings.xul)
+  content/navigator/platformMailOverlay.xul                        (content/platform/unix/platformMailOverlay.xul)
 #endif
 #endif
+
+% overlay chrome://mozapps/content/extensions/extensions.xul chrome://navigator/content/extensionsOverlay.xul
