@@ -21,6 +21,6 @@ EXTRA_COMPONENTS += [
     'SuiteFeeds.manifest',
 ]
 
-FINAL_LIBRARY = 'navigator'
+FINAL_LIBRARY = 'navigatorcomps'
 
 JAR_MANIFESTS += ['jar.mn']

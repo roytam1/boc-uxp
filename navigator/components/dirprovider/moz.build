@@ -10,4 +10,4 @@ USE_LIBS += [
     'xul',
 ]
 
-FINAL_LIBRARY = 'navigator'
+FINAL_LIBRARY = 'navigatorcomps'

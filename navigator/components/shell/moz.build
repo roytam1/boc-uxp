@@ -33,7 +33,7 @@ if SOURCES:
         'src/nsSetDefault.js',
     ]
 
-FINAL_LIBRARY = 'navigator'
+FINAL_LIBRARY = 'navigatorcomps'
 
 CXXFLAGS += CONFIG['TK_CFLAGS']
 
