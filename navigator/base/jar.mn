@@ -33,14 +33,6 @@ navigator.jar:
   content/navigator/aboutSH.xhtml                                  (content/aboutSH.xhtml)
   content/navigator/extensionsOverlay.xul                          (content/extensionsOverlay.xul)
 
-  content/navigator/pageinfo/feeds.js                              (content/pageinfo/feeds.js)
-  content/navigator/pageinfo/feeds.xml                             (content/pageinfo/feeds.xml)
-  content/navigator/pageinfo/pageInfo.css                          (content/pageinfo/pageInfo.css)
-  content/navigator/pageinfo/pageInfo.js                           (content/pageinfo/pageInfo.js)
-  content/navigator/pageinfo/pageInfo.xul                          (content/pageinfo/pageInfo.xul)
-  content/navigator/pageinfo/permissions.js                        (content/pageinfo/permissions.js)
-  content/navigator/pageinfo/security.js                           (content/pageinfo/security.js)
-
 #ifdef XP_MACOSX
   content/navigator/platformNavigationBindings.xul                 (content/platform/mac/platformNavigationBindings.xul)
   content/navigator/platformMailOverlay.xul                        (content/platform/mac/platformMailOverlay.xul)
@@ -71,8 +63,6 @@ en-US.jar:
   locale/en-US/navigator/navigator.dtd                                    (locale/navigator.dtd)
   locale/en-US/navigator/navigator.properties                             (locale/navigator.properties)
   locale/en-US/navigator/navigatorOverlay.dtd                             (locale/navigatorOverlay.dtd)
-  locale/en-US/navigator/pageInfo.dtd                                     (locale/pageInfo.dtd)
-  locale/en-US/navigator/pageInfo.properties                              (locale/pageInfo.properties)
   locale/en-US/navigator/tabbrowser.dtd                                   (locale/tabbrowser.dtd)
   locale/en-US/navigator/tabbrowser.properties                            (locale/tabbrowser.properties)
   locale/en-US/navigator/taskbar.properties                               (locale/taskbar.properties)

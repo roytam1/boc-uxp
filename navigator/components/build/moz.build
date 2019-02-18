@@ -7,7 +7,7 @@ SOURCES += [
     'nsModule.cpp',
 ]
 
-XPCOMBinaryComponent('navigator')
+XPCOMBinaryComponent('navigatorcomps')
 
 LOCAL_INCLUDES += [
     '../dirprovider/src',

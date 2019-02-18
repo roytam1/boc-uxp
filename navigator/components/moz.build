@@ -10,6 +10,7 @@ DIRS += [
     'downloads',
     'feeds',
     'history',
+    'pageinfo',
     'permissions',
     'places',
     'sessionstore',
