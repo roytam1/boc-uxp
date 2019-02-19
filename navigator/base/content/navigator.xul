@@ -398,10 +398,13 @@
                    onpopupshowing="BookmarksMenu.onPopupShowing(event, 'BMB_');
                                    BookmarksEventHandler.onPopupShowing(event);"
                    tooltip="bhTooltip" popupsinherittooltip="true">
+          <menuitem command="Browser:ManageBookmark"/>
+          <menuseparator/>
+          <!--
           <menuitem command="Browser:AddBookmark"/>
+          -->
           <menuitem command="Browser:AddBookmarkAs"/>
           <menuitem command="Browser:BookmarkAllTabs"/>
-          <menuitem command="Browser:ManageBookmark"/>
           <menuseparator/>
           <menu id="BMB_feedsMenu" class="menu-iconic feedsMenu" command="feedsMenu"
                 label="&feedsMenu.label;" accesskey="&feedsMenu.accesskey;">
@@ -429,7 +432,7 @@
                        onpopupshowing="if (!this.parentNode._placesView)
                                          new PlacesMenu(event, 'place:folder=UNFILED_BOOKMARKS');"/>
           </menu>
-          <menuseparator/>
+          <menuseparator class="hide-if-empty-places-result"/>
         </menupopup>
       </toolbarbutton>
 

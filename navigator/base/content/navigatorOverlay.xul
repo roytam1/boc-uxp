@@ -473,18 +473,21 @@
                  onpopupshowing="BookmarksMenu.onPopupShowing(event, '');
                                  BookmarksEventHandler.onPopupShowing(event);"
                  tooltip="bhTooltip" popupsinherittooltip="true">
+        <menuitem id="menu_bookmarkManager"
+                  command="Browser:ManageBookmark"
+                  key="manBookmarkKb"/>
+        <menuseparator id="organizeBookmarksSeparator"/>
+        <!--
         <menuitem id="menu_bookmarkThisPage"
                   command="Browser:AddBookmark"
                   key="addBookmarkKb"/>
+        -->
         <menuitem id="menu_bookmarkThisPageAs"
                   command="Browser:AddBookmarkAs"
                   key="addBookmarkAsKb"/>
         <menuitem id="menu_bookmarkAllTabs"
                   command="Browser:BookmarkAllTabs"/>
-        <menuitem id="menu_bookmarkManager"
-                  command="Browser:ManageBookmark"
-                  key="manBookmarkKb"/>
-        <menuseparator id="organizeBookmarksSeparator"/>
+        <menuseparator/>
         <menu id="menu_iconic_feedsMenu"
               label="&feedsMenu.label;"
               accesskey="&feedsMenu.accesskey;"
@@ -514,7 +517,7 @@
                      onpopupshowing="if (!this.parentNode._placesView)
                                        new PlacesMenu(event, 'place:folder=UNFILED_BOOKMARKS');"/>
         </menu>
-        <menuseparator/>
+        <menuseparator class="hide-if-empty-places-result"/>
       </menupopup>
     </menu>
 
