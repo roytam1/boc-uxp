@@ -102,7 +102,7 @@ function isLinkToAnchorOnPage(aTargetNode)
 
 // Called whenever the user clicks in the content area,
 // should always return true for click to go through.
-function contentAreaClick(aEvent)
+function contentAreaClick(aEvent, aPhishingDetector = true)
 {
   let target = aEvent.target;
 
@@ -152,13 +152,16 @@ function contentAreaClick(aEvent)
       !uri.schemeIs("http") && !uri.schemeIs("https"))
     return true;
 
+  
   // Now we're here, we know this should be loaded in an external browser, so
   // prevent the default action so we don't try and load it here.
   aEvent.preventDefault();
 
-  // Let the phishing detector check the link.
-  if (!gPhishingDetector.warnOnSuspiciousLinkClick(href))
-    return false;
+  if (aPhishingDetector) {
+    // Let the phishing detector check the link.
+    if (!gPhishingDetector.warnOnSuspiciousLinkClick(href))
+      return false;
+  }
 
   openLinkExternally(href);
   return true;
