@@ -892,3 +892,15 @@ var BookmarksMenu = {
     }
   },
 };
+
+// Handles the bookmarks menu popup
+function HistoryMenu(aPopupShowingEvent) {
+  // Workaround for Bug 610187.  The sidebar does not include all the Places
+  // views definitions, and we don't need them there.
+  // Defining the prototype inheritance in the prototype itself would cause
+  // browser.js to halt on "PlacesMenu is not defined" error.
+  this.__proto__.__proto__ = PlacesMenu.prototype;
+  PlacesMenu.call(this, aPopupShowingEvent, "place:queryType=0&sort=4&maxResults=15"); 
+}
+
+HistoryMenu.prototype = {};

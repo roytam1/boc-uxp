@@ -125,3 +125,8 @@ popupnotification-centeritem {
   display: -moz-box;
   -moz-box-pack: center;
 }
+
+/* History Menu Seperator */
+menupopup[emptyplacesresult="true"] > .hide-if-empty-places-result {
+  display: none;
+}

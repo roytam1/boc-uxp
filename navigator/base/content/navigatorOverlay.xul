@@ -29,7 +29,7 @@
   <script type="application/javascript"
           src="chrome://navigator/content/navigator.js"/>
 
-  <!-- Places Bookmarks Utilities -->
+  <!-- Places Utilities -->
   <script type="application/javascript"
           src="chrome://communicator/content/places/browserPlacesViews.js"/>
   <script type="application/javascript"
@@ -417,7 +417,12 @@
           label="&historyMenu.label;"
           accesskey="&historyMenu.accesskey;">
       <menupopup id="historyPopup"
-                 onpopupshowing="updateRecentMenuItems();">
+                 placespopup="true"
+                 context="placescontext"
+                 oncommand="BookmarksEventHandler.onCommand(event);"
+                 onclick="BookmarksEventHandler.onClick(event);"
+                 onpopupshowing="updateRecentMenuItems();
+                                 if (!this.parentNode._placesView) { new HistoryMenu(event); }">
         <menuitem id="menu_showAllHistory"
                   label="&historyCmd.label;"
                   accesskey="&historyCmd.accesskey;"
@@ -447,6 +452,8 @@
                      onpopupshowing="event.stopPropagation(); updateRecentWindows(this);"
                      oncommand="undoCloseWindow(event.target.value);"/>
         </menu>
+        <menuseparator id="startHistorySeparator"
+                       class="hide-if-empty-places-result"/>
       </menupopup>
     </menu>
 
