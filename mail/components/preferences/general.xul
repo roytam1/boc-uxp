@@ -34,7 +34,7 @@
 
     <stringbundle id="bundlePreferences" src="chrome://messenger/locale/preferences/preferences.properties"/>
 
-    <groupbox hidden="true">
+    <groupbox>
       <caption label="&messengerStartPage.label;"/>
         <hbox align="start">
           <checkbox id="mailnewsStartPageEnabled" label="&enableStartPage.label;"
@@ -61,13 +61,14 @@
         <menulist id="defaultWebSearch">
           <menupopup id="defaultWebSearchPopup"/>
         </menulist>
+        <spacer flex="1"/>
         <button id="addSearchEngine"
-                label="+"
-                style="min-width: 2.5em;"
+                label="&addSearchEngine.label;"
+                accesskey="&addSearchEngine.accesskey;"
                 oncommand="gGeneralPane.addSearchEngine();"/>
         <button id="removeSearchEngine"
-                label="-"
-                style="min-width: 2.5em;"
+                label="&removeSearchEngine.label;"
+                accesskey="&removeSearchEngine.accesskey;"
                 oncommand="gGeneralPane.removeSearchEngine();"/>
       </hbox>
     </groupbox>
