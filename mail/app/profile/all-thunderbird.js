@@ -160,27 +160,26 @@ pref("extensions.minCompatibleAppVersion", "1.0");
 
 pref("extensions.update.autoUpdateDefault", true);
 
-pref("extensions.hotfix.id", "thunderbird-hotfix@mozilla.org");
-pref("extensions.hotfix.cert.checkAttributes", true);
-pref("extensions.hotfix.certs.1.sha1Fingerprint", "91:53:98:0C:C1:86:DF:47:8F:35:22:9E:11:C9:A7:31:04:49:A1:AA");
-pref("extensions.hotfix.certs.2.sha1Fingerprint", "39:E7:2B:7A:5B:CF:37:78:F9:5D:4A:E0:53:2D:2F:3D:68:53:C5:60");
-
 // Disable add-ons installed into the shared user and shared system areas by
 // default. This does not include the application directory. See the SCOPE
 // constants in AddonManager.jsm for values to use here
 pref("extensions.autoDisableScopes", 15);
 
 // Preferences for AMO integration
-pref("extensions.getAddons.showPane", false);
+#define AM_DOMAIN interlink-addons.binaryoutcast.com
+#define AM_AUS_ARGS reqVersion=%REQ_VERSION%&id=%ITEM_ID%&version=%ITEM_VERSION%&maxAppVersion=%ITEM_MAXAPPVERSION%&status=%ITEM_STATUS%&appID=%APP_ID%&appVersion=%APP_VERSION%&appOS=%APP_OS%&appABI=%APP_ABI%&locale=%APP_LOCALE%&currentAppVersion=%CURRENT_APP_VERSION%&updateType=%UPDATE_TYPE%&compatMode=%COMPATIBILITY_MODE%
+
+// Preferences for AMO integration
 pref("extensions.getAddons.cache.enabled", false);
-pref("extensions.getAddons.maxResults", 15);
-pref("extensions.getAddons.get.url", "https://services.addons.mozilla.org/%LOCALE%/%APP%/api/%API_VERSION%/search/guid:%IDS%?src=thunderbird&appOS=%OS%&appVersion=%VERSION%");
-pref("extensions.getAddons.getWithPerformance.url", "https://services.addons.mozilla.org/%LOCALE%/%APP%/api/%API_VERSION%/search/guid:%IDS%?src=thunderbird&appOS=%OS%&appVersion=%VERSION%&tMain=%TIME_MAIN%&tFirstPaint=%TIME_FIRST_PAINT%&tSessionRestored=%TIME_SESSION_RESTORED%");
-pref("extensions.getAddons.link.url", "https://addons.mozilla.org/%LOCALE%/%APP%/");
-pref("extensions.getAddons.recommended.url", "https://services.addons.mozilla.org/%LOCALE%/%APP%/api/%API_VERSION%/list/recommended/all/%MAX_RESULTS%/%OS%/%VERSION%?src=thunderbird");
-pref("extensions.getAddons.search.browseURL", "https://addons.mozilla.org/%LOCALE%/%APP%/search?q=%TERMS%");
-pref("extensions.getAddons.search.url", "https://services.addons.mozilla.org/%LOCALE%/%APP%/api/%API_VERSION%/search/%TERMS%/all/%MAX_RESULTS%/%OS%/%VERSION%/%COMPATIBILITY_MODE%?src=thunderbird");
-pref("extensions.webservice.discoverURL", "https://services.addons.mozilla.org/%LOCALE%/%APP%/discovery/pane/%VERSION%/%OS%");
+pref("extensions.getAddons.maxResults", 10);
+pref("extensions.getAddons.get.url", "http://@AM_DOMAIN@/?component=integration&type=internal&request=get&addonguid=%IDS%&os=%OS%&version=%VERSION%");
+pref("extensions.getAddons.getWithPerformance.url", "http://@AM_DOMAIN@/?component=integration&type=internal&request=get&addonguid=%IDS%&os=%OS%&version=%VERSION%");
+pref("extensions.getAddons.search.browseURL", "http://@AM_DOMAIN@/search/?terms=%TERMS%");
+pref("extensions.getAddons.search.url", "http://@AM_DOMAIN@/?component=integration&type=internal&request=search&q=%TERMS%&locale=%LOCALE%&os=%OS%&version=%VERSION%");
+pref("extensions.webservice.discoverURL", "http://@AM_DOMAIN@/?component=discover");
+pref("extensions.getAddons.recommended.url", "http://@AM_DOMAIN@/?component=integration&type=internal&request=recommended&locale=%LOCALE%&os=%OS%");
+pref("extensions.getAddons.browseAddons", "http://@AM_DOMAIN@/");
+pref("extensions.getAddons.recommended.browseURL", "http://@AM_DOMAIN@/?component=integration&type=external&request=recommended");
 
 // Blocklist preferences
 pref("extensions.blocklist.enabled", true);
@@ -190,28 +189,31 @@ pref("extensions.blocklist.url", "http://binaryoutcast.com/?component=blocklist&
 pref("extensions.blocklist.detailsURL", "https://addons.mozilla.org/%LOCALE%/%APP%/blocked/");
 pref("extensions.blocklist.itemURL", "https://blocklist.addons.mozilla.org/%LOCALE%/%APP%/blocked/%blockID%");
 
-// Enables some extra Extension System Logging (can reduce performance)
-pref("extensions.logging.enabled", false);
-
 // Symmetric (can be overridden by individual extensions) update preferences.
 // e.g.
 //  extensions.{GUID}.update.enabled
 //  extensions.{GUID}.update.url
-//  extensions.{GUID}.update.interval
 //  .. etc ..
 //
-pref("extensions.update.enabled", false);
-pref("extensions.update.url", "https://versioncheck.addons.mozilla.org/update/VersionCheck.php?reqVersion=%REQ_VERSION%&id=%ITEM_ID%&version=%ITEM_VERSION%&maxAppVersion=%ITEM_MAXAPPVERSION%&status=%ITEM_STATUS%&appID=%APP_ID%&appVersion=%APP_VERSION%&appOS=%APP_OS%&appABI=%APP_ABI%&locale=%APP_LOCALE%&currentAppVersion=%CURRENT_APP_VERSION%&updateType=%UPDATE_TYPE%&compatMode=%COMPATIBILITY_MODE%");
-
-pref("extensions.update.background.url", "https://versioncheck-bg.addons.mozilla.org/update/VersionCheck.php?reqVersion=%REQ_VERSION%&id=%ITEM_ID%&version=%ITEM_VERSION%&maxAppVersion=%ITEM_MAXAPPVERSION%&status=%ITEM_STATUS%&appID=%APP_ID%&appVersion=%APP_VERSION%&appOS=%APP_OS%&appABI=%APP_ABI%&locale=%APP_LOCALE%&currentAppVersion=%CURRENT_APP_VERSION%&updateType=%UPDATE_TYPE%&compatMode=%COMPATIBILITY_MODE%");
-
-pref("extensions.update.interval", 86400);  // Check for updates to Extensions and
+pref("extensions.update.enabled", true);
+pref("extensions.update.url", "http://@AM_DOMAIN@/?component=aus&@AM_AUS_ARGS@");
+pref("extensions.update.background.url", "http://@AM_DOMAIN@/?component=aus&@AM_AUS_ARGS@");
+pref("extensions.update.interval", 86400);  // Check for updates to Extensions and 
                                             // Themes every day
 
 pref("extensions.dss.enabled", false);          // Dynamic Skin Switching
 pref("extensions.dss.switchPending", false);    // Non-dynamic switch pending after next
 
-pref("xpinstall.whitelist.add", "addons.mozilla.org");
+pref("xpinstall.whitelist.add", "interlink-addons.binaryoutcast.org,addons.thunderbird.net");
+pref("xpinstall.whitelist.required", false);
+// Allow installing XPI add-ons by direct URL requests (no referrer)
+pref("xpinstall.whitelist.directRequest", true);
+// Allow installing XPI add-ons from file referrers (chrome/file)
+pref("xpinstall.whitelist.fileRequest", true);
+
+pref("extensions.install.requireBuiltInCerts", false);
+// Only allow installation of extensions from https, chrome or file schemes
+pref("extensions.install.requireSecureOrigin", false);
 
 pref("general.smoothScroll", true);
 #ifdef UNIX_BUT_NOT_MAC
