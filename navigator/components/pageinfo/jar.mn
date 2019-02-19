@@ -3,7 +3,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-comm.jar:
+navigator.jar:
   content/navigator/pageinfo/feeds.js                              (content/feeds.js)
   content/navigator/pageinfo/feeds.xml                             (content/feeds.xml)
   content/navigator/pageinfo/pageInfo.css                          (content/pageInfo.css)
