@@ -29,7 +29,7 @@
   <menu id="helpMenu"
         label="&helpMenu.label;" accesskey="&helpMenu.accesskey;">
 #endif
-    <menupopup id="menu_HelpPopup">
+    <menupopup id="menu_HelpPopup" onpopupshowing="buildHelpMenu();">
 #ifdef XP_MACOSX
       <menuitem id="menu_openHelp"
                 label="&openHelpMac.label;" key="key_openHelp"
@@ -48,9 +48,15 @@
                 label="&helpSafeMode.label;"
                 accesskey="&helpSafeMode.accesskey;"
                 oncommand="safeModeRestart();"/>
-#ifndef XP_MACOSX
-      <menuseparator id="aboutSeparator"/>
+      <menuseparator id="updatesSeparator" />
+      <menuitem id="checkForUpdates" class="menuitem-iconic"
+#ifdef MOZ_UPDATER
+                label="&updateCmd.label;"
+                oncommand="checkForUpdates();"/>
+#else
+                hidden="true"/>
 #endif
+      <menuseparator id="aboutSeparator" />
       <menuitem id="aboutName"
                 label="&aboutMenuCmd.label;"
                 accesskey="&aboutMenuCmd.accesskey;"

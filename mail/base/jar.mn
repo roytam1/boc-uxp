@@ -53,9 +53,8 @@ messenger.jar:
     content/messenger/specialTabs.xul               (content/specialTabs.xul)
     content/messenger/subscribe.xul                 (content/subscribe.xul)
     content/messenger/subscribe.js                  (content/subscribe.js)
-    content/messenger/aboutDialog-appUpdater.js     (content/aboutDialog-appUpdater.js)
 *   content/messenger/aboutDialog.xul               (content/aboutDialog.xul)
-    content/messenger/aboutDialog.js                (content/aboutDialog.js)
+*   content/messenger/aboutDialog.js                (content/aboutDialog.js)
 *   content/messenger/aboutRights.xhtml             (content/aboutRights.xhtml)
 *   content/messenger/systemIntegrationDialog.xul   (content/systemIntegrationDialog.xul)
     content/messenger/systemIntegrationDialog.js    (content/systemIntegrationDialog.js)
@@ -125,7 +124,7 @@ comm.jar:
    content/communicator/contentAreaClick.js         (content/contentAreaClick.js)
    content/communicator/labelsencodings.properties  (/mozilla/dom/encoding/labelsencodings.properties)
 *  content/communicator/utilityOverlay.xul          (content/utilityOverlay.xul)
-   content/communicator/utilityOverlay.js           (content/utilityOverlay.js)
+*  content/communicator/utilityOverlay.js           (content/utilityOverlay.js)
 
 toolkit.jar:
 % overlay chrome://global/content/customizeToolbar.xul chrome://messenger/content/customizeToolbarOverlay.xul

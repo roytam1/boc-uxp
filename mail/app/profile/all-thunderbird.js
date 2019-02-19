@@ -140,7 +140,7 @@ pref("toolkit.crashreporter.infoURL",
      "https://www.mozilla.org/thunderbird/legal/privacy/#crash-reporter");");
 
 // Base URL for web-based support pages.
-pref("app.support.baseURL", "https://support.live.mozillamessaging.com/%LOCALE%/%APP%/%APPBUILDID%/");
+pref("app.support.baseURL", "http://binaryoutcast.com/interact/");
 
 // Show error messages in error console.
 pref("javascript.options.showInConsole", true);

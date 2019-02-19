@@ -36,77 +36,19 @@
   <script type="application/javascript" src="chrome://messenger/content/specialTabs.js"/>
   <!-- This one is for openURL -->
   <script type="application/javascript" src="chrome://global/content/contentAreaUtils.js"/>
-#ifdef MOZ_UPDATER
-  <script type="application/javascript" src="chrome://messenger/content/aboutDialog-appUpdater.js"/>
-#endif
 
   <vbox id="aboutDialogContainer">
     <hbox id="clientBox">
       <vbox id="leftBox" flex="1"/>
       <vbox id="rightBox" flex="1">
         <hbox align="baseline">
-#expand <label id="version" tooltiptext="Mozilla Compatibility Version: __MOZ_APP_VERSION__">Version: __MOZ_APP_VERSION_DISPLAY__</label>
-#expand <label id="releasenotes" class="text-link" href="http://binaryoutcast.com/projects/interlink/#release-notes">&releaseNotes.link;</label>
+#expand <label id="version" tooltiptext="Add-on Compatibility Version: __MOZ_APP_VERSION__">Version: __MOZ_APP_VERSION_DISPLAY__</label>
         </hbox>
 
         <label id="distribution" class="text-blurb"/>
         <label id="distributionId" class="text-blurb"/>
 
         <vbox id="detailsBox">
-          <vbox id="updateBox">
-#ifdef MOZ_UPDATER
-            <deck id="updateDeck" orient="vertical">
-              <hbox id="checkForUpdates" align="center">
-                <button id="checkForUpdatesButton" align="start"
-                        label="&update.checkForUpdatesButton.label;"
-                        accesskey="&update.checkForUpdatesButton.accesskey;"
-                        oncommand="gAppUpdater.checkForUpdates();"/>
-                <spacer flex="1"/>
-              </hbox>
-              <hbox id="downloadAndInstall" align="center">
-                <button id="downloadAndInstallButton"
-                        oncommand="gAppUpdater.startDownload();"/>
-                        <!-- label and accesskey will be filled by JS -->
-                <spacer flex="1"/>
-              </hbox>
-              <hbox id="apply" align="center">
-                <button id="updateButton"
-                        label="&update.updateButton.label2;"
-                        accesskey="&update.updateButton.accesskey;"
-                        oncommand="gAppUpdater.buttonRestartAfterDownload();"/>
-                <spacer flex="1"/>
-              </hbox>
-              <hbox id="checkingForUpdates" align="center">
-                <image class="update-throbber"/><label>&update.checkingForUpdates;</label>
-              </hbox>
-              <hbox id="downloading" align="center">
-                <image class="update-throbber"/><label>&update.downloading.start;</label><label id="downloadStatus"/><label>&update.downloading.end;</label>
-              </hbox>
-              <hbox id="applying" align="center">
-                <image class="update-throbber"/><label>&update.applying;</label>
-              </hbox>
-             <hbox id="downloadFailed" align="center">
-                <label>&update.failed.start;</label><label id="failedLink" class="text-link">&update.failed.linkText;</label><label>&update.failed.end;</label>
-              </hbox>
-              <hbox id="adminDisabled" align="center">
-                <label>&update.adminDisabled;</label>
-              </hbox>
-              <hbox id="noUpdatesFound" align="center">
-                <label>&update.noUpdatesFound;</label>
-              </hbox>
-              <hbox id="otherInstanceHandlingUpdates" align="center">
-                <label>&update.otherInstanceHandlingUpdates;</label>
-              </hbox>
-              <hbox id="manualUpdate" align="center">
-                <label>&update.manual.start;</label><label id="manualLink" class="text-link">&update.manual.linkText;</label><label>&update.manual.end;</label>
-              </hbox>
-              <hbox id="unsupportedSystem" align="center">
-                <label>&update.unsupported.start;</label><label id="unsupportedLink" class="text-link">&update.unsupported.linkText;</label><label>&update.unsupported.end;</label>
-              </hbox>
-            </deck>
-#endif
-          </vbox>
-
 #ifdef MOZ_UPDATER
           <description class="text-blurb" id="currentChannelText">
             &channel.description.start;<label id="currentChannel"/>&channel.description.end;
