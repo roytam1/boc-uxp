@@ -13,7 +13,7 @@
                em:id="@ADDON_ID@"
                em:version="@ADDON_VERSION@"
                em:name="@ADDON_NAME@"
-               em:description="@ADDON_SHORT_DESC@"
+               em:description="@ADDON_DESCRIPTION@"
                em:creator="@ADDON_CREATOR@"
                em:type="2">
 #ifdef MOZ_DISABLE_PLATFORM
@@ -22,7 +22,7 @@
                    em:minVersion="1.0.0a1"
                    em:maxVersion="1.*"/>
     </em:targetApplication>
-    <em:targetApplication name="Interlink Mail & News">
+    <em:targetApplication name="Interlink">
       <Description em:id="{3550f703-e582-4d05-9a08-453d09bdfdc6}"
                    em:minVersion="52.9.6953"
                    em:maxVersion="52.9.*"/>
