@@ -8,4 +8,4 @@ if not CONFIG['MOZ_DISABLE_PLATFORM']:
 
 # Never add tier dirs after the application srcdir because they
 # apparently won't get packaged properly on Mac.
-DIRS += ['/scratchpad']
+DIRS += ['/projects/profile-switcher']

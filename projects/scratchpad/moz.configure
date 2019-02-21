@@ -4,6 +4,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-include('../build/moz.configure/platform.configure')
+include('../../build/moz.configure/platform.configure')
 include('confvars.configure')
 ConfVars('moz.configure')
