@@ -1,0 +1,20 @@
+<!-- -*- Mode: SGML; indent-tabs-mode: nil; -*- -->
+
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+     License, v. 2.0. If a copy of the MPL was not distributed with this
+     file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
+<!ENTITY            windowTitle.label    "Switch Profile">
+<!ENTITY            profileManager.title "Select a &brandShortName; Profile">
+
+<!ENTITY            select.label     "Use Profile">
+<!ENTITY            availableProfiles.label "Available Profiles">
+
+<!ENTITY            autoSelect.label         "Use the selected profile without asking at startup">
+<!ENTITY            autoSelect.accesskey     "S">
+
+<!ENTITY            start.label              "Start &brandShortName;">
+<!ENTITY            exit.label               "Exit">
+
+<!ENTITY            offlineState.label       "Work offline">
+<!ENTITY            offlineState.accesskey   "o">

@@ -1,0 +1,16 @@
+#filter substitution
+
+<!ENTITY dialog.title       "About @ADDON_NAME@">
+
+<!ENTITY version.title      "Version">
+<!ENTITY description        "
+  @ADDON_NAME@ allows you to decide what you want to see on the web.
+  You don't need to download adverts and banners any more; if you
+  don't want them - remove them with @ADDON_NAME@!
+">
+
+<!ENTITY homepage.label     "@ADDON_NAME@ homepage:">
+<!ENTITY author.label       "Author:">
+<!ENTITY contributors.label "Contributors:">
+<!ENTITY subscriptionAuthors.label    "Filter subscription authors:">
+<!ENTITY translators.label  "Translators:">

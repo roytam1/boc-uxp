@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<!-- This Source Code is subject to the terms of the Mozilla Public License
+   - version 2.0 (the "License"). You can obtain a copy of the License at
+   - http://mozilla.org/MPL/2.0/. -->
+
+#filter substitution
+
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+
+  <Description about="urn:mozilla:install-manifest"
+               em:id="@ADDON_ID@"
+               em:version="@ADDON_VERSION@"
+               em:name="@ADDON_NAME@"
+               em:description="@ADDON_SHORT_DESC@"
+               em:creator="@ADDON_CREATOR@"
+               em:type="2">
+#ifdef MOZ_DISABLE_PLATFORM
+    <em:targetApplication name="Borealis Navigator">
+      <Description em:id="{a3210b97-8e8a-4737-9aa0-aa0e607640b9}"
+                   em:minVersion="1.0.0a1"
+                   em:maxVersion="1.*"/>
+    </em:targetApplication>
+    <em:targetApplication name="Interlink Mail & News">
+      <Description em:id="{3550f703-e582-4d05-9a08-453d09bdfdc6}"
+                   em:minVersion="52.9.6953"
+                   em:maxVersion="52.9.*"/>
+    </em:targetApplication>
+#else
+    <em:targetApplication>
+      <Description em:id="@MOZ_APP_ID@"
+                   em:minVersion="@MOZ_APP_VERSION@"
+                   em:maxVersion="@MOZ_APP_VERSION@"/>
+    </em:targetApplication>
+    <em:appManaged>true</em:appManaged>
+#endif
+  </Description>
+</RDF>
