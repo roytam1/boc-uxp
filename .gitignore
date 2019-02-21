@@ -28,9 +28,6 @@ ID
 /obj*/
 /build-*/
 
-# Project directories
-/projects/*/*
-
 # Ignore the files and directory that Eclipse IDE creates
 .project
 .cproject
