@@ -3,16 +3,30 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-if not CONFIG['MOZ_DISABLE_PLATFORM']:
-    include('confvars.configure')
-    ConfVars('moz.build')
-    DIST_SUBDIR = 'extensions/%s' % DEFINES['PROFILESWITCHER_ID']
-    USE_EXTENSION_MANIFEST = True
-    DEFINES['MOZ_APP_VERSION'] = CONFIG['MOZ_APP_VERSION']
-    DEFINES['MOZ_APP_ID'] = CONFIG['MOZ_APP_ID']
+@template
+def AddonDefines():
+    defines = {
+        'ADDON_NAME': 'Profile Switcher',
+        'ADDON_ID': 'profileswitcher@projects.binaryoutcast.com',
+        'ADDON_VERSION': '1.0.1',
+        'ADDON_CREATOR': 'Binary Outcast',
+        'ADDON_DESCRIPTION': 'Easily switch profiles',
+        'ADDON_XPI_NAME': 'profile-switcher',
+        'ADDON_CHROME_NAME': 'profile-switcher'
+    }
+
+    for key, value in defines.iteritems():
+        DEFINES[key] = value
+
+AddonDefines()
 
 if CONFIG['MOZ_DISABLE_PLATFORM']:
     DEFINES['MOZ_DISABLE_PLATFORM'] = 1
+else:
+    DIST_SUBDIR = 'extensions/%s' % DEFINES['ADDON_ID']
+    USE_EXTENSION_MANIFEST = True
+    DEFINES['MOZ_APP_VERSION'] = CONFIG['MOZ_APP_VERSION']
+    DEFINES['MOZ_APP_ID'] = CONFIG['MOZ_APP_ID']
 
 FINAL_TARGET_PP_FILES += ['install.rdf']
 

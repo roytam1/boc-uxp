@@ -12,8 +12,8 @@
   <Description about="urn:mozilla:install-manifest"
                em:id="@ADDON_ID@"
                em:version="@ADDON_VERSION@"
-               em:name="@ADDON_NAME@"
-               em:description="@ADDON_SHORT_DESC@"
+               em:name="@ADDON_CREATOR@"
+               em:description="@ADDON_DESCRIPTION@"
                em:creator="@ADDON_AUTHOR@"
                em:type="2">
 #ifdef MOZ_DISABLE_PLATFORM
