@@ -16,8 +16,6 @@ def getpath(relpath):
     return os.path.abspath(os.path.join(thisdir, *relpath))
 
 PYMAKE = getpath(["..", "..", "mozilla", "build", "pymake", "make.py"])
-CLIENT_PY = getpath(["..", "..", "client.py"])
-CLIENT_PY_ARGS = getpath(["..", "client.py-args"])
 
 def main(args):
     if 'TINDERBOX_OUTPUT' in os.environ:
@@ -34,13 +32,7 @@ def main(args):
             sys.exit(subprocess.call(cmd))
 
     if not os.path.exists(PYMAKE):
-        clientpyargs = open(CLIENT_PY_ARGS, "r").read().strip()
-        clientpyargs = shlex.split(clientpyargs)
-        subprocess.check_call([sys.executable, CLIENT_PY, "checkout"] +
-                              clientpyargs)
-
-        if not os.path.exists(PYMAKE):
-            raise Exception("Pymake not found even after client.py was run")
+        raise Exception("Pymake not found")
 
     subprocess.check_call([sys.executable, PYMAKE] + args)
 

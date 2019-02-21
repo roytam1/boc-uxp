@@ -455,11 +455,6 @@ cleansrcdir:
 echo-variable-%:
 	@echo $($*)
 
-checkout co: run_client_py
-
-run_client_py:
-	$(PYTHON) $(TOPSRCDIR)/client.py checkout $(CLIENT_PY_ARGS)
-
 # This makefile doesn't support parallel execution. It does pass
 # MOZ_MAKE_FLAGS to sub-make processes, so they will correctly execute
 # in parallel.
