@@ -38,9 +38,9 @@ include $(topsrcdir)/config/rules.mk
 libs::
 ifeq ($(OS_ARCH),WINNT)
 	$(EXIT_ON_ERROR) \
-	$(PERL) -pe 's/(?<!\r)\n/\r\n/g;' < $(topsrcdir)/navigator/installer/license.txt > $(DIST)/bin/license.txt
+	$(PERL) -pe 's/(?<!\r)\n/\r\n/g;' < $(topsrcdir)/projects/navigator/installer/license.txt > $(DIST)/bin/license.txt
 else
-	$(INSTALL) $(IFLAGS1) $(topsrcdir)/navigator/installer/license.txt $(DIST)/bin/
+	$(INSTALL) $(IFLAGS1) $(topsrcdir)/projects/navigator/installer/license.txt $(DIST)/bin/
 endif
 
 ifneq ($(OS_ARCH),WINNT)

@@ -3,10 +3,10 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 installer:
-	@$(MAKE) -C navigator/installer installer
+	@$(MAKE) -C projects/navigator/installer installer
 
 package:
-	@$(MAKE) -C navigator/installer
+	@$(MAKE) -C projects/navigator/installer
 
 install::
-	@$(MAKE) -C navigator/installer install
+	@$(MAKE) -C projects/navigator/installer install
