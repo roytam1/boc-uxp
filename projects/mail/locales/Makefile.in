@@ -68,7 +68,7 @@ libs-%:
 ifdef MOZ_DEVTOOLS
 	@$(MAKE) -C $(DEPTH)/devtools/client/locales AB_CD=$* XPI_NAME=locale-$* XPI_ROOT_APPID='$(XPI_ROOT_APPID)'
 endif
-	@$(MAKE) -C ../../editor/ui/locales AB_CD=$* XPI_NAME=locale-$*
+	@$(MAKE) -C $(DEPTH)/editor/ui/locales AB_CD=$* XPI_NAME=locale-$*
 	@$(MAKE) -C $(DEPTH)/extensions/spellcheck/locales AB_CD=$* XPI_NAME=locale-$*
 	@$(MAKE) -C $(DEPTH)/intl/locales AB_CD=$* XPI_NAME=locale-$*
 	@$(MAKE) libs AB_CD=$* XPI_NAME=locale-$* PREF_DIR=defaults/pref

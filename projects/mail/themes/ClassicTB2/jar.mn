@@ -40,13 +40,13 @@ ClassicTB2.jar:
   skin/ClassicTB2/global/aboutSupport.css                                              (global/aboutSupport.css)
 #  skin/ClassicTB2/global/alerts/alert.css                                              (global/alerts/alert.css)
 #ifdef XP_LINUX
-  skin/ClassicTB2/global/alerts/alert.css                                              (../../../mozilla/toolkit/themes/linux/global/alerts/alert.css)
+  skin/ClassicTB2/global/alerts/alert.css                                              (/mozilla/toolkit/themes/linux/global/alerts/alert.css)
 #elif XP_MACOSX
-  skin/ClassicTB2/global/alerts/alert.css                                              (../../../mozilla/toolkit/themes/osx/global/alerts/alert.css)
+  skin/ClassicTB2/global/alerts/alert.css                                              (/mozilla/toolkit/themes/osx/global/alerts/alert.css)
 #else
-  skin/ClassicTB2/global/alerts/alert.css                                              (../../../mozilla/toolkit/themes/windows/global/alerts/alert.css)
+  skin/ClassicTB2/global/alerts/alert.css                                              (/mozilla/toolkit/themes/windows/global/alerts/alert.css)
 #endif
-  skin/ClassicTB2/global/alerts/alert-common.css                                       (../../../mozilla/toolkit/themes/shared/alert-common.css)
+  skin/ClassicTB2/global/alerts/alert-common.css                                       (/mozilla/toolkit/themes/shared/alert-common.css)
   skin/ClassicTB2/global/appPicker.css                                                 (global/appPicker.css)
   skin/ClassicTB2/global/arrow/arrow-dn-dis.gif                                        (global/arrow/arrow-dn-dis.gif)
   skin/ClassicTB2/global/arrow/arrow-dn-hov.gif                                        (global/arrow/arrow-dn-hov.gif)

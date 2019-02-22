@@ -184,7 +184,7 @@ endif
 endif
 
 libs::
-	$(MAKE) -C $(DEPTH)/mail/locales langpack
+	$(MAKE) -C $(DEPTH)/projects/mail/locales langpack
 
 ifeq (WINNT,$(OS_ARCH))
 PKGCOMP_FIND_OPTS =
