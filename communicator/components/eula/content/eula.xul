@@ -7,8 +7,6 @@
 %brandDTD;
 <!ENTITY % eulaDTD SYSTEM "chrome://communicator/locale/eula/eula.dtd">
 %eulaDTD;
-<!ENTITY % profileDTD SYSTEM "chrome://communicator/locale/profile/profileSelection.dtd">
-%profileDTD;
 ]>
 
 <dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
