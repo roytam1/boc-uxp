@@ -62,6 +62,7 @@
 @RESPATH@/update.locale
 @RESPATH@/updater.ini
 #endif
+@RESPATH@/license.txt
 
 [xpcom]
 @RESPATH@/dependentlibs.list

@@ -27,6 +27,14 @@ NSDISTMODE = copy
 
 include $(topsrcdir)/config/config.mk
 
+libs::
+ifeq ($(OS_ARCH),WINNT)
+	$(EXIT_ON_ERROR) \
+	$(PERL) -pe 's/(?<!\r)\n/\r\n/g;' < $(topsrcdir)/projects/mail/installer/license.txt > $(DIST)/bin/license.txt
+else
+	$(INSTALL) $(IFLAGS1) $(topsrcdir)/projects/mail/installer/license.txt $(DIST)/bin/
+endif
+
 ifeq ($(OS_ARCH),WINNT)
 # Extract the icons we care about embedding into the EXE
 mailtoolbar = $(MOZILLA_SRCDIR)/$(MOZ_BUILD_APP)/themes/jumplist.png
