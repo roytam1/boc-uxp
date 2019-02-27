@@ -15,15 +15,23 @@ this.Communicator = {
     var file = FileUtils.getFile(aDSDir, [aFile]);
     
     if (!file.exists()) {
+      Components.utils.reportError("Communicator.readfile: " + aFile + " does not exist in " + aDSDir);
       return "No Data";
     }
     
     var stream = Components.classes["@mozilla.org/network/file-input-stream;1"]
                                    .createInstance(Components.interfaces.nsIFileInputStream);
-    
-    stream.init(file, -1, 0, 0);
-    
-    var data = NetUtil.readInputStreamToString(stream, stream.available());
+
+    try {
+      stream.init(file, -1, 0, 0);
+      var data = NetUtil.readInputStreamToString(stream, stream.available());
+    }
+    catch (ex) {
+      Components.utils.reportError("Communicator.readfile: file stream failure in " + aDSdir + "/" + aFile);
+      return "No data";
+    }
+
+    stream.close();
 
     return data;
   },
