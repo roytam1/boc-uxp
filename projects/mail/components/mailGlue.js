@@ -65,12 +65,24 @@ MailGlue.prototype = {
       this._handleLink(aSubject, aData);
       break;
     case "profile-after-change":
-        // Override Toolkit's nsITransfer implementation with the one from the
-        // JavaScript API for downloads. This will eventually be removed when
-        // we use Downloads.jsm - bug 907732, bug 1087233.
-        Components.manager.QueryInterface(Components.interfaces.nsIComponentRegistrar)
-          .registerFactory(Components.ID("{b02be33b-d47c-4bd3-afd9-402a942426b0}"),
-                           "", "@mozilla.org/transfer;1", null);
+      // EULA
+      var eulaDone = null;
+      try {
+        eulaDone = Services.prefs.getBoolPref("app.eula.accepted");
+      }
+      catch (ex) { }
+
+      if (!eulaDone) {
+        Services.ww.openWindow(null, "chrome://communicator/content/eula/eula.xul",
+                             "_blank", "chrome,centerscreen,modal,resizable=no", null);
+      }
+
+      // Override Toolkit's nsITransfer implementation with the one from the
+      // JavaScript API for downloads. This will eventually be removed when
+      // we use Downloads.jsm - bug 907732, bug 1087233.
+      Components.manager.QueryInterface(Components.interfaces.nsIComponentRegistrar)
+        .registerFactory(Components.ID("{b02be33b-d47c-4bd3-afd9-402a942426b0}"),
+                         "", "@mozilla.org/transfer;1", null);
       break;
     }
   },
