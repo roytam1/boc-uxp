@@ -1,4 +1,5 @@
 Components.utils.import("resource://gre/modules/Communicator.jsm");
+Communicator.init();
 
 function Startup() {
   main = document.getElementById("main");
