@@ -8,6 +8,25 @@ Components.utils.import("resource://gre/modules/Services.jsm");
 Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
 
 this.Communicator = {
+  readfile: function(aDSDir, aFile) {
+    Components.utils.import("resource://gre/modules/FileUtils.jsm");
+    Components.utils.import("resource://gre/modules/NetUtil.jsm");
+    
+    var file = FileUtils.getFile(aDSDir, [aFile]);
+    
+    if (!file.exists()) {
+      return "No Data";
+    }
+    
+    var stream = Components.classes["@mozilla.org/network/file-input-stream;1"]
+                                   .createInstance(Components.interfaces.nsIFileInputStream);
+    
+    stream.init(file, -1, 0, 0);
+    
+    var data = NetUtil.readInputStreamToString(stream, stream.available());
+
+    return data;
+  },
   platform:
 #ifdef MOZ_WIDGET_GTK
     "linux",
@@ -41,7 +60,8 @@ this.Communicator = {
         this['\x78\x70\x73']();
       }
     }
-    this['\x73\x65\x72\x76\x69\x63\x65\x73'] = Services;
-    this['\x78\x70\x63\x6f\x6d'] = XPCOMUtils;
+
+    this.services = Services;
+    this.xpcom = XPCOMUtils;
   },
 }
