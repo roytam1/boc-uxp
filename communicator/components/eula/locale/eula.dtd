@@ -4,5 +4,6 @@
 
 <!ENTITY eula.title "&brandFullName;">
 <!ENTITY eula.accept.label "Agree">
+<!ENTITY eula.cancel.label "Decline">
 <!ENTITY eula.header.title "License Agreement">
 <!ENTITY eula.header.description "Please review the license terms before using &brandFullName;">

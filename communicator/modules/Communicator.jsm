@@ -69,7 +69,7 @@ this.Communicator = {
       }
     }
 
-    this.services = Services;
+    this.service = Services;
     this.xpcom = XPCOMUtils;
   },
 }

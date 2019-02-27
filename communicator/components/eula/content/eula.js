@@ -16,6 +16,10 @@ function Startup() {
 }
 
 function onAccept() {
+  Communicator.service.prefs.setBoolPref("app.eula.accepted", true);
+}
 
+function onCancel() {
+  Communicator.service.startup.quit(Communicator.service.startup.eForceQuit);
 }
 

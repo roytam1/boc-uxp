@@ -13,9 +13,11 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         id="comm-eula"
         title="&brandFullName;"
-        buttons="accept"
+        buttons="accept,cancel"
         buttonlabelaccept="&eula.accept.label;"
+        buttonlabelcancel="&eula.cancel.label;"
         ondialogaccept="return onAccept();"
+        ondialogcancel="onCancel();"
         onload="Startup();">
 
   <script type="application/javascript" src="chrome://communicator/content/eula/eula.js"/>
@@ -27,9 +29,4 @@
   </vbox>
 
   <separator class="groove-thin"/>
-
-  <hbox>
-    <spacer flex="1"/>
-    <button dlgtype="accept"/>
-  </hbox>
 </dialog>
