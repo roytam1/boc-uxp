@@ -328,11 +328,18 @@ SuiteGlue.prototype = {
   // profile is available
   _onProfileAfterChange: function()
   {
-    // check if we're in safe mode
-    if (Services.appinfo.inSafeMode) {
-      Services.ww.openWindow(null, "chrome://communicator/content/safeMode.xul",
-                             "_blank", "chrome,centerscreen,modal,resizable=no", null);
+    // EULA
+    var eulaDone = null;
+    try {
+      eulaDone = Services.prefs.getBoolPref("app.eula.accepted");
     }
+    catch (ex) { }
+
+    if (!eulaDone) {
+      Services.ww.openWindow(null, "chrome://communicator/content/eula/eula.xul",
+                           "_blank", "chrome,centerscreen,modal,resizable=no", null);
+    }
+
     this._copyDefaultProfileFiles();
   },
 
@@ -349,6 +356,12 @@ SuiteGlue.prototype = {
       // We need to persist this preference change, since we want to
       // check it at next app start even if the browser exits abruptly
       Services.prefs.savePrefFile(null);
+    }
+
+    // check if we're in safe mode
+    if (Services.appinfo.inSafeMode) {
+      Services.ww.openWindow(null, "chrome://communicator/content/safeMode.xul",
+                             "_blank", "chrome,centerscreen,modal,resizable=no", null);
     }
 
     this._setUpUserAgentOverrides();
