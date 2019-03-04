@@ -9,8 +9,8 @@ MOZ_APP_NAME=borealis
 MOZ_APP_DISPLAYNAME=Borealis
 MOZ_SUITE=1
 BINOC_BOREALIS=1
-MOZ_BRANDING_DIRECTORY=projects/navigator/branding/nightly
-MOZ_OFFICIAL_BRANDING_DIRECTORY=$MOZ_BRANDING_DIRECTORY
+MOZ_BRANDING_DIRECTORY=projects/navigator/branding/unofficial
+MOZ_OFFICIAL_BRANDING_DIRECTORY=projects/navigator/branding/official
 MOZ_EXTENSIONS_DEFAULT=" gio"
 MOZ_UPDATER=1
 # This should usually be the same as the value MAR_CHANNEL_ID.
@@ -20,7 +20,7 @@ ACCEPTED_MAR_CHANNEL_IDS=release
 # The MAR_CHANNEL_ID must not contain the following 3 characters: ",\t "
 MAR_CHANNEL_ID=release
 
-MOZ_APP_VERSION=`cat ${_topsrcdir}/$MOZ_BUILD_APP/app/version.txt`
+MOZ_APP_VERSION=`cat ${_topsrcdir}/$MOZ_BUILD_APP/config/version.txt`
 
 MOZ_APP_ID={a3210b97-8e8a-4737-9aa0-aa0e607640b9}
 MOZ_PROFILE_MIGRATOR=1
