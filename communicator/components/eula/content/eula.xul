@@ -23,10 +23,7 @@
   <script type="application/javascript" src="chrome://communicator/content/eula/eula.js"/>
 
   <dialogheader id="eula-header" class="header-large" title="&eula.header.title;" description="&eula.header.description;"/>
-  
-  <vbox id="main">
-    <label value=""/>
-  </vbox>
-
-  <separator class="groove-thin"/>
+  <separator/>
+  <vbox id="main"/>
+  <separator/>
 </dialog>
