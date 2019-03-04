@@ -3,12 +3,10 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-include('/communicator/communicator.mozbuild')
-
 if not CONFIG['MOZ_INCOMPLETE_EXTERNAL_LINKAGE']:
     DIRS += ['/projects/mail/components']
 
-include('/toolkit/toolkit.mozbuild')
+include('/communicator/communicator.mozbuild')
 
 if CONFIG['MOZ_EXTENSIONS']:
     DIRS += ['/extensions']

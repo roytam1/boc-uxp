@@ -4,7 +4,6 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 include('/communicator/communicator.mozbuild')
-include('/toolkit/toolkit.mozbuild')
 
 if CONFIG['MOZ_EXTENSIONS']:
     DIRS += ['/extensions']
