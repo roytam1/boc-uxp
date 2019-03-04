@@ -34,6 +34,18 @@ this.Communicator = {
     return platform == this.platform &&
            Services.vc.compare(platformVersion, version) <= 0;
   },
+  showLicenseWindow: function() {
+    var eulaDone = null;
+    try {
+      eulaDone = Services.prefs.getBoolPref("app.eula.accepted");
+    }
+    catch (ex) { }
+
+    if (!eulaDone || aReviewOnly) {
+      Services.ww.openWindow(null, "chrome://communicator/content/eula/eula.xul",
+                           "_blank", "chrome,centerscreen,modal,resizable=no");
+    }
+  },
   readfile: function(aDSDir, aFile) {
     Components.utils.import("resource://gre/modules/FileUtils.jsm");
     Components.utils.import("resource://gre/modules/NetUtil.jsm");

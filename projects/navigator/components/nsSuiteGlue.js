@@ -4,6 +4,7 @@
 
 const XULNS = "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
 
+Components.utils.import("resource://gre/modules/Communicator.jsm");
 Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
 Components.utils.import("resource://gre/modules/Services.jsm");
 Components.utils.import("resource://gre/modules/AddonManager.jsm");
@@ -328,18 +329,7 @@ SuiteGlue.prototype = {
   // profile is available
   _onProfileAfterChange: function()
   {
-    // EULA
-    var eulaDone = null;
-    try {
-      eulaDone = Services.prefs.getBoolPref("app.eula.accepted");
-    }
-    catch (ex) { }
-
-    if (!eulaDone) {
-      Services.ww.openWindow(null, "chrome://communicator/content/eula/eula.xul",
-                           "_blank", "chrome,centerscreen,modal,resizable=no", null);
-    }
-
+    Communicator.showLicenseWindow();
     this._copyDefaultProfileFiles();
   },
 

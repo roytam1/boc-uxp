@@ -7,6 +7,7 @@ var Ci = Components.interfaces;
 var Cc = Components.classes;
 var Cu = Components.utils;
 
+Cu.import("resource://gre/modules/Communicator.jsm");
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 Cu.import("resource://gre/modules/Services.jsm");
 Cu.import("resource://gre/modules/AddonManager.jsm");
@@ -65,17 +66,7 @@ MailGlue.prototype = {
       this._handleLink(aSubject, aData);
       break;
     case "profile-after-change":
-      // EULA
-      var eulaDone = null;
-      try {
-        eulaDone = Services.prefs.getBoolPref("app.eula.accepted");
-      }
-      catch (ex) { }
-
-      if (!eulaDone) {
-        Services.ww.openWindow(null, "chrome://communicator/content/eula/eula.xul",
-                             "_blank", "chrome,centerscreen,modal,resizable=no", null);
-      }
+      Communicator.showLicenseWindow();
 
       // Override Toolkit's nsITransfer implementation with the one from the
       // JavaScript API for downloads. This will eventually be removed when

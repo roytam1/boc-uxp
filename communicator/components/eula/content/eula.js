@@ -9,8 +9,7 @@ function Startup() {
   textbox.setAttribute("cols", "80");
   textbox.setAttribute("rows", "20");
   textbox.setAttribute("style", "resize: none; font-family: -moz-fixed;");
-  textbox.setAttribute("value",
-                       Communicator.readfile("GreD", "license.txt"));
+  textbox.setAttribute("value", Communicator.readfile("GreD", "license.txt"));
   main.appendChild(textbox);
 }
 
