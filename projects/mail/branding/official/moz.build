@@ -19,3 +19,31 @@ if CONFIG['MOZ_WIDGET_TOOLKIT'] == 'windows':
       'VisualElements_150.png',
       'VisualElements_70.png',
   ]
+
+BRANDING_FILES += ['license.txt']
+
+if CONFIG['MOZ_WIDGET_TOOLKIT'] == 'windows':
+  BRANDING_FILES += [
+      'branding.nsi',
+      'thunderbird.ico',
+      'windows/messengerWindow.ico',
+      'wizHeader.bmp',
+      'wizHeaderRTL.bmp',
+      'wizWatermark.bmp',
+  ]
+elif CONFIG['MOZ_WIDGET_TOOLKIT'] == 'cocoa':
+  BRANDING_FILES += [
+      'background.png',
+      'disk.icns',
+      'dsstore',
+      'thunderbird.icns'
+  ]
+elif 'gtk' in CONFIG['MOZ_WIDGET_TOOLKIT']:
+  BRANDING_FILES += [
+      'default16.png',
+      'default22.png',
+      'default24.png',
+      'default32.png',
+      'default48.png',
+      'default256.png'
+  ]

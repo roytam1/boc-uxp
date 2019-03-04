@@ -69,7 +69,7 @@ $(CONFIG_DIR)/setup.exe::
 	$(INSTALL) $(addprefix $(srcdir)/,$(INSTALLER_FILES)) $(CONFIG_DIR)
 	$(INSTALL) $(addprefix $(DIST)/branding/,$(BRANDING_FILES)) $(CONFIG_DIR)
 	$(PYTHON) $(MOZILLA_SRCDIR)/toolkit/mozapps/installer/windows/nsis/preprocess-locale.py \
-    --convert-utf8-utf16le $(topsrcdir)/projects/mail/installer/license.txt $(CONFIG_DIR)/license.txt
+    --convert-utf8-utf16le $(DIST)/branding/license.txt $(CONFIG_DIR)/license.txt
 	$(call py_action,preprocessor,-Fsubstitution $(DEFINES) $(ACDEFINES) \
 	  $(srcdir)/nsis/defines.nsi.in -o $(CONFIG_DIR)/defines.nsi)
 	$(PYTHON) $(MOZILLA_SRCDIR)/toolkit/mozapps/installer/windows/nsis/preprocess-locale.py \
