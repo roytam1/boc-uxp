@@ -3,13 +3,15 @@ Components.utils.import("resource://gre/modules/Communicator.jsm");
 function Startup() {
   main = document.getElementById("main");
   let textbox = document.createElement("textbox");
-  textbox.setAttribute("id", "eula");
-  textbox.setAttribute("readonly", "true");
-  textbox.setAttribute("multiline", "true");
-  textbox.setAttribute("cols", "80");
-  textbox.setAttribute("rows", "20");
-  textbox.setAttribute("style", "resize: none; font-family: -moz-fixed;");
-  textbox.setAttribute("value", Communicator.readfile("GreD", "license.txt"));
+  [
+    ["id", "eula"],
+    ["readonly", "true"],
+    ["multiline", "true"],
+    ["cols", "80"],
+    ["rows", "20"],
+    ["style", "resize: none; font-family: -moz-fixed;"],
+    ["value", Communicator.readfile("GreD", "license.txt")]
+  ].forEach(([name, value]) => textbox.setAttribute(name, value));
   main.appendChild(textbox);
 }
 

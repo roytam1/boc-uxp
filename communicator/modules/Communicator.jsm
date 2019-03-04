@@ -41,9 +41,9 @@ this.Communicator = {
     }
     catch (ex) { }
 
-    if (!eulaDone || aReviewOnly) {
+    if (!eulaDone) {
       Services.ww.openWindow(null, "chrome://communicator/content/eula/eula.xul",
-                           "_blank", "chrome,centerscreen,modal,resizable=no");
+                           "_blank", "chrome,centerscreen,modal,resizable=no", null);
     }
   },
   readfile: function(aDSDir, aFile) {
