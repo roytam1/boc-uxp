@@ -158,7 +158,7 @@ function getURLToLoad()
   } catch (e) {
   }
 
-  return "about:blank";
+  return "about:logopage";
 }
 
 function openWindow(parent, url, features, arg)

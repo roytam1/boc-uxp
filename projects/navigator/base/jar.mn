@@ -48,6 +48,9 @@ navigator.jar:
 
 % overlay chrome://mozapps/content/extensions/extensions.xul chrome://navigator/content/extensionsOverlay.xul
 
+toolkit.jar:
+  content/global/logopage.xhtml                                    (/mozilla/toolkit/content/logopage.xhtml)
+
 en-US.jar:
 % locale communicator en-US %locale/en-US/communicator/
 % locale communicator-platform en-US %locale/en-US/communicator-platform/

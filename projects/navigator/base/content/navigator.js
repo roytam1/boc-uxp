@@ -35,6 +35,7 @@ var gURIFixup = null;
 
 var gInitialPages = new Set([
   "about:blank",
+  "about:logopage",
   "about:privatebrowsing",
   "about:sessionrestore"
 ]);
@@ -1387,7 +1388,7 @@ function BrowserOpenTab()
     switch (tabPref)
     {
       default:
-        uriToLoad = "about:blank";
+        uriToLoad = "about:logopage";
         break;
       case 1:
         uriToLoad = GetLocalizedStringPref("browser.startup.homepage");

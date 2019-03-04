@@ -542,8 +542,9 @@
                   // like about:privatebrowsing arrive with nsIRequest pointing to
                   // their resolved jar: or file: URIs.
                   if (!(originalLocation && gInitialPages.has(originalLocation.spec) &&
-                        originalLocation != "about:blank" &&
-                        this.mBrowser.currentURI && this.mBrowser.currentURI.spec == "about:blank")) {
+                        originalLocation != "about:blank" && originalLocation != "about:logopage" &&
+                        this.mBrowser.currentURI && this.mBrowser.currentURI.spec == "about:blank" && 
+                        this.mBrowser.currentURI.spec == "about:logopage")) {
                     // This will trigger clearing the location bar. Don't do it if
                     // we loaded off a blank browser and this is an initial page load
                     // (e.g. about:privatebrowsing, etc.) so we avoid clearing the
@@ -976,8 +977,8 @@
               aURI = aURI.spec;
             }
 
-            if (aURI == "about:blank")
-              return "";
+            if (aURI == "about:blank" || aURI == "about:logopage")
+              return "Blank Page";
 
             // We have a URI. Let's try to unescape it using a character set
             // in case the URI is not ASCII.
@@ -1889,7 +1890,7 @@
               case 1:
                 // add a new blank tab to replace the one we're about to close
                 // (this ensures that the remaining tab is as good as new)
-                this.addTab("about:blank");
+                this.addTab("about:logopage");
                 l++;
                 // fall through
               case 2:
