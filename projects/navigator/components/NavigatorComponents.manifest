@@ -1,10 +1,8 @@
 component {8cc51368-6aa0-43e8-b762-bde9b9fd828c} nsAboutRedirector.js
 contract @mozilla.org/network/protocol/about;1?what=blocked {8cc51368-6aa0-43e8-b762-bde9b9fd828c}
 contract @mozilla.org/network/protocol/about;1?what=certerror {8cc51368-6aa0-43e8-b762-bde9b9fd828c}
-contract @mozilla.org/network/protocol/about;1?what=data {8cc51368-6aa0-43e8-b762-bde9b9fd828c}
 contract @mozilla.org/network/protocol/about;1?what=feeds {8cc51368-6aa0-43e8-b762-bde9b9fd828c}
 contract @mozilla.org/network/protocol/about;1?what=privatebrowsing {8cc51368-6aa0-43e8-b762-bde9b9fd828c}
-contract @mozilla.org/network/protocol/about;1?what=rights {8cc51368-6aa0-43e8-b762-bde9b9fd828c}
 contract @mozilla.org/network/protocol/about;1?what=sessionrestore {8cc51368-6aa0-43e8-b762-bde9b9fd828c}
 contract @mozilla.org/network/protocol/about;1?what=steamedhams {8cc51368-6aa0-43e8-b762-bde9b9fd828c}
 contract @mozilla.org/network/protocol/about;1?what=logopage {8cc51368-6aa0-43e8-b762-bde9b9fd828c}
