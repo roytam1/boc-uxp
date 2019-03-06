@@ -15,4 +15,6 @@ EXTRA_COMPONENTS += [
     'src/nsSuiteDownloadManagerUI.js',
 ]
 
+JS_PREFERENCE_PP_FILES += ['download-prefs.js']
+
 JAR_MANIFESTS += ['jar.mn']

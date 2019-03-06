@@ -36,30 +36,6 @@ pref("browser.send_pings", false);
 pref("browser.chrome.site_icons", true);
 pref("browser.chrome.favicons", true);
 
-pref("browser.download.finished_download_sound", false);
-pref("browser.download.finished_sound_url", "");
-pref("browser.download.useDownloadDir", false);
-pref("browser.download.folderList", 1);
-
-pref("browser.download.manager.showAlertOnComplete", true);
-pref("browser.download.manager.showAlertInterval", 2000);
-pref("browser.download.manager.retention", 2);
-pref("browser.download.manager.quitBehavior", 0);
-pref("browser.download.manager.addToRecentDocs", true);
-pref("browser.download.manager.scanWhenDone", true);
-pref("browser.download.manager.resumeOnWakeDelay", 10000);
-pref("browser.download.manager.flashCount", 2);
-pref("browser.download.manager.showWhenStarting", true);
-pref("browser.download.manager.focusWhenStarting", false);
-pref("browser.download.manager.closeWhenDone", false);
-pref("browser.download.progress.closeWhenDone", false);
-
-// Number of milliseconds to wait for the http headers (and thus
-// the Content-Disposition filename) before giving up and falling back to
-// picking a filename without that info in hand so that the user sees some
-// feedback from their action.
-pref("browser.download.saveLinkAsFilenameTimeout", 4000);
-
 // Output console.log/info/warn/error to the Error Console
 pref("browser.dom.window.console.enabled", false);
 
@@ -258,9 +234,6 @@ pref("browser.preferences.instantApply", true);
 
 pref("browser.preferences.animateFadeIn", false);
 
-pref("browser.download.show_plugins_in_list", true);
-pref("browser.download.hide_plugins_without_extensions", true);
-
 // initial web feed readers list - add enough entries for locales to add theirs
 pref("browser.contentHandlers.types.0.title", "chrome://navigator-region/locale/region.properties");
 pref("browser.contentHandlers.types.0.uri", "chrome://navigator-region/locale/region.properties");
@@ -352,19 +325,11 @@ pref("browser.taskbar.previews.cachetime", 5);
 
 pref("browser.throbber.url","chrome://navigator-region/locale/region.properties");
 
-// 0 opens the download manager
-// 1 opens a progress dialog
-// 2 and other values, no download manager, no progress dialog.
-pref("browser.download.manager.behavior", 0);
-
 // Show XUL error pages instead of alerts for errors
 pref("browser.xul.error_pages.enabled", true);
 pref("browser.xul.error_pages.expert_bad_cert", false);
 
 #ifdef XP_UNIX
-// For the download dialog
-pref("browser.download.progressDnldDialog.enable_launch_reveal_buttons", false);
-
 // Mouse wheel action when over the tab bar:
 // false  The mouse wheel scrolls the whole tab bar like Firefox.
 // true   The mouse wheel advances the selected tab.

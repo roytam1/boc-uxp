@@ -6,7 +6,11 @@
 <?xml-stylesheet href="chrome://communicator/skin/" type="text/css"?>
 <?xml-stylesheet href="chrome://communicator/skin/downloads/downloadmanager.css" type="text/css"?>
 
+#ifdef BINOC_BOREALIS
 <?xul-overlay href="chrome://communicator/content/tasksOverlay.xul"?>
+#elif BINOC_INTERLINK
+<?xul-overlay href="chrome://messenger/content/baseMenuOverlay.xul"?>
+#endif
 <?xul-overlay href="chrome://communicator/content/utilityOverlay.xul"?>
 <?xul-overlay href="chrome://global/content/editMenuOverlay.xul"?>
 

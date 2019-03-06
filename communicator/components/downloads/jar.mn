@@ -4,7 +4,7 @@
 
 comm.jar:
   content/communicator/downloads/downloadmanager.js                       (content/downloadmanager.js)
-  content/communicator/downloads/downloadmanager.xul                      (content/downloadmanager.xul)
+* content/communicator/downloads/downloadmanager.xul                      (content/downloadmanager.xul)
   content/communicator/downloads/DownloadProgressListener.js              (content/DownloadProgressListener.js)  
   content/communicator/downloads/progressDialog.xul                       (content/progressDialog.xul)
   content/communicator/downloads/progressDialog.js                        (content/progressDialog.js)
