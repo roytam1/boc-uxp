@@ -27,7 +27,7 @@ XPIDL_MODULE = 'navigatorcompsbase'
 
 EXTRA_COMPONENTS += [
     'NavigatorComponents.manifest',
-    'nsAbout.js',
+    'nsAboutRedirector.js',
     'nsBrowserContentHandler.js',
     'nsGopherProtocolStubHandler.js',
     'nsSuiteGlue.js',
