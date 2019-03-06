@@ -16,3 +16,14 @@ en-US.jar:
   locale/en-US/communicator/downloads/downloadmanager.dtd                 (locale/downloadmanager.dtd)
   locale/en-US/communicator/downloads/downloadmanager.properties          (locale/downloadmanager.properties)
   locale/en-US/communicator/downloads/progressDialog.dtd                  (locale/progressDialog.dtd)
+
+classic.jar:
+  skin/classic/communicator/downloads/dl-remove.png                       (skin/dl-remove.png)
+#ifdef XP_MACOSX
+  skin/classic/communicator/downloads/downloadButtons.png                 (skin/mac/downloadButtons.png)
+  skin/classic/communicator/downloads/downloadmanager.css                 (skin/mac/downloadmanager.css)
+  skin/classic/communicator/downloads/progressBg.png                      (skin/mac/progressBg.png)
+#else
+  skin/classic/communicator/downloads/downloadButtons.png                 (skin/downloadButtons.png)
+  skin/classic/communicator/downloads/downloadmanager.css                 (skin/downloadmanager.css)
+#endif

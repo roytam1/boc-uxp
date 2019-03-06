@@ -7,7 +7,6 @@ DIRS += [
     'bookmarks',
     'build',
     'dirprovider',
-    'downloads',
     'feeds',
     'history',
     'pageinfo',
