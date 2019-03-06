@@ -5,6 +5,8 @@
 
 JAR_MANIFESTS += ['jar.mn']
 
+BRANDING_FILES += ['license.txt']
+
 if CONFIG['MOZ_WIDGET_TOOLKIT'] == 'windows':
     BRANDING_FILES += [
         'icons/windows/html-file.ico',
