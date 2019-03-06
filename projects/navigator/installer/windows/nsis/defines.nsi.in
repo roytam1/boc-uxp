@@ -1,5 +1,5 @@
 #filter substitution
-!define AppName               "Borealis"
+!define AppName               "@MOZ_APP_DISPLAYNAME@"
 !define AppVersion            "@APP_VERSION@"
 !define GREVersion            @MOZILLA_VERSION@
 !define AB_CD                 "@AB_CD@"
@@ -24,7 +24,7 @@
 !define MinSupportedVer "Microsoft Windows 7 x64"
 #else
 !define ARCH "x86"
-!define MinSupportedVer "Microsoft Windows XP SP2"
+!define MinSupportedVer "Microsoft Windows 7"
 #endif
 
 !define MinSupportedCPU "SSE2"
@@ -33,7 +33,11 @@
 VIProductVersion "1.0.0.0"
 VIAddVersionKey "ProductName"     "${BrandShortName}"
 VIAddVersionKey "CompanyName"     "${CompanyName}"
-VIAddVersionKey "LegalTrademarks" "${BrandShortName} is a Trademark of The Mozilla Foundation."
+#ifdef MOZ_OFFICIAL_BRANDING
+VIAddVersionKey "LegalTrademarks" "${BrandShortName} is a Trademark of Binary Outcast."
+#else
+VIAddVersionKey "LegalTrademarks" "All marks are trademark of their respective owners."
+#endif
 VIAddVersionKey "LegalCopyright"  "${CompanyName}"
 VIAddVersionKey "FileVersion"     "${AppVersion}"
 VIAddVersionKey "ProductVersion"  "${AppVersion}"

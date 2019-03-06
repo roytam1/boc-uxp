@@ -346,7 +346,7 @@ en-US.jar:
   locale/en-US/communicator-platform/win/platformCommunicatorOverlay.dtd  (locale/win/platformCommunicatorOverlay.dtd)
   locale/en-US/communicator-platform/unix/platformCommunicatorOverlay.dtd (locale/unix/platformCommunicatorOverlay.dtd)
   locale/en-US/communicator-platform/mac/platformCommunicatorOverlay.dtd  (locale/mac/platformCommunicatorOverlay.dtd)
-  locale/en-US/communicator-region/region.properties                      (locale/region.properties)
+* locale/en-US/communicator-region/region.properties                      (locale/region.properties)
 
   locale/en-US/pippki/pref-certs.dtd                                      (locale/pref/pref-certs.dtd)
   locale/en-US/pippki/pref-ssl.dtd                                        (locale/pref/pref-ssl.dtd)
