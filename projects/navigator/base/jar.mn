@@ -75,4 +75,4 @@ en-US.jar:
   locale/en-US/navigator-platform/unix/platformNavigationBindings.dtd     (locale/unix/platformNavigationBindings.dtd)
   locale/en-US/navigator-platform/win/platformNavigationBindings.dtd      (locale/win/platformNavigationBindings.dtd)
 
-  locale/en-US/navigator-region/region.properties                         (locale/region.properties)
+* locale/en-US/navigator-region/region.properties                         (locale/region.properties)

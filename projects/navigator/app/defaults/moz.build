@@ -26,6 +26,10 @@ FINAL_TARGET_FILES.searchplugins += [
     '/mozilla/application/palemoon/locales/en-US/searchplugins/duckduckgo-palemoon.xml',
     '/mozilla/application/palemoon/locales/en-US/searchplugins/ecosia.xml',
     '/mozilla/application/palemoon/locales/en-US/searchplugins/wikipedia.xml',
-    'searchplugins/navigator-cross-reference.xml',
-    'searchplugins/uxp-cross-reference.xml',
 ]
+
+if CONFIG['MOZ_OFFICIAL_BRANDING']:
+    FINAL_TARGET_FILES.searchplugins += [
+      'searchplugins/navigator-cross-reference.xml',
+      'searchplugins/uxp-cross-reference.xml',
+    ]
