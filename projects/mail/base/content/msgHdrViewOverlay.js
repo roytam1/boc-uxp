@@ -223,6 +223,7 @@ function OnLoadMsgHeaderPane()
   // listen to the
   Services.prefs.addObserver("mail.showCondensedAddresses", MsgHdrViewObserver, false);
   Services.prefs.addObserver("mailnews.headers.showReferences", MsgHdrViewObserver, false);
+  Services.prefs.addObserver("mailnews.header.toolbar", MsgHdrViewObserver, false);
 
   initializeHeaderViewTables();
 
@@ -286,6 +287,8 @@ function OnLoadMsgHeaderPane()
  *                         has been added or removed from the toolbar
  */
 function initInlineToolbox(toolboxId, toolbarId, popupId, customizeChange) {
+  var headerBox = document.getElementById("msgHeaderView");
+  headerBox.setAttribute("showToolbar", Services.prefs.getBoolPref("mailnews.header.toolbar"));
   let toolbox = document.getElementById(toolboxId);
   toolbox.customizeDone = function(aEvent) {
     MailToolboxCustomizeDone(aEvent, popupId);
@@ -333,6 +336,7 @@ function OnUnloadMsgHeaderPane()
 {
   Services.prefs.removeObserver("mail.showCondensedAddresses", MsgHdrViewObserver);
   Services.prefs.removeObserver("mailnews.headers.showReferences", MsgHdrViewObserver);
+  Services.prefs.removeObserver("mailnews.header.toolbar", MsgHdrViewObserver);
 
   MailServices.ab.removeAddressBookListener(AddressBookListener);
 
@@ -358,6 +362,10 @@ var MsgHdrViewObserver =
         gHeadersShowReferences =
           Services.prefs.getBoolPref("mailnews.headers.showReferences");
         ReloadMessage();
+      }
+      else if (prefName == "mailnews.header.toolbar") {
+        var headerBox = document.getElementById("msgHeaderView");
+        headerBox.setAttribute("showToolbar", Services.prefs.getBoolPref("mailnews.header.toolbar"));
       }
     }
   }

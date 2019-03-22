@@ -20,6 +20,7 @@ pref("general.skins.selectedSkin", "classic/1.0");
 #endif
 
 pref("layout.css.devPixelsPerPx", "1.0");
+pref("mailnews.header.toolbar", false);
 
 // override double-click word selection behavior.
 pref("layout.word_select.eat_space_to_next_word", false);
