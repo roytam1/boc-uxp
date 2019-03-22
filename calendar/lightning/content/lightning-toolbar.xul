@@ -122,7 +122,8 @@
            defaulticonsize="small"
 #endif
            labelalign="end"
-           defaultlabelalign="end">
+           defaultlabelalign="end"
+           style="-moz-appearance: none; background-color: rgb(248, 248, 248); border-bottom: 1px solid threedshadow; border-top: 0px;">
     <toolbarpalette id="CalendarToolbarPalette">
       <toolbarbutton id="calendar-synchronize-button"
                      class="toolbarbutton-1 calbar-toolbarbutton-1"
@@ -164,10 +165,6 @@
                      label="&showUnifinderCmd.label;"
                      tooltiptext="&showUnifinderCmd.tooltip;"
                      observes="calendar_show_unifinder_command"/>
-      <toolbarbutton id="calendar-appmenu-button"
-                     class="toolbarbutton-1 button-appmenu"
-                     label="&lightning.toolbar.appmenuButton.label;"
-                     tooltiptext="&lightning.toolbar.appmenuButton1.tooltip;"/>
     </toolbarpalette>
 
     <toolbar id="calendar-toolbar2" class="inline-toolbar chromeclass-toolbar"
@@ -179,7 +176,7 @@
 #ifdef XP_MACOSX
              iconsize="small"
 #endif
-             defaultset="calendar-synchronize-button,calendar-newevent-button,calendar-newtask-button,calendar-edit-button,calendar-delete-button,spring,calendar-appmenu-button"/>
+             defaultset="calendar-synchronize-button,calendar-newevent-button,calendar-newtask-button,calendar-edit-button,calendar-delete-button,spring"/>
     <toolbarset id="calendarToolbars" context="calendar-toolbar-context"/>
   </toolbox>
 
@@ -192,7 +189,8 @@
            defaulticonsize="small"
 #endif
            labelalign="end"
-           defaultlabelalign="end">
+           defaultlabelalign="end"
+           style="-moz-appearance: none; background-color: rgb(248, 248, 248); border-bottom: 1px solid threedshadow; border-top: 0px;">
     <toolbarpalette id="TaskToolbarPalette">
       <toolbarbutton id="task-synchronize-button"
                      class="toolbarbutton-1 calbar-toolbarbutton-1"
@@ -224,10 +222,6 @@
                      label="&lightning.toolbar.print.label;"
                      tooltiptext="&lightning.toolbar.print.tooltip;"
                      observes="cmd_print"/>
-      <toolbarbutton id="task-appmenu-button"
-                     class="toolbarbutton-1 button-appmenu"
-                     label="&lightning.toolbar.appmenuButton.label;"
-                     tooltiptext="&lightning.toolbar.appmenuButton1.tooltip;"/>
     </toolbarpalette>
 
     <toolbar id="task-toolbar2" class="inline-toolbar chromeclass-toolbar"
@@ -239,7 +233,7 @@
 #ifdef XP_MACOSX
              iconsize="small"
 #endif
-             defaultset="task-synchronize-button,task-newevent-button,task-newtask-button,task-edit-button,task-delete-button,spring,task-appmenu-button"/>
+             defaultset="task-synchronize-button,task-newevent-button,task-newtask-button,task-edit-button,task-delete-button,spring"/>
     <toolbarset id="taskToolbars" context="task-toolbar-context"/>
   </toolbox>
 </overlay>
