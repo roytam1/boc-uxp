@@ -188,3 +188,16 @@ menupopup[type="folder"] > menuitem {
 menulist.folderMenuItem > .menulist-label-box > .menulist-label {
   -moz-margin-start: 2px !important;
 }
+
+.today-closebutton {
+  list-style-image: url("chrome://global/skin/icons/close.png") !important;
+  -moz-image-region: rect(0px, 56px, 14px, 42px) !important;
+}
+
+.today-closebutton:hover {
+  -moz-image-region: rect(0px, 28px, 14px, 14px) !important;
+}
+
+.today-closebutton:hover:active {
+  -moz-image-region: rect(0px, 42px, 14px, 28px) !important;
+}
