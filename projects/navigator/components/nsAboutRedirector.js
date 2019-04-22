@@ -36,10 +36,12 @@ AboutRedirector.prototype = {
       url: "chrome://communicator/content/feeds/subscribe.xhtml",
       flags: (ALLOW_SCRIPT | URI_SAFE_FOR_UNTRUSTED_CONTENT | HIDE_FROM_ABOUTABOUT)
     },
+    /* XXXTobin: Logopage is busted
     "logopage": {
       url: "chrome://global/content/logopage.xhtml",
       flags: (URI_SAFE_FOR_UNTRUSTED_CONTENT | HIDE_FROM_ABOUTABOUT)
     },
+    */
     "privatebrowsing": {
       url: "chrome://communicator/content/aboutPrivateBrowsing.xul",
       flags: ALLOW_SCRIPT
