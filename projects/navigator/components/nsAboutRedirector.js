@@ -45,7 +45,7 @@ AboutRedirector.prototype = {
       flags: ALLOW_SCRIPT
     },
     "sessionrestore": {
-      url: "chrome://communicator/content/feeds/subscribe.xhtml",
+      url: "chrome://communicator/content/aboutSessionRestore.xhtml",
       flags: (ALLOW_SCRIPT | HIDE_FROM_ABOUTABOUT)
     },
     "steamedhams": {
