@@ -36,10 +36,7 @@ this.Communicator = {
   },
   showLicenseWindow: function() {
     var eulaDone = null;
-    try {
-      eulaDone = Services.prefs.getBoolPref("app.eula.accepted");
-    }
-    catch (ex) { }
+    eulaDone = Services.prefs.getBoolPref("app.eula.accepted", false);
 
     if (!eulaDone) {
       Services.ww.openWindow(null, "chrome://communicator/content/eula/eula.xul",
