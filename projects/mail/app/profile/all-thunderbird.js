@@ -11,6 +11,8 @@
 #endif
 #endif
 
+pref("signon.startup.prompt", true);
+
 pref("general.useragent.locale", "@AB_CD@");
 
 #ifdef MOZ_MAIL_LEGACY
