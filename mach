@@ -4,4 +4,16 @@ if BINOC_GIT_PATH="$(which git 2>/dev/null)"; then
   export BINOC_GIT_BRANCH=`git symbolic-ref --short HEAD`
 fi
 
-./mozilla/mach $@
+BINOC_TOOLCHAIN=`uname`
+MACH_CMD=./mozilla/mach
+
+if [ "$1" == "release" ]; then
+  $MACH_CMD build
+  $MACH_CMD package
+  if [[ "$BINOC_TOOLCHAIN" == "MINGW32_NT-"* ]]; then
+    $MACH_CMD installer
+  fi
+  $MACH_CMD mar
+else 
+  $MACH_CMD $@
+fi
