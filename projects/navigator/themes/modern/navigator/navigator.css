@@ -377,6 +377,7 @@ toolbar[iconsize=small][mode="icons"] #print-button > .toolbarbutton-menubutton-
 .toolbar-primary-holder {
   -moz-box-align: start;
   background-image: url("chrome://communicator/skin/toolbar/prtb-bg-noline.gif");
+  background-size: auto 90%;
 }
 
 /* ::::: the grooved area around the urlbar and associated buttons ::::: */
