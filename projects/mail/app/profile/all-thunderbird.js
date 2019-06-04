@@ -21,7 +21,6 @@ pref("general.skins.selectedSkin", "ClassicTB2");
 pref("general.skins.selectedSkin", "classic/1.0");
 #endif
 
-pref("layout.css.devPixelsPerPx", "1.0");
 pref("mailnews.header.toolbar", false);
 
 // override double-click word selection behavior.
