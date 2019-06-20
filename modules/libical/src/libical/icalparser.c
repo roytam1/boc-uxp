@@ -190,25 +190,24 @@ static
 char* parser_get_next_char(char c, char *str, int qm)
 {
     int quote_mode = 0;
-    char* p;
+    char *p = str;
+    char next_char = *p;
+    char prev_char = 0;
 
-    for(p=str; *p!=0; p++){
-	    if (qm == 1) {
-				if ( quote_mode == 0 && *p=='"' && *(p-1) != '\\' ){
-						quote_mode =1;
-						continue;
-				}
+    while (next_char != '\0') {
+        if (prev_char != '\\') {
+            if (qm == 1 && next_char == '"') {
+                /* Encountered a quote, toggle quote mode */
+                quote_mode = !quote_mode;
+            } else if (quote_mode == 0 && next_char == c) {
+                /* Found a matching character out of quote mode, return it */
+                return p;
+            }
+        }
 
-				if ( quote_mode == 1 && *p=='"' && *(p-1) != '\\' ){
-						quote_mode =0;
-						continue;
-				}
-	    }
-		
-		if (quote_mode == 0 &&  *p== c  && *(p-1) != '\\' ){
-				return p;
-		} 
-
+        /* Save the previous character so we can check if it's a backslash in the next iteration */
+        prev_char = next_char;
+        next_char = *(++p);
     }
 
     return 0;
@@ -382,10 +381,9 @@ char* parser_get_next_value(char* line, char **end, icalvalue_kind kind)
 	/* If the comma is preceded by a '\', then it is a literal and
 	   not a value separator*/  
       
-	if ( (next!=0 && *(next-1) == '\\') ||
-	     (next!=0 && *(next-3) == '\\')
-	    ) 
-	    /*second clause for '/' is on prev line. HACK may be out of bounds */
+  if ((next!=0 && *(next-1) == '\\') ||
+      (next!=0 && (next-3) >= line && *(next-3) == '\\' && *(next-2) == '\r' && *(next-1) == '\n'))
+      /* second clause for '\' is on prev line */
 	{
 	    p = next+1;
 	} else {
@@ -731,24 +729,10 @@ icalcomponent* icalparser_add_line(icalparser* parser,
 
 	parser->level++;
 	str = parser_get_next_value(end,&end, value_kind);
-	    
 
-        comp_kind = icalenum_string_to_component_kind(str);
+    comp_kind = icalenum_string_to_component_kind(str);
 
-
-        if (comp_kind == ICAL_NO_COMPONENT){
-
-
-	    c = icalcomponent_new(ICAL_XLICINVALID_COMPONENT);
-	    insert_error(c,str,"Parse error in component name",
-			 ICAL_XLICERRORTYPE_COMPONENTPARSEERROR);
-        }
-
-	if (comp_kind != ICAL_X_COMPONENT) {
-	    c  =  icalcomponent_new(comp_kind);
-	} else {
-	    c  =  icalcomponent_new_x(str);
-	}
+    c  =  icalcomponent_new(comp_kind);
 
 	if (c == 0){
 	    c = icalcomponent_new(ICAL_XLICINVALID_COMPONENT);
@@ -984,6 +968,12 @@ icalcomponent* icalparser_add_line(icalparser* parser,
 
 	    /* If it is a VALUE parameter, set the kind of value*/
 	    if (icalparameter_isa(param)==ICAL_VALUE_PARAMETER){
+        const char unknown_type[] =
+            "Got a VALUE parameter with an unknown type";
+        const char illegal_type[] =
+            "Got a VALUE parameter with an illegal type for property";
+        const char *value_err = NULL;
+
 
 		value_kind = (icalvalue_kind)
                     icalparameter_value_to_value_kind(
@@ -995,10 +985,69 @@ icalcomponent* icalparser_add_line(icalparser* parser,
 		    /* Ooops, could not parse the value of the
 		       parameter ( it was not one of the defined
 		       values ), so reset the value_kind */
-			
-		    insert_error(
-			tail, str, 
-			"Got a VALUE parameter with an unknown type",
+
+        value_err = unknown_type;
+    }
+    else if (value_kind !=
+             icalproperty_kind_to_value_kind(icalproperty_isa(prop))) {
+        /* VALUE parameter type does not match default type
+           for this property (check for allowed alternate types) */
+
+        switch (prop_kind) {
+        case ICAL_ATTACH_PROPERTY:
+        // case ICAL_IMAGE_PROPERTY:
+            /* Accept BINARY */
+            if (value_kind != ICAL_BINARY_VALUE)
+                value_err = illegal_type;
+            break;
+
+        case ICAL_DTEND_PROPERTY:
+        case ICAL_DUE_PROPERTY:
+        case ICAL_DTSTART_PROPERTY:
+        case ICAL_EXDATE_PROPERTY:
+        case ICAL_RECURRENCEID_PROPERTY:
+            /* Accept DATE */
+            if (value_kind != ICAL_DATE_VALUE)
+                value_err = illegal_type;
+            break;
+
+        case ICAL_GEO_PROPERTY:
+            /* Accept FLOAT (but change to GEO) */
+            if (value_kind != ICAL_FLOAT_VALUE)
+                value_err = illegal_type;
+            else value_kind = ICAL_GEO_VALUE;
+            break;
+
+        case ICAL_RDATE_PROPERTY:
+            /* Accept DATE-TIME, DATE or PERIOD */
+            if (value_kind != ICAL_DATETIME_VALUE &&
+                value_kind != ICAL_DATE_VALUE &&
+                value_kind != ICAL_PERIOD_VALUE)
+                value_err = illegal_type;
+            break;
+
+        case ICAL_TRIGGER_PROPERTY:
+            /* Accept DATE-TIME */
+            if (value_kind != ICAL_DATETIME_VALUE)
+                value_err = illegal_type;
+            break;
+
+        case ICAL_X_PROPERTY:
+            /* Accept ANY value type */
+            break;
+
+        default:
+            /* ONLY default type is allowed */
+            value_err = illegal_type;
+            break;
+        }
+    }
+
+    if (value_err != NULL) {
+        /* Ooops, unknown/illegal VALUE parameter,
+           so reset the value_kind */
+
+        insert_error(tail, str, value_err,
 			ICAL_XLICERRORTYPE_PARAMETERVALUEPARSEERROR);
 			
 		    value_kind = 
