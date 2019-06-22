@@ -88,25 +88,20 @@ elif platform.system() == "Linux":
 
 strSubPath = ''
 
-# ambassador
-strSubPath = '/mozilla/application/ambassador/'
-funcOutputMessage('statusGen', 'Updating ambassador repository')
-subprocess.call('"{0}" {1}'.format(strGitBinary, 'checkout'), shell=True, cwd=strScriptPath + strSubPath)
-subprocess.call('"{0}" {1}'.format(strGitBinary, 'pull'), shell=True, cwd=strScriptPath + strSubPath)
-
-# iceweasel-uxp
-# strSubPath = '/mozilla/application/iceweasel-uxp/'
-# funcOutputMessage('statusGen', 'Updating iceweasel repository')
-# subprocess.call('"{0}" {1}'.format(strGitBinary, 'checkout'), shell=True, cwd=strScriptPath + strSubPath)
-# subprocess.call('"{0}" {1}'.format(strGitBinary, 'pull'), shell=True, cwd=strScriptPath + strSubPath)
-
-strSubPath = '/mozilla/'
-funcOutputMessage('statusGen', 'Updating unified xul platform repository')
-subprocess.call('"{0}" {1}'.format(strGitBinary, 'submodule update'), shell=True, cwd=strScriptPath)
-
 # top-level
 funcOutputMessage('statusGen', 'Updating top-level repository')
 subprocess.call('"{0}" {1}'.format(strGitBinary, 'checkout'), shell=True, cwd=strScriptPath)
 subprocess.call('"{0}" {1}'.format(strGitBinary, 'pull'), shell=True, cwd=strScriptPath)
+
+strSubPath = '/mozilla/'
+funcOutputMessage('statusGen', 'Updating Unified XUL Platform repository')
+subprocess.call('"{0}" {1}'.format(strGitBinary, 'submodule update'), shell=True, cwd=strScriptPath)
+
+# ambassador
+strSubPath = '/mozilla/application/ambassador/'
+funcOutputMessage('statusGen', 'Updating Ambassador repository')
+subprocess.call('"{0}" {1}'.format(strGitBinary, 'checkout'), shell=True, cwd=strScriptPath + strSubPath)
+subprocess.call('"{0}" {1}'.format(strGitBinary, 'pull'), shell=True, cwd=strScriptPath + strSubPath)
+
 
 # =============================================================================
