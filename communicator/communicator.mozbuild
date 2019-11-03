@@ -6,13 +6,6 @@
 if CONFIG['MOZ_COMPOSER']:
     DIRS += ['/editor/ui']
 
-if CONFIG['MOZ_MAILNEWS']:
-    DIRS += [
-        '/modules/ldap',
-        '/modules/mork',
-        '/mailnews',
-    ]
-
 if CONFIG['MOZ_CALENDAR']:
     DIRS += [
         '/modules/libical',
