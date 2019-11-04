@@ -18,34 +18,11 @@ AC_DEFINE(BINOC_INTERLINK)
 AC_SUBST(MOZ_BUNDLED_FONTS)
 AC_DEFINE(MOZ_SEPARATE_MANIFEST_FOR_THEME_OVERRIDES)
 
-AC_SUBST(MOZ_MAILNEWS)
 AC_SUBST(MOZ_COMPOSER)
-
-AC_SUBST(MOZ_LDAP_XPCOM)
-AC_DEFINE(MOZ_LDAP_XPCOM)
 
 SEAMONKEY_VERSION=2.49
 AC_SUBST(SEAMONKEY_VERSION)
 AC_SUBST(THUNDERBIRD_VERSION)
-
-dnl =========================================================
-dnl = Mork
-dnl =========================================================
-AC_SUBST(MOZ_MORK)
-if test "$MOZ_MORK"; then
-  AC_DEFINE(MOZ_MORK)
-fi
-
-dnl =========================================================
-dnl = movemail
-dnl =========================================================
-if test "$OS_ARCH" != "WINNT"; then
-  MOZ_MOVEMAIL=1
-  HAVE_MOVEMAIL=1
-  AC_DEFINE(HAVE_MOVEMAIL)
-fi
-AC_SUBST(MOZ_MOVEMAIL)
-
 
 dnl =========================================================
 dnl = Lightning extension
@@ -56,31 +33,3 @@ MOZ_ARG_DISABLE_BOOL(calendar,
     MOZ_CALENDAR=1)
 
 AC_SUBST(MOZ_CALENDAR)
-
-dnl =========================================================
-dnl = Don't fold *comps into libXUL
-dnl =========================================================
-MOZ_ARG_ENABLE_BOOL(incomplete-external-linkage,
-[  --enable-incomplete-external-linkage Don't fold *comps into libXUL which is currently badly busted so don't even bother with it ],
-    MOZ_INCOMPLETE_EXTERNAL_LINKAGE=1,
-    MOZ_INCOMPLETE_EXTERNAL_LINKAGE= )
-
-AC_SUBST(MOZ_INCOMPLETE_EXTERNAL_LINKAGE)
-
-dnl =========================================================
-dnl = MAPI support (Windows only)
-dnl =========================================================
-
-if test "$_WIN32_MSVC"; then
-    MOZ_MAPI_SUPPORT=1
-fi
-
-MOZ_ARG_DISABLE_BOOL(mapi,
-[  --disable-mapi          Disable MAPI support],
-    MOZ_MAPI_SUPPORT= )
-
-AC_SUBST(MOZ_MAPI_SUPPORT)
-
-if test -n "$MOZ_MAPI_SUPPORT"; then
-    AC_DEFINE(MOZ_MAPI_SUPPORT)
-fi
