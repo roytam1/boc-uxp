@@ -359,6 +359,10 @@ pref("offline.autoDetect", false);
 pref("offline.autoDetect", true);
 #endif
 
+// Disable preconnect and friends due to privacy concerns. They are not
+// sent through content policies.
+pref("network.http.speculative-parallel-limit", 0);
+
 // Expose only select protocol handlers. All others should go
 // through the external protocol handler route.
 // If you are changing this list, you may need to also consider changing the
