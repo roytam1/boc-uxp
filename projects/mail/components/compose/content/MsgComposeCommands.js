@@ -2615,16 +2615,17 @@ function ComposeStartup(aParams)
 
   // An identity with no email is likely not valid.
   if (!params.identity || !params.identity.email) {
-      let identity = null;
+    let identity = null;
     // No pre-selected identity, so use the default account.
-      let defaultAccount = MailServices.accounts.defaultAccount;
-      if (defaultAccount) {
-        identity = defaultAccount.defaultIdentity;
-        if (!identity) {
-          let identities = MailServices.accounts.allIdentities;
-          if (identities.length > 0)
-            identity = identities.queryElementAt(0, Components.interfaces.nsIMsgIdentity);
-        }
+    let defaultAccount = MailServices.accounts.defaultAccount;
+    if (defaultAccount) {
+      identity = defaultAccount.defaultIdentity;
+      if (!identity) {
+        let identities = MailServices.accounts.allIdentities;
+        if (identities.length > 0)
+          identity = identities.queryElementAt(0, Components.interfaces.nsIMsgIdentity);
+      }
+    }
   }
 
   identityList.selectedItem =
