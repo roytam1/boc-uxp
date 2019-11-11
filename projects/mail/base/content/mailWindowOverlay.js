@@ -785,6 +785,9 @@ function SetGetMsgButtonTooltip()
   else
     folders = [ GetDefaultAccountRootFolder() ];
 
+  if (!folders[0])
+    return;
+
   var bundle = document.getElementById("bundle_messenger");
   var listSeparator = bundle.getString("getMsgButtonTooltip.listSeparator");
 
@@ -2021,22 +2024,19 @@ function getDestinationFolder(preselectedFolder, server)
     // its incoming server as parent folder.
     if (!verifyCreateSubfolders)
     {
-      try {
-        var defaultFolder = GetDefaultAccountRootFolder();
-        var checkCreateSubfolders = null;
-        if (defaultFolder)
-          checkCreateSubfolders = defaultFolder.canCreateSubfolders;
+      let defaultFolder = GetDefaultAccountRootFolder();
+      let checkCreateSubfolders = null;
+      if (defaultFolder)
+        checkCreateSubfolders = defaultFolder.canCreateSubfolders;
 
-        if (checkCreateSubfolders)
-          destinationFolder = defaultFolder;
-
-      } catch (e) {
-          dump ("Exception: defaultAccount Not Available\n");
-      }
+      if (checkCreateSubfolders)
+        destinationFolder = defaultFolder;
     }
-  }
-  else
+  } else {
+    // XXX TODO: why do we select the preselectedFolder
+    // even if it can't create subfolders?
     destinationFolder = preselectedFolder;
+  }
 
   return destinationFolder;
 }
@@ -2672,14 +2672,11 @@ function IsAccountOfflineEnabled()
 
 function GetDefaultAccountRootFolder()
 {
-  try {
-    var account = accountManager.defaultAccount;
-    var defaultServer = account.incomingServer;
-    var defaultFolder = defaultServer.rootMsgFolder;
-    return defaultFolder;
+  var account = accountManager.defaultAccount;
+  if (account) {
+    return account.incomingServer.rootMsgFolder;
   }
-  catch (ex) {
-  }
+
   return null;
 }
 
@@ -2692,8 +2689,8 @@ function GetFolderMessages()
   var selectedFolders = GetSelectedMsgFolders();
   var defaultAccountRootFolder = GetDefaultAccountRootFolder();
 
-  // if no default account, get msg isn't going do anything anyways
-  // so bail out
+  // If no default account, GetNewMsgs isn't going to do anything anyways
+  // so bail out.
   if (!defaultAccountRootFolder)
     return;
 

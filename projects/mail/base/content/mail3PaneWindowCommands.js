@@ -1182,8 +1182,14 @@ function IsSendUnsentMsgsEnabled(unsentMsgsFolder)
   if (folders.length > 0)
     identity = getIdentityForServer(folders[0].server);
 
-  if (!identity)
-    identity = MailServices.accounts.defaultAccount.defaultIdentity;
+  if (!identity) {
+    let defaultAccount = MailServices.accounts.defaultAccount;
+    if (defaultAccount)
+      identity = defaultAccount.defaultIdentity;
+
+    if (!identity)
+      return false;
+  }
 
   return msgSendlater.hasUnsentMessages(identity);
 }

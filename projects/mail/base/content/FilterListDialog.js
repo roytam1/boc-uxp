@@ -841,10 +841,13 @@ function getFilterFolderForSelection(aFolder)
  */
 function getServerThatCanHaveFilters()
 {
-    let defaultIncomingServer = MailServices.accounts.defaultAccount.incomingServer;
-    // Check to see if default server can have filters.
-    if (defaultIncomingServer.canHaveFilters)
-      return defaultIncomingServer;
+    let defaultAccount = MailServices.accounts.defaultAccount;
+    if (defaultAccount) {
+      let defaultIncomingServer = defaultAccount.incomingServer;
+      // Check to see if default server can have filters.
+      if (defaultIncomingServer.canHaveFilters)
+        return defaultIncomingServer;
+    }
 
     // If it cannot, check all accounts to find a server
     // that can have filters.

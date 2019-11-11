@@ -243,13 +243,7 @@ cal.getEmailIdentityOfCalendar = function(aCalendar, outAccount) {
             return null;
         };
 
-        let foundAccount = (function() {
-            try {
-                return MailServices.accounts.defaultAccount;
-            } catch (e) {
-                return null;
-            }
-        })();
+        let foundAccount = MailServices.accounts.defaultAccount;
         let foundIdentity = findIdentity(foundAccount);
 
         if (!foundAccount || !foundIdentity) {
