@@ -271,6 +271,8 @@ function CommandUpdate_AddressBook()
 {
   goUpdateCommand('cmd_delete');
   goUpdateCommand('button_delete');
+  goUpdateCommand('cmd_printcardpreview');
+  goUpdateCommand('cmd_printcard');
   goUpdateCommand('cmd_properties');
   goUpdateCommand('cmd_newlist');
   goUpdateCommand('cmd_newCard');
