@@ -1,0 +1,9 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
+<!ENTITY  brandShortName        "Interlink">
+<!ENTITY  brandShorterName      "Interlink">
+<!ENTITY  brandFullName         "Interlink Mail &amp; News">
+<!ENTITY  vendorShortName       "Binary Outcast">
+<!ENTITY  trademarkInfo.part1   "Interlink Mail &amp; News, Binary Outcast, and all branding assets are copyright or trademarks of Matt A. Tobin">
