@@ -1,7 +1,14 @@
 #!/bin/sh
 
 if BINOC_GIT_PATH="$(which git 2>/dev/null)"; then
-  export BINOC_GIT_BRANCH=`git symbolic-ref --short HEAD`
+  _COMM_BRANCH=`git symbolic-ref --short HEAD | tr [:upper:] [:lower:]`
+  _MOZILLA_BRANCH=`cd mozilla && git symbolic-ref --short HEAD | tr [:upper:] [:lower:]`
+  
+  if [ -n "$_MOZILLA_BRANCH" ]; then
+    export BINOC_GIT_BRANCH=$_COMM_BRANCH@$_MOZILLA_BRANCH
+  else
+    export BINOC_GIT_BRANCH=$_COMM_BRANCH
+  fi
 fi
 
 BINOC_TOOLCHAIN=`uname`
