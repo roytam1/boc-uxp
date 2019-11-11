@@ -19,7 +19,7 @@ public:
   NS_DECL_ISUPPORTS
   NS_DECL_NSIMAILWINSEARCHHELPER
 
-  NS_HIDDEN_(nsresult) Init();
+  nsresult Init();
   nsMailWinSearchHelper();
 
 private:

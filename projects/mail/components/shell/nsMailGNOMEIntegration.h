@@ -20,7 +20,7 @@ public:
   NS_DECL_ISUPPORTS
   NS_DECL_NSISHELLSERVICE
 
-  NS_HIDDEN_(nsresult) Init();
+  nsresult Init();
   nsMailGNOMEIntegration();
 
 protected:
