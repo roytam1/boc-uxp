@@ -2477,19 +2477,8 @@ function ComposeStartup(aParams)
         params.originalMsgURI = args.originalMsgURI;
       if (args.preselectid)
         params.identity = getIdentityForKey(args.preselectid);
-      else if (args.from) {
-        let identities = MailServices.accounts.allIdentities;
-        let enumerator = identities.enumerate();
-        let ident = {};
-
-        while (enumerator.hasMoreElements()) {
-          ident = enumerator.getNext();
-          if (args.from.toLowerCase().trim() == ident.email.toLowerCase()) {
-            params.identity = ident;
-            break;
-          }
-        }
-      }
+      if (args.from)
+        composeFields.from = args.from;
       if (args.to)
         composeFields.to = args.to;
       if (args.cc)
@@ -2613,18 +2602,60 @@ function ComposeStartup(aParams)
 
   gComposeType = params.type;
 
+  // Detect correct identity when missing or mismatched.
   // An identity with no email is likely not valid.
-  if (!params.identity || !params.identity.email) {
+  // When editing a draft, 'params.identity' is pre-populated with the identity
+  // that created the draft or the identity owning the draft folder for a "foreign",
+  // draft, see ComposeMessage() in mailCommands.js. We don't want the latter,
+  // so use the creator identity which could be null.
+  if (gComposeType == nsIMsgCompType.Draft) {
+    let creatorKey = params.composeFields.creatorIdentityKey;
+    params.identity = creatorKey ? getIdentityForKey(creatorKey) : null;
+  }
+  let from = [];
+  if (params.composeFields.from)
+    from = MailServices.headerParser
+                       .parseEncodedHeader(params.composeFields.from, null);
+  from = (from.length && from[0] && from[0].email) ?
+    from[0].email.toLowerCase().trim() : null;
+  if (!params.identity || !params.identity.email ||
+      (from && !emailSimilar(from, params.identity.email))) {
+    let identities = MailServices.accounts.allIdentities;
+    let suitableCount = 0;
+
+    // Search for a matching identity.
+    if (from) {
+      for (let ident of fixIterator(identities, Components.interfaces.nsIMsgIdentity)) {
+        if (from == ident.email.toLowerCase()) {
+          if (suitableCount == 0)
+            params.identity = ident;
+          suitableCount++;
+          if (suitableCount > 1)
+            break; // No need to find more, it's already not unique.
+        }
+      }
+    }
+
+    if (!params.identity || !params.identity.email) {
       let identity = null;
-    // No pre-selected identity, so use the default account.
+      // No preset identity and no match, so use the default account.
       let defaultAccount = MailServices.accounts.defaultAccount;
       if (defaultAccount) {
         identity = defaultAccount.defaultIdentity;
         if (!identity) {
           let identities = MailServices.accounts.allIdentities;
           if (identities.length > 0)
-            identity = identities.queryElementAt(0, Components.interfaces.nsIMsgIdentity);
+            identity = identities.queryElementAt(0, Ci.nsIMsgIdentity);
         }
+      }
+      params.identity = identity;
+    }
+
+    // Warn if no or more than one match was found.
+    // But don't warn for +suffix additions (a+b@c.com).
+    if (from && (suitableCount > 1 ||
+        (suitableCount == 0 && !emailSimilar(from, params.identity.email))))
+      gComposeNotificationBar.setIdentityWarning(params.identity.identityName);
   }
 
   identityList.selectedItem =
@@ -2632,7 +2663,7 @@ function ComposeStartup(aParams)
 
   // Here we set the From from the original message, be it a draft or another
   // message, for example a template, we want to "edit as new".
-  // Only do this the message is our own draft or template.
+  // Only do this if the message is our own draft or template.
   if (params.composeFields.creatorIdentityKey && params.composeFields.from)
   {
     let from = MailServices.headerParser.parseEncodedHeader(params.composeFields.from, null).join(", ");
@@ -3809,21 +3840,21 @@ function FillIdentityList(menulist)
 
 function getCurrentAccountKey()
 {
-    // get the accounts key
-    var identityList = document.getElementById("msgIdentity");
-    return identityList.selectedItem.getAttribute("accountkey");
+  // Get the account's key.
+  let identityList = GetMsgIdentityElement();
+  return identityList.selectedItem.getAttribute("accountkey");
 }
 
 function getCurrentIdentityKey()
 {
-  // get the identity key
-  var identityList = GetMsgIdentityElement();
+  // Get the identity key.
+  let identityList = GetMsgIdentityElement();
   return identityList.selectedItem.getAttribute("identitykey");
 }
 
 function getIdentityForKey(key)
 {
-    return MailServices.accounts.getIdentity(key);
+  return MailServices.accounts.getIdentity(key);
 }
 
 function getCurrentIdentity()
