@@ -10,6 +10,7 @@ package:
 
 stage-package:
 	@$(MAKE) -C projects/mail/installer stage-package
+	@$(MAKE) -C projects/mail/installer make-buildinfo-file
 
 install::
 	@$(MAKE) -C projects/mail/installer install
