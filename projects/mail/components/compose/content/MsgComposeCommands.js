@@ -2790,6 +2790,20 @@ function ComposeStartup(aParams)
   gAutoSaveKickedIn = false;
 }
 
+function splitEmailAddress(aEmail) {
+  let at = aEmail.lastIndexOf("@");
+  return (at != -1) ? [aEmail.slice(0, at), aEmail.slice(at + 1)] : [aEmail, ""];
+}
+
+// Emails are equal ignoring +suffixes (email+suffix@example.com).
+function emailSimilar(a, b) {
+  if (!a || !b)
+    return a == b;
+  a = splitEmailAddress(a.toLowerCase());
+  b = splitEmailAddress(b.toLowerCase());
+  return a[1] == b[1] && a[0].split("+", 1)[0] == b[0].split("+", 1)[0];
+}
+
 // The new, nice, simple way of getting notified when a new editor has been created
 var gMsgEditorCreationObserver =
 {
