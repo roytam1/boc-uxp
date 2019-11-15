@@ -6,11 +6,13 @@ installer:
 	@$(MAKE) -C projects/mail/installer installer
 
 package:
+	@$(MAKE) -C projects/mail/installer make-package2
+
+mozpackage:
 	@$(MAKE) -C projects/mail/installer
 
 stage-package:
-	@$(MAKE) -C projects/mail/installer stage-package
-	@$(MAKE) -C projects/mail/installer make-buildinfo-file
+	@$(MAKE) -C projects/mail/installer stage-package make-buildinfo-file
 
 install::
 	@$(MAKE) -C projects/mail/installer install
