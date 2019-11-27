@@ -6,7 +6,13 @@ installer:
 	@$(MAKE) -C projects/navigator/installer installer
 
 package:
-	@$(MAKE) -C projects/navigator/installer
+	@$(MAKE) -C projects/navigator/installer make-archive
+
+mozpackage:
+	@$(MAKE) -C projects/navigator/installer make-package
+
+stage-package:
+	@$(MAKE) -C projects/navigator/installer stage-package make-buildinfo-file
 
 install::
 	@$(MAKE) -C projects/navigator/installer install
