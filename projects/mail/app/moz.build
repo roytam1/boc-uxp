@@ -5,8 +5,7 @@
 
 DIRS += [
     'blocklist',
-    'defaults',
-    'profile',
+    'profile'
 ]
 
 GeckoProgram(CONFIG['MOZ_APP_NAME'])
