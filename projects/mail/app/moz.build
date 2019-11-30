@@ -13,9 +13,9 @@ USE_LIBS += ['mozglue']
 SOURCES += ['nsMailApp.cpp']
 LOCAL_INCLUDES += [
     '!/build',
-    '/mozilla/toolkit/xre',
-    '/mozilla/xpcom/base',
-    '/mozilla/xpcom/build',
+    '/platform/toolkit/xre',
+    '/platform/xpcom/base',
+    '/platform/xpcom/build',
 ]
 
 if CONFIG['OS_ARCH'] == 'WINNT':
@@ -25,8 +25,8 @@ if CONFIG['OS_ARCH'] == 'WINNT':
 if CONFIG['MOZ_SANDBOX'] and CONFIG['OS_ARCH'] == 'WINNT':
     # For sandbox includes and the include dependencies those have
     LOCAL_INCLUDES += [
-        '/mozilla/security/sandbox/chromium',
-        '/mozilla/security/sandbox/chromium-shim',
+        '/platform/security/sandbox/chromium',
+        '/platform/security/sandbox/chromium-shim',
     ]
 
     USE_LIBS += [

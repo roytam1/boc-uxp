@@ -11,9 +11,9 @@ SOURCES += ['nsNavigatorApp.cpp']
 
 LOCAL_INCLUDES += [
     '!/build',
-    '/mozilla/toolkit/xre',
-    '/mozilla/xpcom/base',
-    '/mozilla/xpcom/build',
+    '/platform/toolkit/xre',
+    '/platform/xpcom/base',
+    '/platform/xpcom/build',
 ]
 
 if CONFIG['OS_ARCH'] == 'WINNT':

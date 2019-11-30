@@ -115,14 +115,14 @@ messenger.jar:
     content/messenger/sanitizeDialog.js             (content/sanitizeDialog.js)
 *   content/messenger/toolbarIconColor.js           (content/toolbarIconColor.js)
 # the following files are mail-specific overrides
-*   content/messenger/license.html                  (/mozilla/toolkit/content/license.html)
+*   content/messenger/license.html                  (/platform/toolkit/content/license.html)
 % override chrome://global/content/license.html chrome://messenger/content/license.html
 
 comm.jar:
 % content communicator %content/communicator/
    content/communicator/charsetOverlay.xul          (content/charsetOverlay.xul)
    content/communicator/contentAreaClick.js         (content/contentAreaClick.js)
-   content/communicator/labelsencodings.properties  (/mozilla/dom/encoding/labelsencodings.properties)
+   content/communicator/labelsencodings.properties  (/platform/dom/encoding/labelsencodings.properties)
 *  content/communicator/utilityOverlay.xul          (content/utilityOverlay.xul)
 *  content/communicator/utilityOverlay.js           (content/utilityOverlay.js)
 
@@ -130,4 +130,4 @@ toolkit.jar:
 % overlay chrome://global/content/customizeToolbar.xul chrome://messenger/content/customizeToolbarOverlay.xul
 % overlay chrome://mozapps/content/downloads/downloads.xul chrome://messenger/content/downloadsOverlay.xul
 % overlay chrome://mozapps/content/extensions/extensions.xul chrome://messenger/content/extensionsOverlay.xul
-  content/global/logopage.xhtml                     (/mozilla/toolkit/content/logopage.xhtml)
+  content/global/logopage.xhtml                     (/platform/toolkit/content/logopage.xhtml)

@@ -151,10 +151,10 @@ comm.jar:
   content/communicator/search/search-panel.js                      (content/search/search-panel.js)
   content/communicator/search/search-panel.xul                     (content/search/search-panel.xul)
 
-  content/communicator/labelsencodings.properties                  (/mozilla/dom/encoding/labelsencodings.properties)
+  content/communicator/labelsencodings.properties                  (/platform/dom/encoding/labelsencodings.properties)
 
 # the following file is a suite-specific override of the generic license.html, using suite/common/app-license.html as input:
-* content/communicator/license.html                                (/mozilla/toolkit/content/license.html)
+* content/communicator/license.html                                (/platform/toolkit/content/license.html)
 
 #ifdef XP_MACOSX
   content/communicator/platformCommunicatorOverlay.xul             (content/platform/mac/platformCommunicatorOverlay.xul)

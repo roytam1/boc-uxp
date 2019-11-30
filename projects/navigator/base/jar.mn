@@ -50,7 +50,7 @@ navigator.jar:
 
 # XXXTobin: Logopage is busted
 #toolkit.jar:
-#  content/global/logopage.xhtml                                    (/mozilla/toolkit/content/logopage.xhtml)
+#  content/global/logopage.xhtml                                    (/platform/toolkit/content/logopage.xhtml)
 
 en-US.jar:
 % locale communicator en-US %locale/en-US/communicator/

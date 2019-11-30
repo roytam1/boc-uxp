@@ -2,7 +2,7 @@
 
 if GIT_PATH="$(which git 2>/dev/null)"; then
   _COMM_BRANCH=`"${GIT_PATH}" symbolic-ref --short HEAD | tr [:upper:] [:lower:]`
-  _MOZILLA_BRANCH=`cd mozilla && "${GIT_PATH}" symbolic-ref --short HEAD | tr [:upper:] [:lower:]`
+  _MOZILLA_BRANCH=`cd platform && "${GIT_PATH}" symbolic-ref --short HEAD | tr [:upper:] [:lower:]`
   
   if [ -n "$_MOZILLA_BRANCH" ]; then
     export BINOC_GIT_BRANCH=$_COMM_BRANCH@$_MOZILLA_BRANCH
@@ -12,7 +12,7 @@ if GIT_PATH="$(which git 2>/dev/null)"; then
 fi
 
 BINOC_TOOLCHAIN=`uname`
-MACH_CMD=./mozilla/mach
+MACH_CMD=./platform/mach
 
 if [ "$1" == "release" ]; then
   $MACH_CMD build
@@ -27,12 +27,12 @@ elif [ "$1" == "checkout" ]; then
     "${GIT_PATH}" checkout TRUNK
   fi
   "${GIT_PATH}" pull
-  if [ ! -d "mozilla" ]; then
+  if [ ! -d "platform" ]; then
     "${GIT_PATH}" submodule init
   fi
   if [ "$2" == "absolute-trunk" ]; then
     echo "uxp:"
-    cd mozilla
+    cd platform
     if [ "$_MOZILLA_BRANCH" != "master" ]; then
       "${GIT_PATH}" checkout master
     fi
