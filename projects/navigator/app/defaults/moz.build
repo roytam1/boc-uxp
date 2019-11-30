@@ -21,9 +21,3 @@ FINAL_TARGET_FILES.defaults.profile.chrome += [
     'profile/chrome/userChrome-example.css',
     'profile/chrome/userContent-example.css',
 ]
-
-if CONFIG['MOZ_OFFICIAL_BRANDING']:
-    FINAL_TARGET_FILES.searchplugins += [
-      'searchplugins/navigator-cross-reference.xml',
-      'searchplugins/uxp-cross-reference.xml',
-    ]
