@@ -21,6 +21,11 @@ if [ "$1" == "release" ]; then
     $MACH_CMD installer
   fi
   $MACH_CMD mar
+elif [ "$1" == "localbuild" ]; then
+  $MACH_CMD build
+  $MACH_CMD stage
+elif [ "$1" == "version" ]; then
+  $(which python2.7 2>/dev/null) ./build/version2k.py ${@:2}
 elif [ "$1" == "checkout" ]; then
   echo "binoc-central:"
   if [ "$2" == "absolute-trunk" ] && [ "$_COMM_BRANCH" != "trunk" ]; then
