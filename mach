@@ -32,7 +32,7 @@ elif [ "$1" == "checkout" ]; then
     "${GIT_PATH}" checkout TRUNK
   fi
   "${GIT_PATH}" pull
-  if [ ! -d "platform" ]; then
+  if [ ! -f "./platform/CLOBBER" ]; then
     "${GIT_PATH}" submodule init
   fi
   if [ "$2" == "absolute-trunk" ]; then
