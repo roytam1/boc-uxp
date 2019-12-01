@@ -20,7 +20,8 @@ ACCEPTED_MAR_CHANNEL_IDS=release
 # The MAR_CHANNEL_ID must not contain the following 3 characters: ",\t "
 MAR_CHANNEL_ID=release
 
-MOZ_APP_VERSION=`cat ${_topsrcdir}/$MOZ_BUILD_APP/config/version.txt`
+MOZ_APP_VERSION=`$PYTHON ${_topsrcdir}/../build/version2k.py --version ${_topsrcdir}/../projects/navigator/config/version.txt`
+MOZ_APP_VERSION_DISPLAY=`$PYTHON ${_topsrcdir}/../build/version2k.py --version ${_topsrcdir}/../projects/navigator/config/version.txt build`
 
 MOZ_APP_ID={a3210b97-8e8a-4737-9aa0-aa0e607640b9}
 MOZ_PROFILE_MIGRATOR=1
