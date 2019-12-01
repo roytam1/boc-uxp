@@ -11,6 +11,8 @@ moduleOptionParser.add_argument("--msdate", "-d", dest="msdate", type=int)
 moduleOptionParser.add_argument("--edate", "-e", dest="edate", action="store_true")
 args = moduleOptionParser.parse_args()
 
+msBuildToday = str((datetime.utcnow().date()-date(2000,01,01)).days)
+
 if len(sys.argv) <= 1:
   moduleOptionParser.print_help()
   sys.exit(1)
@@ -20,18 +22,21 @@ if args.version:
     strVersion = f.readline()
   f.close()
 
-  if (strVersion == '52.9.0000'):
-    strVersion = '{0}.{1}'.format('52.9', (datetime.utcnow().date()-date(2000,01,01)).days)
+  if (strVersion.endswith('.0000')):
+    strVersion = strVersion.replace('.0000', '.' + msBuildToday + 'a1')
   
   if len(args.version) == 2 and args.version[1] == 'build':
-    print strVersion[5:]
+    if strVersion.endswith('a1'):
+      print strVersion[len(strVersion) - 6:]
+    else:
+      print strVersion[len(strVersion) - 4:]
   else:
     print strVersion
   
   sys.exit(0)
 
 if args.msbuild:
-  print (datetime.utcnow().date()-date(2000,01,01)).days
+  print msBuildToday
   sys.exit(0)
 
 if args.msdate:
