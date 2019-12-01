@@ -11,6 +11,7 @@ MOZ_SUITE=1
 BINOC_BOREALIS=1
 MOZ_BRANDING_DIRECTORY=projects/navigator/branding/unofficial
 MOZ_OFFICIAL_BRANDING_DIRECTORY=projects/navigator/branding/official
+MOZ_PKG_SPECIAL=
 MOZ_EXTENSIONS_DEFAULT=" gio"
 MOZ_UPDATER=1
 # This should usually be the same as the value MAR_CHANNEL_ID.
@@ -44,4 +45,10 @@ MOZ_WEBRTC=
 if test "$OS_ARCH" = "WINNT" -o \
         "$OS_ARCH" = "Linux"; then
   MOZ_BUNDLED_FONTS=1
+fi
+
+# Append MOZ_WIDGET_TOOLKIT to the end of the packages
+if test "$MOZ_WIDGET_TOOLKIT" = "gtk2" -o \
+        "$MOZ_WIDGET_TOOLKIT" = "gtk3"; then
+  MOZ_PKG_SPECIAL=$MOZ_WIDGET_TOOLKIT
 fi

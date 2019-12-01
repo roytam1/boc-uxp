@@ -48,6 +48,12 @@ if test "$OS_ARCH" = "WINNT" -o \
   MOZ_BUNDLED_FONTS=1
 fi
 
+# Append MOZ_WIDGET_TOOLKIT to the end of the packages
+if test "$MOZ_WIDGET_TOOLKIT" = "gtk2" -o \
+        "$MOZ_WIDGET_TOOLKIT" = "gtk3"; then
+  MOZ_PKG_SPECIAL=$MOZ_WIDGET_TOOLKIT
+fi
+
 # This should usually be the same as the value MAR_CHANNEL_ID.
 # If more than one ID is needed, then you should use a comma separated list
 # of values.
