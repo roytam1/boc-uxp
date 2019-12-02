@@ -7,7 +7,7 @@
 comm.jar:
 % content help %content/communicator/helpviewer/
 
-% override chrome://global/content/license.html chrome://communicator/content/license.html
+
 % override chrome://mozapps/content/profile/profileSelection.xul chrome://communicator/content/profile/profileSelection.xul
 
 
@@ -152,9 +152,6 @@ comm.jar:
   content/communicator/search/search-panel.xul                     (content/search/search-panel.xul)
 
   content/communicator/labelsencodings.properties                  (/platform/dom/encoding/labelsencodings.properties)
-
-# the following file is a suite-specific override of the generic license.html, using suite/common/app-license.html as input:
-* content/communicator/license.html                                (/platform/toolkit/content/license.html)
 
 #ifdef XP_MACOSX
   content/communicator/platformCommunicatorOverlay.xul             (content/platform/mac/platformCommunicatorOverlay.xul)

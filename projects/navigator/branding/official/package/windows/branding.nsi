@@ -5,7 +5,7 @@
 #NSIS defines
 # BrandFullNameInternal is used for some registry and file system values
 # instead of BrandFullName and typically should not be modified.
-!define BrandFullNameInternal   "Borealis"
+!define BrandFullNameInternal   "Borealis Navigator"
 !define CompanyName             "Binary Outcast"
 !define URLInfoAbout            "https://binaryoutcast.com/projects/borealis/"
 !define URLUpdateInfo           "https://binaryoutcast.com/projects/borealis/"

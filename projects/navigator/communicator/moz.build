@@ -11,11 +11,5 @@ for var in ('MOZ_APP_NAME', 'MOZ_APP_DISPLAYNAME', 'MOZ_APP_VERSION'):
 if CONFIG['MOZILLA_OFFICIAL']:
     DEFINES['OFFICIAL_BUILD'] = 1
 
-# DEFINES for preprocessing
-# Use suite/common/app-license.html as input when generating 
-# chrome://content/communicator/license.html to override 
-# chrome://global/content/license.html (about:license)
-DEFINES['APP_LICENSE_BLOCK'] = '%s/content/app-license.html' % SRCDIR
-
 for var in ('MOZ_APP_NAME', 'MOZ_MACBUNDLE_NAME'):
     DEFINES[var] = CONFIG[var]
