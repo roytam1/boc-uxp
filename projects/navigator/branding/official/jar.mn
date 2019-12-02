@@ -8,6 +8,10 @@ comm.jar:
   content/branding/icon32.png                             (content/icon32.png)
   content/branding/icon48.png                             (content/icon48.png)
   content/branding/icon64.png                             (content/icon64.png)
+  content/branding/throbber-anim.png                      (content/throbber-anim.png)
+  content/branding/throbber-single.png                    (content/throbber-single.png)
+  content/branding/throbber16-anim.png                    (content/throbber16-anim.png)
+  content/branding/throbber16-single.png                  (content/throbber16-single.png)
 
 en-US.jar:
 % locale branding en-US %locale/en-US/branding/
