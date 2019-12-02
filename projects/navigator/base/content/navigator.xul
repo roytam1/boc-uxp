@@ -188,7 +188,7 @@
              grippytooltiptext="&navigationToolbar.tooltip;"
              fullscreentoolbar="true" customizable="true"
              toolbarname="&navbarCmd.label;" accesskey="&navbarCmd.accesskey;"
-             defaultset="back-button,forward-button,reload-button,stop-button,nav-bar-inner,search-container,window-controls"
+             defaultset="back-button,forward-button,reload-button,stop-button,nav-bar-inner,search-container,throbber-box,window-controls"
              mode="icons"
              labelalign="end"
              defaultmode="icons"
