@@ -8,12 +8,8 @@ comm.jar:
   content/branding/icon32.png                             (content/icon32.png)
   content/branding/icon48.png                             (content/icon48.png)
   content/branding/icon64.png                             (content/icon64.png)
-  content/branding/aboutRights.js                         (content/aboutRights.js)
-  content/branding/aboutRights.xhtml                      (content/aboutRights.xhtml)
 
 en-US.jar:
 % locale branding en-US %locale/en-US/branding/
   locale/en-US/branding/brand.dtd                         (locale/brand.dtd)
   locale/en-US/branding/brand.properties                  (locale/brand.properties)
-  locale/en-US/branding/aboutRights.dtd                   (locale/aboutRights.dtd)
-  locale/en-US/branding/aboutRights.properties            (locale/aboutRights.properties)

@@ -546,10 +546,6 @@ SuiteGlue.prototype = {
 
     var notifyBox = browser.getNotificationBox();
 
-    // Show about:rights notification, if needed.
-    if (this._shouldShowRights())
-      this._showRightsNotification(notifyBox);
-
     if ("@mozilla.org/windows-taskbar;1" in Components.classes &&
         Components.classes["@mozilla.org/windows-taskbar;1"]
                   .getService(Components.interfaces.nsIWinTaskbar).available) {
@@ -786,15 +782,6 @@ SuiteGlue.prototype = {
 
     // We haven't shown the notification before, so do so now.
     return true;
-  },
-
-  _showRightsNotification: function(aNotifyBox) {
-    // Stick the notification onto the selected tab of the active browser window.
-    aNotifyBox.showRightsNotification();
-
-    // Set pref to indicate we've shown the notficiation.
-    var currentVersion = Services.prefs.getIntPref("browser.rights.version");
-    Services.prefs.setBoolPref("browser.rights." + currentVersion + ".shown", true);
   },
 
   /*
