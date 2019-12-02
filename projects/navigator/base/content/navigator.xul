@@ -374,12 +374,10 @@
                 ondragover="searchButtonObserver.onDragOver(event);"
                 ondrop="searchButtonObserver.onDrop(event);"/>
       </toolbaritem>
-
+      -->
       <toolbarbutton id="print-button"
                      label="&printButton.label;"
                      tooltiptext="&printButton.tooltip;"/>
-      -->
-
 
       <!-- "Bookmarks" button on Bookmarks Toolbar -->
       <toolbarbutton type="menu" id="bookmarks-button"
