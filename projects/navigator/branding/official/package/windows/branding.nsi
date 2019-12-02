@@ -5,11 +5,11 @@
 #NSIS defines
 # BrandFullNameInternal is used for some registry and file system values
 # instead of BrandFullName and typically should not be modified.
-!define BrandFullNameInternal   "SeaMonkey"
-!define CompanyName             "mozilla.org"
-!define URLInfoAbout            "http://www.mozilla.org"
-!define URLUpdateInfo           "http://www.seamonkey-project.org"
-!define URLSystemRequirements   "http://www.seamonkey-project.org/doc/system-requirements"
+!define BrandFullNameInternal   "Borealis"
+!define CompanyName             "Binary Outcast"
+!define URLInfoAbout            "https://binaryoutcast.com/projects/borealis/"
+!define URLUpdateInfo           "https://binaryoutcast.com/projects/borealis/"
+!define URLSystemRequirements   "https://binaryoutcast.com/projects/borealis/"
 
 # Percentage of new "Standard" installs to enable talkback for
 !define RandomPercent           "100"
