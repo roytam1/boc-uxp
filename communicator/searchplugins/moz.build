@@ -6,5 +6,6 @@
 FINAL_TARGET_FILES.searchplugins += [
     'duckduckgo-palemoon.xml',
     'ecosia.xml',
+    'ekoru.xml',
     'wikipedia.xml',
 ]
