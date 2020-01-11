@@ -7,6 +7,7 @@ import argparse
 moduleOptionParser = argparse.ArgumentParser()
 moduleOptionParser.add_argument("--version", "-v", dest="version", nargs="*")
 moduleOptionParser.add_argument("--msbuild", "-b", dest="msbuild", action="store_true")
+moduleOptionParser.add_argument("--msbuilddate", "-bd", dest="msbuilddate")
 moduleOptionParser.add_argument("--msdate", "-d", dest="msdate", type=int)
 moduleOptionParser.add_argument("--edate", "-e", dest="edate", action="store_true")
 moduleOptionParser.add_argument("--edateonly", "-ed", dest="edateonly", action="store_true")
@@ -43,6 +44,16 @@ if args.msbuild:
 if args.msdate:
   print date(2000,01,01)+timedelta(days=args.msdate)
   sys.exit(0)
+
+if args.msbuilddate:
+  if '-' in args.msbuilddate:
+    print (datetime.strptime(args.msbuilddate, '%Y-%m-%d').date()-date(2000,01,01)).days
+  elif '/' in args.msbuilddate:
+    print (datetime.strptime(args.msbuilddate, '%Y/%m/%d').date()-date(2000,01,01)).days
+  else:
+    print (datetime.strptime(args.msbuilddate, '%Y%m%d').date()-date(2000,01,01)).days
+  sys.exit(0)
+
 
 if args.edate:
   print datetime.utcnow().strftime('%Y%m%d.%H%M')
