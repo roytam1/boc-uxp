@@ -304,7 +304,7 @@ bin\extensions\calendar-timezones@mozilla.org\defaults\preferences\preferences.j
 ; All the pref files must be part of base to prevent migration bugs
 bin\defaults\pref\sunbird.js
 bin\defaults\pref\channel-prefs.js
-bin\greprefs.js
+bin\goanna.js
 bin\defaults\autoconfig\platform.js
 bin\defaults\autoconfig\prefcalls.js
 

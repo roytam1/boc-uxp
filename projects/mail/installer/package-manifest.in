@@ -209,7 +209,7 @@
 
 ; default pref files
 @RESPATH@/defaults/pref/*
-@RESPATH@/greprefs.js
+@RESPATH@/goanna.js
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; App extensions to Mail

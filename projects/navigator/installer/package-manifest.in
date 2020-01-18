@@ -212,7 +212,7 @@
 ; [Default Preferences]
 ; All the browser/general pref files must be part of base to prevent migration bugs
 @RESPATH@/@PREF_DIR@/*
-@RESPATH@/greprefs.js
+@RESPATH@/goanna.js
 @RESPATH@/defaults/autoconfig/prefcalls.js
 @RESPATH@/defaults/permissions
 
