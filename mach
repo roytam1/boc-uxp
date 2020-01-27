@@ -16,11 +16,11 @@ fi
 
 # Determin the current OS
 # This will also be exported so it can be picked up by .mozconfig
-if [ "$SYSTEM" == "mingw32_nt-"* ]; then
+if [[ "$SYSTEM" == "mingw32_nt-"* ]]; then
   SYSTEM=windows
 fi
 
-export BINOC_OS=$SYSTEM
+export BINOC_SYSTEM=$SYSTEM
 
 # =============================================================================
 
