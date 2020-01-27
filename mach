@@ -1,51 +1,107 @@
 #!/bin/sh
 
-if GIT_PATH="$(which git 2>/dev/null)"; then
-  _COMM_BRANCH=`"${GIT_PATH}" symbolic-ref --short HEAD | tr [:upper:] [:lower:]`
-  _MOZILLA_BRANCH=`cd platform && "${GIT_PATH}" symbolic-ref --short HEAD | tr [:upper:] [:lower:]`
-  
-  if [ -n "$_MOZILLA_BRANCH" ]; then
-    export BINOC_GIT_BRANCH=$_COMM_BRANCH@$_MOZILLA_BRANCH
-  else
-    export BINOC_GIT_BRANCH=$_COMM_BRANCH
-  fi
+SYSTEM=`uname | tr [:upper:] [:lower:]`
+PYTHON=`which python2.7 2>/dev/null`
+GIT=`which git 2>/dev/null`
+MACH=./platform/mach
+
+# =============================================================================
+
+if [ -z "$PYTHON" ]; then
+  printf "We could not find Python 2.7 which is required for just about everything!\n"
+  exit 1
 fi
 
-BINOC_TOOLCHAIN=`uname`
-MACH_CMD=./platform/mach
+# =============================================================================
 
-if [ "$1" == "release" ]; then
-  $MACH_CMD build
-  $MACH_CMD package
-  if [[ "$BINOC_TOOLCHAIN" == "MINGW32_NT-"* ]]; then
-    $MACH_CMD installer
-  fi
-  $MACH_CMD mar
-elif [ "$1" == "localbuild" ]; then
-  $MACH_CMD build
-  $MACH_CMD stage
-elif [ "$1" == "version" ]; then
-  $(which python2.7 2>/dev/null) ./build/version2k.py ${@:2}
-elif [ "$1" == "checkout" ]; then
-  echo "binoc-central:"
-  if [ "$2" == "absolute-trunk" ] && [ "$_COMM_BRANCH" != "trunk" ]; then
-    "${GIT_PATH}" checkout TRUNK
-  fi
-  "${GIT_PATH}" pull
-  if [ ! -f "./platform/CLOBBER" ]; then
-    "${GIT_PATH}" submodule init
-  fi
-  if [ "$2" == "absolute-trunk" ]; then
-    echo "uxp:"
-    cd platform
-    if [ "$_MOZILLA_BRANCH" != "master" ]; then
-      "${GIT_PATH}" checkout master
+# Determin the current OS
+# This will also be exported so it can be picked up by .mozconfig
+if [ "$SYSTEM" == "mingw32_nt-"* ]; then
+  SYSTEM=windows
+fi
+
+export BINOC_OS=$BINOC_SYSTEM
+
+# =============================================================================
+
+# Determin the git branches or commits for use in the .mozconfig objdir path
+# If there is no git or you aren't building in a git repository then the value
+# will be blank. This is ok.
+if [ -n "$GIT" ]; then
+  COMM_BRANCH=`"${GIT}" symbolic-ref --short HEAD 2>/dev/null | tr [:upper:] [:lower:]` 
+  PLATFORM_BRANCH=`cd ./platform && "${GIT}" symbolic-ref --short HEAD 2>/dev/null | tr [:upper:] [:lower:]`
+
+  # if we don't have a comm branch then don't even bother
+  if [ -n "$COMM_BRANCH" ]; then
+    # If we aren't on the tip of a branch try getting the platform commit short sha
+    if [ -z "$PLATFORM_BRANCH" ]; then
+      PLATFORM_BRANCH=`"${GIT}" rev-parse --short HEAD 2>/dev/null`
     fi
-    "${GIT_PATH}" pull
-    cd ..
-  else
-    "${GIT_PATH}" submodule update
+
+    # See if the platform branch or commit sha if not just forget it
+    if [ -n "$PLATFORM_BRANCH" ]; then
+      # If windows we can use an @ sign which makes things prettier else use a dash
+      if [ "$SYSTEM" == "windows" ]; then
+        export BINOC_GIT_BRANCH=$COMM_BRANCH@$PLATFORM_BRANCH
+      else
+        export BINOC_GIT_BRANCH=$COMM_BRANCH-$PLATFORM_BRANCH
+      fi
+    fi
   fi
-else 
-  $MACH_CMD $@
 fi
+
+# =============================================================================
+
+# This will process the commands given to the stub. If there is no match then
+# just pass it to platform (real) mach
+if [ "$1" == "release" ]; then
+  # We are going to assume you want to build, package, and generate a mar
+  $MACH build
+  $MACH package
+
+  # Windows also generates an NSIS installer and that is required before mar
+  if [ "$SYSTEM" == "windows" ]; then
+    $MACH installer
+  fi
+
+  $MACH mar
+elif [ "$1" == "localbuild" ]; then
+  # This builds and stages the application in dist/MOZ_APP_NAME but does not
+  # actually generate an archive or any of the other stuff
+  $MACH build
+  $MACH stage
+elif [ "$1" == "version" ]; then
+  # This will execute version2k.py and pass any remaining args to it
+  $PYTHON ./build/version2k.py ${@:2}
+elif [ "$1" == "checkout" ] && [ -n "$GIT" ]; then
+  printf "binoc-central:\n"
+
+  if [ "$2" == "absolute-trunk" ] && [ "$COMM_BRANCH" != "trunk" ]; then
+    "$GIT" checkout TRUNK
+  fi
+
+  "$GIT" pull
+
+  if [ ! -f ./platform/CLOBBER ]; then
+    "$GIT" submodule init platform
+  fi
+
+  if [ "$2" == "absolute-trunk" ]; then
+    printf "\nUnified XUL Platform:\n"
+
+    cd ./platform
+
+    if [ "$PLATFORM_BRANCH" != "master" ]; then
+      "$GIT" checkout master
+    fi
+
+    "$GIT" pull
+  else
+    "$GIT" submodule update
+  fi
+else
+  # We don't know what the command is but real-mach might so just pass
+  # all the args to it
+  $MACH $@
+fi
+
