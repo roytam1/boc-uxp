@@ -20,7 +20,7 @@ if [ "$SYSTEM" == "mingw32_nt-"* ]; then
   SYSTEM=windows
 fi
 
-export BINOC_OS=$BINOC_SYSTEM
+export BINOC_OS=$SYSTEM
 
 # =============================================================================
 
