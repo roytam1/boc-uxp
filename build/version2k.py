@@ -27,8 +27,8 @@ if args.version:
   if (strVersion.endswith('.0000')):
     strVersion = strVersion.replace('.0000', '.' + msBuildToday + 'a1')
   
-  if len(args.version) == 2 and args.version[1] == 'build':
-    if strVersion.endswith('a1'):
+  if len(args.version) == 2 and args.version[1] == 'build':   
+    if strVersion.endswith(('a1', '.1')):
       print strVersion[len(strVersion) - 6:]
     else:
       print strVersion[len(strVersion) - 4:]
