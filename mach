@@ -35,7 +35,7 @@ if [ -n "$GIT" ]; then
   if [ -n "$COMM_BRANCH" ]; then
     # If we aren't on the tip of a branch try getting the platform commit short sha
     if [ -z "$PLATFORM_BRANCH" ]; then
-      PLATFORM_BRANCH=`"${GIT}" cd ./platform && rev-parse --short HEAD 2>/dev/null`
+      PLATFORM_BRANCH=`cd ./platform && "${GIT}" rev-parse --short HEAD 2>/dev/null`
     fi
 
     # See if the platform branch or commit sha if not just forget it
