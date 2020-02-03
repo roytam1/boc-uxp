@@ -239,7 +239,7 @@ var Scratchpad = {
       let contentWindow = this.gBrowser.selectedBrowser.contentWindow;
 
       let scriptError = Cc["@mozilla.org/scripterror;1"].
-                        createInstance(Ci.nsIScriptError2);
+                        createInstance(Ci.nsIScriptError);
 
       scriptError.initWithWindowID(ex.message + "\n" + ex.stack, ex.fileName,
                                    "", ex.lineNumber, 0, scriptError.errorFlag,
@@ -557,10 +557,15 @@ var Scratchpad = {
    */
   openWebConsole: function SP_openWebConsole()
   {
-    if (!this.browserWindow.HUDConsoleUI.getOpenHUD()) {
-      this.browserWindow.HUDConsoleUI.toggleHUD();
+    try {
+      if (!this.browserWindow.HUDConsoleUI.getOpenHUD()) {
+        this.browserWindow.HUDConsoleUI.toggleHUD();
+      }
+      this.browserWindow.focus();
     }
-    this.browserWindow.focus();
+    catch (ex) {
+      this.openErrorConsole();
+    }
   },
 
   /**

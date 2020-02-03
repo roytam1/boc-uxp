@@ -5,6 +5,6 @@
 
 EXTRA_JS_MODULES.communicator.devtools += ['modules/PropertyPanel.jsm']
 
-JS_PREFERENCE_PP_FILES += ['devtools-prefs.js']
+JS_PREFERENCE_FILES += ['devtools-prefs.js']
 
 JAR_MANIFESTS += ['jar.mn']
