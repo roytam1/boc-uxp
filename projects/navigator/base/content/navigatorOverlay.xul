@@ -6,6 +6,7 @@
 <?xul-overlay href="chrome://communicator/content/utilityOverlay.xul"?>
 <?xul-overlay href="chrome://communicator/content/viewZoomOverlay.xul"?>
 <?xul-overlay href="chrome://communicator/content/tasksOverlay.xul"?>
+<?xul-overlay href="chrome://communicator/content/devtools/devtoolsOverlay.xul"?>
 <?xul-overlay href="chrome://communicator/content/bookmarks/placesOverlay.xul"?>
 <?xul-overlay href="chrome://communicator/content/charsetOverlay.xul"?>
 <?xul-overlay href="chrome://navigator/content/platformNavigationBindings.xul"?>

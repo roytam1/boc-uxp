@@ -5,5 +5,8 @@
 
 DIRS += ['eula']
 
-if CONFIG['BINOC_COMM_DLMGR']:
-    DIRS += ['downloads']
+if CONFIG['BINOC_BOREALIS']:
+    DIRS += [
+        'devtools',
+        'downloads'
+    ]
