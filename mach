@@ -3,7 +3,8 @@
 SYSTEM=`uname | tr [:upper:] [:lower:]`
 PYTHON=`which python2.7 2>/dev/null`
 GIT=`which git 2>/dev/null`
-MACH=./platform/mach
+PLATFORM=./platform
+MACH=$PLATFORM/mach
 
 # =============================================================================
 
@@ -29,13 +30,13 @@ export BINOC_SYSTEM=$SYSTEM
 # will be blank. This is ok.
 if [ -n "$GIT" ]; then
   COMM_BRANCH=`"${GIT}" symbolic-ref --short HEAD 2>/dev/null | tr [:upper:] [:lower:]` 
-  PLATFORM_BRANCH=`cd ./platform && "${GIT}" symbolic-ref --short HEAD 2>/dev/null | tr [:upper:] [:lower:]`
+  PLATFORM_BRANCH=`cd ${PLATFORM} && "${GIT}" symbolic-ref --short HEAD 2>/dev/null | tr [:upper:] [:lower:]`
 
   # if we don't have a comm branch then don't even bother
   if [ -n "$COMM_BRANCH" ]; then
     # If we aren't on the tip of a branch try getting the platform commit short sha
     if [ -z "$PLATFORM_BRANCH" ]; then
-      PLATFORM_BRANCH=`cd ./platform && "${GIT}" rev-parse --short HEAD 2>/dev/null`
+      PLATFORM_BRANCH=`cd ${PLATFORM} && "${GIT}" rev-parse --short HEAD 2>/dev/null`
     fi
 
     # See if the platform branch or commit sha if not just forget it
@@ -82,14 +83,14 @@ elif [ "$1" == "checkout" ] && [ -n "$GIT" ]; then
 
   "$GIT" pull
 
-  if [ ! -f ./platform/CLOBBER ]; then
+  if [ ! -f $PLATFORM/CLOBBER ]; then
     "$GIT" submodule init platform
   fi
 
   if [ "$2" == "absolute-trunk" ]; then
     printf "\nUnified XUL Platform:\n"
 
-    cd ./platform
+    cd $PLATFORM
 
     if [ "$PLATFORM_BRANCH" != "master" ]; then
       "$GIT" checkout master
@@ -98,6 +99,17 @@ elif [ "$1" == "checkout" ] && [ -n "$GIT" ]; then
     "$GIT" pull
   else
     "$GIT" submodule update
+  fi
+elif [ "$1" == "reset" ] && [ -n "$GIT" ]; then
+  if [ "$2" == "comm" ]; then
+    printf "binoc-central:\n"
+    "$GIT" reset --hard
+  elif [ "$2" == "platform" ]; then
+    printf "Unified XUL Platform:\n"
+    cd $PLATFORM
+    "$GIT" reset --hard
+  else
+    printf "Reset what?\n"
   fi
 else
   # We don't know what the command is but real-mach might so just pass
