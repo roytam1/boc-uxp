@@ -3,6 +3,7 @@
 SYSTEM=`uname | tr [:upper:] [:lower:]`
 PYTHON=`which python2.7 2>/dev/null`
 GIT=`which git 2>/dev/null`
+CURL=`which curl 2>/dev/null`
 PLATFORM=./platform
 MACH=$PLATFORM/mach
 
@@ -111,6 +112,29 @@ elif [ "$1" == "reset" ] && [ -n "$GIT" ]; then
   else
     printf "Reset what?\n"
   fi
+elif [ "$1" == "webpatch" ] && [ -n "$GIT" ] && [ -n "$CURL" ]; then
+  if [ "$2" == "platform" ]; then
+    printf "Unified XUL Platform:\n"
+    cd $PLATFORM
+  elif [ "$2" == "comm" ]; then
+    printf "binoc-central:\n"
+  else
+    printf "Patch what?\n"
+    exit 1
+  fi
+
+  if [ -z "$3" ]; then
+    printf "Patch with what?"
+    exit 1
+  else
+    if [[ "$3" == *"github.com"* ]]; then
+      _patch=$3.patch
+    else
+      _patch=$3
+    fi
+  fi
+
+  $CURL -L $_patch | "$GIT" apply --reject
 else
   # We don't know what the command is but real-mach might so just pass
   # all the args to it
