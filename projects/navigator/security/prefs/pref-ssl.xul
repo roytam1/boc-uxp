@@ -79,23 +79,6 @@
     </groupbox>
 
     <groupbox align="start">
-      <caption label="&SSLTLSWarnings.caption;"/>
-      <description>&warn.description2;</description>
-      <checkbox id="warnEnteringSecure"
-                label="&warn.enteringsecure;"
-                accesskey="&warn.enteringsecure.accesskey;"
-                preference="security.warn_entering_secure"/>
-      <checkbox id="warnLeavingSecure"
-                label="&warn.leavingsecure;"
-                accesskey="&warn.leavingsecure.accesskey;"
-                preference="security.warn_leaving_secure"/>
-      <checkbox id="warnInsecurePost"
-                label="&warn.insecurepost;"
-                accesskey="&warn.insecurepost.accesskey;"
-                preference="security.warn_submit_insecure"/>
-    </groupbox>
-
-    <groupbox align="start">
       <caption label="&SSLMixedContent.caption;"/>
       <description>&mixed.description;</description>
       <checkbox id="warnMixedActiveContent"

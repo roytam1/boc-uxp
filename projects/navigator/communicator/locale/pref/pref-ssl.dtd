@@ -3,7 +3,6 @@
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 
 <!ENTITY SSLTLSProtocolVersions.caption     "SSL/TLS Protocol Versions">
-<!ENTITY SSLTLSWarnings.caption             "SSL/TLS Warnings">
 <!ENTITY SSLMixedContent.caption            "Mixed Content">
 <!ENTITY SSLClientAuthMethod.caption        "Client Certificate Selection">
 
