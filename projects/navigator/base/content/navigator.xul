@@ -189,9 +189,9 @@
              fullscreentoolbar="true" customizable="true"
              toolbarname="&navbarCmd.label;" accesskey="&navbarCmd.accesskey;"
              defaultset="back-button,forward-button,reload-button,stop-button,nav-bar-inner,search-container,throbber-box,window-controls"
-             mode="icons"
+             mode="full"
              labelalign="end"
-             defaultmode="icons"
+             defaultmode="full"
              defaultlabelalign="end"
              context="toolbar-context-menu">
 
@@ -228,9 +228,7 @@
              context="toolbar-context-menu">
     </toolbar>
 
-    <!-- XXXTobin: Screw custom toolbars
     <toolbarset id="customToolbars" context="toolbar-context-menu"/>
-    -->
 
     <toolbarpalette id="BrowserToolbarPalette">
 
