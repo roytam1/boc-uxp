@@ -135,9 +135,7 @@
 @RESPATH@/blocklist.xml
 @RESPATH@/platform.ini
 #ifndef MOZ_SYSTEM_SQLITE
-#ifndef MOZ_FOLD_LIBS
 @RESPATH@/@DLL_PREFIX@mozsqlite3@DLL_SUFFIX@
-#endif
 #endif
 #ifdef UNIX_BUT_NOT_MAC
 @RESPATH@/run-mozilla.sh
