@@ -77,21 +77,6 @@
   max-width: 18px;
 }
 
-.today-closebutton {
-  list-style-image: url("chrome://global/skin/icons/close.png");
-  -moz-appearance: none;
-  border: none !important;
-  padding: 2px;
-}
-
-.today-closebutton:not([selected]):not(:hover):-moz-lwtheme-brighttext {
-  -moz-image-region: rect(0 80px 16px 64px);
-}
-
-.today-closebutton > .toolbarbutton-icon {
-  margin-inline-end: 0px; /* override toolkit's default value */
-}
-
 #todaypane-new-event-button {
   list-style-image: url(chrome://calendar-common/skin/calendar-toolbar.svg#newevent);
 }

@@ -44,14 +44,6 @@
   transform: scaleX(-1);
 }
 
-.today-closebutton {
-  list-style-image: url("chrome://global/skin/icons/close.png");
-}
-
-.today-closebutton:not([selected]):not(:hover):-moz-lwtheme-brighttext {
-  -moz-image-region: rect(0 64px 16px 48px);
-}
-
 .today-closebutton > .toolbarbutton-text {
    display: none;
 }
