@@ -408,15 +408,16 @@ updateWritePrefs: function ()
     }
   },
 
+#ifdef XP_WIN
   /**
-   * When the user toggles the layers.acceleration.disabled pref,
+   * When the user toggles the layers.acceleration.enabled pref,
    * sync its new value to the gfx.direct2d.disabled pref too.
    */
   updateHardwareAcceleration: function(aVal)
   {
-    if (AppConstants.platforms == "win")
-      Services.prefs.setBoolPref("gfx.direct2d.disabled", !aVal);
+    Services.prefs.setBoolPref("gfx.direct2d.disabled", !aVal);
   },
+#endif
 
   // DATA CHOICES TAB
 

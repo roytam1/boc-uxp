@@ -45,11 +45,14 @@
                   name="mailnews.database.global.indexer.enabled"
                   type="bool"/>
 
-      <preference id="layers.acceleration.disabled"
-                  name="layers.acceleration.disabled"
+      <preference id="layers.acceleration.enabled"
+                  name="layers.acceleration.enabled"
+#ifdef XP_WIN
                   type="bool"
-                  inverted="true"
                   onchange="gAdvancedPane.updateHardwareAcceleration(this.value);"/>
+#else
+                  type="bool"/>
+#endif
 
 #ifdef HAVE_SHELL_SERVICE
       <preference id="mail.shell.checkDefaultClient"
@@ -220,7 +223,7 @@ type="bool"/>
                 <checkbox id="allowHWAccel"
                           label="&allowHWAccel.label;"
                           accesskey="&allowHWAccel.accesskey;"
-                          preference="layers.acceleration.disabled"/>
+                          preference="layers.acceleration.enabled"/>
               </hbox>
             </vbox>
             <vbox>

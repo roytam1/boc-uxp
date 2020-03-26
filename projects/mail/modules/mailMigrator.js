@@ -102,7 +102,7 @@ var MailMigrator = {
   _migrateUI: function() {
     // The code for this was ported from
     // mozilla/browser/components/nsBrowserGlue.js
-    const UI_VERSION = 16;
+    const UI_VERSION = 17;
     const MESSENGER_DOCURL = "chrome://messenger/content/messenger.xul";
     const UI_VERSION_PREF = "mail.ui-rdf.version";
     let currentUIVersion = 0;
@@ -397,6 +397,22 @@ var MailMigrator = {
         }
 
         disableLangPacks16();
+      }
+
+      // UXP Milestone NOT-29 changed the prefs regarding HWA so in true comm style
+      // steal the UI migration code from the defacto browser and proofread it for
+      // god damned fucking typos that kill the everything
+      if (currentUIVersion < 17) {
+        if (Services.prefs.prefHasUserValue("layers.acceleration.disabled")) {
+          let HWADisabled = Services.prefs.getBoolPref("layers.acceleration.disabled");
+          Services.prefs.setBoolPref("layers.acceleration.enabled", !HWADisabled);
+          Services.prefs.setBoolPref("gfx.direct2d.disabled", HWADisabled);
+        }
+        if (Services.prefs.getBoolPref("layers.acceleration.force-enabled", false)) {
+          Services.prefs.setBoolPref("layers.acceleration.force", true);
+        }
+        Services.prefs.clearUserPref("layers.acceleration.disabled");
+        Services.prefs.clearUserPref("layers.acceleration.force-enabled");
       }
 
       // Update the migration version.
