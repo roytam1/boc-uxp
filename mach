@@ -72,6 +72,9 @@ elif [ "$1" == "localbuild" ]; then
   # actually generate an archive or any of the other stuff
   $MACH build
   $MACH stage
+elif [[ "$1" == "superclobber" && -d "../.obj" ]]; then
+  printf "Removing all object directories in ../.obj\n"
+  rm -rf ../.obj/*
 elif [ "$1" == "version" ]; then
   # This will execute version2k.py and pass any remaining args to it
   $PYTHON ./build/version2k.py ${@:2}
