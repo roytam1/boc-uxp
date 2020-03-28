@@ -1,15 +1,15 @@
 #!/bin/sh
 
-SYSTEM=`uname | tr [:upper:] [:lower:]`
-PYTHON=`which python2.7 2>/dev/null`
-GIT=`which git 2>/dev/null`
-CURL=`which curl 2>/dev/null`
-PLATFORM=./platform
-MACH=$PLATFORM/mach
+BINOC_SYSTEM=`uname | tr [:upper:] [:lower:]`
+BINOC_PYTHON=`which python2.7 2>/dev/null`
+BINOC_GIT=`which git 2>/dev/null`
+BINOC_CURL=`which curl 2>/dev/null`
+BINOC_PLATFORM=./platform
+BINOC_MACH=$BINOC_PLATFORM/mach
 
 # =============================================================================
 
-if [ -z "$PYTHON" ]; then
+if [ -z "$BINOC_PYTHON" ]; then
   printf "We could not find Python 2.7 which is required for just about everything!\n"
   exit 1
 fi
@@ -18,35 +18,35 @@ fi
 
 # Determin the current OS
 # This will also be exported so it can be picked up by .mozconfig
-if [[ "$SYSTEM" == "mingw32_nt-"* ]]; then
-  SYSTEM=windows
+if [[ "$BINOC_SYSTEM" == "mingw32_nt-"* ]]; then
+  BINOC_SYSTEM=windows
 fi
 
-export BINOC_SYSTEM=$SYSTEM
+export BINOC_SYSTEM=$BINOC_SYSTEM
 
 # =============================================================================
 
 # Determin the git branches or commits for use in the .mozconfig objdir path
 # If there is no git or you aren't building in a git repository then the value
 # will be blank. This is ok.
-if [ -n "$GIT" ]; then
-  COMM_BRANCH=`"${GIT}" symbolic-ref --short HEAD 2>/dev/null | tr [:upper:] [:lower:]` 
-  PLATFORM_BRANCH=`cd ${PLATFORM} && "${GIT}" symbolic-ref --short HEAD 2>/dev/null | tr [:upper:] [:lower:]`
+if [ -n "$BINOC_GIT" ]; then
+  BINOC_COMM_BRANCH=`"${BINOC_GIT}" symbolic-ref --short HEAD 2>/dev/null | tr [:upper:] [:lower:]` 
+  BINOC_PLATFORM_BRANCH=`cd ${BINOC_PLATFORM} && "${BINOC_GIT}" symbolic-ref --short HEAD 2>/dev/null | tr [:upper:] [:lower:]`
 
   # if we don't have a comm branch then don't even bother
-  if [ -n "$COMM_BRANCH" ]; then
+  if [ -n "$BINOC_COMM_BRANCH" ]; then
     # If we aren't on the tip of a branch try getting the platform commit short sha
-    if [ -z "$PLATFORM_BRANCH" ]; then
-      PLATFORM_BRANCH=`cd ${PLATFORM} && "${GIT}" rev-parse --short HEAD 2>/dev/null`
+    if [ -z "$BINOC_PLATFORM_BRANCH" ]; then
+      BINOC_PLATFORM_BRANCH=`cd ${BINOC_PLATFORM} && "${BINOC_GIT}" rev-parse --short HEAD 2>/dev/null`
     fi
 
     # See if the platform branch or commit sha if not just forget it
-    if [ -n "$PLATFORM_BRANCH" ]; then
+    if [ -n "$BINOC_PLATFORM_BRANCH" ]; then
       # If windows we can use an @ sign which makes things prettier else use a dash
-      if [ "$SYSTEM" == "windows" ]; then
-        export BINOC_GIT_BRANCH=$COMM_BRANCH@$PLATFORM_BRANCH
+      if [ "$BINOC_SYSTEM" == "windows" ]; then
+        export BINOC_GIT_BRANCH=$BINOC_COMM_BRANCH@$BINOC_PLATFORM_BRANCH
       else
-        export BINOC_GIT_BRANCH=$COMM_BRANCH-$PLATFORM_BRANCH
+        export BINOC_GIT_BRANCH=$BINOC_COMM_BRANCH-$BINOC_PLATFORM_BRANCH
       fi
     fi
   fi
@@ -58,67 +58,67 @@ fi
 # just pass it to platform (real) mach
 if [ "$1" == "release" ]; then
   # We are going to assume you want to build, package, and generate a mar
-  $MACH build
-  $MACH package
+  $BINOC_MACH build
+  $BINOC_MACH package
 
   # Windows also generates an NSIS installer and that is required before mar
-  if [ "$SYSTEM" == "windows" ]; then
-    $MACH installer
+  if [ "$BINOC_SYSTEM" == "windows" ]; then
+    $BINOC_MACH installer
   fi
 
-  $MACH mar
+  $BINOC_MACH mar
 elif [ "$1" == "localbuild" ]; then
   # This builds and stages the application in dist/MOZ_APP_NAME but does not
   # actually generate an archive or any of the other stuff
-  $MACH build
-  $MACH stage
+  $BINOC_MACH build
+  $BINOC_MACH stage
 elif [[ "$1" == "superclobber" && -d "../.obj" ]]; then
   printf "Removing all object directories in ../.obj\n"
   rm -rf ../.obj/*
 elif [ "$1" == "version" ]; then
   # This will execute version2k.py and pass any remaining args to it
-  $PYTHON ./build/version2k.py ${@:2}
-elif [ "$1" == "checkout" ] && [ -n "$GIT" ]; then
+  $BINOC_PYTHON ./build/version2k.py ${@:2}
+elif [ "$1" == "checkout" ] && [ -n "$BINOC_GIT" ]; then
   printf "binoc-central:\n"
 
   if [ "$2" == "absolute-trunk" ] && [ "$COMM_BRANCH" != "trunk" ]; then
-    "$GIT" checkout TRUNK
+    "$BINOC_GIT" checkout TRUNK
   fi
 
-  "$GIT" pull
+  "$BINOC_GIT" pull
 
-  if [ ! -f $PLATFORM/CLOBBER ]; then
-    "$GIT" submodule init platform
+  if [ ! -f $BINOC_PLATFORM/CLOBBER ]; then
+    "$BINOC_GIT" submodule init platform
   fi
 
   if [ "$2" == "absolute-trunk" ]; then
     printf "\nUnified XUL Platform:\n"
 
-    cd $PLATFORM
+    cd $BINOC_PLATFORM
 
-    if [ "$PLATFORM_BRANCH" != "master" ]; then
-      "$GIT" checkout master
+    if [ "$BINOC_PLATFORM_BRANCH" != "master" ]; then
+      "$BINOC_GIT" checkout master
     fi
 
-    "$GIT" pull
+    "$BINOC_GIT" pull
   else
-    "$GIT" submodule update
+    "$BINOC_GIT" submodule update
   fi
-elif [ "$1" == "reset" ] && [ -n "$GIT" ]; then
+elif [ "$1" == "reset" ] && [ -n "$BINOC_GIT" ]; then
   if [ "$2" == "comm" ]; then
     printf "binoc-central:\n"
-    "$GIT" reset --hard
+    "$BINOC_GIT" reset --hard
   elif [ "$2" == "platform" ]; then
     printf "Unified XUL Platform:\n"
-    cd $PLATFORM
-    "$GIT" reset --hard
+    cd $BINOC_PLATFORM
+    "$BINOC_GIT" reset --hard
   else
     printf "Reset what?\n"
   fi
-elif [ "$1" == "webpatch" ] && [ -n "$GIT" ] && [ -n "$CURL" ]; then
+elif [ "$1" == "webpatch" ] && [ -n "$BINOC_GIT" ] && [ -n "$BINOC_CURL" ]; then
   if [ "$2" == "platform" ]; then
     printf "Unified XUL Platform:\n"
-    cd $PLATFORM
+    cd $BINOC_PLATFORM
   elif [ "$2" == "comm" ]; then
     printf "binoc-central:\n"
   else
@@ -137,10 +137,10 @@ elif [ "$1" == "webpatch" ] && [ -n "$GIT" ] && [ -n "$CURL" ]; then
     fi
   fi
 
-  $CURL -L $_patch | "$GIT" apply --reject
+  $BINOC_CURL -L $_patch | "$BINOC_GIT" apply --reject
 else
   # We don't know what the command is but real-mach might so just pass
   # all the args to it
-  $MACH $@
+  $BINOC_MACH $@
 fi
 
