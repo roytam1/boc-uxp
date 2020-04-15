@@ -6,6 +6,7 @@ BINOC_GIT=`which git 2>/dev/null`
 BINOC_CURL=`which curl 2>/dev/null`
 BINOC_PLATFORM=./platform
 BINOC_MACH=$BINOC_PLATFORM/mach
+BINOC_CONFIG_GUESS=`./platform/build/autoconf/config.guess`
 
 # =============================================================================
 
@@ -20,9 +21,16 @@ fi
 # This will also be exported so it can be picked up by .mozconfig
 if [[ "$BINOC_SYSTEM" == "mingw32_nt-"* ]]; then
   BINOC_SYSTEM=windows
+  
+  if [ "$BINOC_CONFIG_GUESS" == "x86_64-pc-mingw32" ]; then
+    BINOC_CONFIG_GUESS=win64
+  else
+    BINOC_CONFIG_GUESS=win32
+  fi
 fi
 
 export BINOC_SYSTEM=$BINOC_SYSTEM
+export BINOC_CONFIG_GUESS=$BINOC_CONFIG_GUESS
 
 # =============================================================================
 
@@ -42,12 +50,7 @@ if [ -n "$BINOC_GIT" ]; then
 
     # See if the platform branch or commit sha if not just forget it
     if [ -n "$BINOC_PLATFORM_BRANCH" ]; then
-      # If windows we can use an @ sign which makes things prettier else use a dash
-      if [ "$BINOC_SYSTEM" == "windows" ]; then
-        export BINOC_GIT_BRANCH=$BINOC_COMM_BRANCH@$BINOC_PLATFORM_BRANCH
-      else
-        export BINOC_GIT_BRANCH=$BINOC_COMM_BRANCH-$BINOC_PLATFORM_BRANCH
-      fi
+      export BINOC_GIT_BRANCH=$BINOC_COMM_BRANCH-$BINOC_PLATFORM_BRANCH
     fi
   fi
 fi
