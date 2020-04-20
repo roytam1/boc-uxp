@@ -7,8 +7,8 @@
 def AddonDefines():
     defines = {
         'ADDON_NAME': 'Profile Switcher',
+        'ADDON_VERSION': '1.2.0',
         'ADDON_ID': 'profileswitcher@projects.binaryoutcast.com',
-        'ADDON_VERSION': '1.0.1',
         'ADDON_CREATOR': 'Binary Outcast',
         'ADDON_DESCRIPTION': 'Easily switch profiles',
         'ADDON_XPI_NAME': 'profile-switcher',

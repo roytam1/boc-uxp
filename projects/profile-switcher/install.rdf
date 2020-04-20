@@ -12,9 +12,9 @@
   <Description about="urn:mozilla:install-manifest"
                em:id="@ADDON_ID@"
                em:version="@ADDON_VERSION@"
-               em:name="@ADDON_CREATOR@"
+               em:name="@ADDON_NAME@"
                em:description="@ADDON_DESCRIPTION@"
-               em:creator="@ADDON_AUTHOR@"
+               em:creator="@ADDON_CREATOR@"
                em:type="2">
 #ifdef MOZ_DISABLE_PLATFORM
     <em:targetApplication name="Pale Moon">
@@ -22,10 +22,15 @@
                    em:minVersion="28.0.0a1"
                    em:maxVersion="28.*"/>
     </em:targetApplication>
+    <em:targetApplication name="Basilisk">
+      <Description em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   em:minVersion="52.9"
+                   em:maxVersion="52.9.*"/>
+    </em:targetApplication>
     <em:targetApplication name="Unified XUL Platform">
       <Description em:id="toolkit@mozilla.org"
                    em:minVersion="4.1.0a1"
-                   em:maxVersion="4.*"/>
+                   em:maxVersion="5.*"/>
     </em:targetApplication>
 #else
     <em:targetApplication>
@@ -35,6 +40,5 @@
     </em:targetApplication>
     <em:appManaged>true</em:appManaged>
 #endif
-
   </Description>
 </RDF>
