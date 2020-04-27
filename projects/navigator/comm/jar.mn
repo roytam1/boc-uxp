@@ -7,10 +7,6 @@
 comm.jar:
 % content help %content/communicator/helpviewer/
 
-
-% override chrome://mozapps/content/profile/profileSelection.xul chrome://communicator/content/profile/profileSelection.xul
-
-
 % overlay chrome://global/content/console.xul chrome://communicator/content/consoleOverlay.xul
 % overlay chrome://global/content/viewSource.xul chrome://communicator/content/viewSourceOverlay.xul
 % overlay chrome://global/content/viewPartialSource.xul chrome://communicator/content/viewSourceOverlay.xul
@@ -133,9 +129,6 @@ comm.jar:
   content/communicator/pref/pref-spelling.js                       (content/pref/pref-spelling.js)
   content/communicator/pref/pref-spelling.xul                      (content/pref/pref-spelling.xul)
   content/communicator/pref/pref-tabs.xul                          (content/pref/pref-tabs.xul)
-
-  content/communicator/profile/profileSelection.js                 (content/profile/profileSelection.js)
-  content/communicator/profile/profileSelection.xul                (content/profile/profileSelection.xul)
 
   content/communicator/labelsencodings.properties                  (/platform/dom/encoding/labelsencodings.properties)
 
@@ -310,8 +303,6 @@ en-US.jar:
   locale/en-US/communicator-platform/unix/pref/platformPrefOverlay.dtd    (locale/pref/unix/platformPrefOverlay.dtd)
   locale/en-US/communicator-platform/win/pref/platformPrefOverlay.dtd     (locale/pref/win/platformPrefOverlay.dtd)
 
-  locale/en-US/communicator/profile/profileSelection.dtd                  (locale/profile/profileSelection.dtd)
-  locale/en-US/communicator/profile/profileSelection.properties           (locale/profile/profileSelection.properties)
   locale/en-US/communicator/safeMode.dtd                                  (locale/safeMode.dtd)
 
   locale/en-US/communicator-platform/win/platformCommunicatorOverlay.dtd  (locale/win/platformCommunicatorOverlay.dtd)
