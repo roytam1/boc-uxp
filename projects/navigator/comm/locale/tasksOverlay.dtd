@@ -27,9 +27,6 @@
 <!ENTITY tasksMenu.label "Tools">
 <!ENTITY tasksMenu.accesskey "T"> 
 
-<!ENTITY datamanCmd.label "Data Manager">
-<!ENTITY datamanCmd.accesskey "D">
-
 <!ENTITY passwordManagerCmd.label "Password Manager">
 <!ENTITY passwordManagerCmd.accesskey "P">
 

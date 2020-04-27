@@ -38,10 +38,6 @@
       <preference id="browser.tabs.opentabfor.urlbar"
                   name="browser.tabs.opentabfor.urlbar"
                   type="bool"/>
-      <preference id="suite.manager.dataman.openAsDialog"
-                  name="suite.manager.dataman.openAsDialog"
-                  inverted="true"
-                  type="bool"/>
       <preference id="suite.manager.addons.openAsDialog"
                   name="suite.manager.addons.openAsDialog"
                   inverted="true"
@@ -96,10 +92,6 @@
 
       <groupbox id="useManagersPreferences" align="start">
         <caption label="&openManagers.label;"/>
-          <checkbox id="openDataManager"
-                    label="&openDataManager.label;"
-                    accesskey="&openDataManager.accesskey;"
-                    preference="suite.manager.dataman.openAsDialog"/>
           <checkbox id="openAddOnsManager"
                     label="&openAddOnsManager.label;"
                     accesskey="&openAddOnsManager.accesskey;"

@@ -57,13 +57,6 @@ comm.jar:
   content/communicator/bindings/toolbar.xml                        (content/bindings/toolbar.xml)
 * content/communicator/bindings/prefwindow.xml                     (content/bindings/prefwindow.xml)
 
-
-
-  content/communicator/dataman/dataman.css                         (content/dataman/dataman.css)
-  content/communicator/dataman/dataman.js                          (content/dataman/dataman.js)
-  content/communicator/dataman/dataman.xml                         (content/dataman/dataman.xml)
-  content/communicator/dataman/dataman.xul                         (content/dataman/dataman.xul)
-
 * content/communicator/helpviewer/help.xul                         (content/helpviewer/help.xul)
 * content/communicator/helpviewer/contextHelp.js                   (content/helpviewer/contextHelp.js)
 * content/communicator/helpviewer/help.js                          (content/helpviewer/help.js)
@@ -187,12 +180,6 @@ en-US.jar:
   locale/en-US/communicator/about.dtd                                     (locale/about.dtd)
 
   locale/en-US/communicator/aboutPrivateBrowsing.dtd                      (locale/aboutPrivateBrowsing.dtd)
-
-
-
-
-  locale/en-US/communicator/dataman/dataman.dtd                           (locale/dataman/dataman.dtd)
-  locale/en-US/communicator/dataman/dataman.properties                    (locale/dataman/dataman.properties)
 
   locale/en-US/communicator/directory/directory.dtd                       (locale/directory/directory.dtd)
 

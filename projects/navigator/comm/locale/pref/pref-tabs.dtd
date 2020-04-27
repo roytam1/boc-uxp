@@ -23,7 +23,5 @@
 <!ENTITY openTabs.label "Open tabs instead of windows for">
 
 <!ENTITY openManagers.label "Open in a new tab instead of a stand-alone window">
-<!ENTITY openDataManager.label "Data Manager">
-<!ENTITY openDataManager.accesskey "D">
 <!ENTITY openAddOnsManager.label "Add-ons Manager">
 <!ENTITY openAddOnsManager.accesskey "n">

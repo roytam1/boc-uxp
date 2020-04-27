@@ -360,7 +360,6 @@ pref("browser.rights.override", true);
 pref("browser.formfill.expire_days", 180);
 
 pref("suite.manager.addons.openAsDialog", false);
-pref("suite.manager.dataman.openAsDialog", true);
 
 // Customizable toolbar stuff
 pref("custtoolbar.personal_toolbar_folder", "");

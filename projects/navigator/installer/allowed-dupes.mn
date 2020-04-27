@@ -74,12 +74,8 @@ extensions/modern@themes.mozilla.org/chrome/modern/skin/modern/communicator/sync
 chrome/classic/skin/classic/communicator/sync/sync-mobileIcon.png
 extensions/modern@themes.mozilla.org/chrome/modern/skin/modern/messenger/smime/msgCompSecurityInfo.css
 chrome/classic/skin/classic/messenger/smime/msgCompSecurityInfo.css
-extensions/modern@themes.mozilla.org/chrome/modern/skin/modern/communicator/dataman/datamanIcon-16.png
-chrome/classic/skin/classic/communicator/dataman/datamanIcon-16.png
 extensions/modern@themes.mozilla.org/chrome/modern/skin/modern/messenger/prefPanels.css
 chrome/classic/skin/classic/messenger/prefPanels.css
-extensions/modern@themes.mozilla.org/chrome/modern/skin/modern/communicator/icons/lock-broken.png
-chrome/classic/skin/classic/communicator/icons/lock-broken.png
 extensions/modern@themes.mozilla.org/chrome/modern/skin/modern/communicator/icons/lock-secure.png
 chrome/classic/skin/classic/communicator/icons/lock-secure.png
 extensions/modern@themes.mozilla.org/chrome/modern/skin/modern/communicator/icons/lock-insecure.png

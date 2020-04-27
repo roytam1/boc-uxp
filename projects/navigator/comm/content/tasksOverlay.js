@@ -103,7 +103,9 @@ function toDownloadManager()
   }
 }
 
-function toDataManager(aView){ return; }
+function toDataManager(aView) {
+  Components.utils.reportError("toDataManager() is no longer supported. Please see toPermissionsManager() or toCookieManager().")
+}
 
 function toBookmarksManager()
 {
