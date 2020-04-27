@@ -421,6 +421,26 @@ function toSanitize()
              .sanitize(window);
 }
 
+function toProfileManager()
+{
+  var promgrWin = Services.wm.getMostRecentWindow("mozilla:profileSelection");
+  if (promgrWin) {
+    promgrWin.focus();
+  } else {
+    var params = Components.classes["@mozilla.org/embedcomp/dialogparam;1"]
+                 .createInstance(Components.interfaces.nsIDialogParamBlock);
+
+    params.SetNumberStrings(1);
+    params.SetString(0, "menu");
+    window.openDialog("chrome://communicator/content/profile/profileSelection.xul",
+                "",
+                "centerscreen,chrome,titlebar",
+                params);
+  }
+  // Here, we don't care about the result code
+  // that was returned in the param block.
+}
+
 /**
  * Opens the Preferences (Options) dialog.
  *

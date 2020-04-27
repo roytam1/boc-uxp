@@ -2930,6 +2930,8 @@
       <menuitem id="menu_mac_hide_others" label="&hideOtherAppsCmdMac.label;" key="key_hideOtherAppsCmdMac"/>
       <menuitem id="menu_mac_show_all" label="&showAllAppsCmdMac.label;"/>
 #endif
+     <menuseparator id="sep_switchprofile"/>
+     <menuitem id="cmd_switchprofile" label="&switchProfileCmd.label;" accesskey="&switchProfileCmd.accesskey;" oncommand="toProfileManager();"/>
      </menupopup>
     </menu>
 
