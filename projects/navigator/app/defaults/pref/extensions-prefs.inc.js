@@ -23,14 +23,14 @@
 pref("extensions.getAddons.showPane", false);
 
 // Enables some extra Extension System Logging (can reduce performance)
-pref("extensions.logging.enabled", false);
+pref("extensions.logging.enabled", true);
 
 // Disables strict compatibility, making addons compatible-by-default.
-pref("extensions.strictCompatibility", false);
+pref("extensions.strictCompatibility", true);
 
 // Specifies a minimum maxVersion an addon needs to say it's compatible with
 // for it to be compatible by default.
-pref("extensions.minCompatibleAppVersion", "1.0.0a1");
+pref("extensions.minCompatibleAppVersion", "0.9.0000a1");
 
 
 // Update preferences for installed Extensions and Themes.
@@ -70,7 +70,7 @@ pref("extensions.dss.enabled", false);          // Dynamic Skin Switching
 pref("extensions.dss.switchPending", false);    // Non-dynamic switch pending after next
                                                 // restart.
 
-pref("lightweightThemes.update.enabled", true);
+pref("lightweightThemes.update.enabled", false);
 
 pref("xpinstall.enabled", true);
 pref("xpinstall.signatures.required", false);
