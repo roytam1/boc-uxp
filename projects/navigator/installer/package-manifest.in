@@ -191,7 +191,6 @@
 #endif
 
 ; modern theme
-#ifdef MOZ_OFFICIAL_BRANDING
 #ifdef MOZ_OMNIJAR
 @RESPATH@/extensions/*.xpi
 #else
@@ -200,7 +199,6 @@
 @RESPATH@/extensions/modern@themes.mozilla.org/icon.png
 @RESPATH@/extensions/modern@themes.mozilla.org/install.rdf
 @RESPATH@/extensions/modern@themes.mozilla.org/preview.png
-#endif
 #endif
 
 ; shell icons

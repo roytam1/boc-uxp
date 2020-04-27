@@ -26,11 +26,7 @@
 pref("devtools.selfxss.count", 5);
 #endif
 
-#ifdef MOZ_OFFICIAL_BRANDING
 pref("general.skins.selectedSkin", "modern/1.0");
-#else
-pref("general.skins.selectedSkin", "classic/1.0");
-#endif
 
 pref("general.startup.browser",             true);
 pref("general.startup.mail",                false);
