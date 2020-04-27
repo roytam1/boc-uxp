@@ -144,13 +144,6 @@ comm.jar:
   content/communicator/profile/profileSelection.js                 (content/profile/profileSelection.js)
   content/communicator/profile/profileSelection.xul                (content/profile/profileSelection.xul)
 
-  content/communicator/search/engineManager.js                     (content/search/engineManager.js)
-  content/communicator/search/engineManager.xul                    (content/search/engineManager.xul)
-  content/communicator/search/search.xml                           (content/search/search.xml)
-  content/communicator/search/searchbarBindings.css                (content/search/searchbarBindings.css)
-  content/communicator/search/search-panel.js                      (content/search/search-panel.js)
-  content/communicator/search/search-panel.xul                     (content/search/search-panel.xul)
-
   content/communicator/labelsencodings.properties                  (/platform/dom/encoding/labelsencodings.properties)
 
 #ifdef XP_MACOSX
@@ -333,12 +326,6 @@ en-US.jar:
   locale/en-US/communicator/profile/profileSelection.dtd                  (locale/profile/profileSelection.dtd)
   locale/en-US/communicator/profile/profileSelection.properties           (locale/profile/profileSelection.properties)
   locale/en-US/communicator/safeMode.dtd                                  (locale/safeMode.dtd)
-
-  locale/en-US/communicator/search/engineManager.dtd                      (locale/search/engineManager.dtd)
-  locale/en-US/communicator/search/engineManager.properties               (locale/search/engineManager.properties)
-  locale/en-US/communicator/search/search.properties                      (locale/search/search.properties)
-  locale/en-US/communicator/search/searchbar.dtd                          (locale/search/searchbar.dtd)
-  locale/en-US/communicator/search/search-panel.dtd                       (locale/search/search-panel.dtd)
 
   locale/en-US/communicator-platform/win/platformCommunicatorOverlay.dtd  (locale/win/platformCommunicatorOverlay.dtd)
   locale/en-US/communicator-platform/unix/platformCommunicatorOverlay.dtd (locale/unix/platformCommunicatorOverlay.dtd)
