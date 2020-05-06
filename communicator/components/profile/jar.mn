@@ -10,7 +10,7 @@ comm.jar:
   content/communicator/profile/profileSelection.xul                     (content/profileSelection.xul)
 
 en-US.jar:
-  locale/en-US/communicator/profile/profileSelection.dtd                (locale/profileSelection.dtd)
+* locale/en-US/communicator/profile/profileSelection.dtd                (locale/profileSelection.dtd)
   locale/en-US/communicator/profile/profileSelection.properties         (locale/profileSelection.properties)
 
 classic.jar:
