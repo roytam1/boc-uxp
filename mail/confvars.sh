@@ -9,10 +9,10 @@ MOZ_APP_NAME=interlink
 MOZ_APP_VENDOR=BinOC
 MOZ_APP_ID={3550f703-e582-4d05-9a08-453d09bdfdc6}
 MOZ_APP_STATIC_INI=1
-MOZ_APP_VERSION=`$PYTHON ${_topsrcdir}/../build/version2k.py --version ${_topsrcdir}/../projects/mail/config/version.txt`
+MOZ_APP_VERSION=`$PYTHON ${_topsrcdir}/../build/version2k.py --version ${_topsrcdir}/../mail/config/version.txt`
 MOZ_APP_VERSION_DISPLAY=$MOZ_APP_VERSION
-MOZ_BRANDING_DIRECTORY=projects/mail/branding/unofficial
-MOZ_OFFICIAL_BRANDING_DIRECTORY=projects/mail/branding/official
+MOZ_BRANDING_DIRECTORY=mail/branding/unofficial
+MOZ_OFFICIAL_BRANDING_DIRECTORY=mail/branding/official
 MOZ_PROFILE_MIGRATOR=1
 
 # Platform Conditional code for application

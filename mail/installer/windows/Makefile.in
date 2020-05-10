@@ -40,11 +40,11 @@ include $(topsrcdir)/config/config.mk
 ifdef LOCALE_MERGEDIR
 PPL_LOCALE_ARGS = \
   --l10n-dir=$(LOCALE_MERGEDIR)/mail/installer \
-  --l10n-dir=$(call EXPAND_LOCALE_SRCDIR,projects/mail/locales)/installer \
-  --l10n-dir=$(topsrcdir)/projects/mail/locales/en-US/installer \
+  --l10n-dir=$(call EXPAND_LOCALE_SRCDIR,mail/locales)/installer \
+  --l10n-dir=$(topsrcdir)/mail/locales/en-US/installer \
   $(NULL)
 else
-PPL_LOCALE_ARGS=$(call EXPAND_LOCALE_SRCDIR,projects/mail/locales)/installer
+PPL_LOCALE_ARGS=$(call EXPAND_LOCALE_SRCDIR,mail/locales)/installer
 endif
 
 OVERRIDE_DEFAULT_GOAL := installer
