@@ -12,5 +12,5 @@ DIRS += ['/%s' % CONFIG['MOZ_BRANDING_DIRECTORY']]
 
 DIRS += [
     '/xpfe/components/autocomplete',
-    '/projects/navigator',
+    '/navigator',
 ]
