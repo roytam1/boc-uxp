@@ -125,7 +125,12 @@
     <toolbar id="placesToolbar"
              class="chromeclass-toolbar"
              align="center">
+#ifdef MOZ_WIDGET_GTK
+      <menubar id="placesMenu" 
+             _moz-menubarkeeplocal="true">
+#else
       <menubar id="placesMenu">
+#endif
         <menu id="menu_File">
           <menupopup id="menu_FilePopup">
             <menuitem id="newbookmark"

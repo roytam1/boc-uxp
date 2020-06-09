@@ -297,6 +297,11 @@ function onViewToolbarsPopupShowing(aEvent, toolboxIds, aInsertPoint)
       let toolbarName = toolbar.getAttribute("toolbarname");
       if (toolbarName) {
         if (toolbar.id == "mail-toolbar-menubar2") {
+#ifdef MOZ_WIDGET_GTK
+          if (document.documentElement.getAttribute("shellshowingmenubar") == "true") {
+            continue;
+          }
+#endif
           if (!mailToolbarMenubar) {
             mailToolbarMenubar = true;
           }

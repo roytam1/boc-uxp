@@ -40,7 +40,7 @@ comm.jar:
   content/communicator/sanitize.xul                                (content/sanitize.xul)  
   content/communicator/tasksOverlay.js                             (content/tasksOverlay.js)
   content/communicator/tasksOverlay.xul                            (content/tasksOverlay.xul)
-  content/communicator/utilityOverlay.js                           (content/utilityOverlay.js)
+* content/communicator/utilityOverlay.js                           (content/utilityOverlay.js)
   content/communicator/utilityOverlay.xul                          (content/utilityOverlay.xul)
   content/communicator/viewSourceOverlay.js                        (content/viewSourceOverlay.js)
   content/communicator/viewSourceOverlay.xul                       (content/viewSourceOverlay.xul)

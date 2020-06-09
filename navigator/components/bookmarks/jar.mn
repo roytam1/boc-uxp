@@ -11,7 +11,7 @@ comm.jar:
   content/communicator/bookmarks/bm-props.xul                      (content/bm-props.xul)
   content/communicator/bookmarks/bookmarksManager.css              (content/bookmarksManager.css)
   content/communicator/bookmarks/bookmarksManager.js               (content/bookmarksManager.js)
-  content/communicator/bookmarks/bookmarksManager.xul              (content/bookmarksManager.xul)
+* content/communicator/bookmarks/bookmarksManager.xul              (content/bookmarksManager.xul)
   content/communicator/bookmarks/browser-places.js                 (content/browser-places.js)
   content/communicator/bookmarks/editBookmarkOverlay.js            (content/editBookmarkOverlay.js)
   content/communicator/bookmarks/editBookmarkOverlay.xul           (content/editBookmarkOverlay.xul)

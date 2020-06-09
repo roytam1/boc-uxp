@@ -68,6 +68,9 @@
     <toolbar id="placesToolbar"
              type="menubar">
       <menubar id="history-menu"
+#ifdef MOZ_WIDGET_GTK
+               _moz-menubarkeeplocal="true"
+#endif
                grippytooltiptext="&menuBar.tooltip;">
 
         <menu id="menu_File">

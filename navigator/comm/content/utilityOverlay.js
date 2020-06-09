@@ -350,6 +350,11 @@ function onViewToolbarsPopupShowing(aEvent, aInsertPoint)
                                       function(toolbar) {
                                         return toolbar.hasAttribute("toolbarname")});
   var toolbars = Array.slice(toolbox.getElementsByAttribute("toolbarname", "*"));
+#ifdef MOZ_WIDGET_GTK
+  if (document.documentElement.getAttribute("shellshowingmenubar") == "true") {
+    toolbars = toolbars.filter(bar => bar.id !== "toolbar-menubar");
+  }
+#endif
   toolbars = toolbars.concat(externalToolbars);
   var menusep = document.getElementById("toolbarmode-sep");
 
