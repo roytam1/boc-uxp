@@ -147,6 +147,10 @@ pref("app.support.baseURL", "http://binaryoutcast.com/interact/");
 // Show error messages in error console.
 pref("javascript.options.showInConsole", true);
 
+// Disable WASM and its baseline jit (platform default is true)
+pref("javascript.options.wasm",             false);
+pref("javascript.options.wasm_baselinejit", false);
+
 // Open Add-ons Manager in a tab or window
 pref("extensions.openInTab", false);
 
