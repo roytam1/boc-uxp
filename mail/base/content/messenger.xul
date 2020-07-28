@@ -220,7 +220,6 @@
 <tooltip id="aHTMLTooltip" page="true"/>
 <tooltip id="tabmail-tabs-tooltip" onpopupshowing="document.getElementById('tabmail').createTooltip(event);"/>
 
-#ifndef MOZ_MAIL_LEGACY
   <!-- mail-toolbox children are provided by mailWindowOverlay.xul -->
   <toolbox id="mail-toolbox"
            class="mail-toolbox"
@@ -235,15 +234,11 @@
     <toolbar id="mail-bar3" />
     <toolbarset id="customToolbars" context="toolbar-context-menu"/>
   </toolbox>
-#endif
 
   <toolbox id="navigation-toolbox"
            class="toolbox-top"
            labelalign="end"
            defaultlabelalign="end">
-#ifdef MOZ_MAIL_LEGACY
-    <toolbar id="mail-toolbar-menubar2" />
-#endif
     <toolbar id="tabs-toolbar" class="toolbar-primary" context="false">
 
       <tabs flex="1"
@@ -294,21 +289,6 @@
              the folder pane next to the thread view, with the message pane/reader
              beneath both of them. -->
         <box id="mailContent" orient="vertical" flex="1">
-#ifdef MOZ_MAIL_LEGACY
-          <!-- mail-toolbox children are provided by mailWindowOverlay.xul -->
-          <toolbox id="mail-toolbox"
-                   class="mail-toolbox"
-                   mode="full"
-                   defaultmode="full"
-                   iconsize="small"
-                   defaulticonsize="small"
-                   labelalign="end"
-                   defaultlabelalign="end">
-            <toolbarpalette id="MailToolbarPalette" />
-            <toolbar id="mail-bar3" />
-            <toolbarset id="customToolbars" context="toolbar-context-menu"/>
-          </toolbox>
-#endif
           <box id="messengerBox" orient="horizontal" flex="1" minheight="100" height="100" persist="height">
             <vbox id="folderPaneBox" minwidth="125" width="200" persist="width">
               <sidebarheader id="folderPaneHeader" hidden="true" align="center"/>

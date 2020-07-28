@@ -7,11 +7,7 @@
  */
 
 .tabmail-arrowscrollbox {
-%ifdef MOZ_MAIL_LEGACY
-  margin-bottom: -1px;
-%else
   margin-bottom: 3px;
-%endif
  }
 
 .tabmail-tabs[overflow="true"] {
@@ -81,7 +77,6 @@
   list-style-image: url("chrome://global/skin/icons/Search-glass.png");
 }
 
-%ifndef MOZ_MAIL_LEGACY
 .tabs-bottom {
   height: 4px !important;
   margin: 0px !important;
@@ -89,7 +84,6 @@
   border-top: 1px solid threedshadow;
   border-bottom: 1px solid threedshadow;
 }
-%endif
 
 .tab-icon-image,
 .tab-throbber {

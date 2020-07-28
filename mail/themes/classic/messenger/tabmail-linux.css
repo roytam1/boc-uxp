@@ -39,9 +39,7 @@
   border-radius: 0;
   border-width: 0;
   margin-top: 1px;
-%ifndef MOZ_MAIL_LEGACY
   margin-bottom: 4px;
-%endif
 }
 
 .tabmail-tab:not([selected="true"]):hover {
@@ -80,7 +78,6 @@
   opacity: 1.0 !important;
 }
 
-%ifndef MOZ_MAIL_LEGACY
 .tabs-bottom {
   height: 4px !important;
   margin: 0px !important;
@@ -88,7 +85,6 @@
   border-top: 1px solid threedshadow;
   border-bottom: 1px solid threedshadow;
 }
-%endif
 
 .tab-icon-image,
 .tab-throbber {

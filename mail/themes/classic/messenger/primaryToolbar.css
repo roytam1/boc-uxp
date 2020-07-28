@@ -19,7 +19,6 @@
 }
 %endif
 
-%ifndef MOZ_MAIL_LEGACY
 #tabs-toolbar {
   -moz-appearance: none;
   background-image: linear-gradient(rgba(0, 0, 0, .11), transparent, rgba(0, 0, 0, .06));
@@ -36,14 +35,6 @@
 
 @media (-moz-os-version: windows-win7) and (-moz-windows-theme: aero) {
   #tabs-toolbar { -moz-appearance: -moz-win-browsertabbar-toolbox; }
-}
-%endif
-%endif
-
-%ifdef MOZ_MAIL_LEGACY
-#tabs-toolbar {
-  border-bottom: 1px solid rgba(10, 31, 51, .35);
-  padding-bottom: 1px;
 }
 %endif
 
@@ -64,20 +55,6 @@
   padding: 0px 0 0;
   margin: 0 0 0px;
 }
-
-%ifdef MOZ_MAIL_LEGACY
-.mail-toolbox {
-  border-bottom: 1px solid threedshadow;
-}
-
-.mail-toolbox:not([isNotMainWindow="true"]),
-.contentTabToolbox {
-  -moz-appearance: none;
-  border-top: none;
-  background-image: -moz-linear-gradient(rgba(255, 255, 255, .5),
-                    rgba(255, 255, 255, .1) 19px) !important;
-}
-%endif
 
 .contentTabToolbox {
   -moz-appearance: none;
