@@ -20,3 +20,15 @@ pref("app.update.download.backgroundInterval", 60);
 pref("app.update.promptWaitTime", 86400);
 
 pref("app.vendorURL", "http://binaryoutcast.com/projects/interlink/");
+// URL user can browse to manually if for some reason all update installation
+// attempts fail.
+pref("app.update.url.manual", "http://binaryoutcast.com/projects/interlink/download/");
+// A default value for the "More information about this update" link
+// supplied in the "An update is available" page of the update wizard.
+pref("app.update.url.details", "http://binaryoutcast.com/projects/interlink/release-notes/");
+
+// Release notes URL
+pref("app.releaseNotesURL", "http://binaryoutcast.com/projects/interlink/release-notes/");
+
+// Base URL for web-based support pages.
+pref("app.support.baseURL", "https://binaryoutcast.com/projects/interlink/support/");

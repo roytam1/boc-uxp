@@ -120,10 +120,10 @@ pref("app.update.staging.enabled", true);
 
 // URL user can browse to manually if for some reason all update installation
 // attempts fail.
-pref("app.update.url.manual", "http://binaryoutcast.com/projects/interlink/");
+pref("app.update.url.manual", "about:blank");
 // A default value for the "More information about this update" link
 // supplied in the "An update is available" page of the update wizard.
-pref("app.update.url.details", "http://binaryoutcast.com/projects/interlink/");
+pref("app.update.url.details", "about:blank");
 
 // app.update.promptWaitTime is in branding section
 
@@ -131,14 +131,14 @@ pref("app.update.url.details", "http://binaryoutcast.com/projects/interlink/");
 pref("app.update.idletime", 60);
 
 // Release notes URL
-pref("app.releaseNotesURL", "http://binaryoutcast.com/projects/interlink/");
+pref("app.releaseNotesURL", "about:blank");
 
 // URL for "Learn More" for Crash Reporter.
 pref("toolkit.crashreporter.infoURL",
      "https://www.mozilla.org/thunderbird/legal/privacy/#crash-reporter");");
 
 // Base URL for web-based support pages.
-pref("app.support.baseURL", "http://binaryoutcast.com/interact/");
+pref("app.support.baseURL", "about:blank");
 
 // Show error messages in error console.
 pref("javascript.options.showInConsole", true);
@@ -206,7 +206,7 @@ pref("extensions.update.interval", 86400);  // Check for updates to Extensions a
 pref("extensions.dss.enabled", false);          // Dynamic Skin Switching
 pref("extensions.dss.switchPending", false);    // Non-dynamic switch pending after next
 
-pref("xpinstall.whitelist.add", "interlink-addons.binaryoutcast.org,addons.thunderbird.net");
+pref("xpinstall.whitelist.add", "interlink-addons.binaryoutcast.org,addons.binaryoutcast.com,addons.thunderbird.net");
 pref("xpinstall.whitelist.required", false);
 // Allow installing XPI add-ons by direct URL requests (no referrer)
 pref("xpinstall.whitelist.directRequest", true);

@@ -19,4 +19,17 @@ pref("app.update.download.backgroundInterval", 60);
 // Give the user x seconds to react before showing the big UI. default=24 hours
 pref("app.update.promptWaitTime", 86400);
 
-pref("app.vendorURL", "http://binaryoutcast.com/projects/interlink/");
+pref("app.vendorURL", "about:blank");
+
+// URL user can browse to manually if for some reason all update installation
+// attempts fail.
+pref("app.update.url.manual", "about:blank");
+// A default value for the "More information about this update" link
+// supplied in the "An update is available" page of the update wizard.
+pref("app.update.url.details", "about:blank");
+
+// Release notes URL
+pref("app.releaseNotesURL", "about:blank");
+
+// Base URL for web-based support pages.
+pref("app.support.baseURL", "about:blank");

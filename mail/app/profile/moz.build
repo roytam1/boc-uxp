@@ -11,7 +11,7 @@ if CONFIG['MOZILLA_OFFICIAL']:
 DEFINES['MOZ_WIDGET_TOOLKIT'] = CONFIG['MOZ_WIDGET_TOOLKIT']
 
 JS_PREFERENCE_PP_FILES += [
-    'all-thunderbird.js',
+    'application.js',
 ]
 
 FINAL_TARGET_FILES.defaults.profile += [
