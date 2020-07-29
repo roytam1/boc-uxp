@@ -406,7 +406,7 @@ function actuallyLoadMessage() {
    * 2) Displaying a message that has a header available, either as a result of
    *    the user selecting a message in another window to spawn us or through
    *    some indirection like displaying a message by message-id.  (The
-   *    newsgroup UI exposes this, as well as the spotlight/vista indexers.)
+   *    newsgroup UI exposes this.)
    *
    * We clone views when possible for:
    * - Consistency of navigation within the message display.  Users would find

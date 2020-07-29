@@ -62,8 +62,6 @@ var PREFS_WHITELIST = [
   "webgl.",
   // mail-specific prefs
   "mail.openMessageBehavior.",
-  "mail.spotlight.",
-  "mail.winsearch.",
   "mailnews.database.",
 ];
 

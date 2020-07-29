@@ -510,27 +510,22 @@ function LoadPostAccountWizard()
       } catch (ex) {}
       let defaultAccount = accountManager.defaultAccount;
 
-      // Next, try loading the search integration module
-      // We'll get a null SearchIntegration if we don't have one
-      Components.utils.import("resource:///modules/SearchIntegration.js");
-
       // Show the default client dialog only if
       // EITHER: we have at least one account, and we aren't already the default
       // for mail,
-      // OR: we have the search integration module, the OS version is suitable,
-      // and the first run hasn't already been completed.
+      // OR: The first run hasn't already been completed.
       // Needs to be shown outside the he normal load sequence so it doesn't appear
       // before any other displays, in the wrong place of the screen.
-      if ((shellService && defaultAccount && shellService.shouldCheckDefaultClient
-           && !shellService.isDefaultClient(true, nsIShellService.MAIL)) ||
-        (SearchIntegration && !SearchIntegration.osVersionTooLow &&
-         !SearchIntegration.osComponentsNotRunning && !SearchIntegration.firstRunDone)) {
+      var shouldCheckDefaultClient = shellService.shouldCheckDefaultClient;
+     
+      if (shellService && defaultAccount && shouldCheckDefaultClient && !shellService.isDefaultClient(true, nsIShellService.MAIL)) {
         window.openDialog("chrome://messenger/content/systemIntegrationDialog.xul",
                           "SystemIntegration", "modal,centerscreen,chrome,resizable=no");
         // On windows, there seems to be a delay between setting TB as the
         // default client, and the isDefaultClient check succeeding.
-        if (shellService.isDefaultClient(true, nsIShellService.MAIL))
+        if (shellService.isDefaultClient(true, nsIShellService.MAIL)) {
           Services.obs.notifyObservers(window, "mail:setAsDefault", null);
+        }
       }
     }
     // All core modal dialogs are done, the user can now interact with the 3-pane window

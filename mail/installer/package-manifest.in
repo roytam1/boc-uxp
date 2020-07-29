@@ -41,7 +41,6 @@
 ; Mac bundle stuff
 @APPNAME@/Contents/Info.plist
 @APPNAME@/Contents/PkgInfo
-@APPNAME@/Contents/Library/Spotlight/thunderbird.mdimporter/
 @RESPATH@/thunderbird.icns
 @RESPATH@/@LPROJ_ROOT@.lproj/*
 #endif
@@ -219,12 +218,6 @@
 
 ; misson control, autoconfig
 @RESPATH@/defaults/autoconfig/prefcalls.js
-
-; Windows Search integration
-; the module is included as part of the "Modules" rule
-#ifdef XP_WIN32
-@BINPATH@/WSEnable.exe
-#endif
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Base Package Files

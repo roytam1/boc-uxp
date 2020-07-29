@@ -12,21 +12,6 @@
   <!ENTITY % systemIntegrationDTD SYSTEM
     "chrome://messenger/locale/systemIntegrationDialog.dtd">
   %systemIntegrationDTD;
-#ifdef XP_WIN
-  <!ENTITY % searchIntegrationWinDTD SYSTEM
-    "chrome://messenger/locale/searchIntegrationWin.dtd">
-  %searchIntegrationWinDTD;
-#else
-#ifdef XP_MACOSX
-  <!ENTITY % searchIntegrationMacDTD SYSTEM
-    "chrome://messenger/locale/searchIntegrationMac.dtd">
-  %searchIntegrationMacDTD;
-#else
-  <!ENTITY % searchIntegrationDefaultDTD SYSTEM
-    "chrome://messenger/locale/searchIntegrationDefault.dtd">
-  %searchIntegrationDefaultDTD;
-#endif
-#endif
 ]>
 
 <dialog xmlns:html="http://www.w3.org/1999/xhtml"
@@ -45,16 +30,11 @@
           src="chrome://messenger/content/systemIntegrationDialog.js"/>
 
   <label control="defaultClientList">&defaultClient.intro;</label>
-  <listbox rows="3" seltype="single" id="defaultClientList">
+  <listbox rows="4" seltype="single" id="defaultClientList">
     <listitem id="checkMail" type="checkbox" label="&email.label;" tooltiptext="&unsetDefault.tooltip;"/>
     <listitem id="checkNews" type="checkbox" label="&newsgroups.label;" tooltiptext="&unsetDefault.tooltip;"/>
     <listitem id="checkRSS"  type="checkbox" label="&feeds.label;" tooltiptext="&unsetDefault.tooltip;"/>
   </listbox>
-
-  <checkbox id="searchIntegration"
-            hidden="true"
-            label="&searchIntegration.label;"
-            accesskey="&searchIntegration.accesskey;"/>
 
   <separator class="thin"/>
 

@@ -182,8 +182,6 @@ tools repackage:: $(PROGRAM)
 	rsync -aL --include-from='$(srcdir)/macbuild/Contents/MacOS-files-copy.in' --exclude '*' $(DIST)/bin/ '$(DIST)/$(MOZ_MACBUNDLE_NAME)/Contents/MacOS'
 	$(RM) $(DIST)/$(MOZ_MACBUNDLE_NAME)/Contents/MacOS/$(PROGRAM)
 	rsync -aL $(PROGRAM) $(DIST)/$(MOZ_MACBUNDLE_NAME)/Contents/MacOS
-	$(MKDIR) -p $(DIST)/$(MOZ_MACBUNDLE_NAME)/Contents/Library/Spotlight
-	rsync -a --copy-unsafe-links $(DIST)/package/thunderbird.mdimporter $(DIST)/$(MOZ_MACBUNDLE_NAME)/Contents/Library/Spotlight
 	cp -RL $(DIST)/branding/thunderbird.icns $(DIST)/$(MOZ_MACBUNDLE_NAME)/Contents/Resources/thunderbird.icns
 	printf APPLMOZM > $(DIST)/$(MOZ_MACBUNDLE_NAME)/Contents/PkgInfo
 endif

@@ -33,5 +33,3 @@ if CONFIG['OS_ARCH'] == 'WINNT':
         'shell32',
     ]
 
-if CONFIG['MOZ_WIDGET_TOOLKIT'] == 'windows':
-    LOCAL_INCLUDES += ['../search']

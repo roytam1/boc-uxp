@@ -53,24 +53,6 @@ function resolveURIInternal(aCmdLine, aArgument) {
   return uri;
 }
 
-function handleIndexerResult(aFile) {
-  // Do this here because xpcshell isn't too happy with this at startup
-  Components.utils.import("resource:///modules/MailUtils.js");
-  // Make sure the folder tree is initialized
-  MailUtils.discoverFolders();
-
-  // Use the search integration module to convert the indexer result into a
-  // message header
-  Components.utils.import("resource:///modules/SearchIntegration.js");
-  let msgHdr = SearchIntegration.handleResult(aFile);
-
-  // If we found a message header, open it, otherwise throw an exception
-  if (msgHdr)
-    MailUtils.displayMessage(msgHdr);
-  else
-    throw Components.results.NS_ERROR_FAILURE;
-}
-
 function mayOpenURI(uri)
 {
   var ext = Components.classes["@mozilla.org/uriloader/external-protocol-service;1"]
@@ -326,10 +308,6 @@ var nsMailDefaultHandler = {
         catch (e) {
           // If feed handling is not installed, do nothing
         }
-      }
-      else if (uri.toLowerCase().endsWith(".mozeml") || uri.toLowerCase().endsWith(".wdseml")) {
-        handleIndexerResult(cmdLine.resolveFile(uri));
-        cmdLine.preventDefault = true;
       }
       else if (uri.toLowerCase().endsWith(".eml")) {
         // Open this eml in a new message window

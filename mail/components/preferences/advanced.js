@@ -41,33 +41,6 @@ var gAdvancedPane = {
     this.initTelemetry();
     this.updateActualCacheSize();
 
-    // Search integration -- check whether we should hide or disable integration
-    let hideSearchUI = false;
-    let disableSearchUI = false;
-    Components.utils.import("resource:///modules/SearchIntegration.js");
-    if (SearchIntegration)
-    {
-      if (SearchIntegration.osVersionTooLow)
-        hideSearchUI = true;
-      else if (SearchIntegration.osComponentsNotRunning)
-        disableSearchUI = true;
-    }
-    else
-    {
-      hideSearchUI = true;
-    }
-
-    if (hideSearchUI)
-    {
-      document.getElementById("searchIntegrationContainer").hidden = true;
-    }
-    else if (disableSearchUI)
-    {
-      let searchCheckbox = document.getElementById("searchIntegration");
-      searchCheckbox.checked = false;
-      document.getElementById("searchintegration.enable").disabled = true;
-    }
-
     // If the shell service is not working, disable the "Check now" button
     // and "perform check at startup" checkbox.
     try {

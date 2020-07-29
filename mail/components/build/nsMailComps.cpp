@@ -36,11 +36,6 @@ NS_GENERIC_FACTORY_CONSTRUCTOR_INIT(nsMailGNOMEIntegration, Init)
 NS_GENERIC_FACTORY_CONSTRUCTOR(nsMailMacIntegration)
 #endif
 
-#if defined(XP_WIN32)
-#include "nsMailWinSearchHelper.h"
-NS_GENERIC_FACTORY_CONSTRUCTOR_INIT(nsMailWinSearchHelper, Init)
-#endif
-
 NS_DEFINE_NAMED_CID(NS_MAILDIRECTORYPROVIDER_CID);
 NS_DEFINE_NAMED_CID(NS_THUNDERBIRD_PROFILEIMPORT_CID);
 NS_DEFINE_NAMED_CID(NS_SEAMONKEYPROFILEMIGRATOR_CID);
@@ -48,7 +43,6 @@ NS_DEFINE_NAMED_CID(NS_SEAMONKEYPROFILEMIGRATOR_CID);
 #ifdef XP_WIN32
 NS_DEFINE_NAMED_CID(NS_OUTLOOKPROFILEMIGRATOR_CID);
 NS_DEFINE_NAMED_CID(NS_MAILWININTEGRATION_CID);
-NS_DEFINE_NAMED_CID(NS_MAILWINSEARCHHELPER_CID);
 #endif // !XP_WIN32
 
 #ifdef MOZ_WIDGET_GTK
@@ -66,7 +60,6 @@ const mozilla::Module::CIDEntry kMailCIDs[] = {
 #ifdef XP_WIN32
   { &kNS_OUTLOOKPROFILEMIGRATOR_CID, false, NULL, nsOutlookProfileMigratorConstructor },
   { &kNS_MAILWININTEGRATION_CID, false, NULL, nsWindowsShellServiceConstructor },
-  { &kNS_MAILWINSEARCHHELPER_CID, false, NULL, nsMailWinSearchHelperConstructor },
 #endif // !XP_WIN32
 #ifdef MOZ_WIDGET_GTK
   { &kNS_MAILGNOMEINTEGRATION_CID, false, NULL, nsMailGNOMEIntegrationConstructor },
@@ -84,7 +77,6 @@ const mozilla::Module::ContractIDEntry kMailContracts[] = {
 #ifdef XP_WIN32
   { NS_MAILPROFILEMIGRATOR_CONTRACTID_PREFIX "outlook", &kNS_OUTLOOKPROFILEMIGRATOR_CID },
   { "@mozilla.org/mail/shell-service;1", &kNS_MAILWININTEGRATION_CID },
-  { "@mozilla.org/mail/windows-search-helper;1", &kNS_MAILWINSEARCHHELPER_CID },
 #endif // !XP_WIN32
 #ifdef MOZ_WIDGET_GTK
   { "@mozilla.org/mail/shell-service;1", &kNS_MAILGNOMEINTEGRATION_CID },

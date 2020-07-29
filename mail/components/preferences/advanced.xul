@@ -9,18 +9,6 @@
 <!ENTITY % advancedDTD SYSTEM "chrome://messenger/locale/preferences/advanced.dtd">
 %brandDTD;
 %advancedDTD;
-#ifdef XP_WIN
-<!ENTITY % searchIntegrationWinDTD SYSTEM "chrome://messenger/locale/searchIntegrationWin.dtd" >
-%searchIntegrationWinDTD;
-#else
-#ifdef XP_MACOSX
-<!ENTITY % searchIntegrationMacDTD SYSTEM "chrome://messenger/locale/searchIntegrationMac.dtd" >
-%searchIntegrationMacDTD;
-#else
-<!ENTITY % searchIntegrationDefaultDTD SYSTEM "chrome://messenger/locale/searchIntegrationDefault.dtd" >
-%searchIntegrationDefaultDTD;
-#endif
-#endif
 ]>
 
 <overlay id="AdvancedPaneOverlay"
@@ -63,22 +51,6 @@
                   type="bool"/>
 #endif
       <!-- Keep one id, so that we don't have to do platform specific stuff later -->
-#ifdef XP_WIN
-      <preference id="searchintegration.enable"
-                  name="mail.winsearch.enable"
-                  type="bool"/>
-#else
-#ifdef XP_MACOSX
-      <preference id="searchintegration.enable"
-                  name="mail.spotlight.enable"
-                  type="bool"/>
-#else
-      <!-- We don't have any OS search integration for linux yet. -->
-      <preference id="searchintegration.enable"
-                  name="mail.XXX.enable"
-                  type="bool"/>
-#endif
-#endif
 
       <!-- Data Choices tab -->
 #ifdef MOZ_TELEMETRY_REPORTING
@@ -185,12 +157,6 @@ type="bool"/>
                       accesskey="&checkDefaultsNow.accesskey;"
                       oncommand="gAdvancedPane.checkDefaultNow();"
                       preference="pref.general.disable_button.default_mail"/>
-            </hbox>
-            <hbox id="searchIntegrationContainer">
-              <checkbox id="searchIntegration"
-                        preference="searchintegration.enable"
-                        label="&searchIntegration.label;"
-                        accesskey="&searchIntegration.accesskey;"/>
             </hbox>
           </groupbox>
 #endif
