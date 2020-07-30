@@ -483,9 +483,6 @@ pref("mail.tabs.closeWindowWithLastTab", true);
 // 3 - at the end of the tabstrip
 pref("mail.tabs.closeButtons", 1);
 
-// Allow the tabs to be in the titlebar on supported systems
-pref("mail.tabs.drawInTitlebar", false);
-
 // The breakpad report server to link to in about:crashes
 pref("breakpad.reportURL", "https://crash-stats.mozilla.com/report/index/");
 
