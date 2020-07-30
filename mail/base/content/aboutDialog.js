@@ -50,7 +50,6 @@ function init(aEvent)
     let day = buildID.slice(6, 8);
     versionField.textContent += ` (${year}-${month}-${day})`;
 
-    document.getElementById("experimental").hidden = false;
     document.getElementById("communityDesc").hidden = true;
   }
 
@@ -79,28 +78,6 @@ function init(aEvent)
   window.sizeToContent();
   window.moveTo((screen.availWidth / 2) - (window.outerWidth / 2), screen.availHeight / 5);
 #endif
-}
-
-// This function is used to open about: tabs. The caller should ensure the url
-// is only an about: url.
-function openAboutTab(url)
-{
-  let tabmail;
-  // Check existing windows
-  let mailWindow = Services.wm.getMostRecentWindow("mail:3pane");
-  if (mailWindow) {
-    mailWindow.focus();
-    mailWindow.document.getElementById("tabmail")
-              .openTab("contentTab", {contentPage: url,
-                                      clickHandler: "specialTabs.aboutClickHandler(event);"});
-    return;
-  }
-
-  // No existing windows.
-  window.openDialog("chrome://messenger/content/", "_blank",
-                    "chrome,dialog=no,all", null,
-                    { tabType: "contentTab",
-                      tabParams: {contentPage: url, clickHandler: "specialTabs.aboutClickHandler(event);"} });
 }
 
 function openUILink(url, event)
