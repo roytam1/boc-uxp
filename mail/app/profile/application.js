@@ -739,6 +739,7 @@ pref("plugins.crash.supportUrl", "https://live.mozillamessaging.com/%APP%/plugin
 // has been done.
 pref("plugins.click_to_play", false);
 // Disable by default.
+pref("plugin.disable", true);
 pref("plugin.default.state", 0);
 
 // Plugins bundled in XPIs are enabled by default.
