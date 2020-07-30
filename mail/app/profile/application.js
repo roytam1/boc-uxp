@@ -776,20 +776,6 @@ pref("devtools.chrome.enabled", true);
 pref("devtools.debugger.remote-enabled", true);
 pref("devtools.selfxss.count", 5);
 
-pref("mail.chat.enabled", false);
-// Whether to show chat notifications or not.
-pref("mail.chat.show_desktop_notifications", true);
-// Decide how much information is to be shown in the notification.
-// 0 == Show all info (sender, chat message message preview),
-// 1 == Show sender's info only (not message preview),
-// 2 == No info (fill dummy values).
-pref("mail.chat.notification_info", 0);
-pref("mail.chat.play_sound", true);
-// 0 == default system sound, 1 == user specified wav
-pref("mail.chat.play_sound.type", 0);
-// if sound is user specified, this needs to be a file url
-pref("mail.chat.play_sound.url", "");
-
 // BigFiles
 pref("mail.cloud_files.enabled", false);
 pref("mail.cloud_files.inserted_urls.footer.link", "http://www.getthunderbird.com");
