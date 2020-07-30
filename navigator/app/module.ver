@@ -1,12 +1,6 @@
-#ifdef MOZ_OFFICIAL_BRANDING
 WIN32_MODULE_COMPANYNAME=Binary Outcast
 WIN32_MODULE_TRADEMARKS=Borealis and Binary Outcast are trademarks of Matt A. Tobin.
 WIN32_MODULE_COPYRIGHT=©Binary Outcast, Mozilla Developers, according to the MPL 2.0 licenses, as applicable.
-#else
-WIN32_MODULE_COMPANYNAME=Open Source Contributors
-WIN32_MODULE_TRADEMARKS=Open Source Contributors
-WIN32_MODULE_COPYRIGHT=©Mozilla Developers, according to the MPL 2.0, as applicable.
-#endif
 WIN32_MODULE_PRODUCTVERSION=@MOZ_APP_WINVERSION@
 WIN32_MODULE_PRODUCTVERSION_STRING=@MOZ_APP_VERSION@
 WIN32_MODULE_DESCRIPTION=@MOZ_APP_DISPLAYNAME@
