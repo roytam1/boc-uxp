@@ -792,29 +792,6 @@ var specialTabs = {
   },
 
   /**
-   * Shows the what's new page in a content tab.
-   */
-  showWhatsNewPage: function onShowWhatsNewPage() {
-    let um = Components.classes["@mozilla.org/updates/update-manager;1"]
-               .getService(Components.interfaces.nsIUpdateManager);
-
-    try {
-      // If the updates.xml file is deleted then getUpdateAt will throw.
-      var update = um.getUpdateAt(0)
-                     .QueryInterface(Components.interfaces.nsIPropertyBag);
-    } catch (x) {
-      Cu.reportError("Unable to find update: " + x);
-      return;
-    }
-
-    let actions = update.getProperty("actions");
-    if (actions && actions.includes("silent"))
-      return;
-
-    openWhatsNew();
-  },
-
-  /**
    * Looks at the existing prefs and determines if we should show about:rights
    * or not.
    *
