@@ -412,15 +412,3 @@ function openDictionaryList(where) {
   openContentTab(dictUrl, where, "^https://addons.mozilla.org/");
 }
 
-/**
- * Open the privacy policy in a new content tab, if possible in an available
- * mail:3pane window, otherwise by opening a new mail:3pane.
- *
- * @param where the context to open the privacy policy in (e.g. 'tab',
- *        'window'). See openContentTab for more details.
- */
-function openPrivacyPolicy(where) {
-  const kTelemetryInfoUrl = "toolkit.telemetry.infoURL";
-  let url = Services.prefs.getCharPref(kTelemetryInfoUrl);
-  openContentTab(url, where, "^http://www.mozilla.org/");
-}

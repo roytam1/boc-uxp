@@ -38,7 +38,6 @@ var gAdvancedPane = {
 
     if (AppConstants.MOZ_CRASHREPORTER)
       this.initSubmitCrashes();
-    this.initTelemetry();
     this.updateActualCacheSize();
 
     // If the shell service is not working, disable the "Check now" button
@@ -448,17 +447,5 @@ updateWritePrefs: function ()
                getService(Components.interfaces.nsICrashReporter);
       cr.submitReports = checkbox.checked;
     } catch (e) { }
-  },
-
-
-  /**
-   * The preference/checkbox is configured in XUL.
-   *
-   * In all cases, set up the Learn More link sanely
-   */
-  initTelemetry: function ()
-  {
-    if (AppConstants.MOZ_TELEMETRY_REPORTING)
-      this._setupLearnMoreLink("toolkit.telemetry.infoURL", "telemetryLearnMore");
   },
 };

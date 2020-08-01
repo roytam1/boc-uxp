@@ -239,13 +239,6 @@ var DOMLinkHandler = {
   }
 };
 
-var kTelemetryPrompted    = "toolkit.telemetry.prompted";
-var kTelemetryEnabled     = "toolkit.telemetry.enabled";
-var kTelemetryRejected    = "toolkit.telemetry.rejected";
-var kTelemetryServerOwner = "toolkit.telemetry.server_owner";
-// This is used to reprompt/renotify users when privacy message changes
-var kTelemetryPromptRev   = 2;
-
 var contentTabBaseType = {
   inContentWhitelist: ['about:addons', 'about:preferences'],
   shouldSwitchTo: function onSwitchTo({contentPage: aContentPage}) {
@@ -598,13 +591,6 @@ var specialTabs = {
     if (Services.prefs.prefHasUserValue("app.update.postupdate")) {
       Services.prefs.clearUserPref("app.update.postupdate");
     }
-
-    // XXXTobin: Remove
-    // Show the about rights notification if we need to.
-    //if (this.shouldShowAboutRightsNotification())
-      //this.showAboutRightsNotification();
-    //else if (this.shouldShowTelemetryNotification())
-      //this.showTelemetryNotification();
   },
 
   /**
@@ -828,93 +814,6 @@ var specialTabs = {
     openWhatsNew();
   },
 
-  /**
-   * Looks at the existing prefs and determines if we should suggest the user
-   * enables telemetry or not.
-   *
-   * This is controlled by the pref toolkit.telemetry.prompted
-   */
-  shouldShowTelemetryNotification: function() {
-    // Toolkit has decided that the pref should have no default value, so this
-    // throws if not yet initialized.
-    let telemetryPrompted = false;
-    try {
-      telemetryPrompted = (Services.prefs.getIntPref(kTelemetryPrompted) >= kTelemetryPromptRev);
-    } catch (e) { }
-    let telemetryEnabled = false;
-    try {
-      telemetryEnabled = (Services.prefs.getBoolPref(kTelemetryEnabled));
-    } catch (e) { }
-    // In case user already allowed telemetry, do not bother him with any updated
-    // prompt. Clear the pref first, in case it was not Int (from older versions).
-    if (telemetryEnabled && !telemetryPrompted) {
-      Services.prefs.clearUserPref(kTelemetryPrompted);
-      Services.prefs.setIntPref(kTelemetryPrompted, kTelemetryPromptRev);
-    }
-
-    if (telemetryEnabled || telemetryPrompted)
-      return false;
-
-    return true;
-  },
-
-  showTelemetryNotification: function() {
-    var notifyBox = document.getElementById("mail-notification-box");
-
-    var brandBundle =
-      new StringBundle("chrome://branding/locale/brand.properties");
-    var telemetryBundle =
-      new StringBundle("chrome://messenger/locale/telemetry.properties");
-
-    var productName = brandBundle.get("brandFullName");
-    var serverOwner = Services.prefs.getCharPref(kTelemetryServerOwner);
-    var telemetryText = telemetryBundle.get("telemetryText", [productName, serverOwner]);
-
-    // Clear all the prefs as we will set them as needed after answering the prompt.
-    Services.prefs.clearUserPref(kTelemetryPrompted);
-    Services.prefs.clearUserPref(kTelemetryEnabled);
-    Services.prefs.clearUserPref(kTelemetryRejected);
-
-    var buttons = [
-      {
-        label:     telemetryBundle.get("telemetryYesButtonLabel"),
-        accessKey: telemetryBundle.get("telemetryYesButtonAccessKey"),
-        popup:     null,
-        callback:  function(aNotificationBar, aButton) {
-          Services.prefs.setBoolPref(kTelemetryEnabled, true);
-        }
-      },
-      {
-        label:     telemetryBundle.get("telemetryNoButtonLabel"),
-        accessKey: telemetryBundle.get("telemetryNoButtonAccessKey"),
-        popup:     null,
-        callback:  function(aNotificationBar, aButton) {
-          Services.prefs.setBoolPref(kTelemetryRejected, true);
-        }
-      }
-    ];
-
-    // Set pref to indicate we've shown the notification.
-    Services.prefs.setIntPref(kTelemetryPrompted, kTelemetryPromptRev);
-
-    var notification = notifyBox.appendNotification(telemetryText, "telemetry", null, notifyBox.PRIORITY_INFO_LOW, buttons);
-    notification.persistence = 3; // arbitrary number, just so bar sticks around for a bit
-
-    let XULNS = "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
-    let link = notification.ownerDocument.createElementNS(XULNS, "label");
-    link.className = "text-link telemetry-text-link";
-    link.setAttribute("value", telemetryBundle.get("telemetryLinkLabel"));
-    link.addEventListener('click', function() {
-      openPrivacyPolicy('tab');
-      // Remove the notification on which the user clicked
-      notification.parentNode.removeNotification(notification, true);
-      // Add a new notification to that tab, with no "Learn more" link
-      notifyBox.appendNotification(telemetryText, "telemetry", null, notifyBox.PRIORITY_INFO_LOW, buttons);
-    }, false);
-
-    let description = notification.ownerDocument.getAnonymousElementByAttribute(notification, "anonid", "messageText");
-    description.appendChild(link);
-  },
   /**
    * Looks at the existing prefs and determines if we should show about:rights
    * or not.

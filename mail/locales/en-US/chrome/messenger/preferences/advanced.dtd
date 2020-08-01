@@ -39,12 +39,6 @@
 <!ENTITY showReturnReceipts.accesskey  "R">
 
 <!-- Data Choices -->
-<!ENTITY telemetrySection.label          "Telemetry">
-<!ENTITY telemetryDesc.label             "Shares performance, usage, hardware and customization data about your e-mail client with &vendorShortName; to help us make &brandShortName; better">
-<!ENTITY enableTelemetry.label           "Enable Telemetry">
-<!ENTITY enableTelemetry.accesskey       "T">
-<!ENTITY telemetryLearnMore.label        "Learn More">
-
 <!ENTITY crashReporterSection.label      "Crash Reporter">
 <!ENTITY crashReporterDesc.label         "&brandShortName; submits crash reports to help &vendorShortName; make your e-mail client more stable and secure">
 <!ENTITY enableCrashReporter.label       "Enable Crash Reporter">
