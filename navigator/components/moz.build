@@ -12,6 +12,7 @@ DIRS += [
     'pageinfo',
     'permissions',
     'places',
+    'preferences',
     'search',
     'sessionstore',
     'shell',
