@@ -72,6 +72,12 @@ comm.jar:
   content/communicator/pref/pref-spelling.xul                             (content/pref-spelling.xul)
   content/communicator/pref/pref-tabs.xul                                 (content/pref-tabs.xul)
 
+pippki.jar:
+   content/pippki/pref-certs.js                                           (content/pref-certs.js)
+   content/pippki/pref-certs.xul                                          (content/pref-certs.xul)
+   content/pippki/pref-ssl.js                                             (content/pref-ssl.js)
+   content/pippki/pref-ssl.xul                                            (content/pref-ssl.xul)
+
 en-US.jar:
   locale/en-US/communicator/pref/prefutilities.dtd                        (locale/prefutilities.dtd)
   locale/en-US/communicator/pref/prefutilities.properties                 (locale/prefutilities.properties)
@@ -112,10 +118,9 @@ en-US.jar:
   locale/en-US/communicator/pref/pref-spelling.dtd                        (locale/pref-spelling.dtd)
   locale/en-US/communicator/pref/pref-tabs.dtd                            (locale/pref-tabs.dtd)
 
-  locale/en-US/pippki/pref-certs.dtd                                      (locale/pref-certs.dtd)
-  locale/en-US/pippki/pref-ssl.dtd                                        (locale/pref-ssl.dtd)
-
   locale/en-US/communicator-platform/mac/pref/platformPrefOverlay.dtd     (locale/mac/platformPrefOverlay.dtd)
   locale/en-US/communicator-platform/unix/pref/platformPrefOverlay.dtd    (locale/unix/platformPrefOverlay.dtd)
   locale/en-US/communicator-platform/win/pref/platformPrefOverlay.dtd     (locale/win/platformPrefOverlay.dtd)
 
+  locale/en-US/pippki/pref-certs.dtd                                      (locale/pref-certs.dtd)
+  locale/en-US/pippki/pref-ssl.dtd                                        (locale/pref-ssl.dtd)
