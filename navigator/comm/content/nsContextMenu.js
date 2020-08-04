@@ -237,7 +237,7 @@ nsContextMenu.prototype = {
                   canSetDesktopBackground && (this.onLoadedImage || this.onStandaloneImage));
 
     this.showItem("context-sep-image",
-                  this.onLoadedImage || this.onStandaloneImage);
+                  this.onLoadedImage && !this.onStandaloneImage);
 
     if (canSetDesktopBackground && this.onLoadedImage)
       // Disable the Set Desktop Background menu item if we're still trying to load the image
