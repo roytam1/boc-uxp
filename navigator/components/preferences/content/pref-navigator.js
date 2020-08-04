@@ -246,6 +246,7 @@ function Startup()
 
   // platform integration
   InitPlatformIntegration();
+  ShellServiceCheck();
 }
 
 function SwitchPage(aIndex)
@@ -317,5 +318,18 @@ function SetAsDefaultBrowser()
     desc.textContent = desc.getAttribute("desc2");
     window.addEventListener("dialogaccept", this.ApplySetAsDefaultBrowser, true);
     document.getElementById("defaultBrowserButton").disabled = true;
+  }
+}
+
+function ShellServiceCheck()
+{
+  const NS_SHELLSERVICE_CID = "@mozilla.org/suite/shell-service;1";
+
+  if (NS_SHELLSERVICE_CID in Components.classes) try {
+    Components.classes[NS_SHELLSERVICE_CID]
+              .getService(Components.interfaces.nsIShellService)
+              .shouldCheckDefaultClient;
+    document.getElementById("checkDefault").hidden = false;
+  } catch (e) {
   }
 }

@@ -21,3 +21,10 @@
 <!ENTITY enableOCSP.accesskey                     "U">
 <!ENTITY validation.requireOCSP.description       "When an OCSP server connection fails, treat the certificate as invalid">
 <!ENTITY validation.requireOCSP.accesskey         "W">
+
+<!ENTITY SSLClientAuthMethod.caption        "Client Certificate Selection">
+<!ENTITY certselect.description             "Decide how &brandFullName; selects a security certificate to present to websites that require one:">
+<!ENTITY certselect.auto                    "Select Automatically">
+<!ENTITY certselect.auto.accesskey          "A">
+<!ENTITY certselect.ask                     "Ask Every Time">
+<!ENTITY certselect.ask.accesskey           "E">

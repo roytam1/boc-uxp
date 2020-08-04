@@ -2,8 +2,8 @@
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 
-<!--LOCALIZATION NOTE : FILE 'Privacy and Security' prefs settings -->
-<!ENTITY pref.security.title              "Privacy &amp; Security">
+<!--LOCALIZATION NOTE : FILE 'Privacy' prefs settings -->
+<!ENTITY pref.privacy.title              "Privacy">
 
 <!ENTITY tracking.label                   "User Tracking">
 <!ENTITY trackingIntro.label              "Websites may track how you use them, thus affecting your privacy.">
@@ -22,7 +22,3 @@
 <!ENTITY geoEnabled.accesskey             "m">
 <!ENTITY geoDisabled.label                "Disable this feature and deny all requests">
 <!ENTITY geoDisabled.accesskey            "D">
-
-<!ENTITY  OpEnc.label                "Opportunistic Encryption">
-<!ENTITY  enableUIROpEnc.label       "Enable Upgrade Insecure Requests">
-<!ENTITY  enableAltSvcOpEnc.label    "Enable HTTP Alternative Services">

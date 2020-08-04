@@ -26,6 +26,10 @@ function OnLoad()
 
   window.innerHeight = setHeight;
   window.innerWidth  = setWidth;
+ 
+  if (document.getElementById("advancedChildren").childElementCount == 0) {
+    document.getElementById("advancedItem").setAttribute("hidden", true);
+  }
 }
 
 function EnableElementById(aElementId, aEnable, aFocus)

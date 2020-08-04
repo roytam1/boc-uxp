@@ -2,11 +2,10 @@
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 
-<!ENTITY SSLTLSProtocolVersions.caption     "SSL/TLS Protocol Versions">
+<!ENTITY SSLTLSProtocolVersions.caption     "Transport Layer Security">
 <!ENTITY SSLMixedContent.caption            "Mixed Content">
-<!ENTITY SSLClientAuthMethod.caption        "Client Certificate Selection">
 
-<!ENTITY pref.ssltls.title                  "Transport Layer Security (SSL/TLS)">
+<!ENTITY pref.ssltls.title                  "Encryption">
 <!ENTITY limit.description                  "You can restrict which encryption protocols to use for secure connections. Choose a single version or a contiguous range of versions.">
 <!ENTITY limit.enable.label                 "Enable:">
 <!ENTITY limit.tls10.label                  "TLS 1.0">
@@ -18,7 +17,7 @@
 <!ENTITY limit.tls13.label                  "TLS 1.3">
 <!ENTITY limit.tls13.accesskey              "3">
 
-<!ENTITY mixed.description                  "Encrypted pages may contain unencrypted content that is vulnerable to eavesdropping or forgery. &brandShortName; can detect and block it:">
+<!ENTITY mixed.description                  "Encrypted pages may contain unencrypted content that is vulnerable to eavesdropping or forgery. &brandFullName; can detect and block it:">
 <!ENTITY warn.mixedactivecontent            "Warn me when encrypted pages contain insecure content">
 <!ENTITY warn.mixedactivecontent.accesskey  "W">
 <!ENTITY block.activecontent                "Don't load insecure content on encrypted pages">
@@ -28,8 +27,6 @@
 <!ENTITY block.displaycontent               "Don't load other types of mixed content on encrypted pages">
 <!ENTITY block.displaycontent.accesskey     "m">
 
-<!ENTITY certselect.description             "Decide how &brandShortName; selects a security certificate to present to websites that require one:">
-<!ENTITY certselect.auto                    "Select Automatically">
-<!ENTITY certselect.auto.accesskey          "A">
-<!ENTITY certselect.ask                     "Ask Every Time">
-<!ENTITY certselect.ask.accesskey           "E">
+<!ENTITY  OpEnc.label                "Opportunistic Encryption">
+<!ENTITY  enableUIROpEnc.label       "Enable Upgrade Insecure Requests">
+<!ENTITY  enableAltSvcOpEnc.label    "Enable HTTP Alternative Services">

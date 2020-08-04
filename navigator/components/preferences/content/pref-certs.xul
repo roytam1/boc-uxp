@@ -10,8 +10,6 @@
   %brandDTD;
   <!ENTITY % prefCertsDTD SYSTEM "chrome://pippki/locale/pref-certs.dtd">
   %prefCertsDTD;
-  <!ENTITY % prefSslDTD SYSTEM "chrome://pippki/locale/pref-ssl.dtd">
-  %prefSslDTD;
 ]>
 
 <overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">

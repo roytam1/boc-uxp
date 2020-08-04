@@ -22,25 +22,26 @@
 <!ENTITY links.label "Link Behavior">
 <!ENTITY download.label "Downloads">
 
-<!ENTITY security.label "Privacy &amp; Security">
+<!ENTITY privacy.label "Privacy">
+
 <!ENTITY privatedata.label "Private Data">
 <!ENTITY cookies.label "Cookies">
 <!ENTITY images.label "Images">
 <!ENTITY popups.label "Popup Windows">
 <!ENTITY masterpass.label "Passwords">
-<!ENTITY ssltls.label "SSL/TLS">
+<!ENTITY ssltls.label "Encryption">
 <!ENTITY certs.label "Certificates">
 
 <!ENTITY sync.label "Sync">
 
-<!ENTITY advance.label "Advanced">
+<!ENTITY advance.label "Additional Settings">
 <!ENTITY scriptsAndWindows.label "Scripts &amp; Plugins">
 <!ENTITY keynav.label "Keyboard Navigation">
 <!ENTITY findAsYouType.label "Find As You Type">
 <!ENTITY cache.label "Cache">
 <!ENTITY offlineApps.label "Offline Apps">
 <!ENTITY proxies.label "Proxies">
-<!ENTITY httpnetworking.label "HTTP Networking">
+<!ENTITY httpnetworking.label "Networking &amp; Security">
 <!ENTITY smart.label "Software Installation">
 <!ENTITY mousewheel.label "Mouse Wheel">
 

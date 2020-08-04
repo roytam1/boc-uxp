@@ -2,7 +2,7 @@
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 
-<!ENTITY pref.http.title                     "HTTP Networking">
+<!ENTITY pref.http.title                     "Networking &amp; Security">
 
 <!-- Network-->
 <!ENTITY prefDirect.label                    "Direct Connection Options">
@@ -24,3 +24,4 @@
 <!ENTITY prefFirefoxCompat.label             "Advertise Firefox compatibility">
 <!ENTITY prefFirefoxCompat.accesskey         "F">
 <!ENTITY prefCompatWarning                   "WARNING: Changing these settings may result in websites or services not working properly.">
+

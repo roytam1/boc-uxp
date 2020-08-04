@@ -9,7 +9,6 @@ function Startup()
 {
   CheckPipelining();
   CheckPipeliningProxy();
-  CheckLightningUA();
 }
 
 function CheckPipelining()

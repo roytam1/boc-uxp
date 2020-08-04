@@ -18,12 +18,12 @@
 <prefwindow id="prefDialog"
             xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
             title="&prefWindow.title;"
-            height="600px"
+            height="660px"
             width="690px"
             overflow="auto"
             onload="OnLoad();"
             windowtype="mozilla:preferences"
-            buttons="accept,cancel,help"
+            buttons="accept,cancel"
             autopanes="true">
 
   <script type="application/javascript" src="chrome://communicator/content/pref/preferences.js"/>
@@ -41,7 +41,7 @@
   </stringbundleset>
 
   <tree id="prefsTree"
-        style="width: 13em;"
+        style="width: 30ch;"
         seltype="single"
         hidecolumnpicker="true"
         hidden="true"
@@ -54,39 +54,36 @@
                 id="navigatorItem"
                 label="&navigator.label;"
                 prefpane="navigator_pane"
-                helpTopic="navigator_pref_navigator"
                 url="chrome://communicator/content/pref/pref-navigator.xul">
         <treechildren id="navigatorChildren">
           <treeitem id="locationBarItem"
                     label="&locationBar.label;"
                     prefpane="locationBar_pane"
-                    helpTopic="navigator_pref_location_bar"
                     url="chrome://communicator/content/pref/pref-locationbar.xul"/>
           <treeitem id="searchItem"
                     label="&search.label;"
                     prefpane="search_pane"
-                    helpTopic="navigator_pref_internet_searching"
                     url="chrome://communicator/content/pref/pref-search.xul"/>
           <treeitem id="tabsItem"
                     label="&tabWindows.label;"
                     prefpane="tabs_pane"
-                    helpTopic="navigator_pref_tabbed_browsing"
                     url="chrome://communicator/content/pref/pref-tabs.xul"/>
           <treeitem id="linksItem"
                     label="&links.label;"
                     prefpane="links_pane"
-                    helpTopic="navigator_pref_link_behavior"
                     url="chrome://communicator/content/pref/pref-links.xul"/>
           <treeitem id="downloadItem"
                     label="&download.label;"
                     prefpane="download_pane"
-                    helpTopic="navigator_pref_downloads"
                     url="chrome://communicator/content/pref/pref-download.xul"/>
           <treeitem id="applicationsItem"
                     label="&applications.label;"
                     prefpane="applications_pane"
-                    helpTopic="navigator_pref_helper_applications"
                     url="chrome://communicator/content/pref/pref-applications.xul"/>
+          <treeitem id="smartupdateItem"
+                    label="&smart.label;"
+                    prefpane="smartupdate_pane"
+                    url="chrome://communicator/content/pref/pref-smartupdate.xul"/>
         </treechildren>
       </treeitem>
 
@@ -96,138 +93,118 @@
                 id="contentItem"
                 label="&content.label;"
                 prefpane="content_pane"
-                helpTopic="appearance_pref_content"
                 url="chrome://communicator/content/pref/pref-content.xul">
          <treechildren id="contentChildren">
-          <treeitem id="popupsItem"
-                    label="&popups.label;"
-                    prefpane="popups_pane"
-                    helpTopic="pop_up_blocking_prefs"
-                    url="chrome://communicator/content/pref/pref-popups.xul"/>
-          <treeitem id="imagesItem"
-                    label="&images.label;"
-                    prefpane="images_pane"
-                    helpTopic="images_prefs"
-                    url="chrome://communicator/content/pref/pref-images.xul"/>
-          <treeitem id="findasyoutypeItem"
-                    label="&findAsYouType.label;"
-                    prefpane="findasyoutype_pane"
-                    helpTopic="advanced_pref_find_as_you_type"
-                    url="chrome://communicator/content/pref/pref-findasyoutype.xul"/>
+          <treeitem id="colorsItem"
+                    label="&colors.label;"
+                    prefpane="colors_pane"
+                    url="chrome://communicator/content/pref/pref-colors.xul"/>
+          <treeitem id="fontsItem"
+                    label="&fonts.label;"
+                    prefpane="fonts_pane"
+                    url="chrome://communicator/content/pref/pref-fonts.xul"/>
           <treeitem id="spellingItem"
                     label="&spellingPane.label;"
                     prefpane="spelling_pane"
-                    helpTopic="appearance_pref_spelling"
                     url="chrome://communicator/content/pref/pref-spelling.xul"/>
           <treeitem id="languagesItem"
                     label="&languages.label;"
                     prefpane="languages_pane"
-                    helpTopic="navigator_pref_languages"
                     url="chrome://communicator/content/pref/pref-languages.xul"/>
-          <treeitem id="fontsItem"
-                    label="&fonts.label;"
-                    prefpane="fonts_pane"
-                    helpTopic="appearance_pref_fonts"
-                    url="chrome://communicator/content/pref/pref-fonts.xul"/>
-          <treeitem id="colorsItem"
-                    label="&colors.label;"
-                    prefpane="colors_pane"
-                    helpTopic="appearance_pref_colors"
-                    url="chrome://communicator/content/pref/pref-colors.xul"/>
+          <treeitem id="mousewheelItem"
+                    label="&mousewheel.label;"
+                    prefpane="mousewheel_pane"
+                    url="chrome://communicator/content/pref/pref-mousewheel.xul"/>
+          <treeitem id="findasyoutypeItem"
+                    label="&findAsYouType.label;"
+                    prefpane="findasyoutype_pane"
+                    url="chrome://communicator/content/pref/pref-findasyoutype.xul"/>
+          <treeitem id="keynavItem"
+                    label="&keynav.label;"
+                    prefpane="keynav_pane"
+                    url="chrome://communicator/content/pref/pref-keynav.xul"/>
         </treechildren>
       </treeitem>
 
-      <!-- Privacy & Security items -->
+      <!-- Privacy items -->
       <treeitem open="true"
                 container="true"
-                id="securityItem"
-                prefpane="security_pane"
-                label="&security.label;"
-                helpTopic="sec_gen"
-                url="chrome://communicator/content/pref/pref-security.xul">
+                id="privacyItem"
+                prefpane="privacy_pane"
+                label="&privacy.label;"
+                url="chrome://communicator/content/pref/pref-privacy.xul">
         <treechildren id="securityChildren">
           <treeitem id="privatedataItem"
                     label="&privatedata.label;"
                     prefpane="privatedata_pane"
-                    helpTopic="privatedata_prefs"
                     url="chrome://communicator/content/pref/pref-privatedata.xul"/>
           <treeitem id="historyItem"
                     label="&history.label;"
                     prefpane="history_pane"
-                    helpTopic="navigator_pref_history"
                     url="chrome://communicator/content/pref/pref-history.xul"/>
           <treeitem id="cookiesItem"
                     label="&cookies.label;"
                     prefpane="cookies_pane"
-                    helpTopic="cookies_prefs"
                     url="chrome://communicator/content/pref/pref-cookies.xul"/>
+          <treeitem id="cacheItem"
+                    label="&cache.label;"
+                    prefpane="cache_pane"
+                    url="chrome://communicator/content/pref/pref-cache.xul"/>
           <treeitem id="offlineAppsItem"
                     label="&offlineApps.label;"
                     prefpane="offlineapps_pane"
-                    helpTopic="advanced_pref_offlineapps"
                     url="chrome://communicator/content/pref/pref-offlineapps.xul"/>
-          <treeitem id="masterpassItem"
-                    label="&masterpass.label;"
-                    prefpane="masterpass_pane"
-                    url="chrome://communicator/content/pref/pref-masterpass.xul"
-                    helpTopic="passwords_master"/>
+        </treechildren>
+      </treeitem>
+
+
+      <!-- Networking & Security items -->
+      <treeitem open="true"
+                container="true"
+                id="httpItem"
+                label="&httpnetworking.label;"
+                prefpane="http_pane"
+                url="chrome://communicator/content/pref/pref-http.xul">
+        <treechildren id="securityChildren">
+          <treeitem id="proxiesItem"
+                    label="&proxies.label;"
+                    prefpane="proxies_pane"
+                    url="chrome://communicator/content/pref/pref-proxies.xul"/>
           <treeitem id="sslItem"
                     label="&ssltls.label;"
                     prefpane="ssl_pane"
-                    url="chrome://pippki/content/pref-ssl.xul"
-                    helpTopic="ssl_prefs"/>
+                    url="chrome://pippki/content/pref-ssl.xul"/>
           <treeitem id="certItem"
                     label="&certs.label;"
                     prefpane="certs_pane"
-                    url="chrome://pippki/content/pref-certs.xul"
-                    helpTopic="certs_prefs"/>
-          <treeitem id="smartupdateItem"
-                    label="&smart.label;"
-                    prefpane="smartupdate_pane"
-                    helpTopic="advanced_pref_installation"
-                    url="chrome://communicator/content/pref/pref-smartupdate.xul"/>
+                    url="chrome://pippki/content/pref-certs.xul"/>
+          <treeitem id="imagesItem"
+                    label="&images.label;"
+                    prefpane="images_pane"
+                    url="chrome://communicator/content/pref/pref-images.xul"/>
+          <treeitem id="popupsItem"
+                    label="&popups.label;"
+                    prefpane="popups_pane"
+                    url="chrome://communicator/content/pref/pref-popups.xul"/>
+          <treeitem id="masterpassItem"
+                    label="&masterpass.label;"
+                    prefpane="masterpass_pane"
+                    url="chrome://communicator/content/pref/pref-masterpass.xul"/>
+          <treeitem id="scriptsItem"
+                    label="&scriptsAndWindows.label;"
+                    prefpane="scripts_pane"
+                    url="chrome://communicator/content/pref/pref-scripts.xul"/>
         </treechildren>
       </treeitem>
 
       <!-- Advanced items -->
-      <treeitem container="true"
+      <treeitem open="true"
+                container="true"
                 id="advancedItem"
                 label="&advance.label;"
                 prefpane="advanced_pane"
-                helpTopic="advanced_pref_advanced"
                 url="chrome://communicator/content/pref/pref-advanced.xul">
-        <treechildren id="advancedChildren">
-          <treeitem id="scriptsItem"
-                    label="&scriptsAndWindows.label;"
-                    prefpane="scripts_pane"
-                    helpTopic="advanced_pref_scripts"
-                    url="chrome://communicator/content/pref/pref-scripts.xul"/>
-          <treeitem id="keynavItem"
-                    label="&keynav.label;"
-                    prefpane="keynav_pane"
-                    helpTopic="advanced_pref_keyboard_nav"
-                    url="chrome://communicator/content/pref/pref-keynav.xul"/>
-          <treeitem id="cacheItem"
-                    label="&cache.label;"
-                    prefpane="cache_pane"
-                    helpTopic="advanced_pref_cache"
-                    url="chrome://communicator/content/pref/pref-cache.xul"/>
-          <treeitem id="proxiesItem"
-                    label="&proxies.label;"
-                    prefpane="proxies_pane"
-                    helpTopic="advanced_pref_proxies"
-                    url="chrome://communicator/content/pref/pref-proxies.xul"/>
-          <treeitem id="httpItem"
-                    label="&httpnetworking.label;"
-                    prefpane="http_pane"
-                    helpTopic="advanced_http_networking"
-                    url="chrome://communicator/content/pref/pref-http.xul"/>
-          <treeitem id="mousewheelItem"
-                    label="&mousewheel.label;"
-                    prefpane="mousewheel_pane"
-                    helpTopic="advanced_pref_mouse_wheel"
-                    url="chrome://communicator/content/pref/pref-mousewheel.xul"/>
-        </treechildren>
+        <treechildren id="advancedChildren"/>
       </treeitem>
     </treechildren>
   </tree>

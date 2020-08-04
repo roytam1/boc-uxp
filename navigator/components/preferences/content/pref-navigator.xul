@@ -48,6 +48,9 @@
       <preference id="pref.browser.homepage.disable_button.default_page"
                   name="pref.browser.homepage.disable_button.default_page"
                   type="bool"/>
+      <preference id="shell.checkDefaultClient"
+                  name="shell.checkDefaultClient"
+                  type="bool"/>
     </preferences>
 
     <hbox id="pref-nav-platform-extensions">
@@ -104,7 +107,7 @@
       </groupbox>
 
       <!-- default browser settings are shown only if supported by the platform -->
-      <groupbox id="defaultBrowserGroup" flex="1000" align="center" hidden="true">
+      <groupbox id="defaultBrowserGroup" flex="2000" hidden="true">
         <caption label="&defaultBrowserGroup.label;"/>
         <!-- We have four use cases, identified by their index:
              0: not already the default => button enabled
@@ -123,6 +126,10 @@
                 oncommand="SetAsDefaultBrowser()"
                 disabled="true"
                 preference="pref.browser.disable_button.default_browser"/>
+        <checkbox id="checkDefaultClient"
+          label="&prefCheckDefaultClient.label;"
+          accesskey="&prefCheckDefaultClient.accesskey;"
+          preference="shell.checkDefaultClient"/>
       </groupbox>
     </hbox>
 
