@@ -389,60 +389,14 @@
       </method>
 
     <!-- copied from contextHelp.js
-         Locate existing help window for this helpFileURI. -->
-      <method name="locateHelpWindow">
-        <parameter name="helpFileURI"/>
-        <body>
-        <![CDATA[
-          const wm = Components.classes['@mozilla.org/appshell/window-mediator;1']
-                               .getService(Components.interfaces.nsIWindowMediator);
-          const iterator = wm.getEnumerator("suite:help");
-          var topWindow = null;
-          var aWindow;
-
-          // Loop through help windows looking for one with selected helpFileURI
-          while (iterator.hasMoreElements())
-          {
-            aWindow = iterator.getNext();
-            if (aWindow.getHelpFileURI() == helpFileURI)
-              topWindow = aWindow;
-          }
-          return topWindow;
-        ]]>
-        </body>
-      </method>
-
-    <!-- copied from contextHelp.js
          Opens up the Help Viewer with the specified topic and helpFileURI. -->
       <method name="openHelp">
         <parameter name="topic"/>
         <parameter name="helpFileURI"/>
         <body>
         <![CDATA[
-          // Empty help windows are not helpful...
-          if (!helpFileURI)
-            return;
-
-          // Try to find previously opened help.
-          var topWindow = this.locateHelpWindow(helpFileURI);
-          if (topWindow)
-          {
-            // Open topic in existing window.
-            topWindow.focus();
-            topWindow.displayTopic(topic);
-          }
-          else
-          {
-            // Open topic in new window.
-            const params = Components.classes["@mozilla.org/embedcomp/dialogparam;1"]
-                                     .createInstance(Components.interfaces.nsIDialogParamBlock);
-            params.SetNumberStrings(2);
-            params.SetString(0, helpFileURI);
-            params.SetString(1, topic);
-            const ww = Components.classes["@mozilla.org/embedcomp/window-watcher;1"]
-                                 .getService(Components.interfaces.nsIWindowWatcher);
-            ww.openWindow(null, "chrome://help/content/help.xul", "_blank", "chrome,all,alwaysRaised,dialog=no", params);
-          }
+          Components.utils.import("resource://gre/modules/Services.jsm");
+          Services.prompt.alert(this.window, "Help", "Help information is not currently available.");
         ]]>
         </body>
       </method>
