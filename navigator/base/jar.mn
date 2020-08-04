@@ -37,14 +37,11 @@ navigator.jar:
 
 #ifdef XP_MACOSX
   content/navigator/platformNavigationBindings.xul                 (content/platform/mac/platformNavigationBindings.xul)
-  content/navigator/platformMailOverlay.xul                        (content/platform/mac/platformMailOverlay.xul)
 #else
 #ifdef XP_WIN
   content/navigator/platformNavigationBindings.xul                 (content/platform/win/platformNavigationBindings.xul)
-  content/navigator/platformMailOverlay.xul                        (content/platform/win/platformMailOverlay.xul)
 #else
   content/navigator/platformNavigationBindings.xul                 (content/platform/unix/platformNavigationBindings.xul)
-  content/navigator/platformMailOverlay.xul                        (content/platform/unix/platformMailOverlay.xul)
 #endif
 #endif
 
@@ -63,7 +60,6 @@ en-US.jar:
 % locale navigator-platform en-US %locale/en-US/navigator-platform/
 % locale navigator-region en-US %locale/en-US/navigator-region/
 
-  locale/en-US/navigator/mailNavigatorOverlay.dtd                         (locale/mailNavigatorOverlay.dtd)
   locale/en-US/navigator/metadata.dtd                                     (locale/metadata.dtd)
   locale/en-US/navigator/metadata.properties                              (locale/metadata.properties)
   locale/en-US/navigator/navigator.dtd                                    (locale/navigator.dtd)
