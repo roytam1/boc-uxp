@@ -25,7 +25,7 @@ window.onload = function() {
   // (for when the tab is closed or the session crashes right again)
   var sessionData = document.getElementById("sessionData");
   if (!sessionData.value) {
-    var ss = Components.classes["@mozilla.org/suite/sessionstartup;1"].getService(Components.interfaces.nsISessionStartup);
+    var ss = Components.classes["@binaryoutcast.com/navigator/sessionstartup;1"].getService(Components.interfaces.nsISessionStartup);
     sessionData.value = ss.state;
     if (!sessionData.value) {
       document.getElementById("errorTryAgain").disabled = true;
@@ -99,7 +99,7 @@ function restoreSession() {
   }
   var stateString = JSON.stringify(gStateObject);
 
-  var ss = Components.classes["@mozilla.org/suite/sessionstore;1"].getService(Components.interfaces.nsISessionStore);
+  var ss = Components.classes["@binaryoutcast.com/navigator/sessionstore;1"].getService(Components.interfaces.nsISessionStore);
   var top = getBrowserWindow();
 
   // if there's only this page open, reuse the window for restoring the session
@@ -196,7 +196,7 @@ function restoreSingleTab(aIx, aShifted) {
   var newTab = tabbrowser.addTab();
   var item = gTreeData[aIx];
 
-  var ss = Components.classes["@mozilla.org/suite/sessionstore;1"].getService(Components.interfaces.nsISessionStore);
+  var ss = Components.classes["@binaryoutcast.com/navigator/sessionstore;1"].getService(Components.interfaces.nsISessionStore);
   var tabState = gStateObject.windows[item.parent.ix]
                              .tabs[aIx - gTreeData.indexOf(item.parent) - 1];
   ss.setTabState(newTab, JSON.stringify(tabState));

@@ -265,7 +265,7 @@ function WriteConcurrentTabs()
 function ApplySetAsDefaultBrowser()
 {
   const nsIShellService = Components.interfaces.nsIShellService;
-  var shellSvc = Components.classes["@mozilla.org/suite/shell-service;1"]
+  var shellSvc = Components.classes["@binaryoutcast.com/navigator/shell-service;1"]
                            .getService(nsIShellService);
 
   shellSvc.setDefaultClient(false, false, nsIShellService.BROWSER);
@@ -275,7 +275,7 @@ function ApplySetAsDefaultBrowser()
 function IsDefaultBrowser()
 {
   const nsIShellService = Components.interfaces.nsIShellService;
-  var shellSvc = Components.classes["@mozilla.org/suite/shell-service;1"]
+  var shellSvc = Components.classes["@binaryoutcast.com/navigator/shell-service;1"]
                            .getService(nsIShellService);
 
   return shellSvc.isDefaultClient(false, nsIShellService.BROWSER);
@@ -283,7 +283,7 @@ function IsDefaultBrowser()
 
 function InitPlatformIntegration()
 {
-  const NS_SHELLSERVICE_CID = "@mozilla.org/suite/shell-service;1";
+  const NS_SHELLSERVICE_CID = "@binaryoutcast.com/navigator/shell-service;1";
 
   if (NS_SHELLSERVICE_CID in Components.classes) try {
     var desc = document.getElementById("defaultBrowserDesc");
@@ -323,7 +323,7 @@ function SetAsDefaultBrowser()
 
 function ShellServiceCheck()
 {
-  const NS_SHELLSERVICE_CID = "@mozilla.org/suite/shell-service;1";
+  const NS_SHELLSERVICE_CID = "@binaryoutcast.com/navigator/shell-service;1";
 
   if (NS_SHELLSERVICE_CID in Components.classes) try {
     Components.classes[NS_SHELLSERVICE_CID]

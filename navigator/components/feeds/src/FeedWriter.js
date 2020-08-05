@@ -835,7 +835,7 @@ FeedWriter.prototype = {
 
     // List the default feed reader
     try {
-      this._defaultSystemReader = Components.classes["@mozilla.org/suite/shell-service;1"]
+      this._defaultSystemReader = Components.classes["@binaryoutcast.com/navigator/shell-service;1"]
                                             .getService(Components.interfaces.nsIShellService)
                                             .defaultFeedReader;
       menuItem = liveBookmarksMenuItem.cloneNode(false);

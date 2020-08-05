@@ -201,7 +201,7 @@
 
     <!-- Tools Menu -->
     <command id="Tools:Sanitize"
-             oncommand="Components.classes['@mozilla.org/suite/suiteglue;1'].getService(Components.interfaces.nsISuiteGlue).sanitize(window);"/>
+             oncommand="Components.classes['@binaryoutcast.com/navigator/navigatorglue;1'].getService(Components.interfaces.nsINavigatorGlue).sanitize(window);"/>
 
   </commandset>
 

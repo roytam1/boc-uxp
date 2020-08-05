@@ -226,9 +226,9 @@ nsContextMenu.prototype = {
     // Set Desktop Background depends on whether an image was clicked on,
     // and requires the shell service.
     var canSetDesktopBackground = false;
-    if ("@mozilla.org/suite/shell-service;1" in Components.classes) try {
+    if ("@binaryoutcast.com/navigator/shell-service;1" in Components.classes) try {
       canSetDesktopBackground =
-          Components.classes["@mozilla.org/suite/shell-service;1"]
+          Components.classes["@binaryoutcast.com/navigator/shell-service;1"]
                     .getService(Components.interfaces.nsIShellService)
                     .canSetDesktopBackground;
     } catch (e) {

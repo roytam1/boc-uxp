@@ -47,7 +47,7 @@ const BOOKMARKS_BACKUP_INTERVAL = 86400 * 1000;
 const BOOKMARKS_BACKUP_MAX_BACKUPS = 10;
 
 // Constructor
-function SuiteGlue() {
+function NavigatorGlue() {
   XPCOMUtils.defineLazyServiceGetter(this, "_idleService",
                                      "@mozilla.org/widget/idleservice;1",
                                      "nsIIdleService");
@@ -55,7 +55,7 @@ function SuiteGlue() {
   this._init();
 }
 
-SuiteGlue.prototype = {
+NavigatorGlue.prototype = {
   _saveSession: false,
   _sound: null,
   _isIdleObserver: false,
@@ -559,6 +559,7 @@ SuiteGlue.prototype = {
     if (this._isPlacesDatabaseLocked)
       notifyBox.showPlacesLockedWarning();
 
+#ifdef MOZ_UPDATER
     // Detect if updates are off and warn for outdated builds.
     if (this._shouldShowUpdateWarning())
       notifyBox.showUpdateWarning();
@@ -820,7 +821,7 @@ SuiteGlue.prototype = {
   // This will do nothing on platforms without a shell service.
   _checkForDefaultClient: function checkForDefaultClient(aWindow)
   {
-    const NS_SHELLSERVICE_CID = "@mozilla.org/suite/shell-service;1";
+    const NS_SHELLSERVICE_CID = "@binaryoutcast.com/navigator/shell-service;1";
     if (NS_SHELLSERVICE_CID in Components.classes) try {
       var nsIShellService = Components.interfaces.nsIShellService;
 
@@ -1142,7 +1143,7 @@ SuiteGlue.prototype = {
   },
 
   // ------------------------------
-  // public nsISuiteGlue members
+  // public nsINavigatorGlue members
   // ------------------------------
 
   sanitize: function(aParentWindow)
@@ -1328,7 +1329,7 @@ SuiteGlue.prototype = {
   QueryInterface: XPCOMUtils.generateQI([Components.interfaces.nsIObserver,
                                          Components.interfaces.nsIWebProgressListener,
                                          Components.interfaces.nsISupportsWeakReference,
-                                         Components.interfaces.nsISuiteGlue])
+                                         Components.interfaces.nsINavigatorGlue])
 
 }
 
@@ -1412,4 +1413,4 @@ ContentPermissionPrompt.prototype = {
 };
 
 //module initialization
-var NSGetFactory = XPCOMUtils.generateNSGetFactory([SuiteGlue, ContentPermissionPrompt]);
+var NSGetFactory = XPCOMUtils.generateNSGetFactory([NavigatorGlue, ContentPermissionPrompt]);

@@ -746,7 +746,7 @@ function updateWindowState()
 function InitSessionStoreCallback()
 {
   try {
-    var ss = Components.classes["@mozilla.org/suite/sessionstore;1"]
+    var ss = Components.classes["@binaryoutcast.com/navigator/sessionstore;1"]
                        .getService(Components.interfaces.nsISessionStore);
     ss.init(window);
 
@@ -889,7 +889,7 @@ function OpenSessionHistoryIn(aWhere, aDelta, aTab)
 {
   var win = aWhere == "window" ? null : window;
   aTab = aTab || getBrowser().selectedTab;
-  var tab = Components.classes["@mozilla.org/suite/sessionstore;1"]
+  var tab = Components.classes["@binaryoutcast.com/navigator/sessionstore;1"]
                       .getService(Components.interfaces.nsISessionStore)
                       .duplicateTab(win, aTab, aDelta, true);
 
@@ -1504,7 +1504,7 @@ function updateCloseItems()
 function updateRecentMenuItems()
 {
   var browser = getBrowser();
-  var ss = Components.classes["@mozilla.org/suite/sessionstore;1"]
+  var ss = Components.classes["@binaryoutcast.com/navigator/sessionstore;1"]
                      .getService(Components.interfaces.nsISessionStore);
 
   var recentTabsItem = document.getElementById("menu_recentTabs");
@@ -1540,7 +1540,7 @@ function updateRecentTabs(menupopup)
 
 function updateRecentWindows(menupopup)
 {
-  var ss = Components.classes["@mozilla.org/suite/sessionstore;1"]
+  var ss = Components.classes["@binaryoutcast.com/navigator/sessionstore;1"]
                      .getService(Components.interfaces.nsISessionStore);
 
   while (menupopup.hasChildNodes())
@@ -1566,14 +1566,14 @@ function updateRecentWindows(menupopup)
 
 function undoCloseWindow(aIndex)
 {
-  var ss = Components.classes["@mozilla.org/suite/sessionstore;1"]
+  var ss = Components.classes["@binaryoutcast.com/navigator/sessionstore;1"]
                      .getService(Components.interfaces.nsISessionStore);
 
   return ss.undoCloseWindow(aIndex);
 }
 
 function restoreLastSession() {
-  let ss = Components.classes["@mozilla.org/suite/sessionstore;1"]
+  let ss = Components.classes["@binaryoutcast.com/navigator/sessionstore;1"]
                      .getService(Components.interfaces.nsISessionStore);
   ss.restoreLastSession();
 }

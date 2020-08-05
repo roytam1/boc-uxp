@@ -224,7 +224,7 @@ SessionStoreService.prototype = {
     this._sessionFileBackup.append("sessionstore.bak");
 
     // get string containing session state
-    var ss = Components.classes["@mozilla.org/suite/sessionstartup;1"]
+    var ss = Components.classes["@binaryoutcast.com/navigator/sessionstartup;1"]
                        .getService(Components.interfaces.nsISessionStartup);
     try {
       if (ss.sessionType != Components.interfaces.nsISessionStartup.NO_SESSION)

@@ -10,4 +10,4 @@
 #define SHELLSERVICE_PROPERTIES "chrome://communicator/locale/shellservice.properties"
 #define BRAND_PROPERTIES "chrome://branding/locale/brand.properties"
 
-#define NS_SUITESHELLSERVICE_CONTRACTID "@mozilla.org/suite/shell-service;1"
+#define NS_SUITESHELLSERVICE_CONTRACTID "@binaryoutcast.com/navigator/shell-service;1"

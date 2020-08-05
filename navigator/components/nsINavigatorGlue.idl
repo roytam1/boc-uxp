@@ -8,7 +8,7 @@ interface nsIDOMWindow;
 
 /**
  * ***** this is the suite version of nsIBrowserGlue *****
- * nsISuiteGlue is a dirty and rather fluid interface to host shared utility
+ * nsINavigatorGlue is a dirty and rather fluid interface to host shared utility
  * methods used by suite UI code, but which are not local to a suite window.
  * The component implementing this interface is meant to be a singleton
  * (service) and should progressively replace some of the shared "glue" code
@@ -24,7 +24,7 @@ interface nsIDOMWindow;
  */
 
 [scriptable, uuid(2559bb36-2eef-4190-9df1-8afcfbd35bd3)]
-interface nsISuiteGlue : nsISupports
+interface nsINavigatorGlue : nsISupports
 {
   /**
    * Deletes privacy sensitive data according to user preferences

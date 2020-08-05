@@ -14,7 +14,7 @@
 #include "nsIProperties.h"
 #include "mozilla/Attributes.h"
 
-#define NS_SUITEDIRECTORYPROVIDER_CONTRACTID "@mozilla.org/suite/directory-provider;1"
+#define NS_SUITEDIRECTORYPROVIDER_CONTRACTID "@binaryoutcast.com/navigator/directory-provider;1"
 // {9aa21826-9d1d-433d-8c10-f313b26fa9dd}
 #define NS_SUITEDIRECTORYPROVIDER_CID \
   { 0x9aa21826, 0x9d1d, 0x433d, { 0x8c, 0x10, 0xf3, 0x13, 0xb2, 0x6f, 0xa9, 0xdd } }

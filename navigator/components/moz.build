@@ -22,7 +22,7 @@ DIRS += [
 ]
 
 XPIDL_SOURCES += [
-    'nsISuiteGlue.idl',
+    'nsINavigatorGlue.idl',
 ]
 
 XPIDL_MODULE = 'navigatorcompsbase'
@@ -32,6 +32,6 @@ EXTRA_COMPONENTS += [
     'nsAboutRedirector.js',
     'nsBrowserContentHandler.js',
     'nsGopherProtocolStubHandler.js',
-    'nsSuiteGlue.js',
+    'nsNavigatorGlue.js',
     'nsTypeAheadFind.js',
 ]

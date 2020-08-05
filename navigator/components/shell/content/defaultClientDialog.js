@@ -9,7 +9,7 @@ const nsIPrefBranch = Components.interfaces.nsIPrefBranch;
 
 function onLoad()
 {
-  var shellSvc = Components.classes["@mozilla.org/suite/shell-service;1"]
+  var shellSvc = Components.classes["@binaryoutcast.com/navigator/shell-service;1"]
                            .getService(nsIShellService);
   var defaultList = document.getElementById("defaultList");
   var appTypes = shellSvc.shouldBeDefaultClientFor;
@@ -34,7 +34,7 @@ function onLoad()
 function onAccept()
 {
   // for each checked item, if we aren't already the default, make us the default.
-  var shellSvc = Components.classes["@mozilla.org/suite/shell-service;1"]
+  var shellSvc = Components.classes["@binaryoutcast.com/navigator/shell-service;1"]
                            .getService(nsIShellService);
   var appTypes = 0;
   var appTypesCheck = 0;

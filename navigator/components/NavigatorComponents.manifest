@@ -33,12 +33,12 @@ component {22042bdb-56e4-47c6-8b12-fdfa859c05a9} nsGopherProtocolStubHandler.js
 contract @mozilla.org/network/protocol;1?name=gopher {22042bdb-56e4-47c6-8b12-fdfa859c05a9}
 
 component {45c8f75b-a299-4178-a461-f63690389055} nsTypeAheadFind.js
-contract @mozilla.org/suite/typeaheadfind;1 {45c8f75b-a299-4178-a461-f63690389055}
-category app-startup SuiteTypeAheadFind service,@mozilla.org/suite/typeaheadfind;1
+contract @binaryoutcast.com/navigator/typeaheadfind;1 {45c8f75b-a299-4178-a461-f63690389055}
+category app-startup SuiteTypeAheadFind service,@binaryoutcast.com/navigator/typeaheadfind;1
 
-component {bbbbe845-5a1b-40ee-813c-f84b8faaa07c} nsSuiteGlue.js
-contract @mozilla.org/suite/suiteglue;1 {bbbbe845-5a1b-40ee-813c-f84b8faaa07c}
-category app-startup nsSuiteGlue service,@mozilla.org/suite/suiteglue;1
-component {9d4c845d-3f09-402a-b66d-50f291d7d50f} nsSuiteGlue.js
+component {bbbbe845-5a1b-40ee-813c-f84b8faaa07c} nsNavigatorGlue.js
+contract @binaryoutcast.com/navigator/navigatorglue;1 {bbbbe845-5a1b-40ee-813c-f84b8faaa07c}
+category app-startup nsNavigatorGlue service,@binaryoutcast.com/navigator/navigatorglue;1
+component {9d4c845d-3f09-402a-b66d-50f291d7d50f} nsNavigatorGlue.js
 contract @mozilla.org/content-permission/prompt;1 {9d4c845d-3f09-402a-b66d-50f291d7d50f}
 

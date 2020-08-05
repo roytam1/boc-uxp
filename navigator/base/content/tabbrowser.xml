@@ -100,7 +100,7 @@
     </content>
     <implementation implements="nsIObserver">
       <field name="mSessionStore" readonly="true">
-        Components.classes["@mozilla.org/suite/sessionstore;1"]
+        Components.classes["@binaryoutcast.com/navigator/sessionstore;1"]
                    .getService(Components.interfaces.nsISessionStore);
       </field>
       <field name="mPrefs" readonly="true">
