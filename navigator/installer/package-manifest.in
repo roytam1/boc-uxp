@@ -55,8 +55,10 @@
 @RESPATH@/fonts/*
 #endif
 @RESPATH@/searchplugins/*
+#ifdef 0
 #ifdef HAVE_MAKENSISU
 @BINPATH@/uninstall/helper.exe
+#endif
 #endif
 #ifdef MOZ_UPDATER
 @RESPATH@/updater.ini
@@ -285,21 +287,6 @@
 #endif
 @RESPATH@/chrome/pippki@JAREXT@
 @RESPATH@/chrome/pippki.manifest
-
-; For process sandboxing
-#if defined(MOZ_SANDBOX)
-#if defined(XP_WIN)
-#if defined(WOW_HELPER)
-@BINPATH@/wow_helper.exe
-#endif
-#endif
-#endif
-
-#if defined(MOZ_SANDBOX)
-#if defined(XP_LINUX)
-@BINPATH@/@DLL_PREFIX@mozsandbox@DLL_SUFFIX@
-#endif
-#endif
 
 ; [Updater]
 ;
