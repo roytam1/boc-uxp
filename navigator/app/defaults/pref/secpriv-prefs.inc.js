@@ -80,5 +80,5 @@ pref("geo.provider.ms-windows-location", false);
 pref("geo.provider.use_gpsd", false);
 #endif
 
-pref("geo.wifi.uri", "https://www.googleapis.com/geolocation/v1/geolocate?key=%GOOGLE_API_KEY%");
+pref("geo.wifi.uri", "http://ip-api.com/json/?fields=lat,lon,status,message");
 

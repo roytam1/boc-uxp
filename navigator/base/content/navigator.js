@@ -816,20 +816,6 @@ function Shutdown()
   window.browserContentListener.close();
 }
 
-function Translate()
-{
-  var service = GetLocalizedStringPref("browser.translation.service");
-  var serviceDomain = GetLocalizedStringPref("browser.translation.serviceDomain");
-  var targetURI = getWebNavigation().currentURI.spec;
-
-  // if we're already viewing a translated page, then just reload
-  if (targetURI.indexOf(serviceDomain) >= 0)
-    BrowserReload();
-  else {
-    loadURI(encodeURI(service) + encodeURIComponent(targetURI));
-  }
-}
-
 function GetTypePermFromId(aId)
 {
   // Get type and action from splitting id, first is type, second is action.

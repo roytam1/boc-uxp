@@ -7,6 +7,8 @@ JAR_MANIFESTS += ['jar.mn']
 
 BRANDING_FILES += ['../official/license.txt']
 
+JS_PREFERENCE_PP_FILES += ['../official/pref/application-branding.js']
+
 if CONFIG['MOZ_WIDGET_TOOLKIT'] == 'windows':
     BRANDING_FILES += [
         '../official/icons/windows/html-file.ico',
@@ -39,3 +41,9 @@ elif CONFIG['MOZ_WIDGET_TOOLKIT'] in ('gtk2', 'gtk3'):
         'icons/gtk/default.png',
         'icons/gtk/main-window.png',
     ]
+
+DEFINES['MOZ_APP_NAME'] = CONFIG['MOZ_APP_NAME']
+DEFINES['MOZ_APP_VERSION'] = CONFIG['MOZ_APP_VERSION']
+DEFINES['MOZ_BRANDING_DIRECTORY'] = CONFIG['MOZ_BRANDING_DIRECTORY']
+DEFINES['MOZILLA_UAVERSION_U'] = CONFIG['MOZILLA_UAVERSION_U']
+DEFINES['MOZILLA_COMPATVERSION_U'] = "52.9"

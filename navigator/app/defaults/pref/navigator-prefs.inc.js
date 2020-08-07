@@ -24,7 +24,7 @@ pref("browser.urlbar.historyEnabled",       true);
 
 // 0 = blank, 1 = home (browser.startup.homepage), 2 = last visited page, 3 = resume previous browser session
 pref("browser.startup.page",                1);
-pref("browser.startup.homepage",	   "chrome://navigator-region/locale/region.properties");
+pref("browser.startup.homepage",	   "chrome://branding/locale/brand.properties");
 pref("browser.startup.homepage.count", 1);
 
 pref("browser.warnOnQuit", true);
@@ -43,7 +43,7 @@ pref("browser.dom.window.console.enabled", false);
 pref("browser.findbar.enabled", true);
 
 // search engines URL
-pref("browser.search.searchEnginesURL", "http://addons.palemoon.org/search-plugins/");
+pref("browser.search.searchEnginesURL", "about:blank");
 
 // pointer to the default engine name
 pref("browser.search.defaultenginename", "chrome://communicator-region/locale/region.properties");
@@ -200,9 +200,6 @@ pref("browser.link.open_newwindow", 3);
 // 2: don't divert window.open with features
 pref("browser.link.open_newwindow.restriction", 2);
 
-// Translation service
-pref("browser.translation.service", "chrome://navigator-region/locale/region.properties");
-pref("browser.translation.serviceDomain", "chrome://navigator-region/locale/region.properties");
 pref("browser.validate.html.service", "chrome://navigator-region/locale/region.properties");
 
 // 0 goes back
@@ -323,7 +320,7 @@ pref("browser.taskbar.previews.max", 20);
 pref("browser.taskbar.previews.cachetime", 5);
 #endif
 
-pref("browser.throbber.url","chrome://navigator-region/locale/region.properties");
+pref("browser.throbber.url","chrome://branding/locale/brand.properties");
 
 // Show XUL error pages instead of alerts for errors
 pref("browser.xul.error_pages.enabled", true);
@@ -344,18 +341,12 @@ pref("browser.backspace_action", 2);
 #endif
 
 // FAQ URLs
-pref("browser.geolocation.warning.infoURL", "http://www.seamonkey-project.org/doc/2.0/geolocation");
+pref("browser.geolocation.warning.infoURL", "about:blank");
 
 pref("browser.rights.version", 1);
-pref("browser.rights.1.shown", false);
+pref("browser.rights.1.shown", true);
 
-#ifdef DEBUG
-// Don't show the about:rights notification in debug builds.
 pref("browser.rights.override", true);
-#elifndef OFFICIAL_BUILD
-// Don't show the about:rights notification in non-official builds.
-pref("browser.rights.override", true);
-#endif
 
 pref("browser.formfill.expire_days", 180);
 
