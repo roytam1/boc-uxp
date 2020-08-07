@@ -1203,6 +1203,7 @@
         </body>
       </method>
 
+#ifdef MOZ_UPDATER
       <method name="showUpdateWarning">
         <body>
           <![CDATA[
@@ -1225,6 +1226,7 @@
           ]]>
         </body>
       </method>
+#endif
 
       <method name="removeNotifications">
         <parameter name="aNotifications"/>

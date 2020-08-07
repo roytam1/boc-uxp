@@ -563,6 +563,7 @@ NavigatorGlue.prototype = {
     // Detect if updates are off and warn for outdated builds.
     if (this._shouldShowUpdateWarning())
       notifyBox.showUpdateWarning();
+#endif
 
     this._checkForDefaultClient(aWindow);
   },
@@ -785,6 +786,7 @@ NavigatorGlue.prototype = {
     return true;
   },
 
+#ifdef MOZ_UPDATER
   /*
    * _shouldShowUpdateWarning - Determines if the user should be warned about
    * having updates off and an old build that likely should be updated.
@@ -816,6 +818,7 @@ NavigatorGlue.prototype = {
     // We should warn if the build is older than the max age.
     return (buildTime + maxAge <= now);
   },
+#endif
 
   // This method gets the shell service and has it check its settings.
   // This will do nothing on platforms without a shell service.

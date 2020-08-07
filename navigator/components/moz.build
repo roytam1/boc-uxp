@@ -21,9 +21,7 @@ DIRS += [
     'smile',
 ]
 
-XPIDL_SOURCES += [
-    'nsINavigatorGlue.idl',
-]
+XPIDL_SOURCES += ['nsINavigatorGlue.idl']
 
 XPIDL_MODULE = 'navigatorcompsbase'
 
@@ -32,6 +30,7 @@ EXTRA_COMPONENTS += [
     'nsAboutRedirector.js',
     'nsBrowserContentHandler.js',
     'nsGopherProtocolStubHandler.js',
-    'nsNavigatorGlue.js',
     'nsTypeAheadFind.js',
 ]
+
+EXTRA_PP_COMPONENTS += ['nsNavigatorGlue.js']
