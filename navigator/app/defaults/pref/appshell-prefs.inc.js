@@ -19,10 +19,10 @@
 
 pref("app.releaseNotesURL", "chrome://branding/locale/brand.properties");
 pref("app.vendorURL", "chrome://branding/locale/brand.properties");
-pref("startup.homepage_override_url","chrome://navigator-region/locale/region.properties");
+pref("startup.homepage_override_url","chrome://branding/locale/brand.properties");
 
 // Base URL for web-based support pages.
-pref("app.support.baseURL", "http://www.seamonkey-project.org/doc/");
+pref("app.support.baseURL", "about:blank");
 
 // App-specific update preferences
 
@@ -30,19 +30,19 @@ pref("app.support.baseURL", "http://www.seamonkey-project.org/doc/");
 pref("app.update.enabled", true);
 
 // This preference allows automatic download and install to take place.
-pref("app.update.auto", true);
+pref("app.update.auto", false);
 
 // If set to true, the Update Service will present no UI for any event.
 pref("app.update.silent", false);
 
 // Update service URL:
-pref("app.update.url", "https://aus2-community.mozilla.org/update/3/%PRODUCT%/%VERSION%/%BUILD_ID%/%BUILD_TARGET%/%LOCALE%/%CHANNEL%/%OS_VERSION%/%SYSTEM_CAPABILITIES%/%DISTRIBUTION%/%DISTRIBUTION_VERSION%/update.xml");
+pref("app.update.url", "about:blank");
 // URL user can browse to manually if for some reason all update installation
 // attempts fail.
-pref("app.update.url.manual", "http://www.seamonkey-project.org/");
+pref("app.update.url.manual", "about:blank");
 // A default value for the "More information about this update" link
 // supplied in the "An update is available" page of the update wizard.
-pref("app.update.url.details", "chrome://communicator-region/locale/region.properties");
+pref("app.update.url.details", "about:blank");
 
 // User-settable override to app.update.url for testing purposes.
 //pref("app.update.url.override", "");
@@ -95,13 +95,7 @@ pref("app.update.interval", 86400);
 // The minimum delay in seconds for the timer to fire.
 // default=2 minutes
 pref("app.update.timerMinimumDelay", 120);
-#ifdef RELEASE_OR_BETA
-// Give the user x seconds to react before showing the big UI. default=8 days
-pref("app.update.promptWaitTime", 691200);
-#else
-// For nightly and aurora builds, before showing the big UI, default=12 hrs
 pref("app.update.promptWaitTime", 43200);
-#endif
 // Show the Update Checking/Ready UI when the user was idle for x seconds
 pref("app.update.idletime", 60);
 

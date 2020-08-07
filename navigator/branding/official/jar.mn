@@ -16,4 +16,4 @@ comm.jar:
 en-US.jar:
 % locale branding en-US %locale/en-US/branding/
   locale/en-US/branding/brand.dtd                         (locale/brand.dtd)
-  locale/en-US/branding/brand.properties                  (locale/brand.properties)
+* locale/en-US/branding/brand.properties                  (locale/brand.properties)

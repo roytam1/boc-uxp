@@ -8,7 +8,7 @@ JS_PREFERENCE_FILES += [
 ]
 
 JS_PREFERENCE_PP_FILES += [
-    'pref/application-prefs.js',
+    'pref/application.js',
 ]
 
 FINAL_TARGET_FILES.defaults.profile += [
