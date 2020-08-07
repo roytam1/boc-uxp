@@ -199,7 +199,6 @@ pref("extensions.blocklist.itemURL", "https://blocklist.addons.mozilla.org/%LOCA
 //
 pref("extensions.update.enabled", true);
 pref("extensions.update.url", "http://@AM_DOMAIN@/?component=aus&@AM_AUS_ARGS@");
-pref("extensions.update.background.url", "http://@AM_DOMAIN@/?component=aus&@AM_AUS_ARGS@");
 pref("extensions.update.interval", 86400);  // Check for updates to Extensions and 
                                             // Themes every day
 
