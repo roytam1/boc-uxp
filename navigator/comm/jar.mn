@@ -47,7 +47,7 @@ comm.jar:
 
   content/communicator/bindings/findbar.xml                        (content/bindings/findbar.xml)
   content/communicator/bindings/general.xml                        (content/bindings/general.xml)
-  content/communicator/bindings/notification.xml                   (content/bindings/notification.xml)
+* content/communicator/bindings/notification.xml                   (content/bindings/notification.xml)
   content/communicator/bindings/toolbar.xml                        (content/bindings/toolbar.xml)
 
   content/communicator/labelsencodings.properties                  (/platform/dom/encoding/labelsencodings.properties)
@@ -73,7 +73,7 @@ en-US.jar:
 
   locale/en-US/communicator/gopherAddon.dtd                               (locale/gopherAddon.dtd)
   locale/en-US/communicator/notification.dtd                              (locale/notification.dtd)
-  locale/en-US/communicator/notification.properties                       (locale/notification.properties)
+* locale/en-US/communicator/notification.properties                       (locale/notification.properties)
   locale/en-US/communicator/openLocation.dtd                              (locale/openLocation.dtd)
   locale/en-US/communicator/openLocation.properties                       (locale/openLocation.properties)
   locale/en-US/communicator/passwordManager.dtd                           (locale/passwordManager.dtd)

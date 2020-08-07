@@ -32,6 +32,7 @@ EXTRA_COMPONENTS += [
     'nsAboutRedirector.js',
     'nsBrowserContentHandler.js',
     'nsGopherProtocolStubHandler.js',
-    'nsSuiteGlue.js',
     'nsTypeAheadFind.js',
 ]
+
+EXTRA_PP_COMPONENTS += ['nsSuiteGlue.js']
