@@ -204,6 +204,7 @@ modern.jar:
   skin/modern/global/numberbox.css                                 (global/numberbox.css)
   skin/modern/global/netError.css                                  (global/netError.css)
   skin/modern/global/notification.css                              (global/notification.css)
+  skin/modern/global/passwordmgr.css                               (global/passwordmgr.css)
   skin/modern/global/plugins.css                                   (global/plugins.css)
   skin/modern/global/popup.css                                     (global/popup.css)
   skin/modern/global/preferences.css                               (global/preferences.css)
