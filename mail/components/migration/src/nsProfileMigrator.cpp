@@ -111,6 +111,7 @@ nsProfileMigrator::GetDefaultMailMigratorKey(nsACString& aKey, nsCOMPtr<nsIMailP
   #define MAX_SOURCE_LENGTH 10
   const char sources[][MAX_SOURCE_LENGTH] = {
     "seamonkey",
+    "oexpress",
     "outlook",
     ""
   };
