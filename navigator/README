@@ -1,0 +1,49 @@
+Borealis - The Binary Outcast Navigator
+===============================================================================
+
+Borealis is a web browsing application forked from Mozilla community code that
+is built using the Unified XUL Platform (UXP).
+
+* https://github.com/MoonchildProductions/uxp
+
+Its user interface is similar to the SeaMonkey's Navigator/Browser component
+which was dirived from the Mozilla Application Suite developed largely by
+Netscape for Netscape Communicator 6/7.
+
+This does NOT include the MailNews, Composer, or any other suite bundled
+components.
+
+Goals
+===============================================================================
+
+* Personal side-project to explore the inner workings of a more classical
+  mozilla-based application.
+
+* Provide a very traditional but powerful web browser
+
+What features will be included in the Navigator
+===============================================================================
+
+* The Navigator/Browser including Tabbed Browsing
+* Comprehensive control of Preferences
+* Customizable Toolbars
+* XUL Overlay and Bootstrap (Restartless) Extension Support
+* Complete Themeing Support
+* Open Search Engine Providers
+* Windows and Linux support
+* TBD
+
+What will *NOT* be included in the Navigator
+===============================================================================
+
+* Digital Rights Management (DRM) such as Encrypted Media Extensions (EME)
+  - Netflix and any other sites that utilize such technology will not function
+* WebRTC (Web Real Time Communications)
+  - Skype, Discord, Hangouts, and the like will not function properly
+* WebExtensions aka Google Chrome Content and Service Extensions
+* Jetpack (Add-ons SDK) Extensions
+* Web Developer tools beyond an Error Console and perhaps DOM Inspector
+* Personas/Lightweight Themes/Toolbar Backgrounds
+* Language Packs
+* Support for the Macintosh, any flavor of BSD, ReactOS
+* TBD
