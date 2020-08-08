@@ -12,7 +12,7 @@ XPCOMBinaryComponent('navigatorcomps')
 LOCAL_INCLUDES += [
     '../dirprovider/src',
     '../feeds/src',
-    '../shell/src',
+#    '../shell/src',
 ]
 
 USE_LIBS += [
