@@ -29,7 +29,7 @@ pref("app.update.url.manual", "about:blank");
 pref("app.update.url.details", "about:blank");
 
 // Release notes URL
-pref("app.releaseNotesURL", "about:blank");
+pref("app.releaseNotesURL", "https://rtfreesoft.blogspot.com/search/label/mailnews/");
 
 // Base URL for web-based support pages.
-pref("app.support.baseURL", "about:blank");
+pref("app.support.baseURL", "https://rtfreesoft.blogspot.com/p/browser-help.html#mailnews-help");
