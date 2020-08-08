@@ -108,7 +108,6 @@ var gPermissionManager = {
     } catch(ex) {
       var message = this._bundle.getString("invalidURI");
       var title = this._bundle.getString("invalidURITitle");
-      Services.prompt.alert(window, title, message);
       return;
     }
 
@@ -235,6 +234,10 @@ var gPermissionManager = {
 
     document.title = this._bundle.getString(aParams.windowTitle);
     document.documentElement.setAttribute("windowtype", aParams.windowType);
+
+    document.getElementById("header").setAttribute("description",
+                                                  this._bundle.getString("manage") + " " +
+                                                  this._bundle.getString(aParams.windowTitle));
 
     document.getElementById("btnBlock").hidden    = !aParams.blockVisible;
     document.getElementById("btnSession").hidden  = !aParams.sessionVisible;

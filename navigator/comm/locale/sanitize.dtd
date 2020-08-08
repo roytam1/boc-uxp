@@ -3,7 +3,8 @@
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 
 <!ENTITY sanitizeDialog.title            "Clear Private Data">
-<!ENTITY sanitizeItems.label             "Clear the following items now:">
+<!ENTITY sanitizeDialog.headerTitle      "&brandFullName; Private Data">
+<!ENTITY sanitizeItems.label             "Select Items to Clear">
 
 <!ENTITY itemHistory.label               "Browsing History">
 <!ENTITY itemHistory.accesskey           "B">
@@ -24,4 +25,4 @@
 <!ENTITY itemSessions.label              "Authenticated Sessions">
 <!ENTITY itemSessions.accesskey          "S">
 
-<!ENTITY sanitizeButton.label            "Clear Private Data Now">
+<!ENTITY sanitizeButton.label            "Clear Now">
