@@ -524,6 +524,10 @@
 
     <menu id="tasksMenu">
       <menupopup id="taskPopup">
+        <menuitem id="menu_translate"
+                  label="&translateMenu.label;"
+                  accesskey="&translateMenu.accesskey;"
+                  oncommand="Translate();"/>
         <menu id="menu_cookieManager"
               label="&cookieCookieManager.label;"
               accesskey="&cookieCookieManager.accesskey;"
