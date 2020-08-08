@@ -43,7 +43,6 @@ MOZ_GAMEPAD=
 MOZ_NECKO_WIFI=
 MOZ_AV1=
 MOZ_WEBRTC=
-MOZ_SECURITY_SQLSTORE=1
 
 if test "$OS_ARCH" = "WINNT" -o \
         "$OS_ARCH" = "Linux"; then
