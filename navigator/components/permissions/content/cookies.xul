@@ -7,7 +7,12 @@
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?> 
 <?xml-stylesheet href="chrome://navigator/content/permissions/cookies.css" type="text/css"?> 
 
-<!DOCTYPE dialog SYSTEM "chrome://navigator/locale/permissions/cookies.dtd" >
+<!DOCTYPE dialog [
+  <!ENTITY % brandDTD SYSTEM "chrome://branding/locale/brand.dtd">
+  %brandDTD;
+  <!ENTITY % cookiesDTD SYSTEM "chrome://navigator/locale/permissions/cookies.dtd">
+  %cookiesDTD;
+]>
 
 <window id="CookiesDialog" windowtype="permissions:cookieManager"
         class="windowDialog" title="&window.title;"
@@ -28,6 +33,12 @@
     <key key="&focusSearch1.key;" modifiers="accel" oncommand="gCookiesWindow.focusFilterBox();"/>
     <key key="&focusSearch2.key;" modifiers="accel" oncommand="gCookiesWindow.focusFilterBox();"/>
   </keyset>
+
+  <dialogheader class="header-large"
+                id="header"
+                style="margin-top: 0px; margin-left: 0px;"
+                title="&header.title;"
+                description="&header.description;"/>
 
   <vbox flex="1" class="contentPane">
     <hbox align="center">
@@ -87,6 +98,7 @@
         </rows>
       </grid>
     </hbox>
+    <separator class="groove"/>
   </vbox>
   <hbox align="end">
     <hbox class="actionButtons" flex="1">

@@ -16,6 +16,9 @@
 <!ENTITY     props.expires.label            "Expires:">
 
 <!ENTITY     window.title                   "Cookie Manager">
+<!ENTITY     header.title                   "&brandFullName; Cookie Manager">
+<!ENTITY     header.description             "Manage Stored Cookies">
+
 <!ENTITY     windowClose.key                "w">
 <!ENTITY     focusSearch1.key               "f">
 <!ENTITY     focusSearch2.key               "k">
