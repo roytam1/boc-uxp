@@ -3,10 +3,10 @@
 <assemblyIdentity
         version="1.0.0.0"
         processorArchitecture="*"
-        name="Borealis"
+        name="BNavigator"
         type="win32"
 />
-<description>Borealis</description>
+<description>BNavigator</description>
 <dependency>
         <dependentAssembly>
                 <assemblyIdentity
