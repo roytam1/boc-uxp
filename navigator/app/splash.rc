@@ -5,7 +5,7 @@
 #include <windows.h>
 #include "nsNativeAppSupportWin.h"
 
-1 24 "borealis.exe.manifest"
+1 24 "bnavigator.exe.manifest"
 
 STRINGTABLE DISCARDABLE
 BEGIN
