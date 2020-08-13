@@ -200,6 +200,9 @@ pref("browser.link.open_newwindow", 3);
 // 2: don't divert window.open with features
 pref("browser.link.open_newwindow.restriction", 2);
 
+// Translation service
+pref("browser.translation.service", "chrome://navigator-region/locale/region.properties");
+pref("browser.translation.serviceDomain", "chrome://navigator-region/locale/region.properties");
 pref("browser.validate.html.service", "chrome://navigator-region/locale/region.properties");
 
 // 0 goes back
