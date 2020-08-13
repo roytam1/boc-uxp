@@ -4,9 +4,9 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 # Application
-MOZ_APP_BASENAME=Interlink
-MOZ_APP_NAME=interlink
-MOZ_APP_VENDOR=BinOC
+MOZ_APP_BASENAME=MailNews
+MOZ_APP_NAME=mailnews
+MOZ_APP_VENDOR=OpenSource
 MOZ_APP_ID={3550f703-e582-4d05-9a08-453d09bdfdc6}
 MOZ_APP_STATIC_INI=1
 MOZ_APP_VERSION=`$PYTHON ${_topsrcdir}/../build/version2k.py --version ${_topsrcdir}/../mail/config/version.txt`
@@ -17,7 +17,6 @@ MOZ_PROFILE_MIGRATOR=1
 
 # Platform Conditional code for application
 MOZ_THUNDERBIRD=1
-BINOC_INTERLINK=1
 
 # Comm build options
 MOZ_MAILNEWS=1
