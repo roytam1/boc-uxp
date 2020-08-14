@@ -56,9 +56,16 @@
   ]]>
   </script>
 
-  <description>&sanitizeItems.label;</description>
+  <dialogheader class="header-large"
+                id="header"
+                title="&sanitizeDialog.headerTitle;"
+                description="&sanitizeItems.label;"/>
 
-  <vbox id="sanitizePreferences" align="start" oncommand="onCommand(event);">
+  <vbox id="sanitizePreferences"
+        align="start"
+        flex="1"
+        style="margin-top: 2px; margin-left: 12px; margin-right: 12px;"
+        oncommand="onCommand(event);">
     <checkbox label="&itemHistory.label;"
               accesskey="&itemHistory.accesskey;"
               name="history"/>
@@ -88,4 +95,5 @@
               name="sessions"/>
 
   </vbox>
+  <separator class="groove"/>
 </dialog>

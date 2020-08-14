@@ -5,6 +5,9 @@
 <!ENTITY window.title                 "Exceptions">
 <!ENTITY window.width                 "45em">
 
+<!ENTITY header.title                 "&brandFullName; Permissions Manager">
+<!ENTITY header.description           "Manage Permissions">
+
 <!ENTITY treehead.sitename.label      "Site">
 <!ENTITY treehead.status.label        "Status">
 <!ENTITY removepermission.label       "Remove Site">

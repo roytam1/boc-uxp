@@ -2,7 +2,7 @@
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 
-<!ENTITY window.width                       "36em">
+<!ENTITY window.width                       "45em">
 
 <!ENTITY     cookiesonsystem.label          "The following cookies are stored on your computer:">
 <!ENTITY     cookiename.label               "Cookie Name">
@@ -16,6 +16,9 @@
 <!ENTITY     props.expires.label            "Expires:">
 
 <!ENTITY     window.title                   "Cookie Manager">
+<!ENTITY     header.title                   "&brandFullName; Cookie Manager">
+<!ENTITY     header.description             "Manage Stored Cookies">
+
 <!ENTITY     windowClose.key                "w">
 <!ENTITY     focusSearch1.key               "f">
 <!ENTITY     focusSearch2.key               "k">
