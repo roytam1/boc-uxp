@@ -357,7 +357,7 @@ pref("custtoolbar.personal_toolbar_folder", "");
 // Use a popup window for the customize toolbar UI
 pref("toolbar.customization.usesheet", false);
 
-pref("sidebar.customize.all_panels.url", "http://sidebar-rdf.netscape.com/%LOCALE%/sidebar-rdf/%SIDEBAR_VERSION%/all-panels.rdf");
+pref("sidebar.customize.all_panels.url", "chrome://communicator/content/sidebar/all-panels.rdf");
 pref("sidebar.customize.directory.url", "https://edmullen.net/mozilla/moz_sidebar.php");
 pref("sidebar.customize.more_panels.url", "https://edmullen.net/mozilla/moz_sidebar.php");
 pref("sidebar.num_tabs_in_view", 8);
