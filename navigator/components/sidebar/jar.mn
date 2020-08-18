@@ -3,6 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 comm.jar:
+  content/communicator/sidebar/all-panels.rdf                      (content/all-panels.rdf)
   content/communicator/sidebar/customize-panel.js                  (content/customize-panel.js)
   content/communicator/sidebar/customize-panel.xul                 (content/customize-panel.xul)
   content/communicator/sidebar/customize.js                        (content/customize.js)
