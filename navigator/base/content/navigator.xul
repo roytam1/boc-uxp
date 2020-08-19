@@ -190,8 +190,10 @@
              toolbarname="&navbarCmd.label;" accesskey="&navbarCmd.accesskey;"
              defaultset="back-button,forward-button,reload-button,stop-button,nav-bar-inner,search-container,throbber-box,window-controls"
              mode="full"
+             iconsize="large"
              labelalign="end"
              defaultmode="full"
+             defaulticonsize="large"
              defaultlabelalign="end"
              context="toolbar-context-menu">
 
@@ -509,13 +511,13 @@
 
   <statusbar id="status-bar" class="chromeclass-status">
       <toolbar id="component-bar"
-               context="toolbar-context-menu"
                toolboxid="navigator-toolbox"
                mode="icons"
                iconsize="small"
                labelalign="end"
                defaultmode="icons"
-               defaultlabelalign="end" 
+               defaulticonsize="small"
+               defaultlabelalign="end"
                xpfe="false"
                customizable="true"
                persist="collapsed">
