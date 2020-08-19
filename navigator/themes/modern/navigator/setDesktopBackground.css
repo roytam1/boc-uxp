@@ -10,9 +10,18 @@ html|canvas#screen {
 }
 
 #monitor {
-  list-style-image: url("chrome://browser/skin/monitor.png");
+  list-style-image: url("chrome://navigator/skin/monitor.png");
 }
 
 #monitor[aspectratio="16:10"] {
-  list-style-image: url("chrome://browser/skin/monitor_16-10.png");
+  list-style-image: url("chrome://navigator/skin/monitor_16-10.png");
+}
+
+.container {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.colorSpacer {
+  width: 1.4em;
 }

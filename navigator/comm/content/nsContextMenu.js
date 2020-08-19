@@ -29,6 +29,9 @@ XPCOMUtils.defineLazyGetter(this, "PageMenuParent", function() {
   return new tmp.PageMenuParent();
 });
 
+XPCOMUtils.defineLazyModuleGetter(this, "ShellService",
+                                  "resource:///modules/ShellService.jsm");
+
 function nsContextMenu(aXulMenu, aIsShift, aEvent) {
   this.shouldDisplay = true;
   this.initMenu(aXulMenu, aIsShift, aEvent);
@@ -225,24 +228,18 @@ nsContextMenu.prototype = {
                     this.onCanvas || this.onVideo || this.onAudio));
     // Set Desktop Background depends on whether an image was clicked on,
     // and requires the shell service.
-    var canSetDesktopBackground = false;
-    if ("@binaryoutcast.com/navigator/shell-service;1" in Components.classes) try {
-      canSetDesktopBackground =
-          Components.classes["@binaryoutcast.com/navigator/shell-service;1"]
-                    .getService(Components.interfaces.nsIShellService)
-                    .canSetDesktopBackground;
-    } catch (e) {
-    }
+    var canSetDesktopBackground = ShellService.canSetDesktopBackground;
     this.showItem("context-setDesktopBackground",
                   canSetDesktopBackground && (this.onLoadedImage || this.onStandaloneImage));
 
     this.showItem("context-sep-image",
                   this.onLoadedImage && !this.onStandaloneImage);
 
-    if (canSetDesktopBackground && this.onLoadedImage)
+    if (canSetDesktopBackground && this.onLoadedImage) {
       // Disable the Set Desktop Background menu item if we're still trying to load the image
       this.setItemAttr("context-setDesktopBackground", "disabled",
                        (("complete" in this.target) && !this.target.complete) ? "true" : null);
+    }
 
     this.showItem("context-fitimage", this.onStandaloneImage &&
                                       content.document.imageResizingEnabled);
@@ -951,7 +948,7 @@ nsContextMenu.prototype = {
   },
 
   setDesktopBackground: function() {
-    openDialog("chrome://communicator/content/setDesktopBackground.xul",
+    openDialog("chrome://navigator/content/setDesktopBackground.xul",
                "_blank", "chrome,modal,titlebar,centerscreen", this.target);
   },
 
