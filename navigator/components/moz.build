@@ -16,7 +16,7 @@ DIRS += [
     'preferences',
     'search',
     'sessionstore',
-#    'shell',
+    'shell',
     'sidebar',
     'smile',
 ]
