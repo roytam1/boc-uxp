@@ -6,8 +6,10 @@
 <?xml-stylesheet href="chrome://communicator/skin/tasksOverlay.css" type="text/css"?>
 
 <!DOCTYPE overlay [
-<!ENTITY % tasksDTD SYSTEM "chrome://communicator/locale/tasksOverlay.dtd" >
-%tasksDTD;
+  <!ENTITY % brandDTD SYSTEM "chrome://branding/locale/brand.dtd">
+  %brandDTD;
+  <!ENTITY % tasksDTD SYSTEM "chrome://communicator/locale/tasksOverlay.dtd" >
+  %tasksDTD;
 ]>
 
 <overlay id="tasksOverlay"
