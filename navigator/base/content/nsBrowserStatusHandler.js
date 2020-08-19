@@ -40,8 +40,6 @@ nsBrowserStatusHandler.prototype =
     this.statusTextField = document.getElementById("statusbar-display");
     this.isImage         = document.getElementById("isImage");
     this.securityButton  = document.getElementById("security-button");
-    // XXXTobin: This thing is gross
-    // this.evButton        = document.getElementById("ev-button");
     this.feedsMenu       = document.getElementById("feedsMenu");
     this.feedsButton     = document.getElementById("feedsButton");
 
@@ -63,7 +61,6 @@ nsBrowserStatusHandler.prototype =
     this.statusTextField = null;
     this.isImage         = null;
     this.securityButton  = null;
-    // this.evButton        = null;
     this.feedsButton     = null;
     this.feedsMenu       = null;
   },
@@ -362,64 +359,86 @@ nsBrowserStatusHandler.prototype =
   onSecurityChange : function(aWebProgress, aRequest, aState)
   {
     const wpl = Components.interfaces.nsIWebProgressListener;
-    const wpl_security_bits = wpl.STATE_IS_SECURE |
-                              wpl.STATE_IS_BROKEN |
-                              wpl.STATE_IS_INSECURE;
+    const wpl_security_bits = wpl.STATE_IS_SECURE | wpl.STATE_IS_BROKEN | wpl.STATE_IS_INSECURE;
+    const nsISSLStatusProvider = Components.interfaces.nsISSLStatusProvider;
+    const browser = getBrowser();
 
-    var highlightSecure =
-      Services.prefs.getBoolPref("browser.urlbar.highlight.secure");
+    const sslStatus = browser.securityUI
+                             .QueryInterface(nsISSLStatusProvider)
+                             .SSLStatus;
+
+    const idn = Components.classes["@mozilla.org/network/idn-service;1"]
+                          .getService(Components.interfaces.nsIIDNService);
+   
+    var highlightSecure = Services.prefs.getBoolPref("browser.urlbar.highlight.secure", true);
+
+    var securityButtonTooltip = gNavigatorBundle.getString("securityButtonTooltipInsecure");
+    var securityButtonLabel = null;
+    var securityLevel = null;
+
+    var host = null;
+
+    if (['http', 'https'].includes(browser.currentURI.scheme)) { 
+      host = getBrowser().currentURI.host;
+
+      try {
+        host = idn.convertToDisplayIDN(Services.eTLD.getBaseDomainFromHost(host), {});
+      } catch (ex) {}
+    }
+    
 
     /* aState is defined as a bitmask that may be extended in the future.
      * We filter out any unknown bits before testing for known values.
      */
     switch (aState & wpl_security_bits) {
       case wpl.STATE_IS_SECURE:
-        const nsISSLStatusProvider = Components.interfaces.nsISSLStatusProvider;
-        var cert = getBrowser().securityUI.QueryInterface(nsISSLStatusProvider)
-                               .SSLStatus.serverCert;
-        var issuerName = cert.issuerOrganization ||
-                         cert.issuerCommonName || cert.issuerName;
-        this.securityButton.setAttribute("tooltiptext",
-          gNavigatorBundle.getFormattedString("securityButtonTooltipSecure",
-                                              [issuerName]));
-        this.securityButton.setAttribute("level", "high");
-        if (highlightSecure)
-          this.urlBar.setAttribute("level", "high");
-        else
-          this.urlBar.removeAttribute("level");
+        securityLevel = "high";
+        var issuerName = sslStatus.serverCert.issuerOrganization ||
+                         sslStatus.serverCert.issuerCommonName ||
+                         sslStatus.serverCert.issuerName;
+        securityButtonTooltip = gNavigatorBundle.getFormattedString("securityButtonTooltipSecure",
+                                                                    [issuerName]);
         break;
       case wpl.STATE_IS_BROKEN:
-        this.securityButton.setAttribute("tooltiptext",
-          gNavigatorBundle.getString("securityButtonTooltipMixedContent"));
-        this.securityButton.setAttribute("level", "broken");
-        if (highlightSecure)
-          this.urlBar.setAttribute("level", "broken");
-        else
-          this.urlBar.removeAttribute("level");
+        securityLevel = "broken";
+        securityButtonTooltip = gNavigatorBundle.getString("securityButtonTooltipMixedContent");
         break;
       case wpl.STATE_IS_INSECURE:
       default:
-        this.securityButton.setAttribute("tooltiptext",
-          gNavigatorBundle.getString("securityButtonTooltipInsecure"));
-        this.securityButton.removeAttribute("level");
-        this.urlBar.removeAttribute("level");
+        securityLevel = null;
         break;
     }
 
     if (aState & wpl.STATE_IDENTITY_EV_TOPLEVEL) {
-      var organization =
-        getBrowser().securityUI
-                    .QueryInterface(Components.interfaces.nsISSLStatusProvider)
-                    .SSLStatus
-                    .QueryInterface(Components.interfaces.nsISSLStatus)
-                    .serverCert.organization;
-      this.securityButton.setAttribute("label", organization);
-      // this.evButton.setAttribute("tooltiptext", organization);
-      // this.evButton.hidden = false;
-    } else {
-      this.securityButton.removeAttribute("label");
-      // this.evButton.hidden = true;
+      if (securityLevel != "broken") {
+        securityLevel = "ultra";
+      }
+
+      securityButtonLabel = sslStatus.serverCert.organization;
     }
+    else {
+      if (securityLevel && host) {
+        securityButtonLabel = idn.convertUTF8toACE(host);
+      }
+    }
+
+    // Set the level on the urlbar and security button
+    if (securityLevel) {
+      this.securityButton.setAttribute("level", securityLevel);
+      highlightSecure ? this.urlBar.setAttribute("level", securityLevel)
+                      : this.urlBar.removeAttribute("level");
+    }
+    else {
+        this.securityButton.removeAttribute("level");
+        this.urlBar.removeAttribute("level");
+    }
+
+    // Set the tooltip of the security button
+    this.securityButton.setAttribute("tooltiptext", securityButtonTooltip);
+
+    // Set the label of the security button
+    securityButtonLabel ? this.securityButton.setAttribute("label", securityButtonLabel)
+                        : this.securityButton.removeAttribute("label");
   },
 
   startDocumentLoad : function(aRequest)
@@ -464,8 +483,7 @@ nsBrowserStatusHandler.prototype =
     var notification = Components.isSuccessCode(aStatus) ? "EndDocumentLoad" : "FailDocumentLoad";
     try {
       Services.obs.notifyObservers(content, notification, urlStr);
-    } catch (e) {
-    }
+    } catch (e) {}
   }
 }
 
