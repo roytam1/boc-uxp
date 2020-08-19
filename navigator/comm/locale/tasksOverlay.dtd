@@ -3,7 +3,7 @@
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 
 <!-- extracted from tasksOverlay.xul -->
-<!ENTITY navigatorCmd.label "Navigator">
+<!ENTITY navigatorCmd.label "&brandFullName;">
 <!ENTITY navigatorCmd.accesskey "N">
 <!ENTITY navigatorCmd.commandkey "1">
 <!-- LOCALIZATION NOTE (editorCmd.label): DONT_TRANSLATE -->
@@ -15,7 +15,7 @@
 <!ENTITY errorConsoleCmd.accesskey "C">
 <!ENTITY errorConsoleCmd.commandkey "o">
 
-<!ENTITY taskNavigator.tooltip  "Navigator">
+<!ENTITY taskNavigator.tooltip  "&brandFullName;">
 <!ENTITY taskComposer.tooltip  "Composer">
 
 <!ENTITY webDevelopment.label "Developer Tools">
