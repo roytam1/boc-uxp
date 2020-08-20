@@ -43,9 +43,9 @@ static const mozilla::Module::CIDEntry kNavigatorCIDs[] = {
 #if defined(XP_WIN)
   { &kNS_SHELLSERVICE_CID, false, nullptr, nsWindowsShellServiceConstructor },
 #elif defined(XP_MACOSX)
-  { &kNS_SHELLSERVICE_CID, false, nullptr, nsGNOMEShellServiceConstructor },
-#elif defined(MOZ_WIDGET_GTK)
   { &kNS_SHELLSERVICE_CID, false, nullptr, nsMacShellServiceConstructor },
+#elif defined(MOZ_WIDGET_GTK)
+  { &kNS_SHELLSERVICE_CID, false, nullptr, nsGNOMEShellServiceConstructor },
 #endif
   { nullptr }
 };
