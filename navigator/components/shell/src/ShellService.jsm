@@ -6,10 +6,8 @@
 
 this.EXPORTED_SYMBOLS = ["ShellService"];
 
-const { classes: Cc, interfaces: Ci, utils: Cu, results: Cr } = Components;
-
-Cu.import("resource://gre/modules/Services.jsm");
-Cu.import("resource://gre/modules/XPCOMUtils.jsm");
+Components.utils.import("resource://gre/modules/Services.jsm");
+Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
 XPCOMUtils.defineLazyModuleGetter(this, "WindowsRegistry",
                                   "resource://gre/modules/WindowsRegistry.jsm");
 
@@ -26,9 +24,9 @@ var ShellServiceInternal = {
    */
   get canSetDesktopBackground() {
 #ifdef XP_LINUX
-    if (this.shellService) {
-      let linuxShellService = this.shellService
-                                  .QueryInterface(Ci.nsIGNOMEShellService);
+    if (this.nsIShellService) {
+      let linuxShellService = this.nsIShellService
+                                  .QueryInterface(Components.interfaces.nsIGNOMEShellService);
       return linuxShellService.canSetDesktopBackground;
     }
 #elif defined(XP_WIN) || defined(XP_MACOSX)
@@ -52,16 +50,16 @@ var ShellServiceInternal = {
       return false;
     }
 
-    if (!Services.prefs.getBoolPref("browser.shell.checkDefaultBrowser")) {
+    if (!Services.prefs.getBoolPref("browser.shell.checkDefaultBrowser", false)) {
       return false;
     }
 
 #ifdef XP_WIN
-    let optOutValue = WindowsRegistry.readRegKey(Ci.nsIWindowsRegKey.ROOT_KEY_CURRENT_USER,
-                                                 "Software\\Mozilla\\Borealis",
+    let optOutValue = WindowsRegistry.readRegKey(Components.interfaces.nsIWindowsRegKey.ROOT_KEY_CURRENT_USER,
+                                                 "Software\\Binary Outcast\\Borealis",
                                                  "DefaultBrowserOptOut");
-    WindowsRegistry.removeRegKey(Ci.nsIWindowsRegKey.ROOT_KEY_CURRENT_USER,
-                                 "Software\\Mozilla\\Borealis",
+    WindowsRegistry.removeRegKey(Components.interfaces.nsIWindowsRegKey.ROOT_KEY_CURRENT_USER,
+                                 "Software\\Binary Outcast\\Borealis",
                                  "DefaultBrowserOptOut");
     if (optOutValue == "True") {
       Services.prefs.setBoolPref("browser.shell.checkDefaultBrowser", false);
@@ -83,15 +81,17 @@ var ShellServiceInternal = {
     if (startupCheck) {
       this._checkedThisSession = true;
     }
-    if (this.shellService) {
-      return this.shellService.isDefaultBrowser(startupCheck, forAllTypes);
+    if (this.nsIShellService) {
+      return this.nsIShellService.isDefaultBrowser(startupCheck, forAllTypes);
     }
     return false;
   }
 };
 
-XPCOMUtils.defineLazyServiceGetter(ShellServiceInternal, "shellService",
-  "@mozilla.org/browser/shell-service;1", Ci.nsIShellService);
+XPCOMUtils.defineLazyServiceGetter(ShellServiceInternal,
+                                   "nsIShellService",
+                                   "@binaryoutcast.com/navigator/shell-service;1",
+                                   Components.interfaces.nsIShellService);
 
 /**
  * The external API exported by this module.
@@ -101,10 +101,10 @@ this.ShellService = new Proxy(ShellServiceInternal, {
     if (name in target) {
       return target[name];
     }
-    if (target.shellService) {
-      return target.shellService[name];
+    if (target.nsIShellService) {
+      return target.nsIShellService[name];
     }
-    Services.console.logStringMessage(`${name} not found in ShellService: ${target.shellService}`);
+    Services.console.logStringMessage(`${name} not found in ShellService: ${target.nsIShellService}`);
     return undefined;
   }
 });
