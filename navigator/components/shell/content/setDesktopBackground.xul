@@ -14,10 +14,6 @@
   %setDesktopDTD;
 ]>
 
-#ifdef XP_MACOSX
-<?xul-overlay href="chrome://browser/content/macBrowserOverlay.xul"?>
-#endif
-
 <dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
         xmlns:html="http://www.w3.org/1999/xhtml"
         windowtype="Shell:SetDesktopBackground"
