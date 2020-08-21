@@ -55,10 +55,8 @@
 @RESPATH@/fonts/*
 #endif
 @RESPATH@/searchplugins/*
-#ifdef 0
 #ifdef HAVE_MAKENSISU
 @BINPATH@/uninstall/helper.exe
-#endif
 #endif
 #ifdef MOZ_UPDATER
 @RESPATH@/updater.ini

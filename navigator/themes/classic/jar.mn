@@ -240,6 +240,9 @@ classic.jar:
   skin/classic/navigator/icons/tab-arrow-right.gif                      (navigator/icons/tab-arrow-right.gif)
 #endif
   skin/classic/navigator/click-to-play-warning-stripes.png              (navigator/click-to-play-warning-stripes.png)
+  skin/classic/navigator/monitor.png                                    (navigator/monitor.png)
+  skin/classic/navigator/monitor_16-10.png                              (navigator/monitor_16-10.png)
+  skin/classic/navigator/setDesktopBackground.css                       (navigator/setDesktopBackground.css)
   skin/classic/navigator/btn1/feeds.png                                 (navigator/btn1/feeds.png)
   skin/classic/navigator/btn1/first.gif                                 (navigator/btn1/first.gif)
   skin/classic/navigator/btn1/last.gif                                  (navigator/btn1/last.gif)

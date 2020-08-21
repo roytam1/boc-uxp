@@ -5,15 +5,12 @@
 
 include $(topsrcdir)/config/rules.mk
 
-ifdef 0
 ifdef MAKENSISU
 # For Windows build the uninstaller during the application build since the
 # uninstaller is included with the application for mar file generation.
 libs::
 	$(MAKE) -C installer/windows uninstaller
 endif
-endif
-
 
 # As a fallout from bug 1247162, the sourcestamp in application.ini and
 # platform.ini are the same, which isn't a problem for Firefox, but
