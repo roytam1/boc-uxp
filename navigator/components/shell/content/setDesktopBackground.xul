@@ -51,17 +51,8 @@
         <image id="monitor"/>
       </stack>
     </vbox>
-
+#ifndef XP_MACOSX
     <vbox flex="1">
-#ifdef XP_MACOSX
-      <button id="setDesktopBackground"
-              label="&setDesktopBackground.title;" 
-              oncommand="gSetBackground.setDesktopBackground();"/>
-      <button id="showDesktopPreferences"
-              label="&openDesktopPrefs.label;"
-              oncommand="gSetBackground.showDesktopPrefs();"
-              hidden="true"/>
-#else
       <hbox align="center">
         <label value="&color.label;"/>
         <spacer class="colorSpacer"/>
@@ -84,9 +75,20 @@
           </menupopup>
         </menulist>
       </hbox>
-#endif
     </vbox>
+#endif
   </hbox>
 
   <separator class="groove"/>
+#ifdef XP_MACOSX
+  <hbox align="right">
+    <button id="setDesktopBackground"
+            label="&setDesktopBackground.title;"
+            oncommand="gSetBackground.setDesktopBackground();"/>
+    <button id="showDesktopPreferences"
+            label="&openDesktopPrefs.label;"
+            oncommand="gSetBackground.showDesktopPrefs();"
+            hidden="true"/>
+  </hbox>
+#endif
 </dialog>
