@@ -841,8 +841,13 @@ toolbar[mode="text"] toolbarbutton.chevron > .toolbarbutton-icon {
 
 #PersonalToolbar[iconsize="small"] > toolbarpaletteitem > #home-button > .toolbarbutton-icon,
 #PersonalToolbar[iconsize="small"] > #home-button > .toolbarbutton-icon {
-  width: 16px;
-  height: 16px;
+  list-style-image: url("chrome://communicator/skin/icons/home.png") !important;
+  -moz-image-region: rect(0px, 22px, 17px, 0px) !important;
+  margin-bottom: 0px !important;
+}
+
+#PersonalToolbar[iconsize="small"] > #home-button[disabled="true"] {
+  -moz-image-region: rect(17px, 22px, 34px, 0px) !important;
 }
 
 #PersonalToolbar > #home-button {
