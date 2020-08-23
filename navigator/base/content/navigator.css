@@ -11,6 +11,21 @@
   display: none;
 }
 
+/* ::::: Make the component bar an obvious customization point ::::: */
+#component-bar[customizing="true"] {
+  min-width: 64px;
+}
+
+#component-bar[customizing="true"] > toolbarpaletteitem {
+  animation: pulseComponentBar 2000ms infinite;
+}
+
+@keyframes pulseComponentBar {
+  50% {
+    opacity: 0.25;
+  }
+}
+
 /* ::::: tabbed browser ::::: */
 
 tabbrowser {
