@@ -39,6 +39,10 @@ pref("browser.chrome.favicons", true);
 // Output console.log/info/warn/error to the Error Console
 pref("browser.dom.window.console.enabled", false);
 
+// some download settings
+pref("browser.download.show_plugins_in_list", true);
+pref("browser.download.hide_plugins_without_extensions", true);
+
 // Use the findbar instead of the dialog box
 pref("browser.findbar.enabled", true);
 
