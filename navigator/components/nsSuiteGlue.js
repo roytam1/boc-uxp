@@ -559,6 +559,7 @@ SuiteGlue.prototype = {
     if (this._isPlacesDatabaseLocked)
       notifyBox.showPlacesLockedWarning();
 
+#ifdef MOZ_UPDATER
     // Detect if updates are off and warn for outdated builds.
     if (this._shouldShowUpdateWarning())
       notifyBox.showUpdateWarning();
