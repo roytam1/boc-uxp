@@ -30,7 +30,7 @@ comm.jar:
   content/communicator/findUtils.js                                (content/findUtils.js)
   content/communicator/fullscreen-video.xhtml                      (content/fullscreen-video.xhtml)
   content/communicator/gopherAddon.xhtml                           (content/gopherAddon.xhtml)
-  content/communicator/nsContextMenu.js                            (content/nsContextMenu.js)
+* content/communicator/nsContextMenu.js                            (content/nsContextMenu.js)
   content/communicator/openLocation.js                             (content/openLocation.js)
   content/communicator/openLocation.xul                            (content/openLocation.xul)
   content/communicator/safeMode.js                                 (content/safeMode.js)
