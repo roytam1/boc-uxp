@@ -13,3 +13,9 @@ if CONFIG['BINOC_BOREALIS']:
         'devtools',
         'downloads',
     ]
+
+if CONFIG['MOZ_SUITE']:
+    DIRS += [
+        'devtools',
+        'downloads',
+    ]
