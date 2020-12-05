@@ -8,7 +8,7 @@ if CONFIG['MOZ_COMPOSER']:
 
 if CONFIG['MOZ_CALENDAR']:
     DIRS += [
-        '/modules/libical',
+        '/calendar/libical',
         '/calendar/lightning',
         '/calendar/timezones'
     ]
