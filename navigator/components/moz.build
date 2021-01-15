@@ -19,7 +19,6 @@ DIRS += [
     'shell',
     'sidebar',
     'smile',
-    'toolbar',
 ]
 
 XPIDL_SOURCES += [
