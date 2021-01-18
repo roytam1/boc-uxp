@@ -150,8 +150,7 @@
                   preference="spellchecker.dictionary">
           <menupopup onpopupshowing="InitLanguageMenu();">
             <!-- dynamic content populated by JS -->
-            <menuseparator/>
-            <menuitem value="more-cmd" label="&moreDictionaries.label;"/>
+            <menuseparator hidden="true"/>
           </menupopup>
         </menulist>
         <spring flex="1"/>
@@ -170,6 +169,11 @@
           </menupopup>
         </menulist>
       </hbox>
+      <separator class="thin"/>
+      <label id="moreDictionaries"
+       class="text-link"
+       value="&moreDictionaries.label;"
+       onclick="openDictionaryList()"/>
     </groupbox>
 
     <vbox class="box-padded" align="start">

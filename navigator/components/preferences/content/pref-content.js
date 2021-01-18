@@ -188,11 +188,5 @@ function InitLanguageMenu() {
 }
 
 function SelectLanguage(aTarget) {
-  if (aTarget.value != "more-cmd")
-    gLastSelectedLang = aTarget;
-  else {
-    openDictionaryList();
-    if (gLastSelectedLang)
-      document.getElementById("languageMenuList").selectedItem = gLastSelectedLang;
-  }
+  gLastSelectedLang = aTarget;
 }
