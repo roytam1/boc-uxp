@@ -7,11 +7,18 @@
 <!--LOCALIZATION NOTE : FILE The 'Scripts & Plugins' preferences dialog -->
 <!ENTITY pref.scripts.title              "Scripts &amp; Plugins">
 
+<!--LOCALIZATION NOTE (enableJavaScript.label): 'JavaScript' should never be translated -->
+<!ENTITY enableJavaScript.label          "JavaScript Settings">
+
 <!ENTITY navigator.label                 "Enable JavaScript">
 <!ENTITY navigator.accesskey             "J">
 
-<!--LOCALIZATION NOTE (enableJavaScript.label): 'JavaScript' should never be translated -->
-<!ENTITY enableJavaScript.label          "JavaScript Settings">
+<!ENTITY featureList.label               "Enable these JS engine features:">
+<!ENTITY featureList.accesskey           "f">
+<!ENTITY featureIncrementalGC.label      "Incremental Garbage Collection">
+<!ENTITY featureGenerationalGC.label     "Generational Garbage Collection">
+<!ENTITY featureWASM.label               "WebAssembly (WASM)">
+
 <!ENTITY allowScripts.label              "Allow scripts to:">
 <!ENTITY allowScripts.accesskey          "s">
 <!ENTITY allowWindowMoveResize.label     "Move or resize existing windows">
