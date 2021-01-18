@@ -25,7 +25,7 @@
 
 <!ENTITY privatedata.label "Private Data">
 <!ENTITY cookies.label "Cookies">
-<!ENTITY images.label "Images">
+<!ENTITY media.label  "Multimedia">
 <!ENTITY popups.label "Popup Windows">
 <!ENTITY masterpass.label "Passwords">
 <!ENTITY ssltls.label "Encryption">

@@ -107,10 +107,10 @@
                     label="&languages.label;"
                     prefpane="languages_pane"
                     url="chrome://communicator/content/pref/pref-languages.xul"/>
-          <treeitem id="imagesItem"
-                    label="&images.label;"
-                    prefpane="images_pane"
-                    url="chrome://communicator/content/pref/pref-images.xul"/>
+          <treeitem id="mediaItem"
+                    label="&media.label;"
+                    prefpane="media_pane"
+                    url="chrome://communicator/content/pref/pref-media.xul"/>
           <treeitem id="scriptsItem"
                     label="&scriptsAndWindows.label;"
                     prefpane="scripts_pane"
