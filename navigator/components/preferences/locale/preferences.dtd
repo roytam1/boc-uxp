@@ -10,7 +10,6 @@
 <!ENTITY content.label "Content">
 <!ENTITY fonts.label "Fonts">
 <!ENTITY colors.label "Colors">
-<!ENTITY spellingPane.label "Spelling">
 
 <!ENTITY navigator.label "Navigator">
 <!ENTITY history.label "History">

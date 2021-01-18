@@ -67,8 +67,6 @@ comm.jar:
   content/communicator/pref/pref-privacy.xul                              (content/pref-privacy.xul)
   content/communicator/pref/pref-smartupdate.js                           (content/pref-smartupdate.js)
   content/communicator/pref/pref-smartupdate.xul                          (content/pref-smartupdate.xul)
-  content/communicator/pref/pref-spelling.js                              (content/pref-spelling.js)
-  content/communicator/pref/pref-spelling.xul                             (content/pref-spelling.xul)
   content/communicator/pref/pref-tabs.xul                                 (content/pref-tabs.xul)
 
 pippki.jar:
@@ -114,7 +112,6 @@ en-US.jar:
   locale/en-US/communicator/pref/pref-search.dtd                          (locale/pref-search.dtd)
   locale/en-US/communicator/pref/pref-privacy.dtd                         (locale/pref-privacy.dtd)
   locale/en-US/communicator/pref/pref-smartupdate.dtd                     (locale/pref-smartupdate.dtd)
-  locale/en-US/communicator/pref/pref-spelling.dtd                        (locale/pref-spelling.dtd)
   locale/en-US/communicator/pref/pref-tabs.dtd                            (locale/pref-tabs.dtd)
 
   locale/en-US/communicator-platform/mac/pref/platformPrefOverlay.dtd     (locale/mac/platformPrefOverlay.dtd)

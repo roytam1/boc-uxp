@@ -87,7 +87,7 @@
         </treechildren>
       </treeitem>
 
-      <!-- Content items (formerly Apperence) -->
+      <!-- Content items (formerly Appearance) -->
       <treeitem open="true"
                 container="true"
                 id="contentItem"
@@ -103,10 +103,6 @@
                     label="&fonts.label;"
                     prefpane="fonts_pane"
                     url="chrome://communicator/content/pref/pref-fonts.xul"/>
-          <treeitem id="spellingItem"
-                    label="&spellingPane.label;"
-                    prefpane="spelling_pane"
-                    url="chrome://communicator/content/pref/pref-spelling.xul"/>
           <treeitem id="languagesItem"
                     label="&languages.label;"
                     prefpane="languages_pane"
