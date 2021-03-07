@@ -89,14 +89,29 @@ var security = {
    */
   viewCookies : function()
   {
-    var hostName = "";
+    var wm = Components.classes["@mozilla.org/appshell/window-mediator;1"]
+                       .getService(Components.interfaces.nsIWindowMediator);
+    var win = wm.getMostRecentWindow("permissions:cookieManager");
+    var eTLDService = Components.classes["@mozilla.org/network/effective-tld-service;1"].
+                      getService(Components.interfaces.nsIEffectiveTLDService);
+
+    var eTLD;
+    var uri = gDocument.documentURIObject;
     try {
-      hostName = gDocument.documentURIObject.asciiHost;
+      eTLD = eTLDService.getBaseDomain(uri);
     }
     catch (e) {
+      // getBaseDomain will fail if the host is an IP address or is empty
+      eTLD = uri.asciiHost;
     }
 
-    toPermissionsManager('cookie', hostName);
+    if (win) {
+      win.setFilter(eTLD);
+      win.focus();
+    }
+    else
+      window.openDialog("chrome://navigator/content/permissions/cookies.xul",
+                        "", "resizable", {filterString : eTLD});
   },
 
   /**
