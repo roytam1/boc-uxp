@@ -42,13 +42,3 @@
 <!ENTITY blockAutoRefresh.label                 "Warn me when websites try to redirect or reload the page">
 <!ENTITY blockAutoRefresh.accesskey             "W">
 
-<!ENTITY generalSpelling.label                "Spelling">
-<!ENTITY checkSpellingWhenTyping.label        "When typing, check my spelling:">
-<!ENTITY checkSpellingWhenTyping.accesskey    "W">
-<!ENTITY dontCheckSpelling.label              "Never">
-<!ENTITY multilineCheckSpelling.label         "In multiline boxes">
-<!ENTITY alwaysCheckSpelling.label            "All boxes">
-<!ENTITY languagePopup.label                  "Language:">
-<!ENTITY languagePopup.accessKey              "L">
-<!ENTITY moreDictionaries.label               "Download more dictionaries&#x2026;">
-<!ENTITY noSpellCheckAvailable.label          "No dictionaries available.">

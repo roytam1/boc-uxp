@@ -13,7 +13,7 @@
 
 <!ENTITY navigator.label "Navigator">
 <!ENTITY history.label "History">
-<!ENTITY languages.label "Languages">
+<!ENTITY languages.label "Languages &amp; Spelling">
 <!ENTITY applications.label "Helper Applications">
 <!ENTITY locationBar.label "Location Bar">
 <!ENTITY search.label "Internet Search">

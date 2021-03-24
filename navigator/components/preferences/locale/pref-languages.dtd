@@ -28,3 +28,14 @@
 <!ENTITY languages.customize.moveUp.accesskey           "U">
 <!ENTITY languages.customize.moveDown.label             "Move Down">
 <!ENTITY languages.customize.moveDown.accesskey         "D">
+
+<!ENTITY generalSpelling.label                "Spelling">
+<!ENTITY checkSpellingWhenTyping.label        "When typing, check my spelling:">
+<!ENTITY checkSpellingWhenTyping.accesskey    "W">
+<!ENTITY dontCheckSpelling.label              "Never">
+<!ENTITY multilineCheckSpelling.label         "In multiline boxes">
+<!ENTITY alwaysCheckSpelling.label            "All boxes">
+<!ENTITY languagePopup.label                  "Language:">
+<!ENTITY languagePopup.accessKey              "L">
+<!ENTITY moreDictionaries.label               "Download more dictionaries&#x2026;">
+<!ENTITY noSpellCheckAvailable.label          "No dictionaries available.">

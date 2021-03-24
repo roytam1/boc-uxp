@@ -45,19 +45,6 @@
       <preference id="gfx.direct2d.disabled"
                   name="gfx.direct2d.disabled"
                   type="bool" inverted="true"/>
-      <preference id="mail.SpellCheckBeforeSend"
-                  name="mail.SpellCheckBeforeSend"
-                  type="bool"/>
-      <preference id="mail.spellcheck.inline"
-                  name="mail.spellcheck.inline"
-                  type="bool"/>
-      <preference id="spellchecker.dictionary"
-                  name="spellchecker.dictionary"
-                  type="string"
-                  onchange="SelectLanguage(event.target)"/>
-      <preference id="layout.spellcheckDefault"
-                  name="layout.spellcheckDefault"
-                  type="int"/>
       <preference id="layers.acceleration.enabled"
                   name="layers.acceleration.enabled"
                   type="bool"
@@ -134,46 +121,6 @@
                 label="&enableAutomaticImageResizing.label;"
                 accesskey="&enableAutomaticImageResizing.accesskey;"
                 preference="browser.enable_automatic_image_resizing"/>
-    </groupbox>
-
-    <label id="noSpellCheckLabel"
-           value="&noSpellCheckAvailable.label;"
-           hidden="true"/>
-
-    <groupbox id="generalSpelling" align="start">
-      <caption label="&generalSpelling.label;"/>
-      <hbox align="center" pack="start">
-        <label value="&languagePopup.label;"
-               accesskey="&languagePopup.accessKey;"
-               control="languageMenuList"/>
-        <menulist id="languageMenuList"
-                  preference="spellchecker.dictionary">
-          <menupopup onpopupshowing="InitLanguageMenu();">
-            <!-- dynamic content populated by JS -->
-            <menuseparator hidden="true"/>
-          </menupopup>
-        </menulist>
-        <spring flex="1"/>
-      </hbox>
-      <separator class="thin"/>
-      <hbox align="center">
-        <label value="&checkSpellingWhenTyping.label;"
-               accesskey="&checkSpellingWhenTyping.accesskey;"
-               control="spellcheckDefault"/>
-        <menulist id="spellcheckDefault"
-                  preference="layout.spellcheckDefault">
-          <menupopup>
-            <menuitem value="0" label="&dontCheckSpelling.label;"/>
-            <menuitem value="1" label="&multilineCheckSpelling.label;"/>
-            <menuitem value="2" label="&alwaysCheckSpelling.label;"/>
-          </menupopup>
-        </menulist>
-      </hbox>
-      <separator class="thin"/>
-      <label id="moreDictionaries"
-       class="text-link"
-       value="&moreDictionaries.label;"
-       onclick="openDictionaryList()"/>
     </groupbox>
 
     <vbox class="box-padded" align="start">
