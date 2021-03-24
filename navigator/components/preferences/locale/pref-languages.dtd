@@ -5,7 +5,7 @@
 <!-- LOCALIZATION NOTE : FILE 'Languages' preferences dialog -->
 
 <!ENTITY languages.customize.prefLangDescript           "Web pages are sometimes available in more than one language. Choose languages for displaying web pages, in order of preference.">
-<!ENTITY languages.customize.title                      "Languages">
+<!ENTITY languages.customize.title                      "Languages &amp; Spelling">
 <!ENTITY langtitle.label                                "Languages for Web Pages">
 <!ENTITY languages.customize.prefAddLangDescript        "Select the language(s) you would like to add.">
 <!ENTITY languages.customize.addButton.label            "Add…">
