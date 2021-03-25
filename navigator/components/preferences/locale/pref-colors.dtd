@@ -33,3 +33,12 @@
 <!ENTITY useMyColors.accesskey             "m">
 <!ENTITY automaticColors.label             "Only ignore the page colors when using a High Contrast theme">
 <!ENTITY automaticColors.accesskey         "O">
+
+<!ENTITY prefersColorScheme.caption            "When a web page wants to use my preferred color scheme">
+<!ENTITY prefersColorSchemeLight.label         "Use light colors">
+<!ENTITY prefersColorSchemeLight.accesskey     "i">
+<!ENTITY prefersColorSchemeDark.label          "Use dark colors">
+<!ENTITY prefersColorSchemeDark.accesskey      "d">
+<!ENTITY prefersColorSchemeDisabled.label      "Do not provide a preferred color scheme">
+<!ENTITY prefersColorSchemeDisabled.accesskey  "p">
+<!ENTITY prefersColorSchemeWarning             "WARNING: Not providing a preferred color scheme may result in websites or services not working properly.">
