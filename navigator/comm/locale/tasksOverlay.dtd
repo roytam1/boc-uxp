@@ -19,7 +19,7 @@
 <!ENTITY taskComposer.tooltip  "Composer">
 
 <!ENTITY webDevelopment.label "Developer Tools">
-<!ENTITY webDevelopment.accesskey "W">
+<!ENTITY webDevelopment.accesskey "v">
 
 <!ENTITY windowMenu.label "Window">
 <!ENTITY windowMenu.accesskey "W">
