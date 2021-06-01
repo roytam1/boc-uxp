@@ -161,13 +161,46 @@ tabpanels {
 /* ::::: close button ::::: */
 
 .tabs-closebutton {
-  margin: 3px;
-  list-style-image: url("chrome://communicator/skin/icons/close-button.gif");
+  -moz-appearance: none;
+  margin-inline-end: 2px;
+  border: none;
+  padding: 0px;
+  list-style-image: url("chrome://communicator/skin/icons/tab-close.png") !important;
+}
+
+.tabs-closebutton:not([selected="true"]) {
+  -moz-image-region: rect(0, 64px, 16px, 48px);
+}
+
+.tabs-closebutton:hover,
+.tabs-closebutton:hover[selected="true"] {
+  -moz-image-region: rect(0, 32px, 16px, 16px);
+}
+
+.tabs-closebutton:hover:active,
+.tabs-closebutton:hover:active[selected="true"] {
+  -moz-image-region: rect(0, 48px, 16px, 32px);
+}
+
+.tabs-closebutton[selected="true"] {
+  -moz-image-region: rect(0, 16px, 16px, 0);
+}
+
+.tabs-closebutton:focus {
+  outline: none !important;
 }
 
 .tabs-newbutton {
   margin: 0px;
-  list-style-image: url("chrome://navigator/skin/icons/tab-new.gif");
+  list-style-image: url("chrome://navigator/skin/icons/tab-new.png");
+}
+
+.tabs-newbutton:hover:not(:active) {
+  filter: saturate(150%) brightness(110%);
+}
+
+.tabs-newbutton:not([disabled="true"]):hover:active {
+  filter: brightness(75%);
 }
 
 .tab-drop-indicator-bar {

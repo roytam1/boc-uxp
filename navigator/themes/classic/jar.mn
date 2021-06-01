@@ -117,6 +117,7 @@ classic.jar:
   skin/classic/communicator/icons/audioFeedIcon.png                     (communicator/icons/feedIcon.png)
   skin/classic/communicator/icons/closeFullScreenVideo.png              (communicator/icons/closeFullScreenVideo.png)
   skin/classic/communicator/icons/close-button.gif                      (communicator/icons/close-button.gif)
+  skin/classic/communicator/icons/tab-close.png                         (communicator/icons/tab-close.png)
   skin/classic/communicator/icons/offline.png                           (communicator/icons/offline.png)
   skin/classic/communicator/icons/online.png                            (communicator/icons/online.png)
   skin/classic/communicator/icons/search.png                            (communicator/icons/search.png)
@@ -253,7 +254,7 @@ classic.jar:
   skin/classic/navigator/icons/chevron.gif                              (navigator/icons/chevron.gif)
   skin/classic/navigator/icons/popup-blocked.png                        (navigator/icons/popup-blocked.png)
   skin/classic/navigator/icons/tab-drag-indicator.gif                   (navigator/icons/tab-drag-indicator.gif)
-  skin/classic/navigator/icons/tab-new.gif                              (navigator/icons/tab-new.gif)
+  skin/classic/navigator/icons/tab-new.png                              (navigator/icons/tab-new.png)
 [extensions/{972ce4c6-7e08-4474-a285-3208198ce6fd}] chrome.jar:
 % override chrome://global/skin/aboutSupport.css                  chrome://communicator/skin/aboutSupport.css
 % override chrome://global/skin/config.css                        chrome://communicator/skin/config.css
