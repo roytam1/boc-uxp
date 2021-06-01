@@ -585,6 +585,11 @@ panel[nomatch="true"] > .autocomplete-search-box {
   color: GrayText;
 }
 
+/* ::::: searchbar ::::: */
+#searchbar {
+  min-height: 28px;
+}
+
 /* ::::: go and searchbuttons ::::: */
 
 #search-button, 
