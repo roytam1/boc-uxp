@@ -1,24 +1,40 @@
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
-
-
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
-
-.tabbrowser-strip {
-  min-height: 0px;
-  padding: 0px;
-  /* 1px ThreeDShadow bottom border that doesn't take up space and that
-     selected panel can just draw over */
-  box-shadow: 0px -1px ThreeDShadow inset;
-}
 
 tabpanels {
   -moz-appearance: none;
 }
 
+.tabbrowser-strip {
+  min-height: 0px;
+  -moz-appearance:none;
+  border-top: 1px solid rgba(0,0,0,.4);
+  border-bottom:0;
+  background-color:-moz-dialog;
+  box-shadow: unset;
+  padding: 0;
+  background-image:  linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,0) 35%),
+  linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.1))!important;
+}
+
 .tabbrowser-tabs {
-  padding-top: 1px;
+  -moz-appearance:none;
+  border:unset;
+  background:unset;
+  box-shadow: unset;
+  padding: unset;
+}
+
+.tabs-bottom-spacer {
+  height:5px;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  -moz-border-top-colors: rgba(0,0,0,.7) rgba(255,255,255,.5) ;
+  -moz-border-bottom-colors: rgba(0,0,0,.7) rgba(255,255,255,.5) ;
+  margin-top: -1px;
+  background-color: -moz-dialog ;
 }
 
 .tabs-left,
@@ -26,40 +42,68 @@ tabpanels {
   width: 3px;
   border-bottom: none;
 }
-
-.tab-icon {
-  margin-top: 1px;
-  margin-inline-start: 1px;
-  margin-inline-end: 4px;
-  width: 16px;
-  height: 16px;
+.tabbrowser-tabs[overflow] .tabs-left,
+.tabbrowser-tabs[overflow] .tabs-right {
+  display:none;
 }
 
 .tabbrowser-tab {
-  list-style-image: url("chrome://communicator/skin/bookmarks/bookmark-item.png");
-  padding: 0px 2px 2px;
-  margin-bottom: 1px;
-  border-bottom: none;
+  list-style-image: url("chrome://navigator/skin/icons/bookmarks.png");
+  -moz-image-region: rect(0px 16px 16px 0px);
+  -moz-appearance:none;
+  border: 1px solid rgba(0,0,0,.3);
+  border-bottom:0px;
+  margin:3px -1px 0px 0px!important;
+  padding: 2px 6px 3px!important;
+  background-color: -moz-dialog;
+  background-image:  linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,0) 50%),
+    linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.15) );
+  box-shadow: 1px 0 0 rgba(255,255,255,.3) inset;
+  color:-moz-dialogtext;
 }
 
-.tabbrowser-tab[busy] {
-  list-style-image: url("chrome://communicator/skin/icons/loading.gif");
+.tabbrowser-tab:not([selected]):hover {
+  border: 1px solid rgba(0,0,0,.5);
+  border-bottom:0px;
+  background-image: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,0) 50%),
+    linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.05) 48%, rgba(0,0,0,.1) 52%, rgba(0,0,0,.05));
+  box-shadow: 0 -1px 1px rgba(0,0,0,.3) inset, 
+    0 0 2px rgb(255,255,255) inset ,
+    0 2px 3px rgba(255,255,255,.4) inset;
 }
 
-.tabbrowser-tab[selected="true"] {
-  margin-bottom: 0px;
-  padding-top: 2px; /* compensates the top margin of background tabs */
-  padding-bottom: 3px; /* compensates the bottom margin of background tabs */
+.tabbrowser-tab[selected] {
+  border: 1px solid rgba(0,0,0,.7);
+  border-bottom:0px;
+  border-top-left-radius:6px;
+  border-top-right-radius:6px;
+  margin:1px -1px 0px 0px!important; 
+  padding: 4px 6px 3px!important;
+  background-image: linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,0) 50%);
+  box-shadow: 0px 1px 1px rgba(255,255,255,.8) inset;
+  position:relative;
+  z-index: 500;
+  font-weight:bold;
 }
 
-.tabbrowser-tab:-moz-lwtheme {
-  text-shadow: none;
+.tabbrowser-tabs:not([overflow]) .tabbrowser-tab:first-of-type:not([selected]) {
+  border-top-left-radius:6px;
+}
+.tabbrowser-tabs:not([overflow]) .tabbrowser-tab:last-of-type:not([selected]) {
+  border-top-right-radius:6px;
+  margin-right:0px;
 }
 
-.scrollbutton-up:-moz-lwtheme,
-.scrollbutton-down:-moz-lwtheme:not([selected="true"]),
-.tabbrowser-tab:-moz-lwtheme:not([selected="true"]) {
-  opacity: .8;
+.tabbrowser-tab:last-of-type {
+  margin-right:0px!important;
+}
+
+.tab-icon {
+  margin-top: 1px;
+  -moz-margin-start: 1px;
+  -moz-margin-end: 4px;
+  width: 16px;
+  height: 16px;
 }
 
 /* ::::: Tab scrollbox arrow, and all-tabs buttons ::::: */
