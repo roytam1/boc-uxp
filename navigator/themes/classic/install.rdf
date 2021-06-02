@@ -25,8 +25,8 @@
     </em:targetApplication>
 
     <!-- Front End MetaData -->
-    <em:name>Toolkit Style</em:name>
-    <em:description>Minimal native styling</em:description>
+    <em:name>Default Theme</em:name>
+    <em:description>The default theme.</em:description>
 
     <!-- EXTENSION AUTHORS!
          DO NOT COPY THIS PROPERTY INTO YOUR INSTALL RDF FILES
@@ -40,6 +40,9 @@
 
     <!-- Front End Integration Hooks (used by Theme Manager)-->
     <em:creator>Open Source Contributors</em:creator>
+    <em:contributor>Arvid Axelsson (Qute Icon Set - CC BY-SA 4.0)</em:contributor>
+    <em:contributor>Patrick J. Dempsey (Tabs and Tabstrip Style)</em:contributor>
+    <em:contributor>Binary Outcast</em:contributor>
     <em:contributor>SeaMonkey Project</em:contributor>
     <em:contributor>Mozilla Foundation</em:contributor>
     <em:contributor>Netscape Communications</em:contributor>
