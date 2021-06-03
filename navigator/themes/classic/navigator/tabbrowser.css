@@ -12,7 +12,7 @@ tabpanels {
   -moz-appearance:none;
   border-top: 0;
   border-bottom: 0;
-  background-color: #f0f0f0;
+  background-color: -moz-dialog;
   box-shadow: unset;
   padding: 0;
   background-image:  linear-gradient(to bottom, rgba(0,0,0,.20), rgba(0,0,0,0) 35%),
@@ -34,7 +34,7 @@ tabpanels {
   -moz-border-top-colors: rgba(0,0,0,.5) rgba(255,255,255,.5) ;
   -moz-border-bottom-colors: rgba(0,0,0,.5) rgba(255,255,255,.5) ;
   margin-top: -1px;
-  background-color: #f0f0f0;
+  background-color: -moz-dialog;
 }
 
 .tabs-left,
@@ -55,7 +55,7 @@ tabpanels {
   border-bottom: 0px;
   margin:3px -1px 0px 0px !important;
   padding: 2px 6px 3px !important;
-  background-color: #f0f0f0;
+  background-color: -moz-dialog;
   background-image: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,0) 50%),
                     linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.15) );
   box-shadow: 1px 0 0 rgba(255,255,255,.3) inset;

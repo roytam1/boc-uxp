@@ -8,14 +8,6 @@
 
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
-#navigator-toolbox {
-  -moz-appearance: none;
-  background-color: #f0f0f0;
-  background-image: linear-gradient(#f0f0f0, #d2d2d2);
-  border-top: none;
-  border-bottom: 1px solid rgba(0,0,0,.4)
-}
-
 /* ::::: primary toolbar buttons ::::: */
 
 #back-button {
