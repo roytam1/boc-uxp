@@ -8,103 +8,134 @@ tabpanels {
 }
 
 .tabbrowser-strip {
-  min-height: 22px;
-  -moz-appearance:none;
-  border-top: 0;
-  border-bottom: 0;
-  background-color: -moz-dialog;
-  box-shadow: unset;
-  padding: 0;
-  background-image:  linear-gradient(to bottom, rgba(0,0,0,.20), rgba(0,0,0,0) 35%),
-  linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.1))!important;
+  -moz-appearance: none;
+  background-image: linear-gradient(rgba(0, 0, 0, .11), transparent, rgba(0, 0, 0, .06));
+  border-bottom: none;
 }
 
-.tabbrowser-tabs {
-  -moz-appearance:none;
-  border:unset;
-  background:unset;
-  box-shadow: unset;
-  padding: unset;
+@media (-moz-os-version: windows-win8), (-moz-os-version: windows-win10) {
+  .tabbrowser-strip { border-top: 1px solid ThreeDShadow !important; }
 }
 
-.tabs-bottom-spacer {
-  height: 5px;
-  border-top: 1px solid;
-  border-bottom: 1px solid;
-  -moz-border-top-colors: rgba(0,0,0,.5) rgba(255,255,255,.5) ;
-  -moz-border-bottom-colors: rgba(0,0,0,.5) rgba(255,255,255,.5) ;
-  margin-top: -1px;
-  background-color: -moz-dialog;
+@media (-moz-os-version: windows-win7) and (-moz-windows-theme: aero) {
+  .tabbrowser-strip { -moz-appearance: -moz-win-browsertabbar-toolbox; }
+}
+
+.tabbrowser-arrowscrollbox {
+  margin-bottom: 3px;
+ }
+
+.tabbrowser-tabs[overflow="true"] {
+  -moz-padding-start: 0px;
+}
+
+.tabbrowser-tabs > .tabbrowser-tab:first-child > .tab-close-button {
+  visibility: collapse;
+}
+
+/**
+ * Tab
+ */
+
+.tabbrowser-tab {
+  -moz-appearance: none;
+  background: url("chrome://navigator/skin/icons/tab-bkgnd.png") repeat-x;
+  margin: 3px 0px 4px;
+  border: 2px solid;
+  border-right-width: 1px;
+  border-bottom: none;
+  border-radius: 2px 2px 0 0;
+  padding: 1px 4px 2px 4px;
+  -moz-border-right-colors: rgba(0,0,0,.1);
+  -moz-border-top-colors: ThreeDShadow rgba(255,255,255,.3);
+  -moz-border-left-colors: ThreeDShadow rgba(255,255,255,.3);
+  margin-bottom: 0;
+  height: 23px !important;
+}
+
+.tabbrowser-tab:not(:hover):not([selected]):last-child {
+  -moz-border-right-colors: ThreeDShadow rgba(255,255,255,.3);
+}
+
+.tabbrowser-tab:hover,
+.tabbrowser-tab[selected="true"] {
+  border-radius: 4px 4px 0 0;
+  -moz-border-top-colors: ThreeDShadow transparent;
+  -moz-border-right-colors: ThreeDShadow transparent;
+  -moz-border-left-colors: ThreeDShadow transparent;
+  margin-top: 2px;
+}
+
+.tabbrowser-tab:not([selected="true"]):hover {
+  background: url("chrome://navigator/skin/icons/tab-hover-bkgnd.png") 0px 0px repeat-x;
+  padding: 1px 4px 1px 4px;
+}
+
+.tabbrowser-tab[selected="true"] {
+  background: -moz-Dialog url("chrome://navigator/skin/icons/tab-active-bkgnd.png") repeat-x;
+  font-weight: bold;
+  padding: 1px 4px 0px 4px;
+  height: 24px !important;
+}
+
+.tabbrowser-tab[selected="true"] .tab-text {
+  margin-top: -1px !important;
+}
+
+.tabbrowser-tab[busy],
+.tabbrowser-tab[thinking] {
+  list-style-image: url("chrome://global/skin/icons/loading_16.png") !important;
+  -moz-image-region: auto !important;
+}
+
+.tabs-bottom {
+  height: 4px !important;
+  margin: 0px !important;
+  background: -moz-dialog !important;
+  border-top: 1px solid threedshadow;
+  border-bottom: 1px solid threedshadow;
+}
+
+.tab-icon,
+.tab-throbber {
+  -moz-margin-end: 3px;
+  margin-bottom: 1px;
+
+  width: 16px;
+  height: 16px;
+}
+
+.tabbrowser-tab {
+  list-style-image: url("chrome://global/skin/icons/folder-item.png");
+  -moz-image-region: rect(0px, 16px, 16px, 0px);
+}
+
+tabpanels {
+  -moz-appearance: none;
+  background-color: transparent;
 }
 
 .tabs-left,
 .tabs-right {
   width: 3px;
-  border-bottom: none;
-}
-.tabbrowser-tabs[overflow] .tabs-left,
-.tabbrowser-tabs[overflow] .tabs-right {
-  display:none;
+  border-bottom-width: 0px;
 }
 
-.tabbrowser-tab {
-  list-style-image: url("chrome://communicator/skin/bookmarks/bookmark.png");
-  -moz-image-region: rect(0px 16px 16px 0px);
-  -moz-appearance: none;
-  border: 1px solid rgba(0,0,0,.2);
-  border-bottom: 0px;
-  margin:3px -1px 0px 0px !important;
-  padding: 2px 6px 3px !important;
-  background-color: -moz-dialog;
-  background-image: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,0) 50%),
-                    linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.15) );
-  box-shadow: 1px 0 0 rgba(255,255,255,.3) inset;
-  color: -moz-dialogtext;
+/* tabbrowser-tab focus ring */
+.tabbrowser-tab >  .tab-image-middle > .tab-text {
+  border: 1px dotted transparent;
 }
 
-.tabbrowser-tab:not([selected]):hover {
-  border: 1px solid rgba(0,0,0,.35);
-  border-bottom:0px;
-  background-image: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,0) 50%),
-                    linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.05) 48%, rgba(0,0,0,.1) 52%, rgba(0,0,0,.05));
-  box-shadow: 0 -1px 1px rgba(0,0,0,.3) inset, 
-              0 0 2px rgb(255,255,255) inset,
-              0 2px 3px rgba(255,255,255,.4) inset;
+.tabbrowser-tab:focus > .tab-image-middle > .tab-text {
+  border: 1px dotted -moz-DialogText;
 }
 
-.tabbrowser-tab[selected] {
-  border: 1px solid rgba(0,0,0,.5);
-  border-bottom:0px;
-  border-top-left-radius:6px;
-  border-top-right-radius:6px;
-  margin: 1px -1px 0px 0px!important; 
-  padding: 4px 6px 3px!important;
-  background-image: linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,0) 50%);
-  box-shadow: 0px 1px 1px rgba(255,255,255,.8) inset;
-  position: relative;
-  z-index: 500;
-  font-weight: bold;
+/* Tab DnD indicator */
+.tab-drop-indicator {
+  list-style-image: url("chrome://navigator/skin/icons/tabDragIndicator.png");
+  margin-bottom: 0; /* Move up into tabs since menu is not below anymore */
 }
 
-.tabbrowser-tabs:not([overflow]) .tabbrowser-tab:first-of-type:not([selected]) {
-  border-top-left-radius:6px;
-}
-.tabbrowser-tabs:not([overflow]) .tabbrowser-tab:last-of-type:not([selected]) {
-  border-top-right-radius:6px;
-  margin-right:0px;
-}
-
-.tabbrowser-tab:last-of-type {
-  margin-right:0px!important;
-}
-
-.tab-icon {
-  margin-top: 1px;
-  -moz-margin-start: 1px;
-  -moz-margin-end: 4px;
-  width: 16px;
-  height: 16px;
-}
 
 /* ::::: Tab scrollbox arrow, and all-tabs buttons ::::: */
 
@@ -178,7 +209,7 @@ tabpanels {
 }
 
 .tabs-alltabs-button {
-  margin: 2px 0px 1px;
+  margin-bottom: 1px;
 }
 
 .tabs-alltabs-button > .toolbarbutton-icon {
@@ -204,12 +235,20 @@ tabpanels {
 
 /* ::::: close button ::::: */
 
+.tabs-closebutton-box {
+  padding-bottom: 2px;
+} 
+
 .tabs-closebutton {
   -moz-appearance: none;
-  margin-inline-end: 2px;
-  border: none;
-  padding: 0px;
   list-style-image: url("chrome://communicator/skin/icons/tab-close.png") !important;
+  -moz-image-region: rect(0px, 64px, 16px, 48px);
+  -moz-user-focus: normal;
+  margin-inline-end: 2px;
+  margin-top: 0px;
+  padding: 0 3px;
+  border: none !important;
+  cursor: default;
 }
 
 .tabs-closebutton:not([selected="true"]) {
@@ -234,8 +273,15 @@ tabpanels {
   outline: none !important;
 }
 
+.tab-close-button > .toolbarbutton-icon {
+  -moz-margin-end: 0px !important;
+}
+
+/* ::::: new tab button ::::: */
+
 .tabs-newbutton {
-  margin: 0px;
+  -moz-appearance: none;
+  border: none;
   list-style-image: url("chrome://navigator/skin/icons/tab-new.png");
 }
 
@@ -245,6 +291,10 @@ tabpanels {
 
 .tabs-newbutton:not([disabled="true"]):hover:active {
   filter: brightness(75%);
+}
+
+.tabs-newbuttonn:focus {
+  outline: none !important;
 }
 
 .tab-drop-indicator-bar {
