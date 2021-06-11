@@ -134,24 +134,54 @@ nsBrowserStatusHandler.prototype =
            contentType == "mozilla.application/cached-xul";
   },
 
+  fuckOffFeeds : function(popup) {
+    if (popup) {
+      while (popup.hasChildNodes())
+        popup.lastChild.remove();
+    }
+
+    this.feeds = [];
+    this.feedsMenu.setAttribute("disabled", "true");
+    this.feedsButton.hidden = true;
+  },
+
   populateFeeds : function(popup)
   {
     // First clear out any old items
     while (popup.hasChildNodes())
       popup.lastChild.remove();
 
-    for (var i = 0; i < this.feeds.length; i++) {
-      var link = this.feeds[i];
-      var menuitem = document.createElement("menuitem");
-      menuitem.className = "menuitem-iconic bookmark-item";
-      menuitem.statusText = link.href;
-      menuitem.setAttribute("label", link.title || link.href);
-      popup.appendChild(menuitem);
+    var host = getBrowser().currentURI.host;
+
+    try {
+      for (var i = 0; i < this.feeds.length; i++) {
+        var link = this.feeds[i];
+
+        if (!link.href.contains(host)) {
+          this.fuckOffFeeds(popup);
+          return;
+        }
+
+        var menuitem = document.createElement("menuitem");
+        menuitem.className = "menuitem-iconic bookmark-item";
+        menuitem.statusText = link.href;
+        menuitem.setAttribute("label", link.title || link.href);
+        popup.appendChild(menuitem);
+      }
+    }
+    catch (ex) {
+      this.fuckOffFeeds(popup);
+      return;
     }
   },
 
   onFeedAvailable : function(aLink)
   {
+    if (!aLink.href.contains(getBrowser().currentURI.host)) {
+      this.fuckOffFeeds(null);
+      return;
+    }
+
     this.feeds.push(aLink);
     this.feedsMenu.removeAttribute("disabled");
     this.feedsButton.hidden = false;
