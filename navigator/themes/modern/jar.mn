@@ -5,7 +5,6 @@
 modern.jar:
 % override chrome://mozapps/skin/places/defaultFavicon.png    chrome://communicator/skin/bookmarks/bookmark-item.png
 % skin communicator modern/1.0 %skin/modern/communicator/
-% skin editor modern/1.0 %skin/modern/editor/
 % skin global modern/1.0 %skin/modern/global/
 % skin global-platform modern/1.0 %skin/modern/global/
 % skin mozapps modern/1.0 %skin/modern/mozapps/
@@ -154,30 +153,6 @@ modern.jar:
   skin/modern/communicator/sync/syncCommon.css                     (communicator/sync/syncCommon.css)
   skin/modern/communicator/sync/syncQuota.css                      (communicator/sync/syncQuota.css)
   skin/communicator/eula/eula.css                                  (communicator/eula/eula.css)
-  skin/modern/editor/EditorDialog.css                              (editor/EditorDialog.css)
-  skin/modern/editor/editor.css                                    (editor/editor.css)
-  skin/modern/editor/editorModeToolbar.css                         (editor/editorModeToolbar.css)
-  skin/modern/editor/editorPrimaryToolbar.css                      (editor/editorPrimaryToolbar.css)
-  skin/modern/editor/editorFormatToolbar.css                       (editor/editorFormatToolbar.css)
-  skin/modern/editor/icons/editmode-html.gif                       (editor/icons/editmode-html.gif)
-  skin/modern/editor/icons/editmode-normal.gif                     (editor/icons/editmode-normal.gif)
-  skin/modern/editor/icons/editmode-preview.gif                    (editor/icons/editmode-preview.gif)
-  skin/modern/editor/icons/editmode-tags.gif                       (editor/icons/editmode-tags.gif)
-  skin/modern/editor/icons/img-align-btm-sel.gif                   (editor/icons/img-align-btm-sel.gif)
-  skin/modern/editor/icons/img-align-btm.gif                       (editor/icons/img-align-btm.gif)
-  skin/modern/editor/icons/img-align-lft.gif                       (editor/icons/img-align-lft.gif)
-  skin/modern/editor/icons/img-align-mid-sel.gif                   (editor/icons/img-align-mid-sel.gif)
-  skin/modern/editor/icons/img-align-mid.gif                       (editor/icons/img-align-mid.gif)
-  skin/modern/editor/icons/img-align-rit.gif                       (editor/icons/img-align-rit.gif)
-  skin/modern/editor/icons/img-align-top-sel.gif                   (editor/icons/img-align-top-sel.gif)
-  skin/modern/editor/icons/img-align-top.gif                       (editor/icons/img-align-top.gif)
-  skin/modern/editor/icons/mast-editor.gif                         (editor/icons/mast-editor.gif)
-  skin/modern/editor/icons/btn1.gif                                (editor/icons/btn1.gif)
-  skin/modern/editor/icons/btn2.gif                                (editor/icons/btn2.gif)
-  skin/modern/editor/icons/multicolor.png                          (editor/icons/multicolor.png)
-  skin/modern/editor/icons/progress-busy.gif                       (editor/icons/progress-busy.gif)
-  skin/modern/editor/icons/progress-done.gif                       (editor/icons/progress-done.gif)
-  skin/modern/editor/icons/progress-failed.gif                     (editor/icons/progress-failed.gif)
   skin/modern/global/globalBindings.xml                            (global/globalBindings.xml)
   skin/modern/global/about.css                                     (global/about.css)
   skin/modern/global/aboutCache.css                                (global/aboutCache.css)
@@ -373,8 +348,6 @@ modern.jar:
   skin/modern/global/toolbar/spring.png                            (global/toolbar/spring.png)
   skin/modern/global/tree/checkbox.gif                             (global/tree/checkbox.gif)
   skin/modern/global/tree/checkbox-checked.gif                     (global/tree/checkbox-checked.gif)
-  skin/modern/global/mac/tree/sort-asc.gif                         (global/tree/sort-dsc.gif)
-  skin/modern/global/mac/tree/sort-dsc.gif                         (global/tree/sort-asc.gif)
   skin/modern/global/unix/tree/sort-asc.gif                        (global/tree/sort-asc.gif)
   skin/modern/global/unix/tree/sort-dsc.gif                        (global/tree/sort-dsc.gif)
   skin/modern/global/win/tree/sort-asc.gif                         (global/tree/sort-dsc.gif)
