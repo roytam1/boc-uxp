@@ -12,7 +12,7 @@
 
 /* Hover */
 :-moz-any(#back-button, #forward-button, #reload-button, #stop-button, #home-button, #print-button, toolbarbutton.bookmark-item):hover {
-  filter: saturate(150%) brightness(110%);
+  filter: saturate(120%) brightness(110%);
 }
 
 /* Pressed */

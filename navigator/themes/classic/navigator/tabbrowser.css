@@ -278,7 +278,7 @@ tabpanels {
 }
 
 .tabs-newbutton:hover:not(:active) {
-  filter: saturate(150%) brightness(110%);
+  filter: saturate(120%) brightness(110%);
 }
 
 .tabs-newbutton:not([disabled="true"]):hover:active {
