@@ -11,12 +11,13 @@
 /* ::::: primary toolbar buttons ::::: */
 
 /* Hover */
-:-moz-any(#back-button, #forward-button, #reload-button, #stop-button, #home-button, #print-button, .bookmark-item):hover {
+:-moz-any(#back-button, #forward-button, #reload-button, #stop-button, #home-button, #print-button, toolbarbutton.bookmark-item):hover {
   filter: saturate(150%) brightness(110%);
 }
 
 /* Pressed */
-:-moz-any(#back-button, #forward-button, #reload-button, #stop-button, #home-button, #print-button, .bookmark-item):not([disabled="true"]):hover:active {
+:-moz-any(#back-button, #forward-button, #reload-button, #stop-button, #home-button, #print-button, toolbarbutton.bookmark-item):not([disabled="true"]):hover:active,
+toolbarbutton.bookmark-item[open="true"] {
   filter: brightness(75%);
 }
 
