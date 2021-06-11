@@ -25,7 +25,7 @@
     </em:targetApplication>
 
     <!-- Front End MetaData -->
-    <em:name>Communicator Style</em:name>
+    <em:name>Communicator Theme</em:name>
     <em:description>A truly anachronistic theme.</em:description>
 
     <!-- EXTENSION AUTHORS!
@@ -40,6 +40,7 @@
 
     <!-- Front End Integration Hooks (used by Theme Manager)-->
     <em:creator>Open Source Contributors</em:creator>
+    <em:contributor>Binary Outcast</em:contributor>
     <em:contributor>SeaMonkey Project</em:contributor>
     <em:contributor>Mozilla Foundation</em:contributor>
     <em:contributor>Netscape Communications</em:contributor>
