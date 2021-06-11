@@ -7,12 +7,9 @@ comm.jar:
   content/communicator/search/engineManager.xul                    (content/engineManager.xul)
   content/communicator/search/search.xml                           (content/search.xml)
   content/communicator/search/searchbarBindings.css                (content/searchbarBindings.css)
-  content/communicator/search/search-panel.js                      (content/search-panel.js)
-  content/communicator/search/search-panel.xul                     (content/search-panel.xul)
   
 en-US.jar:
   locale/en-US/communicator/search/engineManager.dtd                      (locale/engineManager.dtd)
   locale/en-US/communicator/search/engineManager.properties               (locale/engineManager.properties)
   locale/en-US/communicator/search/search.properties                      (locale/search.properties)
   locale/en-US/communicator/search/searchbar.dtd                          (locale/searchbar.dtd)
-  locale/en-US/communicator/search/search-panel.dtd                       (locale/search-panel.dtd)

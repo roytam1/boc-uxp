@@ -233,9 +233,6 @@ var Sanitizer = {
           var searchBar = currentDocument.getElementById("searchbar");
           if (searchBar && searchBar.textbox)
             searchBar.textbox.reset();
-          var sideSearchBar = win.BrowserSearch.searchSidebar;
-          if (sideSearchBar)
-            sideSearchBar.reset();
         }
 
         var formHistory = Components.classes["@mozilla.org/satchel/form-history;1"]
@@ -260,14 +257,6 @@ var Sanitizer = {
             if (searchBar.value ||
                 transactionMgr.numberOfUndoItems ||
                 transactionMgr.numberOfRedoItems)
-              return true;
-          }
-          var sideSearchBar = win.BrowserSearch.searchSidebar;
-          if (sideSearchBar) {
-            var sidebarTm = sideSearchBar.editor.transactionManager;
-            if (sideSearchBar.value ||
-                sidebarTm.numberOfUndoItems ||
-                sidebarTm.numberOfRedoItems)
               return true;
           }
         }

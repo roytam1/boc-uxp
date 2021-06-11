@@ -1180,8 +1180,6 @@ var BrowserSearch = {
     if (isElementVisible(this.searchBar)) {
       this.searchBar.select();
       this.searchBar.focus();
-    } else if (this.searchSidebar) {
-      this.searchSidebar.focus();
     } else {
       loadURI(Services.search.defaultEngine.searchForm);
       window.content.focus();
@@ -1208,11 +1206,12 @@ var BrowserSearch = {
 
     // If the search bar is visible, use the current engine, otherwise, fall
     // back to the default engine.
-    if (isElementVisible(this.searchBar) ||
-        this.searchSidebar)
+    if (isElementVisible(this.searchBar)) {
       engine = Services.search.currentEngine;
-    else
+    }
+    else {
       engine = Services.search.defaultEngine;
+    }
 
     var submission = engine.getSubmission(aSearchText); // HTML response
 
@@ -1235,10 +1234,6 @@ var BrowserSearch = {
       loadURI(submission.uri.spec, null, submission.postData, false);
       window.content.focus();
     }
-
-    // should we try and open up the sidebar to show the "Search Results" panel?
-    if (GetBoolPref("browser.search.opensidebarsearchpanel", false))
-      this.revealSidebar();
   },
 
   /**
@@ -1248,79 +1243,8 @@ var BrowserSearch = {
     return document.getElementById("searchbar");
   },
 
-  /**
-   * Returns the search sidebar textbox if the search sidebar is present in
-   * the sidebar and selected, null otherwise.
-   */
-  get searchSidebar() {
-    if (sidebarObj.never_built)
-      return null;
-    var panel = sidebarObj.panels.get_panel_from_id("urn:sidebar:panel:search");
-    return panel && isElementVisible(panel.get_iframe()) &&
-           panel.get_iframe()
-                .contentDocument.getElementById("sidebar-search-text");
-  },
-
   loadAddEngines: function BrowserSearch_loadAddEngines() {
     loadAddSearchEngines(); // for compatibility
-  },
-
-  /**
-   * Reveal the search sidebar panel.
-   */
-  revealSidebar: function BrowserSearch_revealSidebar() {
-    // first lets check if the search panel will be shown at all
-    // by checking the sidebar datasource to see if there is an entry
-    // for the search panel, and if it is excluded for navigator or not
-
-    var searchPanelExists = false;
-
-    var myPanel = document.getElementById("urn:sidebar:panel:search");
-    if (myPanel) {
-      var panel = sidebarObj.panels.get_panel_from_header_node(myPanel);
-      searchPanelExists = !panel.is_excluded();
-
-    } else if (sidebarObj.never_built) {
-      // XXXsearch: in theory, this should work when the sidebar isn't loaded,
-      //            in practice, it fails as sidebarObj.datasource_uri isn't defined
-      try {
-        var datasource = RDF.GetDataSourceBlocking(sidebarObj.datasource_uri);
-        var aboutValue = RDF.GetResource("urn:sidebar:panel:search");
-
-        // check if the panel is even in the list by checking for its content
-        var contentProp = RDF.GetResource("http://home.netscape.com/NC-rdf#content");
-        var content = datasource.GetTarget(aboutValue, contentProp, true);
-
-        if (content instanceof Components.interfaces.nsIRDFLiteral) {
-          // the search panel entry exists, now check if it is excluded
-          // for navigator
-          var excludeProp = RDF.GetResource("http://home.netscape.com/NC-rdf#exclude");
-          var exclude = datasource.GetTarget(aboutValue, excludeProp, true);
-
-          if (exclude instanceof Components.interfaces.nsIRDFLiteral) {
-            searchPanelExists = (exclude.Value.indexOf("navigator:browser") < 0);
-          } else {
-            // panel exists and no exclude set
-            searchPanelExists = true;
-          }
-        }
-      } catch (e) {
-        searchPanelExists = false;
-      }
-    }
-
-    if (searchPanelExists) {
-      // make sure the sidebar is open, else SidebarSelectPanel() will fail
-      if (sidebar_is_hidden())
-        SidebarShowHide();
-
-      if (sidebar_is_collapsed())
-        SidebarExpandCollapse();
-
-      var searchPanel = document.getElementById("urn:sidebar:panel:search");
-      if (searchPanel)
-        SidebarSelectPanel(searchPanel, true, true); // lives in sidebarOverlay.js
-    }
   }
 }
 

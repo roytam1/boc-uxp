@@ -30,10 +30,6 @@
                 label="&openContextSearchTab.label;"
                 accesskey="&openContextSearchTab.accesskey;"
                 preference="browser.search.opentabforcontextsearch"/>
-      <checkbox id="openSidebarPanel"
-                label="&openSidebarSearchPanel.label;"
-                accesskey="&openSidebarSearchPanel.accesskey;"
-                preference="browser.search.opensidebarsearchpanel"/>
       <hbox pack="end">
         <button id="managerButton"
                 label="&engineManager.label;"

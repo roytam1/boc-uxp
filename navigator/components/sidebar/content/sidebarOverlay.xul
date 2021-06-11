@@ -36,13 +36,6 @@
                  sidebartitle="&sidebar.client-history.label;"
                  sidebarurl="chrome://communicator/content/history/history-panel.xul"
                  oncommand="toggleSidebar('viewHistorySidebar');"/>
-    <broadcaster id="viewSearchSidebar"
-                 autoCheck="false"
-                 type="checkbox"
-                 group="sidebar"
-                 sidebartitle="&sidebar.search.label;"
-                 sidebarurl="chrome://communicator/content/search/search-panel.xul"
-                 oncommand="toggleSidebar('viewSearchSidebar');"/>
   </broadcasterset>
 
   <command id="toggleSidebar" oncommand="SidebarShowHide();"/>
