@@ -106,8 +106,7 @@ tabpanels {
 }
 
 .tabbrowser-tab {
-  list-style-image: url("chrome://global/skin/icons/folder-item.png");
-  -moz-image-region: rect(0px, 16px, 16px, 0px);
+  list-style-image: url("chrome://communicator/skin/bookmarks/bookmark-item.png");
 }
 
 tabpanels {
@@ -129,13 +128,6 @@ tabpanels {
 .tabbrowser-tab:focus > .tab-image-middle > .tab-text {
   border: 1px dotted -moz-DialogText;
 }
-
-/* Tab DnD indicator */
-.tab-drop-indicator {
-  list-style-image: url("chrome://navigator/skin/icons/tabDragIndicator.png");
-  margin-bottom: 0; /* Move up into tabs since menu is not below anymore */
-}
-
 
 /* ::::: Tab scrollbox arrow, and all-tabs buttons ::::: */
 
@@ -293,7 +285,7 @@ tabpanels {
   filter: brightness(75%);
 }
 
-.tabs-newbuttonn:focus {
+.tabs-newbutton:focus {
   outline: none !important;
 }
 

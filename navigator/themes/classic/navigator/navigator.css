@@ -10,89 +10,48 @@
 
 /* ::::: primary toolbar buttons ::::: */
 
+/* Hover */
+:-moz-any(#back-button, #forward-button, #reload-button, #stop-button, #home-button, #print-button, .bookmark-item):hover {
+  filter: saturate(150%) brightness(110%);
+}
+
+/* Pressed */
+:-moz-any(#back-button, #forward-button, #reload-button, #stop-button, #home-button, #print-button, .bookmark-item):not([disabled="true"]):hover:active {
+  filter: brightness(75%);
+}
+
+/* Disabled */
+:-moz-any(#back-button, #forward-button, #reload-button, #stop-button, #home-button, #print-button)[disabled="true"] {
+  filter: grayscale(100%) opacity(40%);
+}
+
+/* Large Icons */
+:-moz-any(#back-button, #forward-button, #reload-button, #stop-button, #home-button, #print-button) {
+  list-style-image: url("chrome://navigator/skin/icons/navigatoricons.png");
+}
+
 #back-button {
-  list-style-image: url("chrome://communicator/skin/icons/communicatoricons.png");
-  -moz-image-region: rect(60px 29px 89px 0);
-}
-
-#back-button:hover {
-  -moz-image-region: rect(60px 59px 89px 30px);
-}
-
-#back-button:hover:active {
-  -moz-image-region: rect(60px 89px 89px 60px);
-}
-
-#back-button[disabled="true"] {
-  -moz-image-region: rect(60px 119px 89px 90px) !important;
+  -moz-image-region: rect(0px, 29px, 29px, 0px);
 }
 
 #forward-button {
-  list-style-image: url("chrome://communicator/skin/icons/communicatoricons.png");
-  -moz-image-region: rect(90px 29px 119px 0);
-}
-
-#forward-button:hover {
-  -moz-image-region: rect(90px 59px 119px 30px);
-}
-
-#forward-button:hover:active {
-  -moz-image-region: rect(90px 89px 119px 60px);
-}
-
-#forward-button[disabled="true"] {
-  -moz-image-region: rect(90px 119px 119px 90px) !important;
-}
-
-#reload-button {
-  list-style-image: url("chrome://navigator/skin/icons/navigatoricons.png");
-  -moz-image-region: rect(0 29px 29px 0);
-}
-
-#reload-button:hover {
-  -moz-image-region: rect(0 59px 29px 30px);
-}
-
-#reload-button:hover:active {
-  -moz-image-region: rect(0 89px 29px 60px);
-}
-
-#reload-button[disabled="true"] {
-  -moz-image-region: rect(0 119px 29px 90px) !important;
+  -moz-image-region: rect(0px, 58px, 29px, 29px);
 }
 
 #stop-button {
-  list-style-image: url("chrome://communicator/skin/icons/communicatoricons.png");
-  -moz-image-region: rect(30px 29px 59px 0);
+  -moz-image-region: rect(0px, 87px, 29px, 58px);
 }
 
-#stop-button:hover {
-  -moz-image-region: rect(30px 59px 59px 30px);
-}
-
-#stop-button:hover:active {
-  -moz-image-region: rect(30px 89px 59px 60px);
-}
-
-#stop-button[disabled="true"] {
-  -moz-image-region: rect(30px 119px 59px 90px) !important;
+#reload-button {
+  -moz-image-region: rect(0px, 116px, 29px, 87px);
 }
 
 #home-button {
-  list-style-image: url("chrome://communicator/skin/icons/communicatoricons.png");
-  -moz-image-region: rect(120px 29px 149px 0);
+  -moz-image-region: rect(0px, 145px, 29px, 116px);
 }
 
-#home-button:hover {
-  -moz-image-region: rect(120px 59px 149px 30px);
-} 
-
-#home-button:hover:active {
-  -moz-image-region: rect(120px 89px 149px 60px);
-}
-
-#home-button[disabled="true"] {
-  -moz-image-region: rect(120px 119px 149px 90px) !important;
+#print-button {
+  -moz-image-region: rect(0px, 174px, 29px, 145px);
 }
 
 #sync-button {
@@ -103,96 +62,40 @@
   list-style-image: url("chrome://communicator/skin/sync/sync-32-throbber.png");
 }
 
-/* ::::: small primary toolbar buttons ::::: */
+/* Small Icons */
+toolbar[iconsize="small"] > toolbarpaletteitem > :-moz-any(#back-button, #forward-button, #reload-button, #stop-button, #home-button, #print-button),
+toolbar[iconsize="small"] > :-moz-any(#back-button, #forward-button, #reload-button, #stop-button, #home-button, #print-button) {
+  list-style-image: url("chrome://navigator/skin/icons/navigatoricons-small.png");
+}
 
 toolbar[iconsize="small"] > toolbarpaletteitem > #back-button,
 toolbar[iconsize="small"] > #back-button {
-  list-style-image: url("chrome://communicator/skin/icons/communicatoricons-small.png");
-  -moz-image-region: rect(40px 19px 59px 0);
-}
-
-toolbar[iconsize="small"] > #back-button:hover {
-  -moz-image-region: rect(40px 39px 59px 20px);
-}
-
-toolbar[iconsize="small"] > #back-button:hover:active {
-  -moz-image-region: rect(40px 59px 59px 40px);
-}
-
-toolbar[iconsize="small"] > #back-button[disabled="true"] {
-  -moz-image-region: rect(40px 79px 59px 60px) !important;
+  -moz-image-region: rect(0px, 19px, 19px, 0px);
 }
 
 toolbar[iconsize="small"] > toolbarpaletteitem > #forward-button,
 toolbar[iconsize="small"] > #forward-button {
-  list-style-image: url("chrome://communicator/skin/icons/communicatoricons-small.png");
-  -moz-image-region: rect(60px 19px 79px 0);
-}
-
-toolbar[iconsize="small"] > #forward-button:hover {
-  -moz-image-region: rect(60px 39px 79px 20px);
-}
-
-toolbar[iconsize="small"] > #forward-button:hover:active {
-  -moz-image-region: rect(60px 59px 79px 40px);
-}
-
-toolbar[iconsize="small"] > #forward-button[disabled="true"] {
-  -moz-image-region: rect(60px 79px 79px 60px) !important;
-}
-
-toolbar[iconsize="small"] > toolbarpaletteitem > #reload-button,
-toolbar[iconsize="small"] > #reload-button {
-  list-style-image: url("chrome://navigator/skin/icons/navigatoricons-small.png");
-  -moz-image-region: rect(0 19px 19px 0);
-}
-
-toolbar[iconsize="small"] > #reload-button:hover {
-  -moz-image-region: rect(0 39px 19px 20px);
-}
-
-toolbar[iconsize="small"] > #reload-button:hover:active {
-  -moz-image-region: rect(0 59px 19px 40px);
-}
-
-toolbar[iconsize="small"] > #reload-button[disabled="true"] {
-  -moz-image-region: rect(0 79px 19px 60px) !important;
+  -moz-image-region: rect(0px, 38px, 19px, 19px);
 }
 
 toolbar[iconsize="small"] > toolbarpaletteitem > #stop-button,
 toolbar[iconsize="small"] > #stop-button {
-  list-style-image: url("chrome://communicator/skin/icons/communicatoricons-small.png");
-  -moz-image-region: rect(20px 19px 39px 0);
+  -moz-image-region: rect(0px, 57px, 19px, 38px);
 }
 
-toolbar[iconsize="small"] > #stop-button:hover {
-  -moz-image-region: rect(20px 39px 39px 20px);
-}
-
-toolbar[iconsize="small"] > #stop-button:hover:active {
-  -moz-image-region: rect(20px 59px 39px 40px);
-}
-
-toolbar[iconsize="small"] > #stop-button[disabled="true"] {
-  -moz-image-region: rect(20px 79px 39px 60px) !important;
+toolbar[iconsize="small"] > toolbarpaletteitem > #reload-button,
+toolbar[iconsize="small"] > #reload-button {
+  -moz-image-region: rect(0px, 76px, 19px, 57px);
 }
 
 toolbar[iconsize="small"] > toolbarpaletteitem > #home-button,
 toolbar[iconsize="small"] > #home-button {
-  list-style-image: url("chrome://communicator/skin/icons/communicatoricons-small.png");
-  -moz-image-region: rect(80px 19px 99px 0);
+  -moz-image-region: rect(0px, 95px, 19px, 76px);
 }
 
-toolbar[iconsize="small"] > #home-button:hover {
-  -moz-image-region: rect(80px 39px 99px 20px);
-}
-
-toolbar[iconsize="small"] > #home-button:hover:active {
-  -moz-image-region: rect(80px 59px 99px 40px);
-}
-
-toolbar[iconsize="small"] > #home-button[disabled="true"] {
-  -moz-image-region: rect(80px 79px 99px 60px) !important;
+toolbar[iconsize="small"] > toolbarpaletteitem > #print-button,
+toolbar[iconsize="small"] > #print-button {
+  -moz-image-region: rect(0px, 114px, 19px, 95px);
 }
 
 toolbar[iconsize="small"] > toolbarpaletteitem > #sync-button,
@@ -205,18 +108,10 @@ toolbar[iconsize="small"] > #sync-button[status=active] {
   list-style-image: url("chrome://communicator/skin/sync/sync-16-throbber.png");
 }
 
-#FindToolbar {
-  -moz-border-top-colors: ThreeDHighlight;
-  border-top-width: 1px;
-  border-bottom: 2px solid;
-  -moz-border-bottom-colors: ThreeDShadow ThreeDHighlight;
-  padding-top: 1px;
-  padding-bottom: 0px;
-}
+/* ::::: Find Toolbar ::::: */
 
-#FindToolbar:-moz-lwtheme {
-  -moz-border-top-colors: transparent;
-  -moz-border-bottom-colors: transparent;
+#FindToolbar {
+  transition: unset;
 }
 
 /* ::::: fullscreen window controls ::::: */
@@ -823,4 +718,13 @@ toolbar[mode="text"] toolbarbutton.chevron > .toolbarbutton-icon {
 
 #component-bar {
   -moz-box-align: stretch;
+  -moz-appearance: statusbarpanel;
+  max-height: 25px;
+}
+
+#component-bar > toolbarbutton {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-inline-start: 2px;
+  padding-inline-end: 2px;
 }
