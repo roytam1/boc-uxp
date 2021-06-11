@@ -157,31 +157,6 @@
            oncommand="OpenBrowserWindow()"/>
   <command id="cmd_newPrivateWindow"
            oncommand="openNewPrivateWith('about:privatebrowsing');"/>
-  <command id="cmd_newEditor"
-           oncommand="NewEditorWindow();"/>
-
-  <!-- XXX not implemented, temporarily disabled
-  <command id="cmd_newEditorTemplate"
-           disabled="true"
-           oncommand="NewEditorFromTemplate();"/>
-  <command id="cmd_newEditorDraft"
-           disabled="true"
-           oncommand="NewEditorFromDraft();"/>
-  -->
-
-  <menuitem id="menu_newEditor"
-            label="&newBlankPageCmd.label;"
-            accesskey="&newBlankPageCmd.accesskey;"
-            key="key_newBlankPage"
-            command="cmd_newEditor"/>
-  <menuitem id="menu_newEditorTemplate"
-            label="&newPageFromTemplateCmd.label;"
-            accesskey="&newPageFromTemplateCmd.accesskey;"
-            command="cmd_newEditorTemplate"/>
-  <menuitem id="menu_newEditorDraft"
-            label="&newPageFromDraftCmd.label;"
-            accesskey="&newPageFromDraftCmd.accesskey;"
-            command="cmd_newEditorDraft"/>
 
   <menu id="menu_New"
         label="&newMenu.label;"
@@ -211,10 +186,6 @@
             key="key_print"
             command="cmd_print"/>
 
-  <key id="key_newBlankPage"
-       key="&newBlankPageCmd.key;"
-       command="cmd_newEditor"
-       modifiers="accel, shift"/>
   <key id="key_newNavigator"
        key="&newNavigatorCmd.key;"
        command="cmd_newNavigator"

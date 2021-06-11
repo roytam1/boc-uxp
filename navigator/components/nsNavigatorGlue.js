@@ -363,7 +363,7 @@ NavigatorGlue.prototype = {
 
   _migrateUI: function()
   {
-    const UI_VERSION = 2;
+    const UI_VERSION = 8;
 
     // If the pref is not set this is a new or pre SeaMonkey 2.49 profile.
     // We can't tell so we just run migration with version 0.
@@ -376,65 +376,9 @@ NavigatorGlue.prototype = {
     if (currentUIVersion >= UI_VERSION)
       return;
 
-    if (currentUIVersion < 1) {
-      // Run any migrations due prior to 2.49.
-      this._updatePrefs();
-      this._migrateDownloadPrefs();
-
-      // Migrate remote content exceptions for email addresses which are
-      // encoded as chrome URIs.
-      let permissionsDB =
-        Services.dirsvc.get("ProfD", Components.interfaces.nsILocalFile);
-      permissionsDB.append("permissions.sqlite");
-      let db = Services.storage.openDatabase(permissionsDB);
-
-      try {
-        let statement = db.createStatement(
-          "select origin, permission from moz_perms where " +
-          // Avoid 'like' here which needs to be escaped.
-          "  substr(origin, 1, 28) = 'chrome://messenger/content/?';");
-
-        try {
-          while (statement.executeStep()) {
-            let origin = statement.getUTF8String(0);
-            let permission = statement.getInt32(1);
-            Services.console.logStringMessage("Mail-Image-Perm Mig: " + origin);
-            Services.perms.remove(
-              Services.io.newURI(origin), "image");
-            origin = origin.replace("chrome://messenger/content/?",
-                                    "chrome://messenger/content/");
-            Services.perms.add(
-              Services.io.newURI(origin), "image", permission);
-          }
-        } finally {
-          statement.finalize();
-        }
-
-        // Sadly we still need to clear the database manually. Experiments
-        // showed that the permissions manager deletes only one record.
-        db.beginTransactionAs(Components.interfaces.mozIStorageConnection.TRANSACTION_EXCLUSIVE);
-
-        try {
-          db.executeSimpleSQL("delete from moz_perms where " +
-               "  substr(origin, 1, 28) = 'chrome://messenger/content/?';");
-          db.commitTransaction();
-        } catch (ex) {
-          db.rollbackTransaction();
-          throw ex;
-        }
-      } finally {
-        db.close();
-      }
-    }
-
     // Migration of disabled safebrowsing-phishing setting after pref renaming.
-    if (currentUIVersion < 2) {
-      try {
-        if (!Services.prefs.getBoolPref("browser.safebrowsing.enabled")) {
-          Services.prefs.setBoolPref("browser.safebrowsing.phishing.enabled", false);
-          Services.prefs.clearUserPref("browser.safebrowsing.enabled");
-        }
-      } catch (ex) {}
+    if (currentUIVersion < 8) {
+      // Shit to do
     }
 
     // Update the migration version.

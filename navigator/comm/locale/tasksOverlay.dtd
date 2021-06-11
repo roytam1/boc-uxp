@@ -6,10 +6,6 @@
 <!ENTITY navigatorCmd.label "&brandFullName;">
 <!ENTITY navigatorCmd.accesskey "N">
 <!ENTITY navigatorCmd.commandkey "1">
-<!-- LOCALIZATION NOTE (editorCmd.label): DONT_TRANSLATE -->
-<!ENTITY editorCmd.label "Composer">
-<!ENTITY editorCmd.accesskey "c">
-<!ENTITY editorCmd.commandkey "4">
 
 <!ENTITY errorConsoleCmd.label "Error Console">
 <!ENTITY errorConsoleCmd.accesskey "C">

@@ -61,11 +61,6 @@
         event.stopPropagation();
       }
       else {
-        // if in mailnews block the link left click if we determine
-        // that this URL is phishy (i.e. a potential email scam)
-        if ("gMessengerBundle" in this && event.button < 2 &&
-            isPhishingURL(ceParams.linkNode, false, href))
-          return false;
         handleLinkClick(event, href, ceParams.linkNode);
 
         // Mark the page as a user followed link.  This is done so that history can

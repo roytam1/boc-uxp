@@ -12,11 +12,6 @@
 Components.utils.import("resource://gre/modules/Services.jsm");
 Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
 
-/*
-  Note: All Editor/Composer-related methods have been moved to editorApplicationOverlay.js,
-  so app windows that require those must include editorNavigatorOverlay.xul
-*/
-
 /**
  * Go into online/offline mode
  **/
