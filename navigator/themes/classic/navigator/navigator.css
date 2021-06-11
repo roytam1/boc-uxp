@@ -170,10 +170,10 @@ toolbar[mode="text"] > #window-controls > toolbarbutton > .toolbarbutton-icon {
   background-color: #ffc7c7;
 }
 
-@media (-moz-windows-theme: aero) {
-  #urlbar {
-    padding: 1px;
-  }
+@media (-moz-os-version: windows-win7) and (-moz-windows-theme: aero),
+       (-moz-os-version: windows-win8),
+       (-moz-os-version: windows-win10) {
+  #urlbar { padding: 1px; }
 }
 
 #wrapper-nav-bar-inner[place="palette"] > #nav-bar-inner
