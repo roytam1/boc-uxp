@@ -11,4 +11,4 @@ en-US.jar:
   locale/en-US/communicator/eula/eula.dtd             (locale/eula.dtd)
 
 classic.jar:
-  skin/communicator/eula/eula.css                     (skin/eula.css)
+  skin/classic/communicator/eula/eula.css             (skin/eula.css)
