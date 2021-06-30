@@ -6,7 +6,7 @@
 if not CONFIG['MOZ_INCOMPLETE_EXTERNAL_LINKAGE']:
     DIRS += ['/mail/components']
 
-include('/communicator/communicator.mozbuild')
+include('/xptoolkit/xptoolkit.mozbuild')
 
 if CONFIG['MOZ_EXTENSIONS']:
     DIRS += ['/extensions']
