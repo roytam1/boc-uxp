@@ -10,7 +10,6 @@
 % override chrome://mozapps/locale/downloads/settingsChange.dtd chrome://messenger/locale/downloads/settingsChange.dtd
 % override chrome://global/locale/netError.dtd chrome://messenger/locale/netError.dtd
   locale/@AB_CD@/messenger/aboutDialog.dtd                              (%chrome/messenger/aboutDialog.dtd)
-  locale/@AB_CD@/messenger/aboutDownloads.dtd                           (%chrome/messenger/aboutDownloads.dtd)
   locale/@AB_CD@/messenger/aboutRights.dtd                              (%chrome/messenger/aboutRights.dtd)
   locale/@AB_CD@/messenger/aboutRights.properties                       (%chrome/messenger/aboutRights.properties)
   locale/@AB_CD@/messenger/aboutSupportMail.dtd                         (%chrome/messenger/aboutSupportMail.dtd)
@@ -181,7 +180,7 @@
   locale/@AB_CD@/messenger/activity.properties                          (%chrome/messenger/activity.properties)
   locale/@AB_CD@/messenger/downloads/settingsChange.dtd                 (%chrome/overrides/settingsChange.dtd)
   locale/@AB_CD@/messenger/netError.dtd                                 (%chrome/overrides/netError.dtd)
-  locale/@AB_CD@/messenger/downloadsOverlay.dtd                         (%chrome/messenger/downloadsOverlay.dtd)
+  locale/@AB_CD@/messenger/downloadManagerOverlay.dtd                   (%chrome/messenger/downloadManagerOverlay.dtd)
   locale/@AB_CD@/messenger/chat.dtd                                     (%chrome/messenger/chat.dtd)
   locale/@AB_CD@/messenger/chat.properties                              (%chrome/messenger/chat.properties)
   locale/@AB_CD@/messenger/addbuddy.dtd                                 (%chrome/messenger/addbuddy.dtd)

@@ -8,8 +8,6 @@
 
 #ifdef BINOC_BOREALIS
 <?xul-overlay href="chrome://communicator/content/tasksOverlay.xul"?>
-#elif BINOC_INTERLINK
-<?xul-overlay href="chrome://messenger/content/baseMenuOverlay.xul"?>
 #endif
 <?xul-overlay href="chrome://communicator/content/utilityOverlay.xul"?>
 <?xul-overlay href="chrome://global/content/editMenuOverlay.xul"?>
@@ -329,6 +327,7 @@
           </menu>
         </menupopup>
       </menu>
+#ifdef BINOC_BOREALIS
       <menu id="tasksMenu">
         <menupopup id="taskPopup">
           <menuitem id="dlMenu_find"
@@ -340,7 +339,8 @@
         </menupopup>
       </menu>
       <menu id="windowMenu"/>
-      <menu id="menu_Help"/>
+      <menu id="menu_Help"/>     
+#endif
     </menubar>
     <toolbar class="chromeclass-toolbar"
              id="downloadToolbar"
@@ -453,7 +453,9 @@
   </tree>
   <statusbar id="status-bar" class="chromeclass-status">
     <statusbarpanel id="statusbar-display" flex="1"/>
+#ifdef BINOC_BOREALIS
     <statusbarpanel class="statusbarpanel-iconic" id="offline-status"/>
+#endif
   </statusbar>
 
 </window>

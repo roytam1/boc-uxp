@@ -18,6 +18,10 @@
         persist="screenX screenY"
         style="width:40em;">
 
+#ifndef BINOC_BOREALIS
+  <script type="application/javascript"
+          src="chrome://global/content/globalOverlay.js"/>
+#endif
   <script type="application/javascript"
           src="chrome://communicator/content/downloads/downloadmanager.js"/>
   <script type="application/javascript"

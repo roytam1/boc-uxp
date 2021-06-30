@@ -2,12 +2,13 @@
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
- 
+
 pref("browser.download.finished_download_sound", false);
 pref("browser.download.finished_sound_url", "");
 pref("browser.download.useDownloadDir", false);
 pref("browser.download.folderList", 1);
 
+pref("browser.download.manager.useToolkitUI", false);
 pref("browser.download.manager.showAlertOnComplete", true);
 pref("browser.download.manager.showAlertInterval", 2000);
 pref("browser.download.manager.retention", 2);

@@ -1,4 +1,4 @@
-/* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*-
+  /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*-
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -558,14 +558,14 @@ function openIMAccountWizard()
 
 function openSavedFilesWnd()
 {
-  let tabmail = document.getElementById("tabmail");
-  let downloadsBrowser = tabmail.getBrowserForDocumentId("aboutDownloads");
-  if (downloadsBrowser)
-    tabmail.switchToTab(downloadsBrowser);
-  else {
-    tabmail.openTab("chromeTab",
-                    { chromePage: "about:downloads",
-                      clickHandler: "specialTabs.aboutClickHandler(event);" });
+  //Ported extensions may only implement the Basic toolkit Interface
+  //and not our progress dialogs.
+  var dlUI = Components.classes["@mozilla.org/download-manager-ui;1"]
+                       .getService(Components.interfaces.nsIDownloadManagerUI);
+  if (dlUI instanceof Components.interfaces.nsISuiteDownloadManagerUI) {
+    dlUI.showManager(window);
+  } else {
+    dlUI.show(window);
   }
 }
 

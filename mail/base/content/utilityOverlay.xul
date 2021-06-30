@@ -92,7 +92,7 @@
   <commandset id="undoEditMenuItems" commandupdater="true" events="undo" oncommandupdate="goUpdateUndoEditMenuItems()"/>
   <commandset id="clipboardEditMenuItems" commandupdater="true" events="clipboard" oncommandupdate="goUpdatePasteMenuItems()"/>
 
-  <command id="cmd_quit" oncommand="goQuitApplication()"/>
+  <command id="cmd_quit" oncommand="goQuitApplication();"/>
   <command id="cmd_copyLink" oncommand="goDoCommand('cmd_copyLink')" disabled="false"/>
   <command id="cmd_copyImage" oncommand="goCopyImage()" disabled="false"/>
   <command id="cmd_undo" oncommand="goDoCommand('cmd_undo')" disabled="true"/>

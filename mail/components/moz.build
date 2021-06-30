@@ -9,7 +9,6 @@ DIRS += [
     'addrbook',
     'cloudfile',
     'compose',
-    'downloads',
     'mailviews',
     'migration',
     'newmailaccount',
@@ -30,7 +29,6 @@ XPIDL_SOURCES += [
 XPIDL_MODULE = 'mailcompsbase'
 
 EXTRA_COMPONENTS += [
-    'DownloadsStartup.js',
     'mailComponents.manifest',
     'mailContentHandler.js',
     'mailGlue.js',
