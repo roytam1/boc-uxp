@@ -23,7 +23,6 @@ comm.jar:
   content/communicator/certError.xhtml                             (content/certError.xhtml)  
   content/communicator/certError.xml                               (content/certError.xml)
   content/communicator/charsetOverlay.xul                          (content/charsetOverlay.xul)
-  content/communicator/communicator.css                            (content/communicator.css)
   content/communicator/consoleOverlay.xul                          (content/consoleOverlay.xul)
   content/communicator/contentAreaClick.js                         (content/contentAreaClick.js)
   content/communicator/contentAreaContextOverlay.xul               (content/contentAreaContextOverlay.xul)

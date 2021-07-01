@@ -4,6 +4,7 @@
 
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"); 
 
+%ifdef BINOC_BOREALIS
 /* ::::: print preview toolbar ::::: */
 
 toolbar[printpreview="true"] {
@@ -28,6 +29,7 @@ notification[value="addon-install-started"] {
 toolbaritem {
   -moz-binding: url("chrome://global/content/bindings/general.xml#basecontrol");
 }
+%endif
 
 /* With the move to the new toolkit, SeaMonkey needs to overwrite certain bindings
  * if it wants to keep its distinctive likeness. The now hidden new toolkit bindings
@@ -36,6 +38,7 @@ toolbaritem {
 
 /******* toolkit access layer *******/
 /* These rules reintroduce the toolkit bindings overwritten later below */
+%ifdef BINOC_BOREALIS
 toolbox[xpfe="false"] { 
   -moz-binding: url("chrome://global/content/bindings/toolbar.xml#toolbox");
 }
@@ -63,6 +66,7 @@ toolbar > toolbarpaletteitem > toolbaritem > menubar {
 .menubar-items > menubar {
   -moz-box-flex: 1; /* make menu items expand to fill toolbar height */
 }
+%endif
 
 prefwindow[xpfe="false"] {
   -moz-binding: url("chrome://global/content/bindings/preferences.xml#prefwindow");
@@ -72,9 +76,11 @@ prefpane[xpfe="false"] {
   -moz-binding: url("chrome://global/content/bindings/preferences.xml#prefpane");
 }
 
+%ifdef BINOC_BOREALIS
 findbar[xpfe="false"] {
   -moz-binding: url("chrome://global/content/bindings/findbar.xml#findbar");
 }
+%endif
 
 prefwindow[xpfe="false"] > .paneDeckContainer,
 prefpane[xpfe="false"] > .content-box {
@@ -83,6 +89,7 @@ prefpane[xpfe="false"] > .content-box {
 
 /******* SeaMonkey XPFE *******/
 /* These bindings reflect SeaMonkey XPFE, modulo new toolkit features. */
+%ifdef BINOC_BOREALIS
 toolbox { 
   -moz-binding: url("chrome://communicator/content/bindings/toolbar.xml#grippytoolbox");
 }
@@ -102,6 +109,7 @@ toolbargrippy {
 menubar {
   -moz-binding: url("chrome://communicator/content/bindings/toolbar.xml#grippymenubar");
 }
+%endif
 
 prefwindow {
   -moz-binding: url("chrome://communicator/content/bindings/prefwindow.xml#prefwindow");
@@ -111,9 +119,11 @@ prefpane {
   -moz-binding: url("chrome://communicator/content/bindings/prefwindow.xml#prefpane");
 }
 
+%ifdef BINOC_BOREALIS
 findbar {
   -moz-binding: url("chrome://communicator/content/bindings/findbar.xml#findbar");
 }
+%endif
 
 prefwindow > .paneDeckContainer,
 prefpane > .content-box {
@@ -125,23 +135,13 @@ prefwindow[overflow="auto"] prefpane > .content-box {
   overflow: auto;
 }
 
+%ifdef BINOC_BOREALIS
 .statusbarpanel-backgroundbox {
   -moz-binding: url("chrome://communicator/content/bindings/general.xml#statusbarpanel-backgroundbox");
 }
 
 textbox[enablehistory="true"] > .autocomplete-history-dropmarker {
   display: -moz-box;
-}
-
-/******* lightweight themes *******/
-window[lwtheme="true"] {
-  background-repeat: no-repeat;
-  background-position: top right;
-}
-
-statusbar[lwthemefooter="true"] {
-  background-repeat: no-repeat;
-  background-position: bottom left;
 }
 
 /******* sync *******/
@@ -169,3 +169,4 @@ toolbar[type="menubar"][autohide="true"][inactive="true"]
   -moz-appearance: none !important;
   border-style: none !important;
 }
+%endif
