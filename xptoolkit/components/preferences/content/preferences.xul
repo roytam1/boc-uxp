@@ -12,7 +12,6 @@
 
 <!DOCTYPE prefwindow [
   <!ENTITY % dtdPrefs    SYSTEM "chrome://communicator/locale/pref/preferences.dtd"> %dtdPrefs;
-  <!ENTITY % dtdPlatform SYSTEM "chrome://communicator-platform/locale/pref/platformPrefOverlay.dtd"> %dtdPlatform;
 ]>
 
 <prefwindow id="prefDialog"
@@ -48,30 +47,8 @@
         flex="1">
 
     <treechildren id="prefsPanelChildren">
-      <!-- Browser items -->
-      <treeitem open="true"
-                container="true"
-                id="navigatorItem"
-                label="&navigator.label;"
-                prefpane="navigator_pane"
-                url="chrome://communicator/content/pref/pref-navigator.xul">
-        <treechildren id="navigatorChildren">
-          <treeitem id="locationBarItem"
-                    label="&locationBar.label;"
-                    prefpane="locationBar_pane"
-                    url="chrome://communicator/content/pref/pref-locationbar.xul"/>
-          <treeitem id="searchItem"
-                    label="&search.label;"
-                    prefpane="search_pane"
-                    url="chrome://communicator/content/pref/pref-search.xul"/>
-          <treeitem id="tabsItem"
-                    label="&tabWindows.label;"
-                    prefpane="tabs_pane"
-                    url="chrome://communicator/content/pref/pref-tabs.xul"/>
-          <treeitem id="linksItem"
-                    label="&links.label;"
-                    prefpane="links_pane"
-                    url="chrome://communicator/content/pref/pref-links.xul"/>
+      <treeitem id="mainItem">
+        <treechildren id="mainChildren">
           <treeitem id="downloadItem"
                     label="&download.label;"
                     prefpane="download_pane"
@@ -87,14 +64,13 @@
         </treechildren>
       </treeitem>
 
-      <!-- Content items (formerly Appearance) -->
       <treeitem open="true"
                 container="true"
                 id="contentItem"
                 label="&content.label;"
                 prefpane="content_pane"
                 url="chrome://communicator/content/pref/pref-content.xul">
-         <treechildren id="contentChildren">
+        <treechildren id="contentChildren">
           <treeitem id="colorsItem"
                     label="&colors.label;"
                     prefpane="colors_pane"
@@ -107,30 +83,14 @@
                     label="&languages.label;"
                     prefpane="languages_pane"
                     url="chrome://communicator/content/pref/pref-languages.xul"/>
-          <treeitem id="mediaItem"
-                    label="&media.label;"
-                    prefpane="media_pane"
-                    url="chrome://communicator/content/pref/pref-media.xul"/>
           <treeitem id="scriptsItem"
                     label="&scriptsAndWindows.label;"
                     prefpane="scripts_pane"
                     url="chrome://communicator/content/pref/pref-scripts.xul"/>
-          <treeitem id="popupsItem"
-                    label="&popups.label;"
-                    prefpane="popups_pane"
-                    url="chrome://communicator/content/pref/pref-popups.xul"/>
           <treeitem id="mousewheelItem"
                     label="&mousewheel.label;"
                     prefpane="mousewheel_pane"
                     url="chrome://communicator/content/pref/pref-mousewheel.xul"/>
-          <treeitem id="findasyoutypeItem"
-                    label="&findAsYouType.label;"
-                    prefpane="findasyoutype_pane"
-                    url="chrome://communicator/content/pref/pref-findasyoutype.xul"/>
-          <treeitem id="keynavItem"
-                    label="&keynav.label;"
-                    prefpane="keynav_pane"
-                    url="chrome://communicator/content/pref/pref-keynav.xul"/>
         </treechildren>
       </treeitem>
 
@@ -141,7 +101,7 @@
                 prefpane="privacy_pane"
                 label="&privacy.label;"
                 url="chrome://communicator/content/pref/pref-privacy.xul">
-        <treechildren id="securityChildren">
+        <treechildren id="privacyChildren">
           <treeitem id="privatedataItem"
                     label="&privatedata.label;"
                     prefpane="privatedata_pane"
@@ -193,7 +153,7 @@
         </treechildren>
       </treeitem>
 
-      <!-- Advanced items -->
+      <!-- Advanced items xptoolkit -->
       <treeitem open="true"
                 container="true"
                 id="advancedItem"

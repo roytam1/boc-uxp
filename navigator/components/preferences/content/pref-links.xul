@@ -4,8 +4,6 @@
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 
 <!DOCTYPE overlay [
-<!ENTITY % platformCommunicationDTD SYSTEM "chrome://communicator-platform/locale/pref/platformPrefOverlay.dtd">
-%platformCommunicationDTD;
 <!ENTITY % tabsDTD SYSTEM "chrome://communicator/locale/pref/pref-links.dtd">
 %tabsDTD;
 ]>

@@ -51,8 +51,6 @@ classic.jar:
   skin/classic/communicator/common.css                                  (communicator/common.css)
   skin/classic/communicator/dialogs.css                                 (communicator/dialogs.css)
   skin/classic/communicator/communicatorBindings.xml                    (communicator/communicatorBindings.xml)
-  skin/classic/communicator/preferences.css                             (communicator/preferences.css)
-  skin/classic/communicator/prefpanels.css                              (communicator/prefpanels.css)
   skin/classic/communicator/smileys.css                                 (communicator/smileys.css)
   skin/classic/communicator/tasksOverlay.css                            (communicator/tasksOverlay.css)
   skin/classic/communicator/bookmarks/allBookmarks.png                  (communicator/bookmarks/allBookmarks.png)

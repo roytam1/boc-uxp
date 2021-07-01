@@ -25,3 +25,8 @@
 <!ENTITY openManagers.label "Open in a new tab instead of a stand-alone window">
 <!ENTITY openAddOnsManager.label "Add-ons Manager">
 <!ENTITY openAddOnsManager.accesskey "n">
+
+<!ENTITY urlbar.label                 "Ctrl+Enter in the Location bar">
+<!ENTITY urlbar.accesskey             "L">
+<!ENTITY middleClick.label            "Middle-click, Ctrl+click or Ctrl+Enter on links in a Web page">
+<!ENTITY middleClick.accesskey        "M">
