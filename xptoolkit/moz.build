@@ -5,7 +5,11 @@
 
 DIRS += [
     'components',
-    'content',
     'modules',
     'searchplugins'
 ]
+
+if CONFIG['BINOC_BOREALIS']:
+    DIRS += [
+        'content',
+    ]

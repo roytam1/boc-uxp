@@ -6,11 +6,11 @@
 DIRS += [
     'eula',
     'downloads',
-    'preferences',
     'profile',
 ]
 
 if CONFIG['BINOC_BOREALIS']:
     DIRS += [
         'devtools',
+        'preferences',
     ]
