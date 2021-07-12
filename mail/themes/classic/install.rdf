@@ -25,8 +25,8 @@
     </em:targetApplication>
 
     <!-- Front End MetaData -->
-    <em:name>Toolkit Style</em:name>
-    <em:description>Minimal native styling</em:description>
+    <em:name>Default Theme</em:name>
+    <em:description>The default theme.</em:description>
 
     <!-- EXTENSION AUTHORS!
          DO NOT COPY THIS PROPERTY INTO YOUR INSTALL RDF FILES
