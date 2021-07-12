@@ -17,6 +17,10 @@
 #navigation-toolbox {
   border-top-width: 0;
 }
+
+@media (-moz-os-version: windows-win10) and (-moz-windows-theme: aero) {
+  #navigation-toolbox { border: none; };
+}
 %endif
 
 #tabs-toolbar {
@@ -29,7 +33,7 @@
 }
 
 %ifdef XP_WIN
-@media (-moz-os-version: windows-win8), (-moz-os-version: windows-win10) {
+@media (-moz-os-version: windows-win8) {
   #tabs-toolbar { border-top: 1px solid ThreeDShadow !important; }
 }
 
@@ -44,6 +48,7 @@
 
 #tabs-toolbar[collapsed=true] {
   visibility: inherit;
+  display: none;
   max-height: 1px;
   min-height: 1px;
 }

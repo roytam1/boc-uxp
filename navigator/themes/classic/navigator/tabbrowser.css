@@ -13,7 +13,7 @@ tabpanels {
   border-bottom: none;
 }
 
-@media (-moz-os-version: windows-win8), (-moz-os-version: windows-win10) {
+@media (-moz-os-version: windows-win8) {
   .tabbrowser-strip { border-top: 1px solid ThreeDShadow !important; }
 }
 
