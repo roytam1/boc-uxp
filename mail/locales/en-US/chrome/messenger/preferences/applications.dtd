@@ -36,3 +36,20 @@
 
 <!ENTITY enableCloudFileAccountOffer.label "Offer to share for files larger than">
 <!ENTITY enableCloudFileAccountOffer.mb "MB">
+
+<!ENTITY downloadBehavior.label         "When saving a file">
+<!ENTITY doNothing.label                "Don't open anything">
+<!ENTITY doNothing.accesskey            "D">
+<!ENTITY openProgressDialog.label       "Open a progress dialog">
+<!ENTITY openProgressDialog.accesskey   "O">
+<!ENTITY openDM.label                   "Open the saved files window">
+<!ENTITY openDM.accesskey               "m">
+<!ENTITY flashWhenOpen.label            "Just flash the saved files window if it is already open">
+<!ENTITY flashWhenOpen.accesskey        "f">
+
+<!ENTITY downloadHistory.label          "Saved file history">
+<!ENTITY removeEntries.label            "Remove saved file entries">
+<!ENTITY removeEntries.accesskey        "R">
+<!ENTITY whenCompleted.label            "When they have completed">
+<!ENTITY whenQuittingApp.label          "When quitting &brandShortName;">
+<!ENTITY neverRemove.label              "Never">

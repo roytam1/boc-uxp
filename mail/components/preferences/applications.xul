@@ -27,6 +27,18 @@
     ]]>
     </script>
 
+    <preferences id="commDownloadPreferences">
+      <preference id="browser.download.manager.behavior"
+                  name="browser.download.manager.behavior"
+                  type="int"/>
+      <preference id="browser.download.manager.focusWhenStarting"
+                  name="browser.download.manager.focusWhenStarting"
+                  type="bool"/>
+      <preference id="browser.download.manager.retention"
+                  name="browser.download.manager.retention"
+                  type="int"/>
+    </preferences>
+
     <preferences id="applicationsPreferences">
       <preference id="mail.preferences.applications.selectedTabIndex"
                   name="mail.preferences.applications.selectedTabIndex" type="int"/>
@@ -131,7 +143,28 @@
 
           <script type="application/javascript"
                   src="chrome://messenger/content/preferences/downloads.js"/>
-
+          <vbox>
+            <hbox align="center">
+              <label value="&downloadBehavior.label;"
+                     control="downloadBehavior"/>
+              <menulist id="downloadBehavior"
+                        preference="browser.download.manager.behavior">
+                <menupopup>
+                  <menuitem value="0" label="&openDM.label;"/>
+                  <menuitem value="1" label="&openProgressDialog.label;"/>
+                  <menuitem value="2" label="&doNothing.label;"/>
+                </menupopup>
+              </menulist>
+            </hbox>
+            <hbox>
+              <checkbox id="focusWhenStarting"
+                        class="indent"
+                        preference="browser.download.manager.focusWhenStarting"
+                        label="&flashWhenOpen.label;"
+                        accesskey="&flashWhenOpen.accesskey;"/>
+            </hbox>
+          </vbox>
+          <separator class="thin"/>
           <vbox align="start">
             <radiogroup id="saveWhere" flex="1"
                         preference="browser.download.useDownloadDir"
@@ -167,6 +200,22 @@
             </hbox>
             </radiogroup>
           </vbox>
+          <separator class="thin"/>
+          <vbox>
+            <hbox align="center">
+              <label value="&removeEntries.label;"
+                     accesskey="&removeEntries.accesskey;"
+                     control="downloadHistory"/>
+              <menulist id="downloadHistory"
+                        preference="browser.download.manager.retention">
+                <menupopup>
+                  <menuitem value="0" label="&whenCompleted.label;"/>
+                  <menuitem value="1" label="&whenQuittingApp.label;"/>
+                  <menuitem value="2" label="&neverRemove.label;"/>
+                </menupopup>
+              </menulist>
+            </hbox>
+        </vbox>
         </tabpanel>
 
         <tabpanel orient="vertical">
