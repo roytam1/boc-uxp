@@ -3,16 +3,16 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-MOZ_APP_BASENAME=Borealis
-MOZ_APP_VENDOR=BinOC
-MOZ_APP_NAME=borealis
-MOZ_APP_DISPLAYNAME=Borealis
+MOZ_APP_BASENAME=BNavigator
+MOZ_APP_VENDOR=OpenSource
+MOZ_APP_NAME=bnavigator
+MOZ_APP_DISPLAYNAME=BNavigator
 MOZ_SUITE=1
 BINOC_BOREALIS=1
 MOZ_BRANDING_DIRECTORY=navigator/branding/unofficial
 MOZ_OFFICIAL_BRANDING_DIRECTORY=navigator/branding/official
 MOZ_EXTENSIONS_DEFAULT=" gio"
-MOZ_UPDATER=1
+MOZ_UPDATER=0
 # This should usually be the same as the value MAR_CHANNEL_ID.
 # If more than one ID is needed, then you should use a comma separated list
 # of values.
@@ -39,8 +39,6 @@ MOZ_DEVTOOLS=
 MOZ_GAMEPAD=
 MOZ_NECKO_WIFI=
 MOZ_WEBRTC=
-MOZ_SECURITY_SQLSTORE=1
-NSS_DISABLE_DBM=1
 
 if test "$OS_ARCH" = "WINNT" -o \
         "$OS_ARCH" = "Linux"; then
