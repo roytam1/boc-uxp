@@ -73,6 +73,20 @@ function AdjustMinZoom()
 }
 
 /**
+* Expire all Favicons
+*/
+function expireAllFavicons()
+{
+  let faviconService = Components.classes["@mozilla.org/browser/favicon-service;1"]
+                                 .getService(Components.interfaces.nsIFaviconService);
+
+  faviconService.expireAllFavicons();
+
+  document.getElementById("expireAllFavicons")
+          .setAttribute("disabled", "true");
+}
+
+/**
  * When the user toggles the layers.acceleration.disabled pref,
  * sync its new value to the gfx.direct2d.disabled pref too.
  */

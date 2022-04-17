@@ -56,7 +56,7 @@
 
     <description>&pref.content.description;</description>
 
-    <groupbox id="siteIconPreferences" align="start">
+    <groupbox id="siteIconPreferences">
       <caption label="&siteIcons.label;"/>
 
       <checkbox id="useSiteIcons"
@@ -67,6 +67,14 @@
                 label="&useFavIcons2.label;"
                 accesskey="&useFavIcons2.accesskey;"
                 preference="browser.chrome.favicons"/>
+      <separator class="thin"/>
+      <hbox pack="end">
+        <button id="expireAllFavicons"
+                label="&expireAllFavicons.label;"
+                oncommand="expireAllFavicons();"/>
+      </hbox>
+      <separator class="thin"/>
+      <description>&expireAllFaviconsNote;</description>
     </groupbox>
 
     <groupbox id="scrollingGroup" align="start">
