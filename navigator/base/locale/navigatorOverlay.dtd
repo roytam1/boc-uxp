@@ -22,6 +22,8 @@
 <!ENTITY printSetupCmd.label "Page Setup…">
 <!ENTITY printSetupCmd.accesskey "u">
 
+<!ENTITY restart.label "Restart…">
+
 <!-- Edit Menu -->
 <!ENTITY findOnCmd.label "Find in This Page…">
 
