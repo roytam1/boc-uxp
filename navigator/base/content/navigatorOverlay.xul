@@ -130,6 +130,7 @@
     <command id="cmd_close" oncommand="BrowserCloseTabOrWindow()"/>
     <command id="cmd_closeOtherTabs" oncommand="BrowserCloseOtherTabs()"/>
     <command id="cmd_closeWindow" oncommand="BrowserTryToCloseWindow()"/>
+    <command id="cmd_restart" oncommand="Services.startup.quit(Services.startup.eAttemptQuit | Services.startup.eRestart);"/>
 
     <!-- Edit Menu -->
     <command id="cmd_undo"/>
@@ -258,6 +259,8 @@
         <menuitem id="menu_close"/>
         <menuitem id="menu_closeOtherTabs" hidden="true" command="cmd_closeOtherTabs" label="&closeOtherTabs.label;" accesskey="&closeOtherTabs.accesskey;"/>
         <menuitem id="menu_closeWindow" hidden="true" command="cmd_closeWindow" key="key_closeWindow" label="&closeWindow.label;" accesskey="&closeWindow.accesskey;"/>
+        <menuseparator id="menu_FileQuitSeparator"/>
+        <menuitem id="menu_restart" command="cmd_restart" label="&restart.label;"/>
       </menupopup>
     </menu>
 

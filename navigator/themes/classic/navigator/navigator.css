@@ -525,7 +525,7 @@ toolbar[mode="icons"] #search-button > .button-box > .button-text {
 
 #sidebar-splitter {
   border-left: none;
-  border-right: none;
+  border-right: 1px solid threedshadow;
   min-width: 5px;
 }
 

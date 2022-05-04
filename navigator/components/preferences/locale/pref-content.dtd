@@ -10,8 +10,10 @@
 <!ENTITY siteIcons.label                        "Website icons">
 <!ENTITY useSiteIcons.label                     "Show website icons">
 <!ENTITY useSiteIcons.accesskey                 "S">
-<!ENTITY useFavIcons2.label                     "Try to use the servers favicon when the page doesn&apos;t define an icon">
+<!ENTITY useFavIcons2.label                     "Try to use the default server favicon when the page doesn&apos;t define one">
 <!ENTITY useFavIcons2.accesskey                 "i">
+<!ENTITY expireAllFavicons.label                "Clear all website icons">
+<!ENTITY expireAllFaviconsNote                  "NOTE: Restart &brandShortName; after clearing the website icons to see the changes in bookmarks and history. Depending on the above preferences, they will repopulate as they are visited.">
 
 <!ENTITY scrolling.label                        "Scrolling">
 <!ENTITY useAutoScroll.label                    "Use autoscrolling">
@@ -41,4 +43,3 @@
 <!ENTITY allowHWAccel.accesskey                 "e">
 <!ENTITY blockAutoRefresh.label                 "Warn me when websites try to redirect or reload the page">
 <!ENTITY blockAutoRefresh.accesskey             "W">
-
