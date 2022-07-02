@@ -2650,12 +2650,6 @@ function ComposeStartup(aParams)
       }
       params.identity = identity;
     }
-
-    // Warn if no or more than one match was found.
-    // But don't warn for +suffix additions (a+b@c.com).
-    if (from && (suitableCount > 1 ||
-        (suitableCount == 0 && !emailSimilar(from, params.identity.email))))
-      gComposeNotificationBar.setIdentityWarning(params.identity.identityName);
   }
 
   identityList.selectedItem =
