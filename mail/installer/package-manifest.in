@@ -76,6 +76,8 @@
 #ifdef MOZ_DMD
 @BINPATH@/@DLL_PREFIX@dmd@DLL_SUFFIX@
 #endif
+; Hunspell
+@BINPATH@/@DLL_PREFIX@hunspell@DLL_SUFFIX@
 #ifndef MOZ_SYSTEM_NSPR
 #ifndef MOZ_FOLD_LIBS
 @BINPATH@/@DLL_PREFIX@nspr4@DLL_SUFFIX@
