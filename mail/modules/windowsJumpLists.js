@@ -175,7 +175,7 @@ var WinTaskbarJumpList = {
     let file = Services.dirsvc.get("XCurProcD", Ci.nsILocalFile);
 
     // XXXTobin: Use a preprocessed var for fuck sakes
-    file.append("interlink.exe");
+    file.append("mailnews.exe");
 
     let handlerApp = Cc["@mozilla.org/uriloader/local-handler-app;1"]
                        .createInstance(Ci.nsILocalHandlerApp);
