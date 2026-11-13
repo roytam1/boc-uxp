@@ -4,6 +4,8 @@
 
 const XULNS = "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
 
+const PREF_INTERNAL_USERSCRIPTS_ENABLED = "browser.internal-userscripts.enabled";
+
 Components.utils.import("resource://gre/modules/Communicator.jsm");
 Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
 Components.utils.import("resource://gre/modules/Services.jsm");
@@ -156,6 +158,7 @@ NavigatorGlue.prototype = {
                   .getService(Components.interfaces.nsIMessageListenerManager)
                   .loadFrameScript("chrome://navigator/content/content.js", true);
         Components.utils.import("resource://gre/modules/NotificationDB.jsm");
+        this._syncInternalUserScripts();
         break;
       case "sessionstore-windows-restored":
         this._onBrowserStartup(subject);
@@ -261,6 +264,11 @@ NavigatorGlue.prototype = {
           }
         }
         break;
+      case "nsPref:changed":
+        if (data == PREF_INTERNAL_USERSCRIPTS_ENABLED) {
+          this._syncInternalUserScripts();
+        }
+        break;
     }
   },
 
@@ -324,6 +332,7 @@ NavigatorGlue.prototype = {
     Components.classes['@mozilla.org/docloaderservice;1']
               .getService(Components.interfaces.nsIWebProgress)
               .addProgressListener(this, Components.interfaces.nsIWebProgress.NOTIFY_LOCATION);
+    Services.prefs.addObserver(PREF_INTERNAL_USERSCRIPTS_ENABLED, this, false);
   },
 
   // profile is available
@@ -462,6 +471,16 @@ NavigatorGlue.prototype = {
 
     if (Services.prefs.getBoolPref("general.useragent.complexOverride.moodle"))
       UserAgentOverrides.addComplexOverride(addMoodleOverride);
+  },
+
+  _syncInternalUserScripts: function () {
+    let enabled = true;
+    try {
+      enabled = Services.prefs.getBoolPref(PREF_INTERNAL_USERSCRIPTS_ENABLED);
+    } catch (ex) {}
+    // Internal userscripts service checks this pref on startup.
+    // Ensure it is always present.
+    Services.prefs.setBoolPref(PREF_INTERNAL_USERSCRIPTS_ENABLED, enabled);
   },
 
   // Browser startup complete. All initial windows have opened.

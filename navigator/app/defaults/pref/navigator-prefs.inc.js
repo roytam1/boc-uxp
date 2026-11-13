@@ -22,6 +22,9 @@ pref("browser.hiddenWindowChromeURL", "chrome://navigator/content/hiddenWindow.x
 
 pref("browser.urlbar.historyEnabled",       true);
 
+// Enable polyfill shimming by default.
+pref("browser.internal-userscripts.enabled", true);
+
 // 0 = blank, 1 = home (browser.startup.homepage), 2 = last visited page, 3 = resume previous browser session
 pref("browser.startup.page",                1);
 pref("browser.startup.homepage",	   "chrome://branding/locale/brand.properties");
